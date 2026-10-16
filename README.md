@@ -22,7 +22,7 @@ before submitting. It uses the flowchart editor of
 | 💾 **Autosave** | The answer is saved with the normal quiz autosave |
 | ✅ **Completeness Check** | An empty diagram counts as no answer |
 | 🖼️ **Diagrams in the Question Text** | Give students an algorithm to analyse (needs [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)) |
-| 🌐 **Languages** | English and Serbian (Latin) |
+| 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic |
 | 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine) |
 
 ## 📋 Requirements
@@ -78,7 +78,7 @@ question/type/algorithm/
 │   ├── src/          # attempt.js
 │   └── build/        # Compiled module
 ├── classes/          # privacy provider
-├── lang/             # en, sr_lt
+├── lang/             # en, sr_lt, sr_cr
 ├── edit_algorithm_form.php
 ├── question.php
 ├── questiontype.php
@@ -95,7 +95,8 @@ question/type/algorithm/
 ## 🌍 Languages
 
 - 🇬🇧 English
-- 🇷🇸 Srpski (Serbian, Latin)
+- 🇷🇸 Srpski (Serbian, Latin: sr_lt)
+- 🇷🇸 Српски (Serbian, Cyrillic: sr_cr)
 
 ## 📝 Changelog
 
