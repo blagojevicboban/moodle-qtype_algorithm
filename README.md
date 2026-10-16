@@ -1,84 +1,120 @@
-# Algorithm Question Type (Moodle Quiz)
+# Algorithm Question Type for Moodle Quizzes
+
+[![Moodle Plugin CI](https://github.com/blagojevicboban/moodle-qtype_algorithm/actions/workflows/ci.yml/badge.svg)](https://github.com/blagojevicboban/moodle-qtype_algorithm/actions/workflows/ci.yml)
+[![Moodle](https://img.shields.io/badge/Moodle-4.5%20to%205.3-orange.svg)](https://moodle.org)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-purple.svg)](https://php.net)
+[![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 
 **Algorithm** is a Moodle question type for quizzes in which the **student draws an algorithm as a flowchart** and can run it
 before submitting. It uses the flowchart editor of
 [tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm). The answer is graded manually.
 
-> Status: **alpha**. Tested on Moodle 5.3 (one attempt with the admin user, immediate feedback behaviour).
+> Status: **alpha**.
 
-## Features
+## ✨ Features
 
-- **Student draws the algorithm** with the same editor as in TinyMCE: blocks for declare, assign, input, output, if, for, while,
-  do…while, call, return and comment, several functions, undo / redo, **Run / Step** with a console, variable watch and
-  generated code (Python, C, Java, C#).
-- **Manual grading**: the question uses Moodle's manual grading behaviour. In the review and in the grading page the teacher sees
-  the submitted diagram and can **run it, step through it** and look at the generated code.
-- **Autosave**: the answer is kept in a hidden field and saved with the normal quiz autosave.
-- **Completeness check**: an empty diagram counts as no answer.
-- **Interactive diagrams in the question text**: put a diagram (inserted with the **Interactive** option) in the question text
-  to give students an algorithm to analyse. This needs the filter
-  [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm).
-- **Languages**: English and Serbian (Latin).
-- **Privacy Compliant**: Implements the Moodle Privacy API (null provider – answers are stored by the question engine).
+| Feature | Description |
+|---------|-------------|
+| ✏️ **Draw the Algorithm** | The same editor as in TinyMCE: all block types, several functions, undo / redo |
+| ▶️ **Run Before Submitting** | Run / Step with a console, variable watch and generated code (Python, C, Java, C#) |
+| 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
+| 📝 **Manual Grading** | Uses Moodle's manual grading behaviour |
+| 💾 **Autosave** | The answer is saved with the normal quiz autosave |
+| ✅ **Completeness Check** | An empty diagram counts as no answer |
+| 🖼️ **Diagrams in the Question Text** | Give students an algorithm to analyse (needs [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)) |
+| 🌐 **Languages** | English and Serbian (Latin) |
+| 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine) |
 
-## Related Plugins
+## 📋 Requirements
 
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm)** – the flowchart editor. **Required**: this
-  question type imports its `editor`, `runner` and `model` modules.
-- **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)** – Run / Step for diagrams in text (optional).
+- **Moodle**: 4.5 LTS or newer (4.5 and 5.3 tested; 5.0 – 5.2 declared compatible)
+- **PHP**: 8.2+
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm)**: must be installed first (its `editor`, `runner`
+  and `model` modules are used)
+- **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
-## Compatibility
+## 🚀 Installation
 
-| Moodle Version   | Status                                  |
-|------------------|-----------------------------------------|
-| Moodle 5.3       | ✅ Tested                               |
-| Moodle 5.0 – 5.2 | ⚠️ Not tested (declared compatible)    |
-| Moodle 4.5 LTS   | ✅ Tested                               |
-| Moodle < 4.5     | ❌ Not supported (requires Moodle 4.5+) |
+### Via Git
+```bash
+cd /path/to/moodle/public/question/type          # Moodle 5.1+; use question/type in the Moodle root before 5.1
+git clone https://github.com/blagojevicboban/moodle-qtype_algorithm.git algorithm
+php admin/cli/upgrade.php
+```
 
-## Installation
+### Via Download
+1. Install **tiny_algorithm** first
+2. Download the [latest release](https://github.com/blagojevicboban/moodle-qtype_algorithm/releases)
+3. Extract to `question/type/algorithm` (`public/question/type/algorithm` in Moodle 5.1+)
+4. Visit Site Administration → Notifications
 
-1. Install **tiny_algorithm** first.
-2. Place this plugin folder in `question/type/algorithm` (Moodle 4.5 and 5.0) or `public/question/type/algorithm` (Moodle 5.1 and later).
-3. Log in as an administrator and go to **Site administration → Notifications** to complete the installation.
+## 📖 Usage
 
-## Usage
+### For Teachers
 
-1. In a quiz or question bank choose **Add a question → Algorithm**.
-2. Write the task in the question text and save.
-3. Students draw and test their algorithm in the question. After the attempt is finished, grade it under **Results → Manual
-   grading** (or the quiz review).
+1.  **Create the question**: in a quiz or question bank choose **Add a question → Algorithm**.
+2.  **Write the task** in the question text and save. A diagram inserted with **Interactive** in the text lets students analyse a
+    given algorithm.
+3.  **Grade**: after the attempt, open **Results → Manual grading** (or the quiz review). The submitted diagram can be run, stepped
+    through and shown as generated code.
 
-## Known Limitations
+### For Students
 
-- Grading is manual. Automatic grading by test inputs is not implemented.
-- The question type has no options of its own (for example a starter diagram), and no backup / restore or import / export
-  support for options (there are none to save).
-- The editor inside the quiz also offers the generated code and Import / Export of `.fprg` files.
+1.  Draw the algorithm in the editor inside the question: click a **+** to add blocks, click a block to edit it.
+2.  Test it with **Run** or **Step**, then submit the quiz as usual.
 
-## Technical Requirements
-
-- Moodle 4.5 or higher (4.5 and 5.3 tested)
-- [tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) installed
-- Node.js 20+ (only for building AMD modules if you modify the source)
-
-## Building from Source
+## 🛠️ Development
 
 ```bash
+# Rebuild the AMD module after changing amd/src (from the Moodle root)
 npx grunt amd --root=public/question/type/algorithm
 ```
 
-## Changelog
+## 📁 Structure
 
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+```
+question/type/algorithm/
+├── amd/
+│   ├── src/          # attempt.js
+│   └── build/        # Compiled module
+├── classes/          # privacy provider
+├── lang/             # en, sr_lt
+├── edit_algorithm_form.php
+├── question.php
+├── questiontype.php
+├── renderer.php
+└── version.php       # Plugin metadata
+```
 
-## License
+## ⚠️ Known Limitations
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as
-published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+- Grading is manual; automatic grading by test inputs is not implemented.
+- The question type has no options of its own (for example a starter diagram), so there is nothing to back up or import / export.
+- The editor inside the quiz also offers generated code and Import / Export of `.fprg` files.
 
-See [LICENSE](LICENSE) for details.
+## 🌍 Languages
+
+- 🇬🇧 English
+- 🇷🇸 Srpski (Serbian, Latin)
+
+## 📝 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
+## 📄 License
+
+GNU GPL v3 or later - see [LICENSE](LICENSE).
+
+## 👤 Author
+
+**Boban Blagojević**  
+[GitHub](https://github.com/blagojevicboban)
+
+## 🙏 Credits
+
+- [tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) - the flowchart editor this question type builds on
+- [Flowgorithm](https://www.flowgorithm.org/) - the flowchart style that inspired the project
 
 ---
 
-© 2026 [Boban Blagojević](https://github.com/blagojevicboban)
+Made with ❤️ for teaching programming
