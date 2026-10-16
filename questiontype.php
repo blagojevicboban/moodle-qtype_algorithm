@@ -1,0 +1,82 @@
+<?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Question type class for the Algorithm question type.
+ *
+ * @package    qtype_algorithm
+ * @copyright  2026 Boban Blagojević
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->libdir . '/questionlib.php');
+
+/**
+ * The Algorithm question type: the student draws an algorithm as a flowchart, graded manually.
+ *
+ * @package    qtype_algorithm
+ * @copyright  2026 Boban Blagojević
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class qtype_algorithm extends question_type {
+    /**
+     * Answers need a teacher's grade.
+     *
+     * @return bool
+     */
+    public function is_manual_graded() {
+        return true;
+    }
+
+    /**
+     * This type stores no files with the response.
+     *
+     * @return array
+     */
+    public function response_file_areas() {
+        return [];
+    }
+
+    /**
+     * Manually graded questions cannot be picked by random questions.
+     *
+     * @return bool
+     */
+    public function is_usable_by_random() {
+        return false;
+    }
+
+    /**
+     * Response analysis is not available.
+     *
+     * @return bool
+     */
+    public function can_analyse_responses() {
+        return false;
+    }
+
+    /**
+     * A random guess has no score.
+     *
+     * @param stdClass $questiondata the question data
+     * @return null
+     */
+    public function get_random_guess_score($questiondata) {
+        return null;
+    }
+}
