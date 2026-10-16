@@ -25,9 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qtype_algorithm';
-$plugin->version = 2026101800;
+$plugin->version = 2026101900;
 $plugin->requires = 2024100700; // Moodle 4.5.
 $plugin->supported = [405, 503];
 $plugin->maturity = MATURITY_ALPHA;
-$plugin->release = '0.1.0';
+$plugin->release = '0.2.0';
 $plugin->dependencies = ['tiny_algorithm' => ANY_VERSION];
