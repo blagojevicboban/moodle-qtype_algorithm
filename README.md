@@ -32,13 +32,14 @@ before submitting. It uses the flowchart editor of
 | Moodle Version   | Status                                  |
 |------------------|-----------------------------------------|
 | Moodle 5.3       | ✅ Tested                               |
-| Moodle 5.0 – 5.2 | ⚠️ Declared minimum is 5.0, not tested |
-| Moodle 4.x       | ❌ Not supported (requires Moodle 5.0+) |
+| Moodle 5.0 – 5.2 | ⚠️ Not tested (declared compatible)    |
+| Moodle 4.5 LTS   | ✅ Tested                               |
+| Moodle < 4.5     | ❌ Not supported (requires Moodle 4.5+) |
 
 ## Installation
 
 1. Install **tiny_algorithm** first.
-2. Place this plugin folder in `question/type/algorithm` (Moodle 5.0) or `public/question/type/algorithm` (Moodle 5.1 and later).
+2. Place this plugin folder in `question/type/algorithm` (Moodle 4.5 and 5.0) or `public/question/type/algorithm` (Moodle 5.1 and later).
 3. Log in as an administrator and go to **Site administration → Notifications** to complete the installation.
 
 ## Usage
@@ -57,7 +58,7 @@ before submitting. It uses the flowchart editor of
 
 ## Technical Requirements
 
-- Moodle 5.0 or higher (5.3 tested)
+- Moodle 4.5 or higher (4.5 and 5.3 tested)
 - [tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) installed
 - Node.js 20+ (only for building AMD modules if you modify the source)
 
