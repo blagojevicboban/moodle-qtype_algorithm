@@ -22,8 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Renders the question text and the flowchart editor (or, when review is read-only, the runnable diagram).
  *
@@ -40,8 +38,6 @@ class qtype_algorithm_renderer extends qtype_renderer {
      * @return string HTML
      */
     public function formulation_and_controls(question_attempt $qa, question_display_options $options) {
-        global $PAGE;
-
         $question = $qa->get_question();
         $inputname = $qa->get_qt_field_name('answer');
         $answer = (string) $qa->get_last_qt_var('answer', '');
@@ -54,11 +50,14 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $result .= html_writer::tag('div', '', ['id' => $containerid, 'class' => 'qtype_algorithm_container']);
 
         if ($qa->get_state() == question_state::$invalid) {
-            $result .= html_writer::nonempty_tag('div', $question->get_validation_error(['answer' => $answer]),
-                ['class' => 'validationerror']);
+            $result .= html_writer::nonempty_tag(
+                'div',
+                $question->get_validation_error(['answer' => $answer]),
+                ['class' => 'validationerror']
+            );
         }
 
-        $PAGE->requires->js_call_amd('qtype_algorithm/attempt', 'init', [
+        $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'init', [
             $containerid, $inputname, (bool) $options->readonly, current_language(),
             get_string('noalgorithm', 'qtype_algorithm'),
         ]);
