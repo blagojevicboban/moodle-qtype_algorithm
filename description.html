@@ -1,14 +1,32 @@
-<div class="algorithm-description" style="line-height: 1.6; max-width: 800px;">
+<div class="algorithm-description">
   <h2>Algorithm Question Type</h2>
   <p><em>A quiz question in which the student draws an algorithm as a flowchart and can run it before submitting.</em></p>
+
+  <h3>Features</h3>
   <ul>
     <li><strong>Draw the algorithm</strong> with the same editor as in TinyMCE, with Run / Step, variable watch and generated code.</li>
     <li><strong>Runnable review:</strong> the teacher can run and step through the submitted diagram while grading.</li>
     <li><strong>Manual grading</strong> with autosave and an empty-answer check.</li>
     <li><strong>Analyse an algorithm:</strong> put an interactive diagram in the question text (needs filter_algorithm).</li>
   </ul>
-  <p>Requires tiny_algorithm.</p>
-  <p>Supports Moodle 4.5 LTS and 5.0 – 5.3. Languages: English and Serbian (Latin and Cyrillic). Source, documentation and issue tracker:
+
+  <h3>What's new in 0.2.0</h3>
+  <ul>
+    <li>Supports Moodle 4.5 LTS and 5.0 - 5.3 (tested on 4.5 and 5.3).</li>
+    <li>Serbian Cyrillic language files; the editor picks Latin or Cyrillic from the Moodle language.</li>
+    <li>Moodle coding standard (phpcs, ESLint, stylelint) and GitHub Actions with moodle-plugin-ci.</li>
+  </ul>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>Moodle 4.5 LTS to 5.3 (PHP as required by your Moodle version).</li>
+    <li>The tiny_algorithm plugin; filter_algorithm is optional (interactive diagrams in question text).</li>
+  </ul>
+
+  <h3>Privacy</h3>
+  <p>The student's answer is stored by the Moodle question engine like any other answer; the diagram runs in the browser and nothing is sent to external services. The plugin implements the Moodle Privacy API.</p>
+
+  <p>Languages: English and Serbian (Latin and Cyrillic). Source, documentation and issue tracker:
     <a href="https://github.com/blagojevicboban/moodle-qtype_algorithm" target="_blank" rel="noreferrer noopener">github.com/blagojevicboban/moodle-qtype_algorithm</a>.
     Licensed under the GNU GPL v3 or later.</p>
 </div>
