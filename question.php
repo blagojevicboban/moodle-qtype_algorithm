@@ -116,8 +116,12 @@ class qtype_algorithm_question extends question_graded_automatically {
         $answer = (string) ($response['answer'] ?? '');
         if (!array_key_exists($answer, $this->resultcache)) {
             $model = self::decode_answer($answer);
-            $this->resultcache[$answer] = $model ? tester::run_tests($model, $this->tests, $this->check_options(),
-                get_string('noinput', 'qtype_algorithm')) : [];
+            $this->resultcache[$answer] = $model ? tester::run_tests(
+                $model,
+                $this->tests,
+                $this->check_options(),
+                get_string('noinput', 'qtype_algorithm')
+            ) : [];
         }
         return $this->resultcache[$answer];
     }

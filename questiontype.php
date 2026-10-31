@@ -144,8 +144,10 @@ class qtype_algorithm extends question_type {
         if (is_array($question->structures ?? null)) {
             $question->structures = implode(',', array_keys(array_filter($question->structures)));
         }
-        $question->structures = implode(',', array_intersect(self::STRUCTURES,
-            explode(',', (string) ($question->structures ?? ''))));
+        $question->structures = implode(',', array_intersect(
+            self::STRUCTURES,
+            explode(',', (string) ($question->structures ?? ''))
+        ));
         foreach (['afterinput', 'numbers', 'grademethod'] as $field) {
             $question->$field = (int) !empty($question->$field);
         }

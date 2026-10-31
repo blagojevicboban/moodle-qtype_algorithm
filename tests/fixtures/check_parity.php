@@ -25,7 +25,7 @@
 
 // phpcs:disable moodle.Files.MoodleInternal.MoodleInternalGlobalState
 // phpcs:disable moodle.Files.RequireLogin.Missing
-spl_autoload_register(function($class) {
+spl_autoload_register(function ($class) {
     $prefix = 'qtype_algorithm\\local\\';
     if (strpos($class, $prefix) === 0) {
         require(__DIR__ . '/../../classes/local/' . substr($class, strlen($prefix)) . '.php');
@@ -38,12 +38,17 @@ $total = 0;
 foreach ($files as $file) {
     foreach (json_decode(file_get_contents($file), true) as $case) {
         $total++;
-        $r = \qtype_algorithm\local\tester::run_program($case['program'], $case['inputs'], 'The algorithm asks for more input than the test provides.');
+        $r = \qtype_algorithm\local\tester::run_program(
+            $case['program'],
+            $case['inputs'],
+            'The algorithm asks for more input than the test provides.'
+        );
         foreach (['output', 'after', 'error'] as $key) {
             if ($r[$key] !== $case[$key]) {
                 $bad++;
                 echo "{$case['name']} [" . str_replace("\n", ',', $case['inputs']) . "] {$key}\n  js:  " .
-                    json_encode($case[$key], JSON_UNESCAPED_UNICODE) . "\n  php: " . json_encode($r[$key], JSON_UNESCAPED_UNICODE) . "\n";
+                    json_encode($case[$key], JSON_UNESCAPED_UNICODE) . "\n  php: " .
+                    json_encode($r[$key], JSON_UNESCAPED_UNICODE) . "\n";
                 break;
             }
         }

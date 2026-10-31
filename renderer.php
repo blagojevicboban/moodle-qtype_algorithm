@@ -114,8 +114,10 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $missing = $question->missing_structures($response);
         if ($missing) {
             $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $missing);
-            $out .= html_writer::div(get_string('missingstructures', 'qtype_algorithm', implode(', ', $names)),
-                'alert alert-warning');
+            $out .= html_writer::div(
+                get_string('missingstructures', 'qtype_algorithm', implode(', ', $names)),
+                'alert alert-warning'
+            );
         }
         $results = $question->test_results($response);
         $table = new html_table();
@@ -142,8 +144,11 @@ class qtype_algorithm_renderer extends qtype_renderer {
             $table->data[] = $row;
         }
         $passed = count(array_filter($results, fn($r) => $r['pass']));
-        $out .= html_writer::div(get_string('testssummary', 'qtype_algorithm',
-            (object) ['passed' => $passed, 'total' => count($question->tests)]), 'mb-2');
+        $out .= html_writer::div(get_string(
+            'testssummary',
+            'qtype_algorithm',
+            (object) ['passed' => $passed, 'total' => count($question->tests)]
+        ), 'mb-2');
         return $out . html_writer::table($table);
     }
 

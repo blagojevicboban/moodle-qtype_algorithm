@@ -40,26 +40,45 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $mform->setExpanded('algorithmheader');
         $mform->addElement('static', 'gradingnote', '', get_string('gradingnote', 'qtype_algorithm'));
 
-        $mform->addElement('static', 'solutionarea', get_string('solution', 'qtype_algorithm'),
-            html_writer::div('', 'qtype_algorithm_editor', ['id' => 'qtype_algorithm_solution']));
+        $mform->addElement(
+            'static',
+            'solutionarea',
+            get_string('solution', 'qtype_algorithm'),
+            html_writer::div('', 'qtype_algorithm_editor', ['id' => 'qtype_algorithm_solution'])
+        );
         $mform->addElement('hidden', 'solution', '');
         $mform->setType('solution', PARAM_RAW);
 
-        $mform->addElement('advcheckbox', 'usetemplate', get_string('template', 'qtype_algorithm'),
-            get_string('usetemplate', 'qtype_algorithm'));
-        $mform->addElement('static', 'templatearea', '', html_writer::div('', 'qtype_algorithm_template',
-            ['id' => 'qtype_algorithm_template']));
+        $mform->addElement(
+            'advcheckbox',
+            'usetemplate',
+            get_string('template', 'qtype_algorithm'),
+            get_string('usetemplate', 'qtype_algorithm')
+        );
+        $mform->addElement('static', 'templatearea', '', html_writer::div(
+            '',
+            'qtype_algorithm_template',
+            ['id' => 'qtype_algorithm_template']
+        ));
         $mform->addElement('hidden', 'template', '');
         $mform->setType('template', PARAM_RAW);
 
-        $mform->addElement('static', 'testsarea', get_string('tests', 'qtype_algorithm'),
-            html_writer::div('', '', ['id' => 'qtype_algorithm_tests']));
+        $mform->addElement(
+            'static',
+            'testsarea',
+            get_string('tests', 'qtype_algorithm'),
+            html_writer::div('', '', ['id' => 'qtype_algorithm_tests'])
+        );
         $mform->addHelpButton('testsarea', 'tests', 'qtype_algorithm');
         $mform->addElement('hidden', 'tests', '');
         $mform->setType('tests', PARAM_RAW);
 
-        $mform->addElement('advcheckbox', 'afterinput', get_string('compare', 'qtype_algorithm'),
-            get_string('afterinput', 'qtype_algorithm'));
+        $mform->addElement(
+            'advcheckbox',
+            'afterinput',
+            get_string('compare', 'qtype_algorithm'),
+            get_string('afterinput', 'qtype_algorithm')
+        );
         $mform->addElement('advcheckbox', 'numbers', '', get_string('numbers', 'qtype_algorithm'));
         $mform->addHelpButton('numbers', 'numbers', 'qtype_algorithm');
 
@@ -74,8 +93,12 @@ class qtype_algorithm_edit_form extends question_edit_form {
             0 => get_string('grademethod_proportional', 'qtype_algorithm'),
             1 => get_string('grademethod_all', 'qtype_algorithm'),
         ]);
-        $mform->addElement('advcheckbox', 'showtests', get_string('showtests', 'qtype_algorithm'),
-            get_string('showtests_desc', 'qtype_algorithm'));
+        $mform->addElement(
+            'advcheckbox',
+            'showtests',
+            get_string('showtests', 'qtype_algorithm'),
+            get_string('showtests_desc', 'qtype_algorithm')
+        );
         $mform->setDefault('showtests', 1);
 
         global $PAGE;

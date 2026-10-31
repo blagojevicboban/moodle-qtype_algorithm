@@ -69,13 +69,16 @@ class tester {
      * @param string $noinput message when the algorithm asks for more input than the test has
      * @return array ['output' => all output, 'after' => output after the last input, 'error' => message or null]
      */
-    public static function run_program(array $program, ?string $inputs,
-            string $noinput = 'The algorithm asks for more input than the test provides.'): array {
+    public static function run_program(
+        array $program,
+        ?string $inputs,
+        string $noinput = 'The algorithm asks for more input than the test provides.'
+    ): array {
         $queue = self::parse_inputs($inputs);
         $run = new interpreter($program, self::MAX_STEPS);
         $error = null;
         try {
-            $run->run(function() use (&$queue, $noinput) {
+            $run->run(function () use (&$queue, $noinput) {
                 if (!$queue) {
                     throw new algorithm_error($noinput);
                 }
@@ -181,7 +184,7 @@ class tester {
      */
     public static function structures(array $program): array {
         $found = [];
-        $walk = function($list) use (&$walk, &$found) {
+        $walk = function ($list) use (&$walk, &$found) {
             foreach (is_array($list) ? $list : [] as $b) {
                 $type = $b['type'] ?? '';
                 if (in_array($type, ['if', 'for', 'while', 'dowhile'], true)) {
