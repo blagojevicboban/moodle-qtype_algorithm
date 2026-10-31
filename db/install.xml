@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="question/type/algorithm/db" VERSION="20261028" COMMENT="XMLDB file for Moodle question/type/algorithm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="qtype_algorithm_options" COMMENT="Solution, starting template and tests of algorithm questions.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the question table."/>
+        <FIELD NAME="solution" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The teacher's algorithm (base64 encoded JSON); the expected outputs come from it."/>
+        <FIELD NAME="template" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Algorithm students start from (base64 encoded JSON), empty for an empty diagram."/>
+        <FIELD NAME="tests" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON list of tests: inputs, hidden, expected (computed from the solution). No tests: graded manually."/>
+        <FIELD NAME="afterinput" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 to compare only the output written after the last input."/>
+        <FIELD NAME="numbers" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 to compare only the numbers in the output."/>
+        <FIELD NAME="structures" TYPE="char" LENGTH="100" NOTNULL="true" DEFAULT="" SEQUENCE="false" COMMENT="Comma separated structures the algorithm must use: if, for, while, dowhile, array."/>
+        <FIELD NAME="showtests" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="1 to let students run the tests that are not hidden during the attempt."/>
+        <FIELD NAME="grademethod" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="0: share of passed tests, 1: all tests must pass."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="questionid" TYPE="foreign-unique" FIELDS="questionid" REFTABLE="question" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

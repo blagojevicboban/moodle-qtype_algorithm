@@ -1,0 +1,2324 @@
+[
+ {
+  "name": "numbers",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p0",
+       "type": "output",
+       "expr": "7 / 2",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1",
+       "type": "output",
+       "expr": "1 / 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p2",
+       "type": "output",
+       "expr": "2 / 3 * 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3",
+       "type": "output",
+       "expr": "0.1 + 0.2",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p4",
+       "type": "output",
+       "expr": "10 ^ 21",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p5",
+       "type": "output",
+       "expr": "10 ^ 20",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p6",
+       "type": "output",
+       "expr": "0.000001",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p7",
+       "type": "output",
+       "expr": "0.0000001",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p8",
+       "type": "output",
+       "expr": "-0.5",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p9",
+       "type": "output",
+       "expr": "2 ^ 0.5",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pa",
+       "type": "output",
+       "expr": "-7 / 2",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pb",
+       "type": "output",
+       "expr": "7 mod 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pc",
+       "type": "output",
+       "expr": "-7 mod 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pd",
+       "type": "output",
+       "expr": "7.5 mod 2",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pe",
+       "type": "output",
+       "expr": "2 ^ 60",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pf",
+       "type": "output",
+       "expr": "1 / 0.0001",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pg",
+       "type": "output",
+       "expr": "123456789 * 1000000",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9ph",
+       "type": "output",
+       "expr": "0.1 * 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pi",
+       "type": "output",
+       "expr": "100 / 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pj",
+       "type": "output",
+       "expr": "Round(2.5)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pk",
+       "type": "output",
+       "expr": "Round(-2.5)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pl",
+       "type": "output",
+       "expr": "Int(-3.7)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pm",
+       "type": "output",
+       "expr": "Floor(-3.2)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pn",
+       "type": "output",
+       "expr": "Ceiling(3.2)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9po",
+       "type": "output",
+       "expr": "Abs(-4)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pp",
+       "type": "output",
+       "expr": "Sqrt(2)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pq",
+       "type": "output",
+       "expr": "Sqrt(-1)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pr",
+       "type": "output",
+       "expr": "Sign(-3)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9ps",
+       "type": "output",
+       "expr": "Log(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pt",
+       "type": "output",
+       "expr": "Exp(1)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pu",
+       "type": "output",
+       "expr": "Sin(Pi())",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pv",
+       "type": "output",
+       "expr": "Cos(0)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pw",
+       "type": "output",
+       "expr": "3 - -2",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9px",
+       "type": "output",
+       "expr": "- 2 ^ 2",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "3.5\n0.3333333333\n2\n0.3\n1e+21\n100000000000000000000\n0.000001\n1e-7\n-0.5\n1.4142135624\n-3.5\n1\n-1\n1.5\n1152921504606847000\n10000\n123456789000000\n0.3\n33.3333333333\n3\n-2\n-3\n-4\n4\n4\n1.4142135624\nNaN\n-1\n2.302585093\n2.7182818285\n0\n1\n5\n-4\n",
+  "after": "3.5\n0.3333333333\n2\n0.3\n1e+21\n100000000000000000000\n0.000001\n1e-7\n-0.5\n1.4142135624\n-3.5\n1\n-1\n1.5\n1152921504606847000\n10000\n123456789000000\n0.3\n33.3333333333\n3\n-2\n-3\n-4\n4\n4\n1.4142135624\nNaN\n-1\n2.302585093\n2.7182818285\n0\n1\n5\n-4\n",
+  "error": null
+ },
+ {
+  "name": "strings",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9py",
+       "type": "output",
+       "expr": "\"a\" & 1 & true",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9pz",
+       "type": "output",
+       "expr": "\"5\" + 3",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p10",
+       "type": "output",
+       "expr": "3 + \"5\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p11",
+       "type": "output",
+       "expr": "\"b\" < \"a\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p12",
+       "type": "output",
+       "expr": "\"10\" < \"9\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p13",
+       "type": "output",
+       "expr": "10 < 9",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p14",
+       "type": "output",
+       "expr": "\"abc\" = \"abc\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p15",
+       "type": "output",
+       "expr": "\"Č\" > \"Z\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p16",
+       "type": "output",
+       "expr": "Len(\"čćž\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p17",
+       "type": "output",
+       "expr": "Len(\"\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p18",
+       "type": "output",
+       "expr": "Char(\"Ana\", 2)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p19",
+       "type": "output",
+       "expr": "ToCode(\"Ш\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1a",
+       "type": "output",
+       "expr": "ToChar(382)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1b",
+       "type": "output",
+       "expr": "char(65)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1c",
+       "type": "output",
+       "expr": "ToInt(\"12\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1d",
+       "type": "output",
+       "expr": "ToInt(\" 7 \")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1e",
+       "type": "output",
+       "expr": "ToReal(\"2.5\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1f",
+       "type": "output",
+       "expr": "ToString(0.1 + 0.2)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1g",
+       "type": "output",
+       "expr": "IsNumeric(\"1e3\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1h",
+       "type": "output",
+       "expr": "IsNumeric(\"x\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1i",
+       "type": "output",
+       "expr": "IsNumeric(\"\")",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1j",
+       "type": "output",
+       "expr": "\"x\\ty\\n\" & \"z\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1k",
+       "type": "output",
+       "expr": "1 = 1.0",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1l",
+       "type": "output",
+       "expr": "\"1\" = 1",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1m",
+       "type": "output",
+       "expr": "true = 1",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1n",
+       "type": "output",
+       "expr": "not 0",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1o",
+       "type": "output",
+       "expr": "not \"\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1p",
+       "type": "output",
+       "expr": "not \"0\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1q",
+       "type": "output",
+       "expr": "\"a\" <> \"b\" and 3 > 2 or false",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p1r",
+       "type": "output",
+       "expr": "0.1 + 0.2 = 0.3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "a1true\n53\n35\nfalse\ntrue\nfalse\ntrue\ntrue\n3\n0\na\n1064\nž\nA\n12\n7\n2.5\n0.30000000000000004\ntrue\nfalse\nfalse\nx\ty\nz\ntrue\nfalse\nfalse\ntrue\ntrue\nfalse\ntrue\nfalse\n",
+  "after": "a1true\n53\n35\nfalse\ntrue\nfalse\ntrue\ntrue\n3\n0\na\n1064\nž\nA\n12\n7\n2.5\n0.30000000000000004\ntrue\nfalse\nfalse\nx\ty\nz\ntrue\nfalse\nfalse\ntrue\ntrue\nfalse\ntrue\nfalse\n",
+  "error": null
+ },
+ {
+  "name": "types",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p1s",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p1t",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p1u",
+       "type": "declare",
+       "name": "s",
+       "varType": "String",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p1v",
+       "type": "declare",
+       "name": "b",
+       "varType": "Boolean",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p1w",
+       "type": "assign",
+       "target": "i",
+       "expr": "7 / 2"
+      },
+      {
+       "id": "nmvs14z9p1x",
+       "type": "assign",
+       "target": "r",
+       "expr": "7 / 2"
+      },
+      {
+       "id": "nmvs14z9p1y",
+       "type": "assign",
+       "target": "s",
+       "expr": "7 / 3"
+      },
+      {
+       "id": "nmvs14z9p1z",
+       "type": "assign",
+       "target": "b",
+       "expr": "3 > 2"
+      },
+      {
+       "id": "nmvs14z9p20",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p21",
+       "type": "output",
+       "expr": "r",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p22",
+       "type": "output",
+       "expr": "s",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p23",
+       "type": "output",
+       "expr": "b",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p24",
+       "type": "output",
+       "expr": "i & r & s & b",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p25",
+       "type": "assign",
+       "target": "i",
+       "expr": "\"12\""
+      },
+      {
+       "id": "nmvs14z9p26",
+       "type": "output",
+       "expr": "i + 1",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p27",
+       "type": "assign",
+       "target": "i",
+       "expr": "-2.9"
+      },
+      {
+       "id": "nmvs14z9p28",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p29",
+       "type": "assign",
+       "target": "s",
+       "expr": "0.1 + 0.2"
+      },
+      {
+       "id": "nmvs14z9p2a",
+       "type": "output",
+       "expr": "s",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "3\n3.5\n2.3333333333333335\ntrue\n33.52.3333333333333335true\n13\n-2\n0.30000000000000004\n",
+  "after": "3\n3.5\n2.3333333333333335\ntrue\n33.52.3333333333333335true\n13\n-2\n0.30000000000000004\n",
+  "error": null
+ },
+ {
+  "name": "exponent literal",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2b",
+       "type": "output",
+       "expr": "1e21",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Unexpected 'e21'"
+ },
+ {
+  "name": "bad assign",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2c",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p2d",
+       "type": "assign",
+       "target": "i",
+       "expr": "\"abc\""
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Cannot assign 'abc' to Integer i"
+ },
+ {
+  "name": "bool assign",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2e",
+       "type": "declare",
+       "name": "b",
+       "varType": "Boolean",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p2f",
+       "type": "assign",
+       "target": "b",
+       "expr": "1"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Cannot assign '1' to Boolean b"
+ },
+ {
+  "name": "undeclared",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2g",
+       "type": "assign",
+       "target": "x",
+       "expr": "1"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Variable 'x' is not declared"
+ },
+ {
+  "name": "division by zero",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2h",
+       "type": "output",
+       "expr": "\"before\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p2i",
+       "type": "output",
+       "expr": "5 / 0",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "before\n",
+  "after": "before\n",
+  "error": "Division by zero"
+ },
+ {
+  "name": "mod zero",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2j",
+       "type": "output",
+       "expr": "5 mod 0",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Division by zero"
+ },
+ {
+  "name": "syntax",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2k",
+       "type": "output",
+       "expr": "1 +",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Unexpected end of expression"
+ },
+ {
+  "name": "syntax 2",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2l",
+       "type": "output",
+       "expr": "(1 + 2",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Expected ')'"
+ },
+ {
+  "name": "syntax 3",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2m",
+       "type": "output",
+       "expr": "\"abc",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Unterminated string"
+ },
+ {
+  "name": "syntax 4",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2n",
+       "type": "output",
+       "expr": "2 # 3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Unexpected character '#'"
+ },
+ {
+  "name": "unknown function",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2o",
+       "type": "output",
+       "expr": "Foo(1)",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Unknown function 'Foo'"
+ },
+ {
+  "name": "char out of range",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2p",
+       "type": "output",
+       "expr": "Char(\"ab\", 5)",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Char: index 5 is outside the string \"ab\""
+ },
+ {
+  "name": "tocode empty",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2q",
+       "type": "output",
+       "expr": "ToCode(\"\")",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "ToCode: empty string"
+ },
+ {
+  "name": "endless",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2r",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p2t",
+       "type": "while",
+       "cond": "true",
+       "body": [
+        {
+         "id": "nmvs14z9p2s",
+         "type": "assign",
+         "target": "i",
+         "expr": "i + 1"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Step limit exceeded (possible infinite loop)"
+ },
+ {
+  "name": "for",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p2u",
+       "type": "declare",
+       "name": "s",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p2x",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "10",
+       "step": "3",
+       "body": [
+        {
+         "id": "nmvs14z9p2v",
+         "type": "output",
+         "expr": "i",
+         "newline": false
+        },
+        {
+         "id": "nmvs14z9p2w",
+         "type": "output",
+         "expr": "\" \"",
+         "newline": false
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9p2y",
+       "type": "output",
+       "expr": "\"\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p30",
+       "type": "for",
+       "variable": "i",
+       "start": "5",
+       "end": "1",
+       "step": "-2",
+       "body": [
+        {
+         "id": "nmvs14z9p2z",
+         "type": "output",
+         "expr": "i",
+         "newline": true
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9p32",
+       "type": "for",
+       "variable": "j",
+       "start": "1",
+       "end": "0",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9p31",
+         "type": "output",
+         "expr": "\"never\"",
+         "newline": true
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9p34",
+       "type": "for",
+       "variable": "k",
+       "start": "0",
+       "end": "1",
+       "step": "0.25",
+       "body": [
+        {
+         "id": "nmvs14z9p33",
+         "type": "output",
+         "expr": "k",
+         "newline": true
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9p35",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "1 4 7 10 \n5\n3\n1\n0\n0.25\n0.5\n0.75\n1\n1\n",
+  "after": "1 4 7 10 \n5\n3\n1\n0\n0.25\n0.5\n0.75\n1\n1\n",
+  "error": null
+ },
+ {
+  "name": "for step zero",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p36",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "3",
+       "step": "0",
+       "body": []
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "For loop step cannot be 0"
+ },
+ {
+  "name": "arrays",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p37",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "5"
+      },
+      {
+       "id": "nmvs14z9p38",
+       "type": "declare",
+       "name": "t",
+       "varType": "String",
+       "size": "2"
+      },
+      {
+       "id": "nmvs14z9p3a",
+       "type": "for",
+       "variable": "i",
+       "start": "0",
+       "end": "4",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9p39",
+         "type": "assign",
+         "target": "a[i]",
+         "expr": "i * i"
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9p3b",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3c",
+       "type": "output",
+       "expr": "a[4]",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3d",
+       "type": "output",
+       "expr": "Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3e",
+       "type": "output",
+       "expr": "t",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3f",
+       "type": "output",
+       "expr": "Len(t)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3g",
+       "type": "output",
+       "expr": "a[1] + a[2]",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9p3h",
+       "type": "output",
+       "expr": "a[5]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "0,1,4,9,16\n16\n5\n,\n2\n5\n",
+  "after": "0,1,4,9,16\n16\n5\n,\n2\n5\n",
+  "error": "Index 5 out of range for 'a'"
+ },
+ {
+  "name": "array not array",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p3i",
+       "type": "declare",
+       "name": "x",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3j",
+       "type": "output",
+       "expr": "x[0]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "'x' is not an array"
+ },
+ {
+  "name": "input types",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p3k",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3l",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3m",
+       "type": "declare",
+       "name": "s",
+       "varType": "String",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3n",
+       "type": "declare",
+       "name": "b",
+       "varType": "Boolean",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3o",
+       "type": "input",
+       "target": "i"
+      },
+      {
+       "id": "nmvs14z9q3p",
+       "type": "input",
+       "target": "r"
+      },
+      {
+       "id": "nmvs14z9q3q",
+       "type": "input",
+       "target": "s"
+      },
+      {
+       "id": "nmvs14z9q3r",
+       "type": "input",
+       "target": "b"
+      },
+      {
+       "id": "nmvs14z9q3s",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3t",
+       "type": "output",
+       "expr": "r",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3u",
+       "type": "output",
+       "expr": "s",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3v",
+       "type": "output",
+       "expr": "b",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "12.7\n-0.5\n  hi  \nTRUE",
+  "output": "12\n-0.5\n  hi  \ntrue\n",
+  "after": "12\n-0.5\n  hi  \ntrue\n",
+  "error": null
+ },
+ {
+  "name": "input types",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p3k",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3l",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3m",
+       "type": "declare",
+       "name": "s",
+       "varType": "String",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3n",
+       "type": "declare",
+       "name": "b",
+       "varType": "Boolean",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3o",
+       "type": "input",
+       "target": "i"
+      },
+      {
+       "id": "nmvs14z9q3p",
+       "type": "input",
+       "target": "r"
+      },
+      {
+       "id": "nmvs14z9q3q",
+       "type": "input",
+       "target": "s"
+      },
+      {
+       "id": "nmvs14z9q3r",
+       "type": "input",
+       "target": "b"
+      },
+      {
+       "id": "nmvs14z9q3s",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3t",
+       "type": "output",
+       "expr": "r",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3u",
+       "type": "output",
+       "expr": "s",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3v",
+       "type": "output",
+       "expr": "b",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": " 5 \n1e2\n\"\"\nx",
+  "output": "5\n100\n\nfalse\n",
+  "after": "5\n100\n\nfalse\n",
+  "error": null
+ },
+ {
+  "name": "input types",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9p3k",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3l",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3m",
+       "type": "declare",
+       "name": "s",
+       "varType": "String",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3n",
+       "type": "declare",
+       "name": "b",
+       "varType": "Boolean",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9p3o",
+       "type": "input",
+       "target": "i"
+      },
+      {
+       "id": "nmvs14z9q3p",
+       "type": "input",
+       "target": "r"
+      },
+      {
+       "id": "nmvs14z9q3q",
+       "type": "input",
+       "target": "s"
+      },
+      {
+       "id": "nmvs14z9q3r",
+       "type": "input",
+       "target": "b"
+      },
+      {
+       "id": "nmvs14z9q3s",
+       "type": "output",
+       "expr": "i",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3t",
+       "type": "output",
+       "expr": "r",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3u",
+       "type": "output",
+       "expr": "s",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q3v",
+       "type": "output",
+       "expr": "b",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "0x10\n.5\nč\ntrue",
+  "output": "16\n0.5\nč\ntrue\n",
+  "after": "16\n0.5\nč\ntrue\n",
+  "error": null
+ },
+ {
+  "name": "bad input",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3w",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3x",
+       "type": "input",
+       "target": "i"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "abc",
+  "output": "",
+  "after": "",
+  "error": "'abc' is not a valid Integer"
+ },
+ {
+  "name": "bad input",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3w",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3x",
+       "type": "input",
+       "target": "i"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "The algorithm asks for more input than the test provides."
+ },
+ {
+  "name": "bad input",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3w",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3x",
+       "type": "input",
+       "target": "i"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": " ",
+  "output": "",
+  "after": "",
+  "error": "' ' is not a valid Integer"
+ },
+ {
+  "name": "input count",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3y",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3z",
+       "type": "declare",
+       "name": "s",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q40",
+       "type": "output",
+       "expr": "\"Koliko?\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q41",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvs14z9q45",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "n",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9q42",
+         "type": "output",
+         "expr": "\"Broj \" & i & \":\"",
+         "newline": true
+        },
+        {
+         "id": "nmvs14z9q43",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q44",
+         "type": "assign",
+         "target": "s",
+         "expr": "s + n"
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9q46",
+       "type": "output",
+       "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "3\n1\n2\n4",
+  "output": "Koliko?\nBroj 1:\nBroj 2:\nBroj 3:\nZbir je 7, prosek 2.3333333333\n",
+  "after": "Zbir je 7, prosek 2.3333333333\n",
+  "error": null
+ },
+ {
+  "name": "input count",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3y",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3z",
+       "type": "declare",
+       "name": "s",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q40",
+       "type": "output",
+       "expr": "\"Koliko?\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q41",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvs14z9q45",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "n",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9q42",
+         "type": "output",
+         "expr": "\"Broj \" & i & \":\"",
+         "newline": true
+        },
+        {
+         "id": "nmvs14z9q43",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q44",
+         "type": "assign",
+         "target": "s",
+         "expr": "s + n"
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9q46",
+       "type": "output",
+       "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "3\n1\n2",
+  "output": "Koliko?\nBroj 1:\nBroj 2:\nBroj 3:\n",
+  "after": "Broj 3:\n",
+  "error": "The algorithm asks for more input than the test provides."
+ },
+ {
+  "name": "input count",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3y",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3z",
+       "type": "declare",
+       "name": "s",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q40",
+       "type": "output",
+       "expr": "\"Koliko?\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q41",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvs14z9q45",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "n",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9q42",
+         "type": "output",
+         "expr": "\"Broj \" & i & \":\"",
+         "newline": true
+        },
+        {
+         "id": "nmvs14z9q43",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q44",
+         "type": "assign",
+         "target": "s",
+         "expr": "s + n"
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9q46",
+       "type": "output",
+       "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "2\n5\n5\n9",
+  "output": "Koliko?\nBroj 1:\nBroj 2:\nZbir je 10, prosek 3.3333333333\n",
+  "after": "Zbir je 10, prosek 3.3333333333\n",
+  "error": null
+ },
+ {
+  "name": "input count",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q3y",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q3z",
+       "type": "declare",
+       "name": "s",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q40",
+       "type": "output",
+       "expr": "\"Koliko?\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q41",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvs14z9q45",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "n",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9q42",
+         "type": "output",
+         "expr": "\"Broj \" & i & \":\"",
+         "newline": true
+        },
+        {
+         "id": "nmvs14z9q43",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q44",
+         "type": "assign",
+         "target": "s",
+         "expr": "s + n"
+        }
+       ]
+      },
+      {
+       "id": "nmvs14z9q46",
+       "type": "output",
+       "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "1\n2",
+  "output": "Koliko?\nBroj 1:\nZbir je 2, prosek 0.6666666667\n",
+  "after": "Zbir je 2, prosek 0.6666666667\n",
+  "error": null
+ },
+ {
+  "name": "after last input",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q47",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q48",
+       "type": "output",
+       "expr": "\"x\"",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q49",
+       "type": "input",
+       "target": "a"
+      },
+      {
+       "id": "nmvs14z9q4a",
+       "type": "output",
+       "expr": "\"y \" & a",
+       "newline": false
+      },
+      {
+       "id": "nmvs14z9q4b",
+       "type": "input",
+       "target": "a"
+      },
+      {
+       "id": "nmvs14z9q4c",
+       "type": "output",
+       "expr": "\"z \" & a",
+       "newline": false
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "1\n2",
+  "output": "x\ny 1z 2",
+  "after": "z 2",
+  "error": null
+ },
+ {
+  "name": "functions",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q4d",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3"
+      },
+      {
+       "id": "nmvs14z9q4e",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvs14z9q4f",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvs14z9q4g",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q4h",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q4i",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q4j",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvs14z9q4k",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvs14z9q4m",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvs14z9q4l",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvs14z9q4p",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvs14z9q4n",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvs14z9q4o",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvs14z9q4r",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvs14z9q4q",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvs14z9q4s",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvs14z9q4t",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "5,7,7\n3628800\n610\nundefined\n3.5\n",
+  "after": "5,7,7\n3628800\n610\nundefined\n3.5\n",
+  "error": null
+ },
+ {
+  "name": "wrong argument count",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q4u",
+       "type": "output",
+       "expr": "Two(1)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Two",
+     "params": [
+      {
+       "name": "a",
+       "type": "Integer"
+      },
+      {
+       "name": "b",
+       "type": "Integer"
+      }
+     ],
+     "body": []
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Function 'Two' expects 2 argument(s)"
+ },
+ {
+  "name": "do while",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q4v",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q4y",
+       "type": "dowhile",
+       "cond": "n > 0",
+       "body": [
+        {
+         "id": "nmvs14z9q4w",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q4x",
+         "type": "output",
+         "expr": "n * 2",
+         "newline": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "3\n-1\n0",
+  "output": "6\n-2\n",
+  "after": "-2\n",
+  "error": null
+ },
+ {
+  "name": "do while",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q4v",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q4y",
+       "type": "dowhile",
+       "cond": "n > 0",
+       "body": [
+        {
+         "id": "nmvs14z9q4w",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q4x",
+         "type": "output",
+         "expr": "n * 2",
+         "newline": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "0",
+  "output": "0\n",
+  "after": "0\n",
+  "error": null
+ },
+ {
+  "name": "do while",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvs14z9q4v",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": ""
+      },
+      {
+       "id": "nmvs14z9q4y",
+       "type": "dowhile",
+       "cond": "n > 0",
+       "body": [
+        {
+         "id": "nmvs14z9q4w",
+         "type": "input",
+         "target": "n"
+        },
+        {
+         "id": "nmvs14z9q4x",
+         "type": "output",
+         "expr": "n * 2",
+         "newline": true
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "5",
+  "output": "10\n",
+  "after": "10\n",
+  "error": "The algorithm asks for more input than the test provides."
+ }
+]

@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use qtype_algorithm\local\tester;
+
 /**
  * Renders the question text and the flowchart editor (or, when review is read-only, the runnable diagram).
  *
@@ -44,6 +46,9 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $containerid = $inputname . '_algorithm';
 
         $result = html_writer::tag('div', $question->format_questiontext($qa), ['class' => 'qtext']);
+        if ($question->has_tests()) {
+            $result .= $this->rules($question);
+        }
         $result .= html_writer::empty_tag('input', [
             'type' => 'hidden', 'name' => $inputname, 'id' => $inputname, 'value' => $answer,
         ]);
@@ -57,10 +62,106 @@ class qtype_algorithm_renderer extends qtype_renderer {
             );
         }
 
+        // Only the tests that are not hidden reach the browser.
+        $tests = [];
+        if ($question->has_tests() && $question->showtests) {
+            foreach ($question->tests as $tc) {
+                if (empty($tc['hidden'])) {
+                    $tests[] = ['inputs' => (string) $tc['inputs'], 'expected' => (string) ($tc['expected'] ?? '')];
+                }
+            }
+        }
         $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'init', [
             $containerid, $inputname, (bool) $options->readonly, current_language(),
             get_string('noalgorithm', 'qtype_algorithm'),
+            ['template' => $question->template, 'tests' => $tests, 'check' => $question->check_options()],
         ]);
         return $result;
+    }
+
+    /**
+     * How the algorithm is checked: what is compared and which structures it must use.
+     *
+     * @param qtype_algorithm_question $question the question
+     * @return string HTML
+     */
+    protected function rules(qtype_algorithm_question $question): string {
+        $items = [get_string($question->numbers ? ($question->afterinput ? 'rule_numbersafter' : 'rule_numbers') :
+            ($question->afterinput ? 'rule_textafter' : 'rule_text'), 'qtype_algorithm')];
+        if ($question->structures) {
+            $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $question->structures);
+            $items[] = get_string('rule_structures', 'qtype_algorithm', implode(', ', $names));
+        }
+        return html_writer::alist($items, ['class' => 'qtype_algorithm_rules']);
+    }
+
+    /**
+     * Result of every test for the response (hidden tests show only whether they passed).
+     *
+     * @param question_attempt $qa the attempt
+     * @return string HTML
+     */
+    public function specific_feedback(question_attempt $qa) {
+        $question = $qa->get_question();
+        if (!$question->has_tests()) {
+            return '';
+        }
+        $response = $qa->get_last_qt_data();
+        if (!$question->is_gradable_response($response)) {
+            return '';
+        }
+        $out = '';
+        $missing = $question->missing_structures($response);
+        if ($missing) {
+            $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $missing);
+            $out .= html_writer::div(get_string('missingstructures', 'qtype_algorithm', implode(', ', $names)),
+                'alert alert-warning');
+        }
+        $results = $question->test_results($response);
+        $table = new html_table();
+        $table->attributes['class'] = 'generaltable qtype_algorithm_results';
+        $table->head = [get_string('test', 'qtype_algorithm'), get_string('inputs', 'qtype_algorithm'),
+            get_string('expected', 'qtype_algorithm'), get_string('got', 'qtype_algorithm'), ''];
+        $pre = fn($text) => html_writer::tag('pre', s($text), ['class' => 'mb-0']);
+        foreach ($question->tests as $i => $tc) {
+            $r = $results[$i] ?? ['pass' => false, 'actual' => '', 'error' => null];
+            $mark = $r['pass'] ? $this->output->pix_icon('i/valid', get_string('passed', 'qtype_algorithm')) :
+                $this->output->pix_icon('i/invalid', get_string('failed', 'qtype_algorithm'));
+            if (!empty($tc['hidden'])) {
+                $cells = [$i + 1, html_writer::span(get_string('hiddentest', 'qtype_algorithm'), 'text-muted'), '', '', $mark];
+            } else {
+                $got = $pre($r['actual']);
+                if ($r['error']) {
+                    $got .= html_writer::div(s($r['error']), 'text-danger');
+                }
+                $inputs = implode(', ', tester::parse_inputs($tc['inputs']));
+                $cells = [$i + 1, $pre($inputs), $pre($tc['expected'] ?? ''), $got, $mark];
+            }
+            $row = new html_table_row($cells);
+            $row->attributes['class'] = $r['pass'] ? 'qtype_algorithm_pass' : 'qtype_algorithm_fail';
+            $table->data[] = $row;
+        }
+        $passed = count(array_filter($results, fn($r) => $r['pass']));
+        $out .= html_writer::div(get_string('testssummary', 'qtype_algorithm',
+            (object) ['passed' => $passed, 'total' => count($question->tests)]), 'mb-2');
+        return $out . html_writer::table($table);
+    }
+
+    /**
+     * The teacher's solution as a runnable diagram.
+     *
+     * @param question_attempt $qa the attempt
+     * @return string HTML
+     */
+    public function correct_response(question_attempt $qa) {
+        $question = $qa->get_question();
+        if (!$question->get_correct_response()) {
+            return '';
+        }
+        $id = $qa->get_qt_field_name('solution');
+        $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'showSolution', [$id, $question->solution,
+            current_language()]);
+        return html_writer::div(get_string('correctsolution', 'qtype_algorithm'), 'mb-1') .
+            html_writer::div('', 'qtype_algorithm_container', ['id' => $id]);
     }
 }

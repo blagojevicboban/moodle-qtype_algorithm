@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use qtype_algorithm\local\tester;
+
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/question/type/questionbase.php');
@@ -33,16 +35,111 @@ require_once($CFG->dirroot . '/question/type/questionbase.php');
  * @copyright  2026 Boban Blagojević
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class qtype_algorithm_question extends question_with_responses {
+class qtype_algorithm_question extends question_graded_automatically {
+    /** @var string the teacher's algorithm (base64 encoded JSON) */
+    public $solution = '';
+
+    /** @var string algorithm the students start from (base64 encoded JSON), '' for an empty diagram */
+    public $template = '';
+
+    /** @var array tests: inputs, hidden, expected */
+    public $tests = [];
+
+    /** @var bool compare only the output after the last input */
+    public $afterinput = false;
+
+    /** @var bool compare only the numbers in the output */
+    public $numbers = false;
+
+    /** @var array structures the algorithm must use (if, for, while, dowhile, array) */
+    public $structures = [];
+
+    /** @var bool students may run the tests that are not hidden during the attempt */
+    public $showtests = true;
+
+    /** @var int 0: share of passed tests, 1: all tests must pass */
+    public $grademethod = 0;
+
+    /** @var array results by response, so that grading and feedback run the tests once */
+    protected $resultcache = [];
+
     /**
-     * Use the manual grading behaviour.
+     * Is the question graded automatically (it has a solution and tests)?
+     *
+     * @return bool
+     */
+    public function has_tests(): bool {
+        return $this->tests && self::decode_answer($this->solution) !== null;
+    }
+
+    /**
+     * Questions with tests use the quiz behaviour, the others are graded manually.
      *
      * @param question_attempt $qa the attempt
      * @param string $preferredbehaviour the quiz behaviour
      * @return question_behaviour
      */
     public function make_behaviour(question_attempt $qa, $preferredbehaviour) {
-        return question_engine::make_behaviour('manualgraded', $qa, $preferredbehaviour);
+        if (!$this->has_tests()) {
+            return question_engine::make_behaviour('manualgraded', $qa, $preferredbehaviour);
+        }
+        return parent::make_behaviour($qa, $preferredbehaviour);
+    }
+
+    /**
+     * What is compared in the tests.
+     *
+     * @return array
+     */
+    public function check_options(): array {
+        return ['afterinput' => (bool) $this->afterinput, 'numbers' => (bool) $this->numbers];
+    }
+
+    /**
+     * Required structures the response does not use.
+     *
+     * @param array $response the response
+     * @return string[]
+     */
+    public function missing_structures(array $response): array {
+        $model = self::decode_answer((string) ($response['answer'] ?? ''));
+        return array_values(array_diff($this->structures, $model ? tester::structures($model) : []));
+    }
+
+    /**
+     * Run the tests against a response.
+     *
+     * @param array $response the response
+     * @return array results of tester::run_tests, empty when the response is not an algorithm
+     */
+    public function test_results(array $response): array {
+        $answer = (string) ($response['answer'] ?? '');
+        if (!array_key_exists($answer, $this->resultcache)) {
+            $model = self::decode_answer($answer);
+            $this->resultcache[$answer] = $model ? tester::run_tests($model, $this->tests, $this->check_options(),
+                get_string('noinput', 'qtype_algorithm')) : [];
+        }
+        return $this->resultcache[$answer];
+    }
+
+    /**
+     * Grade: the share of passed tests (or all or nothing); 0 when a required structure is missing.
+     *
+     * @param array $response the response
+     * @return array [fraction, state]
+     */
+    public function grade_response(array $response) {
+        $results = $this->test_results($response);
+        $passed = count(array_filter($results, fn($r) => $r['pass']));
+        $total = count($this->tests);
+        $fraction = $total ? $passed / $total : 0;
+        if ($this->grademethod && $passed < $total) {
+            $fraction = 0;
+        }
+        if ($this->missing_structures($response)) {
+            $fraction = 0;
+        }
+        return [$fraction, question_state::graded_state_for_fraction($fraction)];
     }
 
     /**
@@ -137,12 +234,12 @@ class qtype_algorithm_question extends question_with_responses {
     }
 
     /**
-     * There is no single correct response.
+     * The teacher's solution, when there is one.
      *
-     * @return null
+     * @return array|null
      */
     public function get_correct_response() {
-        return null;
+        return self::decode_answer($this->solution) ? ['answer' => $this->solution] : null;
     }
 
     /**

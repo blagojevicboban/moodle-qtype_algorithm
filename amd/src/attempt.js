@@ -22,7 +22,23 @@
  */
 import {AlgorithmEditor} from 'tiny_algorithm/editor';
 import {AlgorithmRunner} from 'tiny_algorithm/runner';
+import {TestsPanel} from 'tiny_algorithm/tests';
 import {deserialize, serialize} from 'tiny_algorithm/model';
+import {workspace} from 'qtype_algorithm/fullscreen';
+
+/**
+ * Algorithm from its encoded form, or null.
+ *
+ * @param {string} text base64 encoded JSON
+ * @returns {object|null}
+ */
+const decode = (text) => {
+    try {
+        return text ? deserialize(text) : null;
+    } catch (e) {
+        return null;
+    }
+};
 
 /**
  * Number of blocks in the whole program, nested blocks included.
@@ -44,21 +60,18 @@ const countBlocks = (program) => {
  * @param {boolean} readonly true when the response can no longer be changed
  * @param {string} lang language code
  * @param {string} emptyText text shown when the review has no answer
+ * @param {object} [options]
+ * @param {string} [options.template] algorithm to start from (base64 encoded JSON)
+ * @param {Array} [options.tests] tests the student may run (inputs, expected)
+ * @param {object} [options.check] what the tests compare (afterinput, numbers)
  */
-export const init = (containerId, inputId, readonly, lang, emptyText) => {
+export const init = (containerId, inputId, readonly, lang, emptyText, {template = '', tests = [], check = {}} = {}) => {
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
     if (!container || !input) {
         return;
     }
-    let program = null;
-    if (input.value) {
-        try {
-            program = deserialize(input.value);
-        } catch (e) {
-            program = null;
-        }
-    }
+    const program = decode(input.value);
 
     if (readonly) {
         if (program) {
@@ -69,8 +82,13 @@ export const init = (containerId, inputId, readonly, lang, emptyText) => {
         return;
     }
 
-    new AlgorithmEditor(container, {
-        program,
+    // Toolbar above the editor (Test, Full screen); the editor and the tests go full screen together.
+    let editor = null;
+    const ws = workspace(container, lang, () => editor.zoom.autoFit());
+
+    let panel = null;
+    editor = new AlgorithmEditor(container, {
+        program: program || decode(template),
         lang,
         onChange: (current) => {
             // An empty diagram counts as no answer, so the question is reported as not complete.
@@ -79,6 +97,34 @@ export const init = (containerId, inputId, readonly, lang, emptyText) => {
                 input.value = value;
                 input.dispatchEvent(new Event('change', {bubbles: true}));
             }
+            if (panel) {
+                panel.markStale();
+            }
         },
     });
+    if (tests.length) {
+        const host = document.createElement('div');
+        host.className = 'qtype_algorithm_tests';
+        container.after(host);
+        panel = new TestsPanel(host, {tests, mode: 'student', lang, check, getProgram: () => editor.getProgram()});
+        ws.bar.prepend(ws.button('runtests', () => {
+            panel.run();
+            host.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+        }, 'btn-primary'));
+    }
+};
+
+/**
+ * Show the teacher's solution (review): a runnable diagram.
+ *
+ * @param {string} containerId id of the element that receives the diagram
+ * @param {string} solution the solution (base64 encoded JSON)
+ * @param {string} lang language code
+ */
+export const showSolution = (containerId, solution, lang) => {
+    const container = document.getElementById(containerId);
+    const program = decode(solution);
+    if (container && program) {
+        new AlgorithmRunner(container, program, {lang});
+    }
 };

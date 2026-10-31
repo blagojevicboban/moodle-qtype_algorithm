@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0 – 2026-10-28 (alpha)
+
+- **Automatic grading with tests.** The teacher draws the solution and enters test inputs; the expected outputs are computed
+  from the solution when the question is saved. The answer runs on the server (new PHP interpreter in `classes/local`, the same
+  rules and output as the browser interpreter of tiny_algorithm, checked with `tests/fixtures`). Grade: share of passed tests or
+  all or nothing. Questions without tests are still graded manually.
+- What is compared: the whole output or only the output after the last input, optionally only the numbers in it.
+- **Hidden tests**, **required structures** (If, For, While, Do, array), **starting template**, students can run the visible
+  tests during the attempt, feedback per test, the teacher's solution in the review.
+- Toolbar above the editor: **Test** and **Full screen** in the quiz; **Full screen** for the solution and template editors in
+  the question form (new `fullscreen` module).
+- New table `qtype_algorithm_options` (questions from 0.2.0 get a row without tests), backup / restore, Moodle XML import / export.
+- Requires tiny_algorithm 0.5.2.
+
 ## 0.2.0 – 2026-10-16 (alpha)
 
 - Supports **Moodle 4.5 LTS** (`requires` lowered to 4.5, `supported` 4.5 – 5.3); tested on 4.5, 5.0 – 5.3.
