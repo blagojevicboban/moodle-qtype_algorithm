@@ -1,8 +1,28 @@
-// Builds parity.json: algorithms with inputs and what the browser interpreter (tiny_algorithm) gives for them.
-// The PHP interpreter must give exactly the same (tests/interpreter_test.php).
+// This file is part of Moodle - http://moodle.org/
 //
-// node --import <tiny>/tests/register.mjs tests/fixtures/make_parity.mjs [<tiny dir>] [extra.json]
-//   extra.json: optional [{name, program, inputs: [..]}] run instead (e.g. a course's algorithms); writes extra-parity.json
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Builds parity.json: algorithms with inputs and what the browser interpreter (tiny_algorithm) gives for them.
+ * The PHP interpreter must give exactly the same (tests/interpreter_test.php).
+ *
+ * node --import <tiny>/tests/register.mjs tests/fixtures/make_parity.mjs [<tiny dir>] [extra.json]
+ *   extra.json: optional [{name, program, inputs: [..]}] run instead (e.g. a course's algorithms); writes extra-parity.json
+ *
+ * @copyright  2026 Boban Blagojević
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 import {readFileSync, writeFileSync} from 'node:fs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';

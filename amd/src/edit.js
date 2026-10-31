@@ -26,6 +26,7 @@ import {TestsPanel} from 'tiny_algorithm/tests';
 import {cloneProgram, createProgram, deserialize, serialize} from 'tiny_algorithm/model';
 import {getString} from 'core/str';
 import {workspace} from 'qtype_algorithm/fullscreen';
+import {load as loadStrings} from 'tiny_algorithm/langstrings';
 
 /**
  * Algorithm stored in a hidden field, or null.
@@ -62,6 +63,7 @@ const loadTests = (input) => {
  * @param {string} lang language code
  */
 export const init = async(lang) => {
+    await loadStrings();
     const field = (name) => document.querySelector(`input[name="${name}"]`);
     const solutionInput = field('solution');
     const templateInput = field('template');

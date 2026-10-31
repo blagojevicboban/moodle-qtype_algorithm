@@ -11,14 +11,14 @@ before submitting. It uses the flowchart editor of
 the algorithm runs on the server on the inputs of every test and its output is compared with the output of the teacher's
 solution. Without tests the teacher grades it manually.
 
-> Status: **alpha**.
+> Status: **stable** (1.0).
 
 ## ✨ Features
 
 | Feature | Description |
 |---------|-------------|
 | ✏️ **Draw the Algorithm** | The same editor as in TinyMCE: all block types, several functions, undo / redo |
-| ▶️ **Run Before Submitting** | Run / Step with a console, variable watch and generated code (Python, C, Java, C#) |
+| ▶️ **Run Before Submitting** | Run / Step with a console, variable watch and generated code (Python, C, C++, Java, C#, JavaScript, Pascal) |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
 | ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests (or all or nothing) |
 | 🔍 **Flexible Comparison** | Whole output, or only the output after the last input, and optionally only the numbers in it (students may write any text around them) |
@@ -37,9 +37,9 @@ solution. Without tests the teacher grades it manually.
 
 ## 📋 Requirements
 
-- **Moodle**: 4.5 LTS or newer (4.5 and 5.3 tested; 5.0 – 5.2 declared compatible)
+- **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 0.5.2+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 1.0.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 

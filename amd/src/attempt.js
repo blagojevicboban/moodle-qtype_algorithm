@@ -25,6 +25,7 @@ import {AlgorithmRunner} from 'tiny_algorithm/runner';
 import {TestsPanel} from 'tiny_algorithm/tests';
 import {deserialize, serialize} from 'tiny_algorithm/model';
 import {workspace} from 'qtype_algorithm/fullscreen';
+import {load as loadStrings} from 'tiny_algorithm/langstrings';
 
 /**
  * Algorithm from its encoded form, or null.
@@ -65,7 +66,8 @@ const countBlocks = (program) => {
  * @param {Array} [options.tests] tests the student may run (inputs, expected)
  * @param {object} [options.check] what the tests compare (afterinput, numbers)
  */
-export const init = (containerId, inputId, readonly, lang, emptyText, {template = '', tests = [], check = {}} = {}) => {
+export const init = async(containerId, inputId, readonly, lang, emptyText, {template = '', tests = [], check = {}} = {}) => {
+    await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
     if (!container || !input) {
@@ -121,7 +123,8 @@ export const init = (containerId, inputId, readonly, lang, emptyText, {template 
  * @param {string} solution the solution (base64 encoded JSON)
  * @param {string} lang language code
  */
-export const showSolution = (containerId, solution, lang) => {
+export const showSolution = async(containerId, solution, lang) => {
+    await loadStrings();
     const container = document.getElementById(containerId);
     const program = decode(solution);
     if (container && program) {

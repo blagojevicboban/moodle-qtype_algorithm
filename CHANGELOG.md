@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0 – 2026-10-31 (stable)
+
+- **Stable release.**
+- The attempt, review and question form load the widget texts from the language files of tiny_algorithm before they build
+  the editor, so they follow the user's language and can be translated in AMOS; the generated code is also available in
+  C++, JavaScript and Pascal.
+- `tests/fixtures/make_parity.mjs` has the Moodle GPL boilerplate.
+- Requires `tiny_algorithm` 1.0.0 (2026103100).
+
 ## 0.3.0 – 2026-10-28 (alpha)
 
 - **Automatic grading with tests.** The teacher draws the solution and enters test inputs; the expected outputs are computed
