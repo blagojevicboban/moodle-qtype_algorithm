@@ -17,6 +17,8 @@
   Moodle XML round trip) and tester (output, localized errors). New parity fixtures for the array limit.
 - `privacy:metadata` mentions the display settings in the browser's local storage. Screenshots in `docs/screenshots/`.
 - Serbian translations are ekavian (rešenje, vrednost, posle, ocena).
+- The `structures` column of `qtype_algorithm_options` may be null (upgrade step 2026110200): XMLDB does not allow a
+  NOT NULL text column with an empty default, which stopped the PHPUnit installation in CI.
 - Requires `tiny_algorithm` 1.1.0 (2026110100).
 
 ## 1.0.0 – 2026-10-31 (stable)

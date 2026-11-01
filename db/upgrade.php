@@ -42,7 +42,7 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         $table->add_field('tests', XMLDB_TYPE_TEXT, null, null, null, null, null);
         $table->add_field('afterinput', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0');
         $table->add_field('numbers', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0');
-        $table->add_field('structures', XMLDB_TYPE_CHAR, '100', null, XMLDB_NOTNULL, null, '');
+        $table->add_field('structures', XMLDB_TYPE_CHAR, '100', null, null, null, null);
         $table->add_field('showtests', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '1');
         $table->add_field('grademethod', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0');
         $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
@@ -56,6 +56,15 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
                        WHERE q.qtype = 'algorithm'
                          AND NOT EXISTS (SELECT 1 FROM {qtype_algorithm_options} o WHERE o.questionid = q.id)");
         upgrade_plugin_savepoint(true, 2026102800, 'qtype', 'algorithm');
+    }
+
+    if ($oldversion < 2026110200) {
+        // The structures column may be null: a NOT NULL text column with '' as default is not allowed by XMLDB.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $field = new xmldb_field('structures', XMLDB_TYPE_CHAR, '100', null, null, null, null, 'numbers');
+        $dbman->change_field_default($table, $field);
+        $dbman->change_field_notnull($table, $field);
+        upgrade_plugin_savepoint(true, 2026110200, 'qtype', 'algorithm');
     }
     return true;
 }
