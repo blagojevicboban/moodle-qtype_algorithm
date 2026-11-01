@@ -85,7 +85,7 @@ class tester {
                 return array_shift($queue);
             });
         } catch (algorithm_error $e) {
-            $error = $e->getMessage();
+            $error = $e->localized();
         } catch (\Throwable $e) {
             // Anything PHP itself refuses (e.g. arithmetic on text) stops the algorithm too.
             $error = $e->getMessage();

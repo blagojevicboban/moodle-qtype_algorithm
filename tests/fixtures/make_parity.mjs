@@ -75,6 +75,8 @@ const cases = [
         B('for', {variable: 'j', start: '1', end: '0', step: '1', body: [out('"never"')]}),
         B('for', {variable: 'k', start: '0', end: '1', step: '0.25', body: [out('k')]}), out('i'))],
     ['for step zero', prog(B('for', {variable: 'i', start: '1', end: '3', step: '0', body: []}))],
+    ['array size limit', prog(dek('a', 'Integer', '100000'), out('Len(a)'), dek('b', 'Integer', '100001'))],
+    ['array size from text', prog(dek('a', 'Integer', '"abc"'), out('Len(a)'), dek('b', 'Real', '2.7'), out('Len(b)'))],
     ['arrays', prog(dek('a', 'Integer', '5'), dek('t', 'String', '2'),
         B('for', {variable: 'i', start: '0', end: '4', step: '1', body: [B('assign', {target: 'a[i]', expr: 'i * i'})]}),
         ...outs('a', 'a[4]', 'Len(a)', 't', 'Len(t)', 'a[1] + a[2]'), out('a[5]'))],

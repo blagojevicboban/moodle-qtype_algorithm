@@ -30,16 +30,25 @@ solution. Without tests the teacher grades it manually.
 | 🧑‍🏫 **Teacher's Solution in the Review** | Shown as a runnable diagram (“Right answer”) |
 | 📝 **Manual Grading** | Questions without tests use Moodle's manual grading behaviour |
 | 💾 **Autosave** | The answer is saved with the normal quiz autosave |
-| ✅ **Completeness Check** | An empty diagram counts as no answer |
+| ✅ **Completeness Check** | An empty diagram counts as no answer; opening a question with a starting template does not answer it |
+| ⌨️ **Keyboard** | The whole question can be answered without a mouse: arrow keys between blocks, Enter to edit or insert, Delete, Escape |
+| 🛡️ **Limits** | At most 2000 blocks per answer and 100000 elements per array, so a large answer cannot slow down grading |
 | 🖼️ **Diagrams in the Question Text** | Give students an algorithm to analyse (needs [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)) |
-| 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic |
-| 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine) |
+| 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic, also the error messages of the algorithm (in the browser and in the review) |
+| 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine, display settings stay in the browser) |
+
+## 🖼️ Screenshots
+
+| | |
+|---|---|
+| **Attempt: the student fixes the algorithm and runs the tests** | **Edit form: the teacher's solution and the starting template** |
+| ![Attempt](docs/screenshots/quiz-attempt.png) | ![Edit form](docs/screenshots/edit-solution-tests.png) |
 
 ## 📋 Requirements
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 1.0.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 1.1.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
@@ -84,6 +93,9 @@ npx grunt amd --root=public/question/type/algorithm
 # PHP interpreter = browser interpreter: regenerate the fixtures from tiny_algorithm and compare
 node --import ../moodle-tiny_algorithm/tests/register.mjs tests/fixtures/make_parity.mjs ../moodle-tiny_algorithm
 php tests/fixtures/check_parity.php
+
+# Unit tests (from the Moodle root)
+vendor/bin/phpunit --testsuite qtype_algorithm_testsuite
 ```
 
 ## 📁 Structure
@@ -97,6 +109,8 @@ question/type/algorithm/
 ├── classes/local/    # PHP interpreter: expr, interpreter, tester, js (JavaScript value semantics)
 ├── classes/privacy/  # Privacy provider
 ├── db/               # qtype_algorithm_options, upgrade
+├── docs/screenshots/ # Screenshots for this README
+├── tests/            # PHPUnit: question, question type (Moodle XML), tester
 ├── tests/fixtures/   # Parity check: the PHP interpreter must give the browser's output
 ├── lang/             # en, sr_lt, sr_cr
 ├── edit_algorithm_form.php
@@ -108,7 +122,6 @@ question/type/algorithm/
 
 ## ⚠️ Known Limitations
 
-- Interpreter error messages (e.g. *Division by zero*) are in English, as in the browser.
 - Questions with tests are not offered to random questions, because questions without tests need manual grading.
 - The editor inside the quiz also offers generated code and Import / Export of `.fprg` files.
 

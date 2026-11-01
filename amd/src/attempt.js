@@ -89,10 +89,16 @@ export const init = async(containerId, inputId, readonly, lang, emptyText, {temp
     const ws = workspace(container, lang, () => editor.zoom.autoFit());
 
     let panel = null;
+    // The editor reports its first drawing too: that is not a change by the student (opening a question with a
+    // template must not answer it, and a saved answer must not be marked as changed).
+    let started = false;
     editor = new AlgorithmEditor(container, {
         program: program || decode(template),
         lang,
         onChange: (current) => {
+            if (!started) {
+                return;
+            }
             // An empty diagram counts as no answer, so the question is reported as not complete.
             const value = countBlocks(current) > 0 ? serialize(current) : '';
             if (input.value !== value) {
@@ -104,6 +110,7 @@ export const init = async(containerId, inputId, readonly, lang, emptyText, {temp
             }
         },
     });
+    started = true;
     if (tests.length) {
         const host = document.createElement('div');
         host.className = 'qtype_algorithm_tests';

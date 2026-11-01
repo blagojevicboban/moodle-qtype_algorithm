@@ -11,205 +11,205 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p0",
+       "id": "nmvyeo4070",
        "type": "output",
        "expr": "7 / 2",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1",
+       "id": "nmvyeo4071",
        "type": "output",
        "expr": "1 / 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9p2",
+       "id": "nmvyeo4072",
        "type": "output",
        "expr": "2 / 3 * 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3",
+       "id": "nmvyeo4073",
        "type": "output",
        "expr": "0.1 + 0.2",
        "newline": true
       },
       {
-       "id": "nmvs14z9p4",
+       "id": "nmvyeo4074",
        "type": "output",
        "expr": "10 ^ 21",
        "newline": true
       },
       {
-       "id": "nmvs14z9p5",
+       "id": "nmvyeo4075",
        "type": "output",
        "expr": "10 ^ 20",
        "newline": true
       },
       {
-       "id": "nmvs14z9p6",
+       "id": "nmvyeo4076",
        "type": "output",
        "expr": "0.000001",
        "newline": true
       },
       {
-       "id": "nmvs14z9p7",
+       "id": "nmvyeo4077",
        "type": "output",
        "expr": "0.0000001",
        "newline": true
       },
       {
-       "id": "nmvs14z9p8",
+       "id": "nmvyeo4078",
        "type": "output",
        "expr": "-0.5",
        "newline": true
       },
       {
-       "id": "nmvs14z9p9",
+       "id": "nmvyeo4079",
        "type": "output",
        "expr": "2 ^ 0.5",
        "newline": true
       },
       {
-       "id": "nmvs14z9pa",
+       "id": "nmvyeo407a",
        "type": "output",
        "expr": "-7 / 2",
        "newline": true
       },
       {
-       "id": "nmvs14z9pb",
+       "id": "nmvyeo407b",
        "type": "output",
        "expr": "7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9pc",
+       "id": "nmvyeo407c",
        "type": "output",
        "expr": "-7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9pd",
+       "id": "nmvyeo407d",
        "type": "output",
        "expr": "7.5 mod 2",
        "newline": true
       },
       {
-       "id": "nmvs14z9pe",
+       "id": "nmvyeo407e",
        "type": "output",
        "expr": "2 ^ 60",
        "newline": true
       },
       {
-       "id": "nmvs14z9pf",
+       "id": "nmvyeo407f",
        "type": "output",
        "expr": "1 / 0.0001",
        "newline": true
       },
       {
-       "id": "nmvs14z9pg",
+       "id": "nmvyeo407g",
        "type": "output",
        "expr": "123456789 * 1000000",
        "newline": true
       },
       {
-       "id": "nmvs14z9ph",
+       "id": "nmvyeo407h",
        "type": "output",
        "expr": "0.1 * 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9pi",
+       "id": "nmvyeo407i",
        "type": "output",
        "expr": "100 / 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9pj",
+       "id": "nmvyeo407j",
        "type": "output",
        "expr": "Round(2.5)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pk",
+       "id": "nmvyeo407k",
        "type": "output",
        "expr": "Round(-2.5)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pl",
+       "id": "nmvyeo407l",
        "type": "output",
        "expr": "Int(-3.7)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pm",
+       "id": "nmvyeo407m",
        "type": "output",
        "expr": "Floor(-3.2)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pn",
+       "id": "nmvyeo407n",
        "type": "output",
        "expr": "Ceiling(3.2)",
        "newline": true
       },
       {
-       "id": "nmvs14z9po",
+       "id": "nmvyeo407o",
        "type": "output",
        "expr": "Abs(-4)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pp",
+       "id": "nmvyeo407p",
        "type": "output",
        "expr": "Sqrt(2)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pq",
+       "id": "nmvyeo407q",
        "type": "output",
        "expr": "Sqrt(-1)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pr",
+       "id": "nmvyeo407r",
        "type": "output",
        "expr": "Sign(-3)",
        "newline": true
       },
       {
-       "id": "nmvs14z9ps",
+       "id": "nmvyeo407s",
        "type": "output",
        "expr": "Log(10)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pt",
+       "id": "nmvyeo407t",
        "type": "output",
        "expr": "Exp(1)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pu",
+       "id": "nmvyeo407u",
        "type": "output",
        "expr": "Sin(Pi())",
        "newline": true
       },
       {
-       "id": "nmvs14z9pv",
+       "id": "nmvyeo407v",
        "type": "output",
        "expr": "Cos(0)",
        "newline": true
       },
       {
-       "id": "nmvs14z9pw",
+       "id": "nmvyeo407w",
        "type": "output",
        "expr": "3 - -2",
        "newline": true
       },
       {
-       "id": "nmvs14z9px",
+       "id": "nmvyeo407x",
        "type": "output",
        "expr": "- 2 ^ 2",
        "newline": true
@@ -235,181 +235,181 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9py",
+       "id": "nmvyeo407y",
        "type": "output",
        "expr": "\"a\" & 1 & true",
        "newline": true
       },
       {
-       "id": "nmvs14z9pz",
+       "id": "nmvyeo407z",
        "type": "output",
        "expr": "\"5\" + 3",
        "newline": true
       },
       {
-       "id": "nmvs14z9p10",
+       "id": "nmvyeo40710",
        "type": "output",
        "expr": "3 + \"5\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p11",
+       "id": "nmvyeo40711",
        "type": "output",
        "expr": "\"b\" < \"a\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p12",
+       "id": "nmvyeo40712",
        "type": "output",
        "expr": "\"10\" < \"9\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p13",
+       "id": "nmvyeo40713",
        "type": "output",
        "expr": "10 < 9",
        "newline": true
       },
       {
-       "id": "nmvs14z9p14",
+       "id": "nmvyeo40714",
        "type": "output",
        "expr": "\"abc\" = \"abc\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p15",
+       "id": "nmvyeo40715",
        "type": "output",
        "expr": "\"Č\" > \"Z\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p16",
+       "id": "nmvyeo40716",
        "type": "output",
        "expr": "Len(\"čćž\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p17",
+       "id": "nmvyeo40717",
        "type": "output",
        "expr": "Len(\"\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p18",
+       "id": "nmvyeo40718",
        "type": "output",
        "expr": "Char(\"Ana\", 2)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p19",
+       "id": "nmvyeo40719",
        "type": "output",
        "expr": "ToCode(\"Ш\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1a",
+       "id": "nmvyeo4071a",
        "type": "output",
        "expr": "ToChar(382)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1b",
+       "id": "nmvyeo4071b",
        "type": "output",
        "expr": "char(65)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1c",
+       "id": "nmvyeo4071c",
        "type": "output",
        "expr": "ToInt(\"12\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1d",
+       "id": "nmvyeo4071d",
        "type": "output",
        "expr": "ToInt(\" 7 \")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1e",
+       "id": "nmvyeo4071e",
        "type": "output",
        "expr": "ToReal(\"2.5\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1f",
+       "id": "nmvyeo4071f",
        "type": "output",
        "expr": "ToString(0.1 + 0.2)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1g",
+       "id": "nmvyeo4071g",
        "type": "output",
        "expr": "IsNumeric(\"1e3\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1h",
+       "id": "nmvyeo4071h",
        "type": "output",
        "expr": "IsNumeric(\"x\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1i",
+       "id": "nmvyeo4071i",
        "type": "output",
        "expr": "IsNumeric(\"\")",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1j",
+       "id": "nmvyeo4071j",
        "type": "output",
        "expr": "\"x\\ty\\n\" & \"z\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1k",
+       "id": "nmvyeo4071k",
        "type": "output",
        "expr": "1 = 1.0",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1l",
+       "id": "nmvyeo4071l",
        "type": "output",
        "expr": "\"1\" = 1",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1m",
+       "id": "nmvyeo4071m",
        "type": "output",
        "expr": "true = 1",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1n",
+       "id": "nmvyeo4071n",
        "type": "output",
        "expr": "not 0",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1o",
+       "id": "nmvyeo4071o",
        "type": "output",
        "expr": "not \"\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1p",
+       "id": "nmvyeo4071p",
        "type": "output",
        "expr": "not \"0\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1q",
+       "id": "nmvyeo4071q",
        "type": "output",
        "expr": "\"a\" <> \"b\" and 3 > 2 or false",
        "newline": true
       },
       {
-       "id": "nmvs14z9p1r",
+       "id": "nmvyeo4071r",
        "type": "output",
        "expr": "0.1 + 0.2 = 0.3",
        "newline": true
@@ -435,119 +435,119 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p1s",
+       "id": "nmvyeo4071s",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p1t",
+       "id": "nmvyeo4071t",
        "type": "declare",
        "name": "r",
        "varType": "Real",
        "size": ""
       },
       {
-       "id": "nmvs14z9p1u",
+       "id": "nmvyeo4071u",
        "type": "declare",
        "name": "s",
        "varType": "String",
        "size": ""
       },
       {
-       "id": "nmvs14z9p1v",
+       "id": "nmvyeo4071v",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
        "size": ""
       },
       {
-       "id": "nmvs14z9p1w",
+       "id": "nmvyeo4071w",
        "type": "assign",
        "target": "i",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvs14z9p1x",
+       "id": "nmvyeo4071x",
        "type": "assign",
        "target": "r",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvs14z9p1y",
+       "id": "nmvyeo4071y",
        "type": "assign",
        "target": "s",
        "expr": "7 / 3"
       },
       {
-       "id": "nmvs14z9p1z",
+       "id": "nmvyeo4071z",
        "type": "assign",
        "target": "b",
        "expr": "3 > 2"
       },
       {
-       "id": "nmvs14z9p20",
+       "id": "nmvyeo40720",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvs14z9p21",
+       "id": "nmvyeo40721",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvs14z9p22",
+       "id": "nmvyeo40722",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvs14z9p23",
+       "id": "nmvyeo40723",
        "type": "output",
        "expr": "b",
        "newline": true
       },
       {
-       "id": "nmvs14z9p24",
+       "id": "nmvyeo40724",
        "type": "output",
        "expr": "i & r & s & b",
        "newline": true
       },
       {
-       "id": "nmvs14z9p25",
+       "id": "nmvyeo40725",
        "type": "assign",
        "target": "i",
        "expr": "\"12\""
       },
       {
-       "id": "nmvs14z9p26",
+       "id": "nmvyeo40726",
        "type": "output",
        "expr": "i + 1",
        "newline": true
       },
       {
-       "id": "nmvs14z9p27",
+       "id": "nmvyeo40727",
        "type": "assign",
        "target": "i",
        "expr": "-2.9"
       },
       {
-       "id": "nmvs14z9p28",
+       "id": "nmvyeo40728",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvs14z9p29",
+       "id": "nmvyeo40729",
        "type": "assign",
        "target": "s",
        "expr": "0.1 + 0.2"
       },
       {
-       "id": "nmvs14z9p2a",
+       "id": "nmvyeo4072a",
        "type": "output",
        "expr": "s",
        "newline": true
@@ -573,7 +573,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2b",
+       "id": "nmvyeo4072b",
        "type": "output",
        "expr": "1e21",
        "newline": true
@@ -599,14 +599,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2c",
+       "id": "nmvyeo4072c",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p2d",
+       "id": "nmvyeo4072d",
        "type": "assign",
        "target": "i",
        "expr": "\"abc\""
@@ -632,14 +632,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2e",
+       "id": "nmvyeo4072e",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
        "size": ""
       },
       {
-       "id": "nmvs14z9p2f",
+       "id": "nmvyeo4072f",
        "type": "assign",
        "target": "b",
        "expr": "1"
@@ -665,7 +665,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2g",
+       "id": "nmvyeo4072g",
        "type": "assign",
        "target": "x",
        "expr": "1"
@@ -691,13 +691,13 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2h",
+       "id": "nmvyeo4072h",
        "type": "output",
        "expr": "\"before\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p2i",
+       "id": "nmvyeo4072i",
        "type": "output",
        "expr": "5 / 0",
        "newline": true
@@ -723,7 +723,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2j",
+       "id": "nmvyeo4072j",
        "type": "output",
        "expr": "5 mod 0",
        "newline": true
@@ -749,7 +749,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2k",
+       "id": "nmvyeo4072k",
        "type": "output",
        "expr": "1 +",
        "newline": true
@@ -775,7 +775,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2l",
+       "id": "nmvyeo4072l",
        "type": "output",
        "expr": "(1 + 2",
        "newline": true
@@ -801,7 +801,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2m",
+       "id": "nmvyeo4072m",
        "type": "output",
        "expr": "\"abc",
        "newline": true
@@ -827,7 +827,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2n",
+       "id": "nmvyeo4072n",
        "type": "output",
        "expr": "2 # 3",
        "newline": true
@@ -853,7 +853,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2o",
+       "id": "nmvyeo4072o",
        "type": "output",
        "expr": "Foo(1)",
        "newline": true
@@ -879,7 +879,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2p",
+       "id": "nmvyeo4072p",
        "type": "output",
        "expr": "Char(\"ab\", 5)",
        "newline": true
@@ -905,7 +905,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2q",
+       "id": "nmvyeo4072q",
        "type": "output",
        "expr": "ToCode(\"\")",
        "newline": true
@@ -931,19 +931,19 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2r",
+       "id": "nmvyeo4072r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p2t",
+       "id": "nmvyeo4072t",
        "type": "while",
        "cond": "true",
        "body": [
         {
-         "id": "nmvs14z9p2s",
+         "id": "nmvyeo4072s",
          "type": "assign",
          "target": "i",
          "expr": "i + 1"
@@ -971,14 +971,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p2u",
+       "id": "nmvyeo4072u",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p2x",
+       "id": "nmvyeo4072x",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -986,13 +986,13 @@
        "step": "3",
        "body": [
         {
-         "id": "nmvs14z9p2v",
+         "id": "nmvyeo4072v",
          "type": "output",
          "expr": "i",
          "newline": false
         },
         {
-         "id": "nmvs14z9p2w",
+         "id": "nmvyeo4072w",
          "type": "output",
          "expr": "\" \"",
          "newline": false
@@ -1000,13 +1000,13 @@
        ]
       },
       {
-       "id": "nmvs14z9p2y",
+       "id": "nmvyeo4072y",
        "type": "output",
        "expr": "\"\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9p30",
+       "id": "nmvyeo40730",
        "type": "for",
        "variable": "i",
        "start": "5",
@@ -1014,7 +1014,7 @@
        "step": "-2",
        "body": [
         {
-         "id": "nmvs14z9p2z",
+         "id": "nmvyeo4072z",
          "type": "output",
          "expr": "i",
          "newline": true
@@ -1022,7 +1022,7 @@
        ]
       },
       {
-       "id": "nmvs14z9p32",
+       "id": "nmvyeo40732",
        "type": "for",
        "variable": "j",
        "start": "1",
@@ -1030,7 +1030,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9p31",
+         "id": "nmvyeo40731",
          "type": "output",
          "expr": "\"never\"",
          "newline": true
@@ -1038,7 +1038,7 @@
        ]
       },
       {
-       "id": "nmvs14z9p34",
+       "id": "nmvyeo40734",
        "type": "for",
        "variable": "k",
        "start": "0",
@@ -1046,7 +1046,7 @@
        "step": "0.25",
        "body": [
         {
-         "id": "nmvs14z9p33",
+         "id": "nmvyeo40733",
          "type": "output",
          "expr": "k",
          "newline": true
@@ -1054,7 +1054,7 @@
        ]
       },
       {
-       "id": "nmvs14z9p35",
+       "id": "nmvyeo40735",
        "type": "output",
        "expr": "i",
        "newline": true
@@ -1080,7 +1080,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p36",
+       "id": "nmvyeo40736",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1098,6 +1098,92 @@
   "error": "For loop step cannot be 0"
  },
  {
+  "name": "array size limit",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyeo40737",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "100000"
+      },
+      {
+       "id": "nmvyeo40738",
+       "type": "output",
+       "expr": "Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvyeo40739",
+       "type": "declare",
+       "name": "b",
+       "varType": "Integer",
+       "size": "100001"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "100000\n",
+  "after": "100000\n",
+  "error": "Array size 100001 is larger than 100000"
+ },
+ {
+  "name": "array size from text",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyeo4083a",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "\"abc\""
+      },
+      {
+       "id": "nmvyeo4083b",
+       "type": "output",
+       "expr": "Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvyeo4083c",
+       "type": "declare",
+       "name": "b",
+       "varType": "Real",
+       "size": "2.7"
+      },
+      {
+       "id": "nmvyeo4083d",
+       "type": "output",
+       "expr": "Len(b)",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "0\n2\n",
+  "after": "0\n2\n",
+  "error": null
+ },
+ {
   "name": "arrays",
   "program": {
    "version": 1,
@@ -1109,21 +1195,21 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p37",
+       "id": "nmvyeo4083e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
        "size": "5"
       },
       {
-       "id": "nmvs14z9p38",
+       "id": "nmvyeo4083f",
        "type": "declare",
        "name": "t",
        "varType": "String",
        "size": "2"
       },
       {
-       "id": "nmvs14z9p3a",
+       "id": "nmvyeo4083h",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -1131,7 +1217,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9p39",
+         "id": "nmvyeo4083g",
          "type": "assign",
          "target": "a[i]",
          "expr": "i * i"
@@ -1139,43 +1225,43 @@
        ]
       },
       {
-       "id": "nmvs14z9p3b",
+       "id": "nmvyeo4083i",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3c",
+       "id": "nmvyeo4083j",
        "type": "output",
        "expr": "a[4]",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3d",
+       "id": "nmvyeo4083k",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3e",
+       "id": "nmvyeo4083l",
        "type": "output",
        "expr": "t",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3f",
+       "id": "nmvyeo4083m",
        "type": "output",
        "expr": "Len(t)",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3g",
+       "id": "nmvyeo4083n",
        "type": "output",
        "expr": "a[1] + a[2]",
        "newline": true
       },
       {
-       "id": "nmvs14z9p3h",
+       "id": "nmvyeo4083o",
        "type": "output",
        "expr": "a[5]",
        "newline": true
@@ -1201,14 +1287,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p3i",
+       "id": "nmvyeo4083p",
        "type": "declare",
        "name": "x",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3j",
+       "id": "nmvyeo4083q",
        "type": "output",
        "expr": "x[0]",
        "newline": true
@@ -1234,73 +1320,73 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p3k",
+       "id": "nmvyeo4083r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3l",
+       "id": "nmvyeo4083s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3m",
+       "id": "nmvyeo4083t",
        "type": "declare",
        "name": "s",
        "varType": "String",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3n",
+       "id": "nmvyeo4083u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3o",
+       "id": "nmvyeo4083v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvs14z9q3p",
+       "id": "nmvyeo4083w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvs14z9q3q",
+       "id": "nmvyeo4083x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvs14z9q3r",
+       "id": "nmvyeo4083y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvs14z9q3s",
+       "id": "nmvyeo4083z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3t",
+       "id": "nmvyeo40840",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3u",
+       "id": "nmvyeo40841",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3v",
+       "id": "nmvyeo40842",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1326,73 +1412,73 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p3k",
+       "id": "nmvyeo4083r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3l",
+       "id": "nmvyeo4083s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3m",
+       "id": "nmvyeo4083t",
        "type": "declare",
        "name": "s",
        "varType": "String",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3n",
+       "id": "nmvyeo4083u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3o",
+       "id": "nmvyeo4083v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvs14z9q3p",
+       "id": "nmvyeo4083w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvs14z9q3q",
+       "id": "nmvyeo4083x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvs14z9q3r",
+       "id": "nmvyeo4083y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvs14z9q3s",
+       "id": "nmvyeo4083z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3t",
+       "id": "nmvyeo40840",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3u",
+       "id": "nmvyeo40841",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3v",
+       "id": "nmvyeo40842",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1418,73 +1504,73 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9p3k",
+       "id": "nmvyeo4083r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3l",
+       "id": "nmvyeo4083s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3m",
+       "id": "nmvyeo4083t",
        "type": "declare",
        "name": "s",
        "varType": "String",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3n",
+       "id": "nmvyeo4083u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
        "size": ""
       },
       {
-       "id": "nmvs14z9p3o",
+       "id": "nmvyeo4083v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvs14z9q3p",
+       "id": "nmvyeo4083w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvs14z9q3q",
+       "id": "nmvyeo4083x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvs14z9q3r",
+       "id": "nmvyeo4083y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvs14z9q3s",
+       "id": "nmvyeo4083z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3t",
+       "id": "nmvyeo40840",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3u",
+       "id": "nmvyeo40841",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvs14z9q3v",
+       "id": "nmvyeo40842",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1510,14 +1596,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3w",
+       "id": "nmvyeo40843",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3x",
+       "id": "nmvyeo40844",
        "type": "input",
        "target": "i"
       }
@@ -1542,14 +1628,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3w",
+       "id": "nmvyeo40843",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3x",
+       "id": "nmvyeo40844",
        "type": "input",
        "target": "i"
       }
@@ -1574,14 +1660,14 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3w",
+       "id": "nmvyeo40843",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3x",
+       "id": "nmvyeo40844",
        "type": "input",
        "target": "i"
       }
@@ -1606,32 +1692,32 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3y",
+       "id": "nmvyeo40845",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3z",
+       "id": "nmvyeo40846",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q40",
+       "id": "nmvyeo40847",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9q41",
+       "id": "nmvyeo40848",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvs14z9q45",
+       "id": "nmvyeo4084c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1639,18 +1725,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9q42",
+         "id": "nmvyeo40849",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvs14z9q43",
+         "id": "nmvyeo4084a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q44",
+         "id": "nmvyeo4084b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1658,7 +1744,7 @@
        ]
       },
       {
-       "id": "nmvs14z9q46",
+       "id": "nmvyeo4084d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1684,32 +1770,32 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3y",
+       "id": "nmvyeo40845",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3z",
+       "id": "nmvyeo40846",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q40",
+       "id": "nmvyeo40847",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9q41",
+       "id": "nmvyeo40848",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvs14z9q45",
+       "id": "nmvyeo4084c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1717,18 +1803,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9q42",
+         "id": "nmvyeo40849",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvs14z9q43",
+         "id": "nmvyeo4084a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q44",
+         "id": "nmvyeo4084b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1736,7 +1822,7 @@
        ]
       },
       {
-       "id": "nmvs14z9q46",
+       "id": "nmvyeo4084d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1762,32 +1848,32 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3y",
+       "id": "nmvyeo40845",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3z",
+       "id": "nmvyeo40846",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q40",
+       "id": "nmvyeo40847",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9q41",
+       "id": "nmvyeo40848",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvs14z9q45",
+       "id": "nmvyeo4084c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1795,18 +1881,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9q42",
+         "id": "nmvyeo40849",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvs14z9q43",
+         "id": "nmvyeo4084a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q44",
+         "id": "nmvyeo4084b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1814,7 +1900,7 @@
        ]
       },
       {
-       "id": "nmvs14z9q46",
+       "id": "nmvyeo4084d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1840,32 +1926,32 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q3y",
+       "id": "nmvyeo40845",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q3z",
+       "id": "nmvyeo40846",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q40",
+       "id": "nmvyeo40847",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9q41",
+       "id": "nmvyeo40848",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvs14z9q45",
+       "id": "nmvyeo4084c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1873,18 +1959,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9q42",
+         "id": "nmvyeo40849",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvs14z9q43",
+         "id": "nmvyeo4084a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q44",
+         "id": "nmvyeo4084b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1892,7 +1978,7 @@
        ]
       },
       {
-       "id": "nmvs14z9q46",
+       "id": "nmvyeo4084d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1918,36 +2004,36 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q47",
+       "id": "nmvyeo4084e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q48",
+       "id": "nmvyeo4084f",
        "type": "output",
        "expr": "\"x\"",
        "newline": true
       },
       {
-       "id": "nmvs14z9q49",
+       "id": "nmvyeo4084g",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvs14z9q4a",
+       "id": "nmvyeo4084h",
        "type": "output",
        "expr": "\"y \" & a",
        "newline": false
       },
       {
-       "id": "nmvs14z9q4b",
+       "id": "nmvyeo4084i",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvs14z9q4c",
+       "id": "nmvyeo4084j",
        "type": "output",
        "expr": "\"z \" & a",
        "newline": false
@@ -1973,49 +2059,49 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q4d",
+       "id": "nmvyeo4084k",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
        "size": "3"
       },
       {
-       "id": "nmvs14z9q4e",
+       "id": "nmvyeo4084l",
        "type": "assign",
        "target": "a[0]",
        "expr": "5"
       },
       {
-       "id": "nmvs14z9q4f",
+       "id": "nmvyeo4084m",
        "type": "call",
        "expr": "Fill(a, 7)"
       },
       {
-       "id": "nmvs14z9q4g",
+       "id": "nmvyeo4084n",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvs14z9q4h",
+       "id": "nmvyeo4084o",
        "type": "output",
        "expr": "Fact(10)",
        "newline": true
       },
       {
-       "id": "nmvs14z9q4i",
+       "id": "nmvyeo4084p",
        "type": "output",
        "expr": "Fib(15)",
        "newline": true
       },
       {
-       "id": "nmvs14z9q4j",
+       "id": "nmvyeo4084q",
        "type": "output",
        "expr": "NoReturn()",
        "newline": true
       },
       {
-       "id": "nmvs14z9q4k",
+       "id": "nmvyeo4084r",
        "type": "output",
        "expr": "Half(7)",
        "newline": true
@@ -2038,7 +2124,7 @@
      "returnType": "",
      "body": [
       {
-       "id": "nmvs14z9q4m",
+       "id": "nmvyeo4084t",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -2046,7 +2132,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvs14z9q4l",
+         "id": "nmvyeo4084s",
          "type": "assign",
          "target": "x[i]",
          "expr": "v"
@@ -2066,19 +2152,19 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvs14z9q4p",
+       "id": "nmvyeo4084w",
        "type": "if",
        "cond": "n <= 1",
        "then": [
         {
-         "id": "nmvs14z9q4n",
+         "id": "nmvyeo4084u",
          "type": "return",
          "expr": "1"
         }
        ],
        "else": [
         {
-         "id": "nmvs14z9q4o",
+         "id": "nmvyeo4084v",
          "type": "return",
          "expr": "n * Fact(n - 1)"
         }
@@ -2097,12 +2183,12 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvs14z9q4r",
+       "id": "nmvyeo4084y",
        "type": "if",
        "cond": "n < 2",
        "then": [
         {
-         "id": "nmvs14z9q4q",
+         "id": "nmvyeo4084x",
          "type": "return",
          "expr": "n"
         }
@@ -2110,7 +2196,7 @@
        "else": []
       },
       {
-       "id": "nmvs14z9q4s",
+       "id": "nmvyeo4084z",
        "type": "return",
        "expr": "Fib(n - 1) + Fib(n - 2)"
       }
@@ -2133,7 +2219,7 @@
      "returnType": "Real",
      "body": [
       {
-       "id": "nmvs14z9q4t",
+       "id": "nmvyeo40850",
        "type": "return",
        "expr": "n / 2"
       }
@@ -2158,7 +2244,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q4u",
+       "id": "nmvyeo40851",
        "type": "output",
        "expr": "Two(1)",
        "newline": true
@@ -2198,24 +2284,24 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q4v",
+       "id": "nmvyeo40852",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q4y",
+       "id": "nmvyeo40855",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvs14z9q4w",
+         "id": "nmvyeo40853",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q4x",
+         "id": "nmvyeo40854",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2243,24 +2329,24 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q4v",
+       "id": "nmvyeo40852",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q4y",
+       "id": "nmvyeo40855",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvs14z9q4w",
+         "id": "nmvyeo40853",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q4x",
+         "id": "nmvyeo40854",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2288,24 +2374,24 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvs14z9q4v",
+       "id": "nmvyeo40852",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
        "size": ""
       },
       {
-       "id": "nmvs14z9q4y",
+       "id": "nmvyeo40855",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvs14z9q4w",
+         "id": "nmvyeo40853",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvs14z9q4x",
+         "id": "nmvyeo40854",
          "type": "output",
          "expr": "n * 2",
          "newline": true

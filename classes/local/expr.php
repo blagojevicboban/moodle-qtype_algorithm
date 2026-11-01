@@ -50,7 +50,7 @@ class expr {
         $parser->toks = self::tokenize($src);
         $ast = $parser->parse_or();
         if ($parser->p < count($parser->toks)) {
-            throw new algorithm_error("Unexpected '" . js::to_string($parser->toks[$parser->p]['v']) . "'");
+            throw new algorithm_error('unexpected', ['token' => js::to_string($parser->toks[$parser->p]['v'])]);
         }
         return $ast;
     }
@@ -95,7 +95,7 @@ class expr {
                     $j++;
                 }
                 if ($j >= $len) {
-                    throw new algorithm_error('Unterminated string');
+                    throw new algorithm_error('unterminated');
                 }
                 $tokens[] = ['t' => 'str', 'v' => $s];
                 $i = $j + 1;
@@ -123,7 +123,7 @@ class expr {
                     $tokens[] = ['t' => 'op', 'v' => $c];
                     $i++;
                 } else {
-                    throw new algorithm_error("Unexpected character '{$c}'");
+                    throw new algorithm_error('badchar', ['c' => $c]);
                 }
             }
         }
@@ -149,7 +149,7 @@ class expr {
      */
     protected function expect_op(string $op): void {
         if (!$this->is_op($op)) {
-            throw new algorithm_error("Expected '{$op}'");
+            throw new algorithm_error('expected', ['op' => $op]);
         }
         $this->p++;
     }
@@ -178,7 +178,7 @@ class expr {
     protected function primary(): array {
         $t = $this->toks[$this->p++] ?? null;
         if ($t === null) {
-            throw new algorithm_error('Unexpected end of expression');
+            throw new algorithm_error('unexpectedend');
         }
         if ($t['t'] === 'num') {
             return ['k' => 'num', 'v' => $t['v'], 'int' => $t['int']];
@@ -211,7 +211,7 @@ class expr {
             $this->expect_op(')');
             return $e;
         }
-        throw new algorithm_error("Unexpected '" . js::to_string($t['v']) . "'");
+        throw new algorithm_error('unexpected', ['token' => js::to_string($t['v'])]);
     }
 
     /**

@@ -25,6 +25,9 @@ namespace qtype_algorithm\local;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class interpreter {
+    /** Largest array a Declare block may create (as MAX_ARRAY_SIZE in tiny_algorithm/interpreter). */
+    const MAX_ARRAY_SIZE = 100000;
+
     /** @var array the algorithm model */
     protected array $program;
 
@@ -74,7 +77,7 @@ class interpreter {
         $this->input = $input;
         $functions = $this->program['functions'] ?? [];
         if (!$functions) {
-            throw new algorithm_error('Bad expression');
+            throw new algorithm_error('badexpression');
         }
         $main = $this->funcs['main'] ?? $functions[0];
         $this->call_function($main, []);
@@ -146,17 +149,17 @@ class interpreter {
         switch ($type) {
             case 'Integer':
                 if ($bad) {
-                    throw new algorithm_error("Cannot assign '" . js::to_string($value) . "' to Integer {$name}");
+                    throw new algorithm_error('assigninteger', ['value' => js::to_string($value), 'name' => $name]);
                 }
                 return js::trunc(js::to_number($value));
             case 'Real':
                 if ($bad) {
-                    throw new algorithm_error("Cannot assign '" . js::to_string($value) . "' to Real {$name}");
+                    throw new algorithm_error('assignreal', ['value' => js::to_string($value), 'name' => $name]);
                 }
                 return js::to_number($value);
             case 'Boolean':
                 if (!is_bool($value)) {
-                    throw new algorithm_error("Cannot assign '" . js::to_string($value) . "' to Boolean {$name}");
+                    throw new algorithm_error('assignboolean', ['value' => js::to_string($value), 'name' => $name]);
                 }
                 return $value;
             default:
@@ -169,7 +172,7 @@ class interpreter {
      */
     protected function tick(): void {
         if (++$this->steps > $this->maxsteps) {
-            throw new algorithm_error('Step limit exceeded (possible infinite loop)');
+            throw new algorithm_error('steplimit');
         }
     }
 
@@ -183,7 +186,7 @@ class interpreter {
     protected static function lookup(array $env, string $name): \stdClass {
         $v = $env[strtolower($name)] ?? null;
         if (!$v) {
-            throw new algorithm_error("Variable '{$name}' is not declared");
+            throw new algorithm_error('notdeclared', ['name' => $name]);
         }
         return $v;
     }
@@ -198,11 +201,11 @@ class interpreter {
     protected function array_index(array $n, array $env): array {
         $v = self::lookup($env, $n['name']);
         if (!($v->value instanceof js_array)) {
-            throw new algorithm_error("'{$n['name']}' is not an array");
+            throw new algorithm_error('notarray', ['name' => $n['name']]);
         }
         $i = $this->eval_node($n['index'], $env);
         if (js::compare($i, 0.0) === -1 || in_array(js::compare($i, (float) count($v->value->items)), [0, 1], true)) {
-            throw new algorithm_error('Index ' . js::to_string($i) . " out of range for '{$n['name']}'");
+            throw new algorithm_error('indexrange', ['index' => js::to_string($i), 'name' => $n['name']]);
         }
         return [$v, $i];
     }
@@ -242,7 +245,7 @@ class interpreter {
             case '/':
             case '%':
                 if (is_float($r) && $r == 0) {
-                    throw new algorithm_error('Division by zero');
+                    throw new algorithm_error('divzero');
                 }
                 $a = js::to_number($l);
                 $b = js::to_number($r);
@@ -262,7 +265,7 @@ class interpreter {
             case '>=':
                 return in_array(js::compare($l, $r), [0, 1], true);
             default:
-                throw new algorithm_error("Bad operator {$op}");
+                throw new algorithm_error('badoperator', ['op' => $op]);
         }
     }
 
@@ -313,14 +316,14 @@ class interpreter {
                 $text = js::to_string($a);
                 $k = js::to_number($args[1]);
                 if (!js::is_integer($k) || $k < 0 || $k >= js::length($text)) {
-                    throw new algorithm_error('Char: index ' . js::to_string($args[1]) . " is outside the string \"{$text}\"");
+                    throw new algorithm_error('charindex', ['index' => js::to_string($args[1]), 'text' => $text]);
                 }
                 return js::char_at($text, (int) $k);
             case 'tochar':
                 return js::from_char_code($a);
             case 'tocode':
                 if (js::to_string($a) === '') {
-                    throw new algorithm_error('ToCode: empty string');
+                    throw new algorithm_error('tocodeempty');
                 }
                 return (float) js::code_at(js::to_string($a), 0);
             case 'toint':
@@ -386,9 +389,9 @@ class interpreter {
                 if (in_array($lname, self::BUILTINS, true)) {
                     return self::builtin($lname, $args);
                 }
-                throw new algorithm_error("Unknown function '{$n['name']}'");
+                throw new algorithm_error('unknownfunction', ['name' => $n['name']]);
             default:
-                throw new algorithm_error('Bad expression');
+                throw new algorithm_error('badexpression');
         }
     }
 
@@ -422,7 +425,7 @@ class interpreter {
                 $v->value->items[(int) $i] = $value;
             }
         } else {
-            throw new algorithm_error('Invalid assignment target');
+            throw new algorithm_error('badtarget');
         }
     }
 
@@ -460,7 +463,7 @@ class interpreter {
         } else if ($decl->type !== 'String') {
             $val = js::to_number($text);
             if (js::trim($text) === '' || is_nan($val)) {
-                throw new algorithm_error("'{$text}' is not a valid {$decl->type}");
+                throw new algorithm_error('invalidinput', ['text' => $text, 'type' => $decl->type]);
             }
         }
         $this->assign($b['target'], $val, $env);
@@ -478,7 +481,7 @@ class interpreter {
         $end = $this->eval_str($b['end'] ?? '', $env);
         $step = self::has_text($b['step'] ?? null) ? $this->eval_str($b['step'], $env) : 1.0;
         if (is_float($step) && $step == 0) {
-            throw new algorithm_error('For loop step cannot be 0');
+            throw new algorithm_error('forstepzero');
         }
         $key = strtolower((string) ($b['variable'] ?? ''));
         if (!isset($env[$key])) {
@@ -511,6 +514,10 @@ class interpreter {
         switch ($b['type'] ?? '') {
             case 'declare':
                 $size = self::has_text($b['size'] ?? null) ? $this->eval_str($b['size'], $env) : null;
+                if ($size !== null && js::to_number($size) > self::MAX_ARRAY_SIZE) {
+                    throw new algorithm_error('arraysize', ['size' => js::to_string($size),
+                        'max' => (string) self::MAX_ARRAY_SIZE]);
+                }
                 $names = array_filter(array_map('trim', explode(',', js::to_string($b['name'] ?? ''))), 'strlen');
                 foreach ($names as $nm) {
                     $type = $b['varType'] ?? null;
@@ -518,7 +525,7 @@ class interpreter {
                         $value = self::default_value($type);
                     } else {
                         $length = js::to_number($size);
-                        $length = is_nan($length) || $length < 0 ? 0 : (int) min(js::trunc($length), 10000000);
+                        $length = is_nan($length) || $length < 0 ? 0 : (int) js::trunc($length);
                         $value = new js_array(array_fill(0, $length, self::default_value($type)));
                     }
                     $env[strtolower($nm)] = (object) ['name' => $nm, 'type' => $type, 'value' => $value];
@@ -576,7 +583,7 @@ class interpreter {
     protected function call_function(array $fn, array $args) {
         $params = $fn['params'] ?? [];
         if (count($args) !== count($params)) {
-            throw new algorithm_error("Function '{$fn['name']}' expects " . count($params) . ' argument(s)');
+            throw new algorithm_error('argcount', ['name' => $fn['name'], 'count' => (string)count($params)]);
         }
         $env = [];
         foreach ($params as $i => $p) {

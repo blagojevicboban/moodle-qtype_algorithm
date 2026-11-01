@@ -63,6 +63,15 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
 
+    /** Longest stored response (base64 encoded JSON) that is decoded. */
+    const MAX_ANSWER_LENGTH = 500000;
+
+    /** Most blocks a response may have. */
+    const MAX_BLOCKS = 2000;
+
+    /** Deepest JSON nesting of a response (blocks inside loops and branches). */
+    const MAX_DEPTH = 64;
+
     /**
      * Is the question graded automatically (it has a solution and tests)?
      *
@@ -115,7 +124,7 @@ class qtype_algorithm_question extends question_graded_automatically {
     public function test_results(array $response): array {
         $answer = (string) ($response['answer'] ?? '');
         if (!array_key_exists($answer, $this->resultcache)) {
-            $model = self::decode_answer($answer);
+            $model = $this->is_too_large($response) ? null : self::decode_answer($answer);
             $this->resultcache[$answer] = $model ? tester::run_tests(
                 $model,
                 $this->tests,
@@ -162,11 +171,11 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return array|null the model, or null when it is empty or invalid
      */
     public static function decode_answer(string $answer): ?array {
-        if ($answer === '') {
+        if ($answer === '' || strlen($answer) > self::MAX_ANSWER_LENGTH) {
             return null;
         }
         $json = base64_decode($answer, true);
-        $model = $json === false ? null : json_decode($json, true);
+        $model = $json === false ? null : json_decode($json, true, self::MAX_DEPTH);
         if (!is_array($model) || empty($model['functions']) || !is_array($model['functions'])) {
             return null;
         }
@@ -247,13 +256,24 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
-     * A response is complete when the diagram has at least one block.
+     * A response is complete when the diagram has at least one block and is not too large.
      *
      * @param array $response the response
      * @return bool
      */
     public function is_complete_response(array $response) {
-        return $this->blocks_in_response($response) > 0;
+        return $this->blocks_in_response($response) > 0 && !$this->is_too_large($response);
+    }
+
+    /**
+     * Is the response larger than the question type accepts?
+     *
+     * @param array $response the response
+     * @return bool
+     */
+    public function is_too_large(array $response): bool {
+        return strlen((string) ($response['answer'] ?? '')) > self::MAX_ANSWER_LENGTH ||
+            $this->blocks_in_response($response) > self::MAX_BLOCKS;
     }
 
     /**
@@ -273,6 +293,9 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return string
      */
     public function get_validation_error(array $response) {
+        if ($this->is_too_large($response)) {
+            return get_string('toolarge', 'qtype_algorithm', self::MAX_BLOCKS);
+        }
         return $this->is_complete_response($response) ? '' : get_string('pleasedrawalgorithm', 'qtype_algorithm');
     }
 

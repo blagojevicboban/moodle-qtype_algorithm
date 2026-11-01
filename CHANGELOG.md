@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.1.0 – 2026-11-01 (stable)
+
+- **Translated error messages:** `algorithm_error` has a code and values; `localized()` gives the message in the user's
+  language from the `ui_e_*` strings of tiny_algorithm, so the test results of the review are translated too. The English
+  message is unchanged and the parity check still compares it with the browser.
+- **Limits:** an answer may have at most 2000 blocks (`MAX_BLOCKS`), 500000 characters and a JSON depth of 64; a larger
+  answer is not complete and the student sees why (new string `toolarge`). Arrays are limited to 100000 elements
+  (`interpreter::MAX_ARRAY_SIZE`, before 10 million) in both interpreters.
+- **Fixed:** opening a question with a starting template filled in the answer, so the question counted as answered without
+  any change; a saved answer could also be sent again as changed when the page loaded. The first drawing of the editor is
+  no longer reported as a change.
+- Enter in a field of the editor no longer submits the quiz page (tiny_algorithm 1.1.0); the question can be answered with
+  the keyboard only.
+- PHPUnit tests: question (decoding, completeness, limits, grading, required structures), question type (computed tests,
+  Moodle XML round trip) and tester (output, localized errors). New parity fixtures for the array limit.
+- `privacy:metadata` mentions the display settings in the browser's local storage. Screenshots in `docs/screenshots/`.
+- Serbian translations are ekavian (rešenje, vrednost, posle, ocena).
+- Requires `tiny_algorithm` 1.1.0 (2026110100).
+
 ## 1.0.0 – 2026-10-31 (stable)
 
 - **Stable release.**
