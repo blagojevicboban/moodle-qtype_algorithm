@@ -33,10 +33,10 @@ import {t as tr} from 'tiny_algorithm/strings';
  */
 export const workspace = (element, lang, onResize = null) => {
     const root = document.createElement('div');
-    root.className = 'alg-workspace qtype_algorithm_workspace';
+    root.className = 'tiny_algorithm-workspace qtype_algorithm_workspace';
     root.tabIndex = -1;
     const bar = document.createElement('div');
-    bar.className = 'alg-ws-bar';
+    bar.className = 'tiny_algorithm-ws-bar';
     element.before(root);
     root.append(bar, element);
 
@@ -52,7 +52,7 @@ export const workspace = (element, lang, onResize = null) => {
 
     let full = null;
     const setFullscreen = (on) => {
-        root.classList.toggle('alg-fullscreen', on);
+        root.classList.toggle('tiny_algorithm-fullscreen', on);
         full.textContent = tr(on ? 'exitfullscreen' : 'fullscreen', lang);
         full.setAttribute('aria-pressed', on ? 'true' : 'false');
         if (on) {
@@ -63,7 +63,7 @@ export const workspace = (element, lang, onResize = null) => {
         }
     };
     full = button('fullscreen', () => {
-        const on = !root.classList.contains('alg-fullscreen');
+        const on = !root.classList.contains('tiny_algorithm-fullscreen');
         if (on && root.requestFullscreen) {
             root.requestFullscreen().catch(() => null);
         } else if (!on && document.fullscreenElement === root) {
@@ -72,12 +72,12 @@ export const workspace = (element, lang, onResize = null) => {
         setFullscreen(on);
     });
     document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement && root.classList.contains('alg-fullscreen')) {
+        if (!document.fullscreenElement && root.classList.contains('tiny_algorithm-fullscreen')) {
             setFullscreen(false);
         }
     });
     root.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && root.classList.contains('alg-fullscreen') && !document.fullscreenElement) {
+        if (e.key === 'Escape' && root.classList.contains('tiny_algorithm-fullscreen') && !document.fullscreenElement) {
             setFullscreen(false);
         }
     });

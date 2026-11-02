@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 – 2026-11-02 (stable)
+
+- With tiny_algorithm 1.2.0: renaming a function in the answer also renames its calls.
+- CSS classes renamed from `alg-*` to `tiny_algorithm-*` (full screen workspace).
+- Requires `tiny_algorithm` 1.2.0 (2026110201).
+
 ## 1.1.0 – 2026-11-01 (stable)
 
 - **Translated error messages:** `algorithm_error` has a code and values; `localized()` gives the message in the user's
