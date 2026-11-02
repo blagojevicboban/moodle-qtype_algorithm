@@ -73,6 +73,7 @@ class interpreter {
      * Run the algorithm.
      *
      * @param callable $input function (string $name, string $type): string giving the next input; it may throw
+     * @param string|null $call a call such as Sum(2, 3) to evaluate instead of running the main function
      * @return array output pieces [text, number of inputs read before it]
      * @throws algorithm_error when the algorithm stops with an error ($this->output() still has what it wrote)
      */

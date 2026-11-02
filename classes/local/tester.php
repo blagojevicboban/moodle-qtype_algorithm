@@ -196,6 +196,7 @@ class tester {
      *
      * @param string $expected expected output
      * @param string $actual actual output
+     * @param array $check comparison options, see same_line()
      * @return int
      */
     public static function first_diff_line(string $expected, string $actual, array $check = []): int {
