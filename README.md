@@ -11,7 +11,7 @@ before submitting. It uses the flowchart editor of
 the algorithm runs on the server on the inputs of every test and its output is compared with the output of the teacher's
 solution. Without tests the teacher grades it manually.
 
-> Status: **stable** (1.0).
+> Status: **stable** (2.0).
 
 ## ✨ Features
 
@@ -20,10 +20,13 @@ solution. Without tests the teacher grades it manually.
 | ✏️ **Draw the Algorithm** | The same editor as in TinyMCE: all block types, several functions, undo / redo |
 | ▶️ **Run Before Submitting** | Run / Step with a console, variable watch and generated code (Python, C, C++, Java, C#, JavaScript, Pascal) |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
-| ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests (or all or nothing) |
-| 🔍 **Flexible Comparison** | Whole output, or only the output after the last input, and optionally only the numbers in it (students may write any text around them) |
+| ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests by their weight (or all or nothing) |
+| 🧮 **Function Tests** | A test can call one function of the algorithm with arguments, e.g. `Sum(2, 3)`, and compare the value it returns |
+| 🔍 **Flexible Comparison** | Whole output, or only the output after the last input, and optionally only the numbers in it (students may write any text around them); capital letters and extra spaces can be ignored, numbers can have a tolerance |
+| 💡 **Hints and Several Tries** | With the interactive behaviour the student gets your hints and the test results after each try |
+| 📊 **Statistics per Test** | The response analysis of the quiz statistics shows how many answers passed each test |
 | 🙈 **Hidden Tests** | Graded, but students see only whether they passed |
-| 🧱 **Required Structures** | If, For, While, Do loop, array: an answer without them gets no marks |
+| 🧱 **Required Structures** | If, For, While, Do loop, array, matrix: an answer without them gets no marks |
 | 🧪 **Test While Working** | Students run the visible tests in the browser; the server runs the same interpreter (PHP port, checked against the browser on every release) |
 | ⛶ **Full Screen** | The editor (with the tests) can fill the screen, in the quiz and in the question form |
 | 🧩 **Starting Template** | Students can start from a given diagram instead of an empty one |
@@ -43,12 +46,14 @@ solution. Without tests the teacher grades it manually.
 |---|---|
 | **Attempt: the student fixes the algorithm and runs the tests** | **Edit form: the teacher's solution and the starting template** |
 | ![Attempt](docs/screenshots/quiz-attempt.png) | ![Edit form](docs/screenshots/edit-solution-tests.png) |
+| **Interactive behaviour: test results, weights and a hint** | |
+| ![Interactive](docs/screenshots/quiz-interactive.png) | |
 
 ## 📋 Requirements
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 1.2.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.0.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
@@ -122,7 +127,6 @@ question/type/algorithm/
 
 ## ⚠️ Known Limitations
 
-- Questions with tests are not offered to random questions, because questions without tests need manual grading.
 - The editor inside the quiz also offers generated code and Import / Export of `.fprg` files.
 
 ## 🌍 Languages

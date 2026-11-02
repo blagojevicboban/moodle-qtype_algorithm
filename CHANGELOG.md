@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.0 – 2026-11-02 (stable)
+
+- **Weights:** a test has a `weight` (1 by default); the grade is the share of the passed weight. The results table has a
+  weight column when the weights differ.
+- **Function tests:** a test with `call` calls one function of the algorithm with the inputs as arguments and compares the
+  value it returns (`tester::call_text`, `interpreter::run($input, $call)`, `result()`), exactly as in the browser.
+- **Comparison options:** `ignorecase`, `ignorespaces` and `tolerance` (new columns, upgrade step 2026110202, form, rules
+  shown to the student, Moodle XML, backup).
+- **Interactive behaviour with several tries:** hints and penalty in the form; hints are saved, exported and imported.
+- **Response analysis:** `classify_response` and `get_possible_responses` give for every test passed, different output or
+  error, so the quiz statistics show which tests fail most.
+- Random questions may pick algorithm questions (`is_usable_by_random`).
+- **Matrices** in the PHP interpreter (same as the browser, new error code `dimensions`) and the required structure
+  `matrix`.
+- Parity fixtures for matrices and function calls (60 runs); PHPUnit for weights, function tests, comparison,
+  classify_response, XML with the new fields and a hint, matrices.
+- Requires `tiny_algorithm` 2.0.0 (2026110203).
+
 ## 1.2.0 – 2026-11-02 (stable)
 
 - With tiny_algorithm 1.2.0: renaming a function in the answer also renames its calls.
