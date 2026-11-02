@@ -10,12 +10,15 @@
         <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Foreign key linking to the question table."/>
         <FIELD NAME="solution" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The teacher's algorithm (base64 encoded JSON); the expected outputs come from it."/>
         <FIELD NAME="template" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Algorithm students start from (base64 encoded JSON), empty for an empty diagram."/>
-        <FIELD NAME="tests" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON list of tests: inputs, hidden, expected (computed from the solution). No tests: graded manually."/>
+        <FIELD NAME="tests" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="JSON list of tests: inputs, hidden, weight, call (function tests), expected (computed from the solution). No tests: graded manually."/>
         <FIELD NAME="afterinput" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 to compare only the output written after the last input."/>
         <FIELD NAME="numbers" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 to compare only the numbers in the output."/>
-        <FIELD NAME="structures" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Comma separated structures the algorithm must use: if, for, while, dowhile, array."/>
+        <FIELD NAME="structures" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Comma separated structures the algorithm must use: if, for, while, dowhile, array, matrix."/>
         <FIELD NAME="showtests" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="1 to let students run the tests that are not hidden during the attempt."/>
-        <FIELD NAME="grademethod" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="0: share of passed tests, 1: all tests must pass."/>
+        <FIELD NAME="grademethod" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="0: share of passed tests (by weight), 1: all tests must pass."/>
+        <FIELD NAME="ignorecase" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when capital and small letters are the same in the comparison."/>
+        <FIELD NAME="ignorespaces" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when extra spaces do not count in the comparison."/>
+        <FIELD NAME="tolerance" TYPE="number" LENGTH="12" NOTNULL="true" DEFAULT="0" SEQUENCE="false" DECIMALS="6" COMMENT="Numbers in the output may differ by this much."/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

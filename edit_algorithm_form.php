@@ -81,6 +81,12 @@ class qtype_algorithm_edit_form extends question_edit_form {
         );
         $mform->addElement('advcheckbox', 'numbers', '', get_string('numbers', 'qtype_algorithm'));
         $mform->addHelpButton('numbers', 'numbers', 'qtype_algorithm');
+        $mform->addElement('advcheckbox', 'ignorecase', '', get_string('ignorecase', 'qtype_algorithm'));
+        $mform->addElement('advcheckbox', 'ignorespaces', '', get_string('ignorespaces', 'qtype_algorithm'));
+        $mform->addElement('text', 'tolerance', get_string('tolerance', 'qtype_algorithm'), ['size' => 8]);
+        $mform->setType('tolerance', PARAM_FLOAT);
+        $mform->setDefault('tolerance', 0);
+        $mform->addHelpButton('tolerance', 'tolerance', 'qtype_algorithm');
 
         $structures = [];
         foreach (qtype_algorithm::STRUCTURES as $s) {
@@ -100,6 +106,9 @@ class qtype_algorithm_edit_form extends question_edit_form {
             get_string('showtests_desc', 'qtype_algorithm')
         );
         $mform->setDefault('showtests', 1);
+
+        // Hints and penalty for the interactive behaviour with several tries.
+        $this->add_interactive_settings();
 
         global $PAGE;
         $PAGE->requires->js_call_amd('qtype_algorithm/edit', 'init', [current_language()]);
@@ -123,9 +132,12 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->numbers = $o->numbers ?? 0;
             $question->showtests = $o->showtests ?? 1;
             $question->grademethod = $o->grademethod ?? 0;
+            $question->ignorecase = $o->ignorecase ?? 0;
+            $question->ignorespaces = $o->ignorespaces ?? 0;
+            $question->tolerance = (float) ($o->tolerance ?? 0);
             $question->structures = array_fill_keys(array_filter(explode(',', (string) ($o->structures ?? ''))), 1);
         }
-        return $question;
+        return $this->data_preprocessing_hints($question);
     }
 
     /**
@@ -137,6 +149,9 @@ class qtype_algorithm_edit_form extends question_edit_form {
      */
     public function validation($data, $files) {
         $errors = parent::validation($data, $files);
+        if ((float) ($data['tolerance'] ?? 0) < 0) {
+            $errors['tolerance'] = get_string('tolerancenegative', 'qtype_algorithm');
+        }
         $tests = json_decode((string) ($data['tests'] ?? ''), true);
         if (!is_array($tests) || !$tests) {
             return $errors;

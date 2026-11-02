@@ -67,7 +67,11 @@ class qtype_algorithm_renderer extends qtype_renderer {
         if ($question->has_tests() && $question->showtests) {
             foreach ($question->tests as $tc) {
                 if (empty($tc['hidden'])) {
-                    $tests[] = ['inputs' => (string) $tc['inputs'], 'expected' => (string) ($tc['expected'] ?? '')];
+                    $test = ['inputs' => (string) $tc['inputs'], 'expected' => (string) ($tc['expected'] ?? '')];
+                    if (!empty($tc['call'])) {
+                        $test['call'] = (string) $tc['call'];
+                    }
+                    $tests[] = $test;
                 }
             }
         }
@@ -88,6 +92,14 @@ class qtype_algorithm_renderer extends qtype_renderer {
     protected function rules(qtype_algorithm_question $question): string {
         $items = [get_string($question->numbers ? ($question->afterinput ? 'rule_numbersafter' : 'rule_numbers') :
             ($question->afterinput ? 'rule_textafter' : 'rule_text'), 'qtype_algorithm')];
+        foreach (['ignorecase', 'ignorespaces'] as $option) {
+            if ($question->$option) {
+                $items[] = get_string('rule_' . $option, 'qtype_algorithm');
+            }
+        }
+        if ($question->tolerance > 0) {
+            $items[] = get_string('rule_tolerance', 'qtype_algorithm', format_float($question->tolerance, -1));
+        }
         if ($question->structures) {
             $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $question->structures);
             $items[] = get_string('rule_structures', 'qtype_algorithm', implode(', ', $names));
@@ -124,6 +136,12 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $table->attributes['class'] = 'generaltable qtype_algorithm_results';
         $table->head = [get_string('test', 'qtype_algorithm'), get_string('inputs', 'qtype_algorithm'),
             get_string('expected', 'qtype_algorithm'), get_string('got', 'qtype_algorithm'), ''];
+        // A weight column only when the teacher gave the tests different weights.
+        $weights = array_map([qtype_algorithm_question::class, 'test_weight'], $question->tests);
+        $weighted = count(array_unique($weights)) > 1;
+        if ($weighted) {
+            $table->head[] = get_string('weight', 'qtype_algorithm');
+        }
         $pre = fn($text) => html_writer::tag('pre', s($text), ['class' => 'mb-0']);
         foreach ($question->tests as $i => $tc) {
             $r = $results[$i] ?? ['pass' => false, 'actual' => '', 'error' => null];
@@ -136,8 +154,12 @@ class qtype_algorithm_renderer extends qtype_renderer {
                 if ($r['error']) {
                     $got .= html_writer::div(s($r['error']), 'text-danger');
                 }
-                $inputs = implode(', ', tester::parse_inputs($tc['inputs']));
+                $call = tester::call_text($tc);
+                $inputs = $call ?? implode(', ', tester::parse_inputs($tc['inputs']));
                 $cells = [$i + 1, $pre($inputs), $pre($tc['expected'] ?? ''), $got, $mark];
+            }
+            if ($weighted) {
+                $cells[] = format_float($weights[$i], -1);
             }
             $row = new html_table_row($cells);
             $row->attributes['class'] = $r['pass'] ? 'qtype_algorithm_pass' : 'qtype_algorithm_fail';

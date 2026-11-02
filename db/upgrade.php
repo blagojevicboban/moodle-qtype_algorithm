@@ -66,5 +66,21 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         $dbman->change_field_notnull($table, $field);
         upgrade_plugin_savepoint(true, 2026110200, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026110202) {
+        // Comparison options of 2.0: capital letters, spaces, a tolerance for numbers.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $fields = [
+            new xmldb_field('ignorecase', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'grademethod'),
+            new xmldb_field('ignorespaces', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'ignorecase'),
+            new xmldb_field('tolerance', XMLDB_TYPE_NUMBER, '12, 6', null, XMLDB_NOTNULL, null, '0', 'ignorespaces'),
+        ];
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_plugin_savepoint(true, 2026110202, 'qtype', 'algorithm');
+    }
     return true;
 }

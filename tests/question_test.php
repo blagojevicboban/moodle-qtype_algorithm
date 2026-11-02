@@ -144,4 +144,61 @@ final class question_test extends \advanced_testcase {
         $this->assertSame(['for'], $q->missing_structures(['answer' => self::program()]));
         $this->assertEquals(0, $q->grade_response(['answer' => self::program()])[0]);
     }
+
+    public function test_weights(): void {
+        $this->resetAfterTest();
+        $q = $this->make_question();
+        $q->tests[0]['weight'] = 3;
+        // Right for (2, 3) only: 3 of 4.
+        $this->assertEquals(0.75, $q->grade_response(['answer' => self::program('a + b + a - 2')])[0]);
+        $q->tests[1]['weight'] = 0;
+        $this->assertEquals(1, $q->grade_response(['answer' => self::program('a + b + a - 2')])[0]);
+        $this->assertEquals(1.0, \qtype_algorithm_question::test_weight(['inputs' => '']));
+    }
+
+    public function test_function_tests_and_comparison(): void {
+        $this->resetAfterTest();
+        $double = fn(string $expr) => base64_encode(json_encode(['version' => 1, 'name' => 'P', 'functions' => [
+            ['name' => 'Main', 'params' => [], 'returnType' => null, 'body' => []],
+            ['name' => 'Double', 'params' => [['name' => 'n', 'type' => 'Integer']], 'returnType' => 'Integer',
+                'body' => [['id' => 'r', 'type' => 'return', 'expr' => $expr]]],
+        ]]));
+        $q = $this->make_question();
+        $q->solution = $double('n * 2');
+        $calls = [['inputs' => '21', 'call' => 'Double'], ['inputs' => "-4\n", 'call' => 'Double']];
+        $q->tests = tester::compute_expected(\qtype_algorithm_question::decode_answer($q->solution), $calls)['tests'];
+        $this->assertSame(['42', '-8'], array_column($q->tests, 'expected'));
+        $this->assertEquals(1, $q->grade_response(['answer' => $double('n + n')])[0]);
+        $this->assertEquals(0, $q->grade_response(['answer' => $double('n * 3')])[0]);
+
+        $this->assertTrue(tester::same_line('Sum = 5', 'SUM  =  5 ', ['ignorecase' => true, 'ignorespaces' => true]));
+        $this->assertTrue(tester::same_line('Šum', 'šUM', ['ignorecase' => true]));
+        $this->assertFalse(tester::same_line('Sum = 5', 'SUM = 5'));
+        $this->assertTrue(tester::same_line('x = 0.333', 'x = 0.3333', ['tolerance' => 0.001]));
+        $this->assertFalse(tester::same_line('x = 0.333', 'y = 0.333', ['tolerance' => 1]));
+        $this->assertSame(-1, tester::first_diff_line("A\nB  C", "a\nb c", ['ignorecase' => true, 'ignorespaces' => true]));
+        // The question's options reach the grading.
+        $q = $this->make_question();
+        $q->tests[0]['expected'] = "SUM 5\n";
+        $q->tests[1]['expected'] = "SUM 0\n";
+        $answer = ['answer' => self::program('"Sum " & (a + b)')];
+        $this->assertEquals(0, $q->grade_response($answer)[0]);
+        $q = $this->make_question();
+        $q->tests[0]['expected'] = "SUM 5\n";
+        $q->tests[1]['expected'] = "SUM 0\n";
+        $q->ignorecase = true;
+        $this->assertEquals(1, $q->grade_response($answer)[0]);
+    }
+
+    public function test_classify_response(): void {
+        $this->resetAfterTest();
+        $q = $this->make_question();
+        $parts = $q->classify_response(['answer' => self::program('a + b + a - 2')]);
+        $this->assertSame('pass', $parts[0]->responseclassid);
+        $this->assertSame('fail', $parts[1]->responseclassid);
+        $parts = $q->classify_response(['answer' => self::program('a / 0')]);
+        $this->assertSame('error', $parts[0]->responseclassid);
+        $parts = $q->classify_response(['answer' => '']);
+        $this->assertNull($parts[0]->responseclassid);
+    }
 }

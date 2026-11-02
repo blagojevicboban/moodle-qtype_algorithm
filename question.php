@@ -42,7 +42,7 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var string algorithm the students start from (base64 encoded JSON), '' for an empty diagram */
     public $template = '';
 
-    /** @var array tests: inputs, hidden, expected */
+    /** @var array tests: inputs, hidden, weight, call (a function test), expected */
     public $tests = [];
 
     /** @var bool compare only the output after the last input */
@@ -57,8 +57,17 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var bool students may run the tests that are not hidden during the attempt */
     public $showtests = true;
 
-    /** @var int 0: share of passed tests, 1: all tests must pass */
+    /** @var int 0: share of passed tests (by weight), 1: all tests must pass */
     public $grademethod = 0;
+
+    /** @var bool capital and small letters are the same in the comparison */
+    public $ignorecase = false;
+
+    /** @var bool extra spaces do not count in the comparison */
+    public $ignorespaces = false;
+
+    /** @var float numbers may differ by this much */
+    public $tolerance = 0.0;
 
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
@@ -101,7 +110,9 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return array
      */
     public function check_options(): array {
-        return ['afterinput' => (bool) $this->afterinput, 'numbers' => (bool) $this->numbers];
+        return ['afterinput' => (bool) $this->afterinput, 'numbers' => (bool) $this->numbers,
+            'ignorecase' => (bool) $this->ignorecase, 'ignorespaces' => (bool) $this->ignorespaces,
+            'tolerance' => (float) $this->tolerance];
     }
 
     /**
@@ -136,23 +147,67 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
-     * Grade: the share of passed tests (or all or nothing); 0 when a required structure is missing.
+     * Weight of a test in the grade (1 when the teacher did not set one).
+     *
+     * @param array $tc test
+     * @return float
+     */
+    public static function test_weight(array $tc): float {
+        return isset($tc['weight']) && is_numeric($tc['weight']) && $tc['weight'] >= 0 ? (float) $tc['weight'] : 1.0;
+    }
+
+    /**
+     * Grade: the share of passed tests by their weight (or all or nothing); 0 when a required structure is missing.
      *
      * @param array $response the response
      * @return array [fraction, state]
      */
     public function grade_response(array $response) {
         $results = $this->test_results($response);
-        $passed = count(array_filter($results, fn($r) => $r['pass']));
-        $total = count($this->tests);
-        $fraction = $total ? $passed / $total : 0;
-        if ($this->grademethod && $passed < $total) {
+        $passed = 0;
+        $weight = 0.0;
+        $total = 0.0;
+        foreach (array_values($this->tests) as $i => $tc) {
+            $total += self::test_weight($tc);
+            if (!empty($results[$i]['pass'])) {
+                $passed++;
+                $weight += self::test_weight($tc);
+            }
+        }
+        $fraction = $total > 0 ? $weight / $total : 0;
+        if ($this->grademethod && $passed < count($this->tests)) {
             $fraction = 0;
         }
         if ($this->missing_structures($response)) {
             $fraction = 0;
         }
         return [$fraction, question_state::graded_state_for_fraction($fraction)];
+    }
+
+    /**
+     * For the response analysis of the quiz statistics: whether the response passed every test.
+     *
+     * @param array $response the response
+     * @return array test index => question_classified_response
+     */
+    public function classify_response(array $response) {
+        if (!$this->has_tests()) {
+            return [];
+        }
+        $results = $this->is_gradable_response($response) ? $this->test_results($response) : [];
+        $parts = [];
+        foreach (array_keys(array_values($this->tests)) as $i) {
+            if (!isset($results[$i])) {
+                $parts[$i] = question_classified_response::no_response();
+            } else if ($results[$i]['pass']) {
+                $parts[$i] = new question_classified_response('pass', get_string('testpassed', 'qtype_algorithm', $i + 1), 1);
+            } else if ($results[$i]['error'] !== null) {
+                $parts[$i] = new question_classified_response('error', get_string('testerror', 'qtype_algorithm', $i + 1), 0);
+            } else {
+                $parts[$i] = new question_classified_response('fail', get_string('testfailed', 'qtype_algorithm', $i + 1), 0);
+            }
+        }
+        return $parts;
     }
 
     /**

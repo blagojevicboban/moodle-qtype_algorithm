@@ -37,17 +37,27 @@ final class questiontype_test extends \advanced_testcase {
     public function test_name_and_grading(): void {
         $qtype = new \qtype_algorithm();
         $this->assertSame('algorithm', $qtype->name());
-        $this->assertFalse($qtype->is_usable_by_random());
+        $this->assertTrue($qtype->is_usable_by_random());
+        $this->assertTrue($qtype->can_analyse_responses());
+        $responses = $qtype->get_possible_responses((object) ['options' => (object) ['tests' => '[{}, {}]']]);
+        $this->assertSame([0, 1], array_keys($responses));
+        $this->assertArrayHasKey('error', $responses[1]);
         $this->assertNull($qtype->get_random_guess_score((object) ['options' => (object) ['tests' => '']]));
         $this->assertSame(0, $qtype->get_random_guess_score((object) ['options' => (object) ['tests' => '[{}]']]));
     }
 
     public function test_compute_tests(): void {
         $this->resetAfterTest();
-        $tests = json_encode([['inputs' => "2\n3", 'hidden' => 1], ['inputs' => "4"]]);
+        $tests = json_encode([
+            ['inputs' => "2\n3", 'hidden' => 1, 'weight' => '2', 'x' => 'y'],
+            ['inputs' => "4", 'call' => 'a b'],
+        ]);
         $result = \qtype_algorithm::compute_tests(question_test::program(), $tests, []);
         $this->assertSame("5\n", $result['tests'][0]['expected']);
         $this->assertTrue($result['tests'][0]['hidden']);
+        $this->assertSame(2.0, $result['tests'][0]['weight']);
+        $this->assertArrayNotHasKey('x', $result['tests'][0]);
+        $this->assertArrayNotHasKey('call', $result['tests'][1]);
         $this->assertSame(1, $result['errors'][0]['index']);
         $this->assertSame(get_string('noinput', 'qtype_algorithm'), $result['errors'][0]['error']);
         $none = \qtype_algorithm::compute_tests('', $tests, []);
@@ -59,12 +69,13 @@ final class questiontype_test extends \advanced_testcase {
         $qtype = new \qtype_algorithm();
         $options = (object) ['solution' => question_test::program(), 'template' => '',
             'tests' => json_encode([['inputs' => "2\n3", 'hidden' => false, 'expected' => "5\n"]]),
-            'afterinput' => 1, 'numbers' => 0, 'structures' => 'if,for', 'showtests' => 0, 'grademethod' => 1];
+            'afterinput' => 1, 'numbers' => 0, 'structures' => 'if,for', 'showtests' => 0, 'grademethod' => 1,
+            'ignorecase' => 1, 'ignorespaces' => 0, 'tolerance' => 0.01];
         $question = (object) ['options' => $options];
         $format = new \qformat_xml();
         $xml = '<question type="algorithm"><name><text>Sum</text></name>' .
             '<questiontext format="html"><text>Write the sum.</text></questiontext>' .
-            $qtype->export_to_xml($question, $format) . '</question>';
+            $qtype->export_to_xml($question, $format) . '<hint format="html"><text>Look at the loop.</text></hint></question>';
         // Moodle 5.1 replaced xmlize() with core\xml_parser.
         $data = class_exists(\core\xml_parser::class) ? (new \core\xml_parser())->parse($xml, 0) : xmlize($xml, 0);
         $imported = $qtype->import_from_xml($data['question'], null, $format);
@@ -72,6 +83,7 @@ final class questiontype_test extends \advanced_testcase {
         foreach ((array) $options as $field => $value) {
             $this->assertEquals((string) $value, (string) $imported->$field, $field);
         }
+        $this->assertSame('Look at the loop.', $imported->hint[0]['text']);
         $this->assertFalse($qtype->import_from_xml(['@' => ['type' => 'shortanswer']], null, $format));
     }
 }

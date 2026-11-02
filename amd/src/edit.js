@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 import {AlgorithmEditor} from 'tiny_algorithm/editor';
-import {TestsPanel} from 'tiny_algorithm/tests';
+import {TestsPanel, cleanTest} from 'tiny_algorithm/tests';
 import {cloneProgram, createProgram, deserialize, serialize} from 'tiny_algorithm/model';
 import {getString} from 'core/str';
 import {workspace} from 'qtype_algorithm/fullscreen';
@@ -51,7 +51,7 @@ const load = (input) => {
 const loadTests = (input) => {
     try {
         const tests = JSON.parse(input.value || '[]');
-        return Array.isArray(tests) ? tests.filter((tc) => tc && typeof tc === 'object') : [];
+        return Array.isArray(tests) ? tests.filter((tc) => tc && typeof tc === 'object').map(cleanTest) : [];
     } catch (e) {
         return [];
     }
@@ -69,8 +69,9 @@ export const init = async(lang) => {
     const templateInput = field('template');
     const testsInput = field('tests');
     const useTemplate = document.querySelector('input[type="checkbox"][name="usetemplate"]');
-    const afterInput = document.querySelector('input[type="checkbox"][name="afterinput"]');
-    const numbers = document.querySelector('input[type="checkbox"][name="numbers"]');
+    const box = (name) => document.querySelector(`input[type="checkbox"][name="${name}"]`);
+    const options = ['afterinput', 'numbers', 'ignorecase', 'ignorespaces'].map(box);
+    const tolerance = field('tolerance');
     const solutionHost = document.getElementById('qtype_algorithm_solution');
     const templateHost = document.getElementById('qtype_algorithm_template');
     const testsHost = document.getElementById('qtype_algorithm_tests');
@@ -85,14 +86,23 @@ export const init = async(lang) => {
     }});
     solutionInput.value = serialize(solution.getProgram());
 
-    const check = () => ({afterinput: Boolean(afterInput && afterInput.checked), numbers: Boolean(numbers && numbers.checked)});
+    // What the tests compare, from the options of the form.
+    const check = () => ({
+        ...Object.fromEntries(options.map((b, i) => [['afterinput', 'numbers', 'ignorecase', 'ignorespaces'][i],
+            Boolean(b && b.checked)])),
+        tolerance: Math.max(0, Number(tolerance && tolerance.value) || 0),
+    });
     const saveTests = (tests) => {
-        testsInput.value = JSON.stringify(tests.map((tc) => ({inputs: tc.inputs, hidden: Boolean(tc.hidden)})));
+        testsInput.value = JSON.stringify(tests.map((tc) => {
+            const stored = cleanTest(tc);
+            delete stored.expected; // The server computes the expected outputs again.
+            return {...stored, hidden: Boolean(tc.hidden)};
+        }));
     };
     const panel = new TestsPanel(testsHost, {tests: loadTests(testsInput), mode: 'teacher', lang, check: check(),
-        getSolution: () => solution.getProgram(), hiddenOption: true, onChange: saveTests});
+        getSolution: () => solution.getProgram(), hiddenOption: true, weightOption: true, onChange: saveTests});
     saveTests(panel.tests);
-    [afterInput, numbers].forEach((box) => box && box.addEventListener('change', () => {
+    [...options, tolerance].forEach((input) => input && input.addEventListener('change', () => {
         panel.check = check();
         panel.refreshExpected();
     }));

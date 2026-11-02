@@ -48,7 +48,7 @@ class qtype_algorithm extends question_type {
      */
     public function extra_question_fields() {
         return ['qtype_algorithm_options', 'solution', 'template', 'tests', 'afterinput', 'numbers', 'structures', 'showtests',
-            'grademethod'];
+            'grademethod', 'ignorecase', 'ignorespaces', 'tolerance'];
     }
 
     /**
@@ -70,21 +70,41 @@ class qtype_algorithm extends question_type {
     }
 
     /**
-     * Questions may be graded manually, so they are not picked by random questions.
+     * Random questions may pick algorithm questions (those without tests are then graded by the teacher).
      *
      * @return bool
      */
     public function is_usable_by_random() {
-        return false;
+        return true;
     }
 
     /**
-     * Response analysis is not available.
+     * The quiz statistics show, for every test, how many answers passed it.
      *
      * @return bool
      */
     public function can_analyse_responses() {
-        return false;
+        return true;
+    }
+
+    /**
+     * Possible results of every test, for the response analysis of the quiz statistics.
+     *
+     * @param stdClass $questiondata the question data
+     * @return array test index => [class => question_possible_response]
+     */
+    public function get_possible_responses($questiondata) {
+        $tests = json_decode((string) ($questiondata->options->tests ?? ''), true);
+        $parts = [];
+        foreach (is_array($tests) ? array_keys($tests) : [] as $i) {
+            $parts[$i] = [
+                'pass' => new question_possible_response(get_string('testpassed', 'qtype_algorithm', $i + 1), 1),
+                'fail' => new question_possible_response(get_string('testfailed', 'qtype_algorithm', $i + 1), 0),
+                'error' => new question_possible_response(get_string('testerror', 'qtype_algorithm', $i + 1), 0),
+                null => question_possible_response::no_response(),
+            ];
+        }
+        return $parts;
     }
 
     /**
@@ -101,10 +121,29 @@ class qtype_algorithm extends question_type {
      * What is compared in the tests.
      *
      * @param stdClass $data question options or form data
-     * @return array ['afterinput' => bool, 'numbers' => bool]
+     * @return array ['afterinput' => bool, 'numbers' => bool, 'ignorecase' => bool, 'ignorespaces' => bool, 'tolerance' => float]
      */
     public static function check_options($data): array {
-        return ['afterinput' => !empty($data->afterinput), 'numbers' => !empty($data->numbers)];
+        return ['afterinput' => !empty($data->afterinput), 'numbers' => !empty($data->numbers),
+            'ignorecase' => !empty($data->ignorecase), 'ignorespaces' => !empty($data->ignorespaces),
+            'tolerance' => max(0.0, (float) ($data->tolerance ?? 0))];
+    }
+
+    /**
+     * A test with only the fields a test keeps: inputs, hidden, and when set weight and call (a function test).
+     *
+     * @param array $tc test
+     * @return array
+     */
+    public static function clean_test(array $tc): array {
+        $out = ['inputs' => (string) ($tc['inputs'] ?? ''), 'hidden' => !empty($tc['hidden'])];
+        if (isset($tc['weight']) && is_numeric($tc['weight']) && (float) $tc['weight'] >= 0) {
+            $out['weight'] = (float) $tc['weight'];
+        }
+        if (isset($tc['call']) && preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', (string) $tc['call'])) {
+            $out['call'] = (string) $tc['call'];
+        }
+        return $out;
     }
 
     /**
@@ -118,7 +157,7 @@ class qtype_algorithm extends question_type {
     public static function compute_tests(string $solution, $tests, array $check): array {
         $list = is_string($tests) ? json_decode($tests, true) : $tests;
         $list = array_values(array_filter(is_array($list) ? $list : [], 'is_array'));
-        $list = array_map(fn($tc) => ['inputs' => (string) ($tc['inputs'] ?? ''), 'hidden' => !empty($tc['hidden'])], $list);
+        $list = array_map([self::class, 'clean_test'], $list);
         if (!$list) {
             return ['tests' => [], 'errors' => []];
         }
@@ -148,13 +187,16 @@ class qtype_algorithm extends question_type {
             self::STRUCTURES,
             explode(',', (string) ($question->structures ?? ''))
         ));
-        foreach (['afterinput', 'numbers', 'grademethod'] as $field) {
+        foreach (['afterinput', 'numbers', 'grademethod', 'ignorecase', 'ignorespaces'] as $field) {
             $question->$field = (int) !empty($question->$field);
         }
+        $question->tolerance = max(0.0, (float) ($question->tolerance ?? 0));
         $question->showtests = (int) ($question->showtests ?? 1);
         $computed = self::compute_tests($question->solution, $question->tests ?? '', self::check_options($question));
         $question->tests = $computed['tests'] ? json_encode($computed['tests'], JSON_UNESCAPED_UNICODE) : '';
-        return parent::save_question_options($question);
+        $result = parent::save_question_options($question);
+        $this->save_hints($question);
+        return $result;
     }
 
     /**
@@ -170,11 +212,12 @@ class qtype_algorithm extends question_type {
         }
         $record = $DB->get_record('qtype_algorithm_options', ['questionid' => $question->id]);
         $defaults = ['solution' => '', 'template' => '', 'tests' => '', 'afterinput' => 0, 'numbers' => 0, 'structures' => '',
-            'showtests' => 1, 'grademethod' => 0];
+            'showtests' => 1, 'grademethod' => 0, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0];
         foreach ($defaults as $field => $default) {
-            $question->options->$field = $record ? $record->$field : $default;
+            $question->options->$field = $record && isset($record->$field) ? $record->$field : $default;
         }
         $question->options->answers = [];
+        $question->hints = $DB->get_records('question_hints', ['questionid' => $question->id], 'id ASC');
         return true;
     }
 
@@ -196,6 +239,9 @@ class qtype_algorithm extends question_type {
         $question->structures = array_values(array_filter(explode(',', (string) ($o->structures ?? ''))));
         $question->showtests = !isset($o->showtests) || !empty($o->showtests);
         $question->grademethod = (int) ($o->grademethod ?? 0);
+        $question->ignorecase = !empty($o->ignorecase);
+        $question->ignorespaces = !empty($o->ignorespaces);
+        $question->tolerance = max(0.0, (float) ($o->tolerance ?? 0));
     }
 
     /**
@@ -233,10 +279,11 @@ class qtype_algorithm extends question_type {
         $qo->qtype = $this->name();
         $fields = $this->extra_question_fields();
         array_shift($fields);
-        $defaults = ['showtests' => 1];
+        $defaults = ['showtests' => 1, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0];
         foreach ($fields as $field) {
             $qo->$field = $format->getpath($data, ['#', $field, 0, '#'], $defaults[$field] ?? '');
         }
+        $format->import_hints($qo, $data, false, false, $format->get_format($qo->questiontextformat));
         return $qo;
     }
 }

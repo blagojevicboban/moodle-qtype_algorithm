@@ -32,6 +32,15 @@ class tester {
     /** A line with only two double quotes is an empty value. */
     const EMPTY_VALUE = '""';
 
+    /** Message when the algorithm asks for more input than the test has (when no translated one is given). */
+    const NOINPUT = 'The algorithm asks for more input than the test provides.';
+
+    /** A number in the output, as the browser finds it. */
+    const NUMBER = '/-?\d+(?:\.\d+)?/';
+
+    /** A run of spaces as JavaScript's \s+ finds it. */
+    const SPACE_RUN = '/[\s\x{A0}\x{1680}\x{2000}-\x{200A}\x{2028}\x{2029}\x{202F}\x{205F}\x{3000}\x{FEFF}]+/u';
+
     /** White space at the end of a line, as JavaScript \s. */
     const TRAILING_SPACE = '/[\s\x{A0}\x{1680}\x{2000}-\x{200A}\x{2028}\x{2029}\x{202F}\x{205F}\x{3000}\x{FEFF}]+$/u';
 
@@ -62,19 +71,51 @@ class tester {
     }
 
     /**
-     * Run an algorithm with the inputs of a test.
+     * Lines of the inputs of a test as written, without the empty lines at the end.
+     *
+     * @param string|null $text inputs
+     * @return string[]
+     */
+    protected static function input_lines(?string $text): array {
+        $lines = explode("\n", preg_replace('/\r\n?/', "\n", (string) $text));
+        while ($lines && end($lines) === '') {
+            array_pop($lines);
+        }
+        return $lines;
+    }
+
+    /**
+     * The call a function test makes: Name(arguments), the arguments being the inputs of the test (one per line or
+     * separated by commas).
+     *
+     * @param array $tc test
+     * @return string|null null for a test of inputs and output
+     */
+    public static function call_text(array $tc): ?string {
+        $call = (string) ($tc['call'] ?? '');
+        if (!preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $call)) {
+            return null;
+        }
+        return $call . '(' . implode(', ', self::input_lines($tc['inputs'] ?? '')) . ')';
+    }
+
+    /**
+     * Run an algorithm with the inputs of a test, or call one of its functions.
      *
      * @param array $program algorithm model
      * @param string|null $inputs one value per line
      * @param string $noinput message when the algorithm asks for more input than the test has
-     * @return array ['output' => all output, 'after' => output after the last input, 'error' => message or null]
+     * @param string|null $call a call such as Sum(2, 3) instead of running the main function
+     * @return array ['output' => all output, 'after' => output after the last input, 'error' => message or null,
+     *     'call' => whether a function was called, 'result' => the value it returned as text]
      */
     public static function run_program(
         array $program,
         ?string $inputs,
-        string $noinput = 'The algorithm asks for more input than the test provides.'
+        string $noinput = 'The algorithm asks for more input than the test provides.',
+        ?string $call = null
     ): array {
-        $queue = self::parse_inputs($inputs);
+        $queue = self::parse_inputs($call === null ? $inputs : '');
         $run = new interpreter($program, self::MAX_STEPS);
         $error = null;
         try {
@@ -83,7 +124,7 @@ class tester {
                     throw new algorithm_error($noinput);
                 }
                 return array_shift($queue);
-            });
+            }, $call);
         } catch (algorithm_error $e) {
             $error = $e->localized();
         } catch (\Throwable $e) {
@@ -94,7 +135,7 @@ class tester {
         $last = $run->inputs_read();
         $all = implode('', array_column($pieces, 0));
         $after = implode('', array_column(array_filter($pieces, fn($p) => $p[1] >= $last), 0));
-        return ['output' => $all, 'after' => $after, 'error' => $error];
+        return ['output' => $all, 'after' => $after, 'error' => $error, 'call' => $call !== null, 'result' => $run->result()];
     }
 
     /**
@@ -106,11 +147,48 @@ class tester {
      */
     public static function checked_output(array $result, array $check = []): string {
         $text = !empty($check['afterinput']) ? $result['after'] : $result['output'];
+        if (!empty($result['call'])) {
+            $text = (string) ($result['result'] ?? '');
+        }
         if (!empty($check['numbers'])) {
-            preg_match_all('/-?\d+(?:\.\d+)?/', $text, $m);
+            preg_match_all(self::NUMBER, $text, $m);
             return implode("\n", $m[0]);
         }
         return $text;
+    }
+
+    /**
+     * Are two lines of output the same, with the comparison options of the question?
+     *
+     * @param string $a expected line
+     * @param string $b actual line
+     * @param array $check 'ignorecase', 'ignorespaces' (runs of spaces are one, the ends do not count), 'tolerance'
+     * @return bool
+     */
+    public static function same_line(string $a, string $b, array $check = []): bool {
+        $prep = function (string $line) use ($check): string {
+            if (!empty($check['ignorespaces'])) {
+                $line = preg_replace(self::SPACE_RUN, ' ', $line);
+                $line = preg_replace('/^ | $/', '', $line);
+            }
+            return empty($check['ignorecase']) ? $line : mb_strtolower($line, 'UTF-8');
+        };
+        [$x, $y] = [$prep($a), $prep($b)];
+        if ($x === $y) {
+            return true;
+        }
+        $tolerance = (float) ($check['tolerance'] ?? 0);
+        if (!($tolerance > 0) || preg_replace(self::NUMBER, '#', $x) !== preg_replace(self::NUMBER, '#', $y)) {
+            return false;
+        }
+        preg_match_all(self::NUMBER, $x, $nx);
+        preg_match_all(self::NUMBER, $y, $ny);
+        foreach ($nx[0] as $i => $n) {
+            if (abs((float) $n - (float) $ny[0][$i]) > $tolerance + 1e-9) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -120,11 +198,11 @@ class tester {
      * @param string $actual actual output
      * @return int
      */
-    public static function first_diff_line(string $expected, string $actual): int {
+    public static function first_diff_line(string $expected, string $actual, array $check = []): int {
         $a = explode("\n", self::normalize($expected));
         $b = explode("\n", self::normalize($actual));
         for ($i = 0; $i < max(count($a), count($b)); $i++) {
-            if (($a[$i] ?? null) !== ($b[$i] ?? null)) {
+            if (!isset($a[$i]) || !isset($b[$i]) || !self::same_line($a[$i], $b[$i], $check)) {
                 return $i;
             }
         }
@@ -143,10 +221,9 @@ class tester {
     public static function run_tests(array $program, array $tests, array $check = [], ?string $noinput = null): array {
         $results = [];
         foreach ($tests as $tc) {
-            $r = $noinput === null ? self::run_program($program, $tc['inputs'] ?? '') :
-                self::run_program($program, $tc['inputs'] ?? '', $noinput);
+            $r = self::run_program($program, $tc['inputs'] ?? '', $noinput ?? self::NOINPUT, self::call_text($tc));
             $actual = self::checked_output($r, $check);
-            $diff = self::first_diff_line((string) ($tc['expected'] ?? ''), $actual);
+            $diff = self::first_diff_line((string) ($tc['expected'] ?? ''), $actual, $check);
             $results[] = ['pass' => $r['error'] === null && $diff === -1, 'actual' => $actual, 'error' => $r['error'],
                 'diffline' => $diff];
         }
@@ -166,8 +243,7 @@ class tester {
         $out = [];
         $errors = [];
         foreach (array_values($tests) as $i => $tc) {
-            $r = $noinput === null ? self::run_program($solution, $tc['inputs'] ?? '') :
-                self::run_program($solution, $tc['inputs'] ?? '', $noinput);
+            $r = self::run_program($solution, $tc['inputs'] ?? '', $noinput ?? self::NOINPUT, self::call_text($tc));
             if ($r['error'] !== null) {
                 $errors[] = ['index' => $i, 'error' => $r['error']];
             }

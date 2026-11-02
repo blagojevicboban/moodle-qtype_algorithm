@@ -133,13 +133,18 @@ cases.push(['matrix fraction index', prog(mx('m', 'Integer', '2', '3'), out('m[0
 cases.push(['matrix size limit', prog(mx('m', 'Integer', '100', '1000'), out('Len(m)'), mx('b', 'Integer', '317', '316'))]);
 cases.push(['matrix second size only', prog(mx('e', 'Integer', '', '4'), out('e'))]);
 
+// Function tests: the call and the value it returns (the functions of the 'functions' case).
+const calls = ['Fact(5)', 'Fib(10)', 'Half(7)', 'NoReturn()', 'Fact("3")', 'Two(1)', 'Fact(n)', 'Half(1, 2)', 'Missing(1)',
+    'Fact(2 + 1) & "!"', 'Fill(3, 4)'];
+
 const extra = process.argv[3] ? JSON.parse(readFileSync(process.argv[3], 'utf8')) : [];
-const all = extra.length ? extra : cases.map(([name, program, inputs = ['']]) => ({name, program, inputs}));
+const all = extra.length ? extra : [...cases.map(([name, program, inputs = ['']]) => ({name, program, inputs})),
+    ...calls.map((call) => ({name: `call ${call}`, program: fn, inputs: [''], call}))];
 const fixtures = [];
-for (const {name, program, inputs} of all) {
+for (const {name, program, inputs, call = null} of all) {
     for (const input of inputs) {
-        const r = runProgram(program, input, 'en');
-        fixtures.push({name, program, inputs: input, output: r.output, after: r.after, error: r.error});
+        const r = runProgram(program, input, 'en', call);
+        fixtures.push({name, program, inputs: input, call, output: r.output, after: r.after, error: r.error, result: r.result});
     }
 }
 const target = process.argv[3] ? process.argv[3].replace(/\.json$/, '') + '-parity.json' : join(here, 'parity.json');

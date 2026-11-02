@@ -41,9 +41,13 @@ foreach ($files as $file) {
         $r = \qtype_algorithm\local\tester::run_program(
             $case['program'],
             $case['inputs'],
-            'The algorithm asks for more input than the test provides.'
+            'The algorithm asks for more input than the test provides.',
+            $case['call'] ?? null
         );
-        foreach (['output', 'after', 'error'] as $key) {
+        foreach (['output', 'after', 'error', 'result'] as $key) {
+            if (!array_key_exists($key, $case)) {
+                continue;
+            }
             if ($r[$key] !== $case[$key]) {
                 $bad++;
                 echo "{$case['name']} [" . str_replace("\n", ',', $case['inputs']) . "] {$key}\n  js:  " .

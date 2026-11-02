@@ -52,6 +52,9 @@ class interpreter {
     /** @var int inputs read so far */
     protected int $inputs = 0;
 
+    /** @var string|null value returned by the call of a function test */
+    protected ?string $result = null;
+
     /**
      * Prepare a run.
      *
@@ -73,15 +76,30 @@ class interpreter {
      * @return array output pieces [text, number of inputs read before it]
      * @throws algorithm_error when the algorithm stops with an error ($this->output() still has what it wrote)
      */
-    public function run(callable $input): array {
+    public function run(callable $input, ?string $call = null): array {
         $this->input = $input;
         $functions = $this->program['functions'] ?? [];
         if (!$functions) {
             throw new algorithm_error('badexpression');
         }
+        if ($call !== null) {
+            // A function test: evaluate the call (its arguments are values) and keep what the function returns.
+            $value = $this->eval_node($this->ast($call), []);
+            $this->result = $value === null ? '' : js::fmt($value);
+            return $this->output;
+        }
         $main = $this->funcs['main'] ?? $functions[0];
         $this->call_function($main, []);
         return $this->output;
+    }
+
+    /**
+     * Value a function test's call returned, as text (null when no call was made or it did not finish).
+     *
+     * @return string|null
+     */
+    public function result(): ?string {
+        return $this->result;
     }
 
     /**

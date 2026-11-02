@@ -11,205 +11,205 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngks0",
+       "id": "nmvyw2d240",
        "type": "output",
        "expr": "7 / 2",
        "newline": true
       },
       {
-       "id": "nmvyvngks1",
+       "id": "nmvyw2d241",
        "type": "output",
        "expr": "1 / 3",
        "newline": true
       },
       {
-       "id": "nmvyvngks2",
+       "id": "nmvyw2d242",
        "type": "output",
        "expr": "2 / 3 * 3",
        "newline": true
       },
       {
-       "id": "nmvyvngks3",
+       "id": "nmvyw2d243",
        "type": "output",
        "expr": "0.1 + 0.2",
        "newline": true
       },
       {
-       "id": "nmvyvngks4",
+       "id": "nmvyw2d244",
        "type": "output",
        "expr": "10 ^ 21",
        "newline": true
       },
       {
-       "id": "nmvyvngks5",
+       "id": "nmvyw2d245",
        "type": "output",
        "expr": "10 ^ 20",
        "newline": true
       },
       {
-       "id": "nmvyvngks6",
+       "id": "nmvyw2d246",
        "type": "output",
        "expr": "0.000001",
        "newline": true
       },
       {
-       "id": "nmvyvngks7",
+       "id": "nmvyw2d247",
        "type": "output",
        "expr": "0.0000001",
        "newline": true
       },
       {
-       "id": "nmvyvngks8",
+       "id": "nmvyw2d248",
        "type": "output",
        "expr": "-0.5",
        "newline": true
       },
       {
-       "id": "nmvyvngks9",
+       "id": "nmvyw2d249",
        "type": "output",
        "expr": "2 ^ 0.5",
        "newline": true
       },
       {
-       "id": "nmvyvngksa",
+       "id": "nmvyw2d24a",
        "type": "output",
        "expr": "-7 / 2",
        "newline": true
       },
       {
-       "id": "nmvyvngksb",
+       "id": "nmvyw2d24b",
        "type": "output",
        "expr": "7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvyvngksc",
+       "id": "nmvyw2d24c",
        "type": "output",
        "expr": "-7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvyvngksd",
+       "id": "nmvyw2d24d",
        "type": "output",
        "expr": "7.5 mod 2",
        "newline": true
       },
       {
-       "id": "nmvyvngkse",
+       "id": "nmvyw2d24e",
        "type": "output",
        "expr": "2 ^ 60",
        "newline": true
       },
       {
-       "id": "nmvyvngksf",
+       "id": "nmvyw2d24f",
        "type": "output",
        "expr": "1 / 0.0001",
        "newline": true
       },
       {
-       "id": "nmvyvngksg",
+       "id": "nmvyw2d24g",
        "type": "output",
        "expr": "123456789 * 1000000",
        "newline": true
       },
       {
-       "id": "nmvyvngksh",
+       "id": "nmvyw2d24h",
        "type": "output",
        "expr": "0.1 * 3",
        "newline": true
       },
       {
-       "id": "nmvyvngksi",
+       "id": "nmvyw2d24i",
        "type": "output",
        "expr": "100 / 3",
        "newline": true
       },
       {
-       "id": "nmvyvngksj",
+       "id": "nmvyw2d24j",
        "type": "output",
        "expr": "Round(2.5)",
        "newline": true
       },
       {
-       "id": "nmvyvngksk",
+       "id": "nmvyw2d24k",
        "type": "output",
        "expr": "Round(-2.5)",
        "newline": true
       },
       {
-       "id": "nmvyvngksl",
+       "id": "nmvyw2d24l",
        "type": "output",
        "expr": "Int(-3.7)",
        "newline": true
       },
       {
-       "id": "nmvyvngksm",
+       "id": "nmvyw2d24m",
        "type": "output",
        "expr": "Floor(-3.2)",
        "newline": true
       },
       {
-       "id": "nmvyvngksn",
+       "id": "nmvyw2d24n",
        "type": "output",
        "expr": "Ceiling(3.2)",
        "newline": true
       },
       {
-       "id": "nmvyvngkso",
+       "id": "nmvyw2d24o",
        "type": "output",
        "expr": "Abs(-4)",
        "newline": true
       },
       {
-       "id": "nmvyvngksp",
+       "id": "nmvyw2d24p",
        "type": "output",
        "expr": "Sqrt(2)",
        "newline": true
       },
       {
-       "id": "nmvyvngksq",
+       "id": "nmvyw2d24q",
        "type": "output",
        "expr": "Sqrt(-1)",
        "newline": true
       },
       {
-       "id": "nmvyvngksr",
+       "id": "nmvyw2d24r",
        "type": "output",
        "expr": "Sign(-3)",
        "newline": true
       },
       {
-       "id": "nmvyvngkss",
+       "id": "nmvyw2d24s",
        "type": "output",
        "expr": "Log(10)",
        "newline": true
       },
       {
-       "id": "nmvyvngkst",
+       "id": "nmvyw2d24t",
        "type": "output",
        "expr": "Exp(1)",
        "newline": true
       },
       {
-       "id": "nmvyvngksu",
+       "id": "nmvyw2d24u",
        "type": "output",
        "expr": "Sin(Pi())",
        "newline": true
       },
       {
-       "id": "nmvyvngksv",
+       "id": "nmvyw2d24v",
        "type": "output",
        "expr": "Cos(0)",
        "newline": true
       },
       {
-       "id": "nmvyvngksw",
+       "id": "nmvyw2d24w",
        "type": "output",
        "expr": "3 - -2",
        "newline": true
       },
       {
-       "id": "nmvyvngksx",
+       "id": "nmvyw2d24x",
        "type": "output",
        "expr": "- 2 ^ 2",
        "newline": true
@@ -219,9 +219,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "3.5\n0.3333333333\n2\n0.3\n1e+21\n100000000000000000000\n0.000001\n1e-7\n-0.5\n1.4142135624\n-3.5\n1\n-1\n1.5\n1152921504606847000\n10000\n123456789000000\n0.3\n33.3333333333\n3\n-2\n-3\n-4\n4\n4\n1.4142135624\nNaN\n-1\n2.302585093\n2.7182818285\n0\n1\n5\n-4\n",
   "after": "3.5\n0.3333333333\n2\n0.3\n1e+21\n100000000000000000000\n0.000001\n1e-7\n-0.5\n1.4142135624\n-3.5\n1\n-1\n1.5\n1152921504606847000\n10000\n123456789000000\n0.3\n33.3333333333\n3\n-2\n-3\n-4\n4\n4\n1.4142135624\nNaN\n-1\n2.302585093\n2.7182818285\n0\n1\n5\n-4\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "strings",
@@ -235,181 +237,181 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkty",
+       "id": "nmvyw2d24y",
        "type": "output",
        "expr": "\"a\" & 1 & true",
        "newline": true
       },
       {
-       "id": "nmvyvngktz",
+       "id": "nmvyw2d24z",
        "type": "output",
        "expr": "\"5\" + 3",
        "newline": true
       },
       {
-       "id": "nmvyvngkt10",
+       "id": "nmvyw2d2410",
        "type": "output",
        "expr": "3 + \"5\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt11",
+       "id": "nmvyw2d2411",
        "type": "output",
        "expr": "\"b\" < \"a\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt12",
+       "id": "nmvyw2d2412",
        "type": "output",
        "expr": "\"10\" < \"9\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt13",
+       "id": "nmvyw2d2413",
        "type": "output",
        "expr": "10 < 9",
        "newline": true
       },
       {
-       "id": "nmvyvngkt14",
+       "id": "nmvyw2d2414",
        "type": "output",
        "expr": "\"abc\" = \"abc\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt15",
+       "id": "nmvyw2d2415",
        "type": "output",
        "expr": "\"Č\" > \"Z\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt16",
+       "id": "nmvyw2d2416",
        "type": "output",
        "expr": "Len(\"čćž\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt17",
+       "id": "nmvyw2d2517",
        "type": "output",
        "expr": "Len(\"\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt18",
+       "id": "nmvyw2d2518",
        "type": "output",
        "expr": "Char(\"Ana\", 2)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt19",
+       "id": "nmvyw2d2519",
        "type": "output",
        "expr": "ToCode(\"Ш\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1a",
+       "id": "nmvyw2d251a",
        "type": "output",
        "expr": "ToChar(382)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1b",
+       "id": "nmvyw2d251b",
        "type": "output",
        "expr": "char(65)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1c",
+       "id": "nmvyw2d251c",
        "type": "output",
        "expr": "ToInt(\"12\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1d",
+       "id": "nmvyw2d251d",
        "type": "output",
        "expr": "ToInt(\" 7 \")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1e",
+       "id": "nmvyw2d251e",
        "type": "output",
        "expr": "ToReal(\"2.5\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1f",
+       "id": "nmvyw2d251f",
        "type": "output",
        "expr": "ToString(0.1 + 0.2)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1g",
+       "id": "nmvyw2d251g",
        "type": "output",
        "expr": "IsNumeric(\"1e3\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1h",
+       "id": "nmvyw2d251h",
        "type": "output",
        "expr": "IsNumeric(\"x\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1i",
+       "id": "nmvyw2d251i",
        "type": "output",
        "expr": "IsNumeric(\"\")",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1j",
+       "id": "nmvyw2d251j",
        "type": "output",
        "expr": "\"x\\ty\\n\" & \"z\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1k",
+       "id": "nmvyw2d251k",
        "type": "output",
        "expr": "1 = 1.0",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1l",
+       "id": "nmvyw2d251l",
        "type": "output",
        "expr": "\"1\" = 1",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1m",
+       "id": "nmvyw2d251m",
        "type": "output",
        "expr": "true = 1",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1n",
+       "id": "nmvyw2d251n",
        "type": "output",
        "expr": "not 0",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1o",
+       "id": "nmvyw2d251o",
        "type": "output",
        "expr": "not \"\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1p",
+       "id": "nmvyw2d251p",
        "type": "output",
        "expr": "not \"0\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1q",
+       "id": "nmvyw2d251q",
        "type": "output",
        "expr": "\"a\" <> \"b\" and 3 > 2 or false",
        "newline": true
       },
       {
-       "id": "nmvyvngkt1r",
+       "id": "nmvyw2d251r",
        "type": "output",
        "expr": "0.1 + 0.2 = 0.3",
        "newline": true
@@ -419,9 +421,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "a1true\n53\n35\nfalse\ntrue\nfalse\ntrue\ntrue\n3\n0\na\n1064\nž\nA\n12\n7\n2.5\n0.30000000000000004\ntrue\nfalse\nfalse\nx\ty\nz\ntrue\nfalse\nfalse\ntrue\ntrue\nfalse\ntrue\nfalse\n",
   "after": "a1true\n53\n35\nfalse\ntrue\nfalse\ntrue\ntrue\n3\n0\na\n1064\nž\nA\n12\n7\n2.5\n0.30000000000000004\ntrue\nfalse\nfalse\nx\ty\nz\ntrue\nfalse\nfalse\ntrue\ntrue\nfalse\ntrue\nfalse\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "types",
@@ -435,7 +439,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt1s",
+       "id": "nmvyw2d251s",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -443,7 +447,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt1t",
+       "id": "nmvyw2d251t",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -451,7 +455,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt1u",
+       "id": "nmvyw2d251u",
        "type": "declare",
        "name": "s",
        "varType": "String",
@@ -459,7 +463,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt1v",
+       "id": "nmvyw2d251v",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
@@ -467,91 +471,91 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt1w",
+       "id": "nmvyw2d251w",
        "type": "assign",
        "target": "i",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyvngkt1x",
+       "id": "nmvyw2d251x",
        "type": "assign",
        "target": "r",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyvngkt1y",
+       "id": "nmvyw2d251y",
        "type": "assign",
        "target": "s",
        "expr": "7 / 3"
       },
       {
-       "id": "nmvyvngkt1z",
+       "id": "nmvyw2d251z",
        "type": "assign",
        "target": "b",
        "expr": "3 > 2"
       },
       {
-       "id": "nmvyvngkt20",
+       "id": "nmvyw2d2520",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyvngkt21",
+       "id": "nmvyw2d2521",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyvngkt22",
+       "id": "nmvyw2d2522",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyvngkt23",
+       "id": "nmvyw2d2523",
        "type": "output",
        "expr": "b",
        "newline": true
       },
       {
-       "id": "nmvyvngkt24",
+       "id": "nmvyw2d2524",
        "type": "output",
        "expr": "i & r & s & b",
        "newline": true
       },
       {
-       "id": "nmvyvngkt25",
+       "id": "nmvyw2d2525",
        "type": "assign",
        "target": "i",
        "expr": "\"12\""
       },
       {
-       "id": "nmvyvngkt26",
+       "id": "nmvyw2d2526",
        "type": "output",
        "expr": "i + 1",
        "newline": true
       },
       {
-       "id": "nmvyvngkt27",
+       "id": "nmvyw2d2527",
        "type": "assign",
        "target": "i",
        "expr": "-2.9"
       },
       {
-       "id": "nmvyvngkt28",
+       "id": "nmvyw2d2528",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyvngkt29",
+       "id": "nmvyw2d2529",
        "type": "assign",
        "target": "s",
        "expr": "0.1 + 0.2"
       },
       {
-       "id": "nmvyvngkt2a",
+       "id": "nmvyw2d252a",
        "type": "output",
        "expr": "s",
        "newline": true
@@ -561,9 +565,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "3\n3.5\n2.3333333333333335\ntrue\n33.52.3333333333333335true\n13\n-2\n0.30000000000000004\n",
   "after": "3\n3.5\n2.3333333333333335\ntrue\n33.52.3333333333333335true\n13\n-2\n0.30000000000000004\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "exponent literal",
@@ -577,7 +583,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2b",
+       "id": "nmvyw2d252b",
        "type": "output",
        "expr": "1e21",
        "newline": true
@@ -587,9 +593,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Unexpected 'e21'"
+  "error": "Unexpected 'e21'",
+  "result": null
  },
  {
   "name": "bad assign",
@@ -603,7 +611,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2c",
+       "id": "nmvyw2d252c",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -611,7 +619,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt2d",
+       "id": "nmvyw2d252d",
        "type": "assign",
        "target": "i",
        "expr": "\"abc\""
@@ -621,9 +629,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Cannot assign 'abc' to Integer i"
+  "error": "Cannot assign 'abc' to Integer i",
+  "result": null
  },
  {
   "name": "bool assign",
@@ -637,7 +647,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2e",
+       "id": "nmvyw2d252e",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
@@ -645,7 +655,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt2f",
+       "id": "nmvyw2d252f",
        "type": "assign",
        "target": "b",
        "expr": "1"
@@ -655,9 +665,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Cannot assign '1' to Boolean b"
+  "error": "Cannot assign '1' to Boolean b",
+  "result": null
  },
  {
   "name": "undeclared",
@@ -671,7 +683,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2g",
+       "id": "nmvyw2d252g",
        "type": "assign",
        "target": "x",
        "expr": "1"
@@ -681,9 +693,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Variable 'x' is not declared"
+  "error": "Variable 'x' is not declared",
+  "result": null
  },
  {
   "name": "division by zero",
@@ -697,13 +711,13 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2h",
+       "id": "nmvyw2d252h",
        "type": "output",
        "expr": "\"before\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt2i",
+       "id": "nmvyw2d252i",
        "type": "output",
        "expr": "5 / 0",
        "newline": true
@@ -713,9 +727,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "before\n",
   "after": "before\n",
-  "error": "Division by zero"
+  "error": "Division by zero",
+  "result": null
  },
  {
   "name": "mod zero",
@@ -729,7 +745,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2j",
+       "id": "nmvyw2d252j",
        "type": "output",
        "expr": "5 mod 0",
        "newline": true
@@ -739,9 +755,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Division by zero"
+  "error": "Division by zero",
+  "result": null
  },
  {
   "name": "syntax",
@@ -755,7 +773,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2k",
+       "id": "nmvyw2d252k",
        "type": "output",
        "expr": "1 +",
        "newline": true
@@ -765,9 +783,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Unexpected end of expression"
+  "error": "Unexpected end of expression",
+  "result": null
  },
  {
   "name": "syntax 2",
@@ -781,7 +801,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2l",
+       "id": "nmvyw2d252l",
        "type": "output",
        "expr": "(1 + 2",
        "newline": true
@@ -791,9 +811,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Expected ')'"
+  "error": "Expected ')'",
+  "result": null
  },
  {
   "name": "syntax 3",
@@ -807,7 +829,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2m",
+       "id": "nmvyw2d252m",
        "type": "output",
        "expr": "\"abc",
        "newline": true
@@ -817,9 +839,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Unterminated string"
+  "error": "Unterminated string",
+  "result": null
  },
  {
   "name": "syntax 4",
@@ -833,7 +857,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2n",
+       "id": "nmvyw2d252n",
        "type": "output",
        "expr": "2 # 3",
        "newline": true
@@ -843,9 +867,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Unexpected character '#'"
+  "error": "Unexpected character '#'",
+  "result": null
  },
  {
   "name": "unknown function",
@@ -859,7 +885,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2o",
+       "id": "nmvyw2d252o",
        "type": "output",
        "expr": "Foo(1)",
        "newline": true
@@ -869,9 +895,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Unknown function 'Foo'"
+  "error": "Unknown function 'Foo'",
+  "result": null
  },
  {
   "name": "char out of range",
@@ -885,7 +913,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2p",
+       "id": "nmvyw2d252p",
        "type": "output",
        "expr": "Char(\"ab\", 5)",
        "newline": true
@@ -895,9 +923,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Char: index 5 is outside the string \"ab\""
+  "error": "Char: index 5 is outside the string \"ab\"",
+  "result": null
  },
  {
   "name": "tocode empty",
@@ -911,7 +941,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2q",
+       "id": "nmvyw2d252q",
        "type": "output",
        "expr": "ToCode(\"\")",
        "newline": true
@@ -921,9 +951,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "ToCode: empty string"
+  "error": "ToCode: empty string",
+  "result": null
  },
  {
   "name": "endless",
@@ -937,7 +969,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2r",
+       "id": "nmvyw2d252r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -945,12 +977,12 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt2t",
+       "id": "nmvyw2d252t",
        "type": "while",
        "cond": "true",
        "body": [
         {
-         "id": "nmvyvngkt2s",
+         "id": "nmvyw2d252s",
          "type": "assign",
          "target": "i",
          "expr": "i + 1"
@@ -962,9 +994,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Step limit exceeded (possible infinite loop)"
+  "error": "Step limit exceeded (possible infinite loop)",
+  "result": null
  },
  {
   "name": "for",
@@ -978,7 +1012,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt2u",
+       "id": "nmvyw2d252u",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
@@ -986,7 +1020,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt2x",
+       "id": "nmvyw2d252x",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -994,13 +1028,13 @@
        "step": "3",
        "body": [
         {
-         "id": "nmvyvngkt2v",
+         "id": "nmvyw2d252v",
          "type": "output",
          "expr": "i",
          "newline": false
         },
         {
-         "id": "nmvyvngkt2w",
+         "id": "nmvyw2d252w",
          "type": "output",
          "expr": "\" \"",
          "newline": false
@@ -1008,13 +1042,13 @@
        ]
       },
       {
-       "id": "nmvyvngkt2y",
+       "id": "nmvyw2d252y",
        "type": "output",
        "expr": "\"\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt30",
+       "id": "nmvyw2d2530",
        "type": "for",
        "variable": "i",
        "start": "5",
@@ -1022,7 +1056,7 @@
        "step": "-2",
        "body": [
         {
-         "id": "nmvyvngkt2z",
+         "id": "nmvyw2d252z",
          "type": "output",
          "expr": "i",
          "newline": true
@@ -1030,7 +1064,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt32",
+       "id": "nmvyw2d2532",
        "type": "for",
        "variable": "j",
        "start": "1",
@@ -1038,7 +1072,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt31",
+         "id": "nmvyw2d2531",
          "type": "output",
          "expr": "\"never\"",
          "newline": true
@@ -1046,7 +1080,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt34",
+       "id": "nmvyw2d2534",
        "type": "for",
        "variable": "k",
        "start": "0",
@@ -1054,7 +1088,7 @@
        "step": "0.25",
        "body": [
         {
-         "id": "nmvyvngkt33",
+         "id": "nmvyw2d2533",
          "type": "output",
          "expr": "k",
          "newline": true
@@ -1062,7 +1096,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt35",
+       "id": "nmvyw2d2535",
        "type": "output",
        "expr": "i",
        "newline": true
@@ -1072,9 +1106,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "1 4 7 10 \n5\n3\n1\n0\n0.25\n0.5\n0.75\n1\n1\n",
   "after": "1 4 7 10 \n5\n3\n1\n0\n0.25\n0.5\n0.75\n1\n1\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "for step zero",
@@ -1088,7 +1124,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt36",
+       "id": "nmvyw2d2536",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1101,9 +1137,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "For loop step cannot be 0"
+  "error": "For loop step cannot be 0",
+  "result": null
  },
  {
   "name": "array size limit",
@@ -1117,7 +1155,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt37",
+       "id": "nmvyw2d2537",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -1125,13 +1163,13 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt38",
+       "id": "nmvyw2d2538",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt39",
+       "id": "nmvyw2d2539",
        "type": "declare",
        "name": "b",
        "varType": "Integer",
@@ -1143,9 +1181,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "100000\n",
   "after": "100000\n",
-  "error": "Array size 100001 is larger than 100000"
+  "error": "Array size 100001 is larger than 100000",
+  "result": null
  },
  {
   "name": "array size from text",
@@ -1159,7 +1199,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3a",
+       "id": "nmvyw2d253a",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -1167,13 +1207,13 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3b",
+       "id": "nmvyw2d253b",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3c",
+       "id": "nmvyw2d253c",
        "type": "declare",
        "name": "b",
        "varType": "Real",
@@ -1181,7 +1221,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3d",
+       "id": "nmvyw2d253d",
        "type": "output",
        "expr": "Len(b)",
        "newline": true
@@ -1191,9 +1231,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "0\n2\n",
   "after": "0\n2\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "arrays",
@@ -1207,7 +1249,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3e",
+       "id": "nmvyw2d253e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -1215,7 +1257,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3f",
+       "id": "nmvyw2d253f",
        "type": "declare",
        "name": "t",
        "varType": "String",
@@ -1223,7 +1265,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3h",
+       "id": "nmvyw2d253h",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -1231,7 +1273,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt3g",
+         "id": "nmvyw2d253g",
          "type": "assign",
          "target": "a[i]",
          "expr": "i * i"
@@ -1239,43 +1281,43 @@
        ]
       },
       {
-       "id": "nmvyvngkt3i",
+       "id": "nmvyw2d253i",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3j",
+       "id": "nmvyw2d253j",
        "type": "output",
        "expr": "a[4]",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3k",
+       "id": "nmvyw2d253k",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3l",
+       "id": "nmvyw2d253l",
        "type": "output",
        "expr": "t",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3m",
+       "id": "nmvyw2d253m",
        "type": "output",
        "expr": "Len(t)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3n",
+       "id": "nmvyw2d253n",
        "type": "output",
        "expr": "a[1] + a[2]",
        "newline": true
       },
       {
-       "id": "nmvyvngkt3o",
+       "id": "nmvyw2d253o",
        "type": "output",
        "expr": "a[5]",
        "newline": true
@@ -1285,9 +1327,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "0,1,4,9,16\n16\n5\n,\n2\n5\n",
   "after": "0,1,4,9,16\n16\n5\n,\n2\n5\n",
-  "error": "Index 5 out of range for 'a'"
+  "error": "Index 5 out of range for 'a'",
+  "result": null
  },
  {
   "name": "array not array",
@@ -1301,7 +1345,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3p",
+       "id": "nmvyw2d253p",
        "type": "declare",
        "name": "x",
        "varType": "Integer",
@@ -1309,7 +1353,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3q",
+       "id": "nmvyw2d253q",
        "type": "output",
        "expr": "x[0]",
        "newline": true
@@ -1319,9 +1363,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "'x' is not an array"
+  "error": "'x' is not an array",
+  "result": null
  },
  {
   "name": "input types",
@@ -1335,7 +1381,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3r",
+       "id": "nmvyw2d253r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1343,7 +1389,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3s",
+       "id": "nmvyw2d253s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -1351,7 +1397,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3t",
+       "id": "nmvyw2d253t",
        "type": "declare",
        "name": "s",
        "varType": "String",
@@ -1359,7 +1405,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3u",
+       "id": "nmvyw2d253u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
@@ -1367,45 +1413,45 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3v",
+       "id": "nmvyw2d253v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyvngkt3w",
+       "id": "nmvyw2d253w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyvngkt3x",
+       "id": "nmvyw2d253x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyvngkt3y",
+       "id": "nmvyw2d253y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyvngkt3z",
+       "id": "nmvyw2d253z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyvngkt40",
+       "id": "nmvyw2d2540",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyvngkt41",
+       "id": "nmvyw2d2541",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyvngkt42",
+       "id": "nmvyw2d2542",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1415,9 +1461,11 @@
    ]
   },
   "inputs": "12.7\n-0.5\n  hi  \nTRUE",
+  "call": null,
   "output": "12\n-0.5\n  hi  \ntrue\n",
   "after": "12\n-0.5\n  hi  \ntrue\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "input types",
@@ -1431,7 +1479,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3r",
+       "id": "nmvyw2d253r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1439,7 +1487,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3s",
+       "id": "nmvyw2d253s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -1447,7 +1495,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3t",
+       "id": "nmvyw2d253t",
        "type": "declare",
        "name": "s",
        "varType": "String",
@@ -1455,7 +1503,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3u",
+       "id": "nmvyw2d253u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
@@ -1463,45 +1511,45 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3v",
+       "id": "nmvyw2d253v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyvngkt3w",
+       "id": "nmvyw2d253w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyvngkt3x",
+       "id": "nmvyw2d253x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyvngkt3y",
+       "id": "nmvyw2d253y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyvngkt3z",
+       "id": "nmvyw2d253z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyvngkt40",
+       "id": "nmvyw2d2540",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyvngkt41",
+       "id": "nmvyw2d2541",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyvngkt42",
+       "id": "nmvyw2d2542",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1511,9 +1559,11 @@
    ]
   },
   "inputs": " 5 \n1e2\n\"\"\nx",
+  "call": null,
   "output": "5\n100\n\nfalse\n",
   "after": "5\n100\n\nfalse\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "input types",
@@ -1527,7 +1577,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt3r",
+       "id": "nmvyw2d253r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1535,7 +1585,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3s",
+       "id": "nmvyw2d253s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -1543,7 +1593,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3t",
+       "id": "nmvyw2d253t",
        "type": "declare",
        "name": "s",
        "varType": "String",
@@ -1551,7 +1601,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3u",
+       "id": "nmvyw2d253u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
@@ -1559,45 +1609,45 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt3v",
+       "id": "nmvyw2d253v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyvngkt3w",
+       "id": "nmvyw2d253w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyvngkt3x",
+       "id": "nmvyw2d253x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyvngkt3y",
+       "id": "nmvyw2d253y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyvngkt3z",
+       "id": "nmvyw2d253z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyvngkt40",
+       "id": "nmvyw2d2540",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyvngkt41",
+       "id": "nmvyw2d2541",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyvngkt42",
+       "id": "nmvyw2d2542",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1607,9 +1657,11 @@
    ]
   },
   "inputs": "0x10\n.5\nč\ntrue",
+  "call": null,
   "output": "16\n0.5\nč\ntrue\n",
   "after": "16\n0.5\nč\ntrue\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "bad input",
@@ -1623,7 +1675,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt43",
+       "id": "nmvyw2d2543",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1631,7 +1683,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt44",
+       "id": "nmvyw2d2544",
        "type": "input",
        "target": "i"
       }
@@ -1640,9 +1692,11 @@
    ]
   },
   "inputs": "abc",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "'abc' is not a valid Integer"
+  "error": "'abc' is not a valid Integer",
+  "result": null
  },
  {
   "name": "bad input",
@@ -1656,7 +1710,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt43",
+       "id": "nmvyw2d2543",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1664,7 +1718,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt44",
+       "id": "nmvyw2d2544",
        "type": "input",
        "target": "i"
       }
@@ -1673,9 +1727,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "The algorithm asks for more input than the test provides."
+  "error": "The algorithm asks for more input than the test provides.",
+  "result": null
  },
  {
   "name": "bad input",
@@ -1689,7 +1745,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt43",
+       "id": "nmvyw2d2543",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -1697,7 +1753,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt44",
+       "id": "nmvyw2d2544",
        "type": "input",
        "target": "i"
       }
@@ -1706,9 +1762,11 @@
    ]
   },
   "inputs": " ",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "' ' is not a valid Integer"
+  "error": "' ' is not a valid Integer",
+  "result": null
  },
  {
   "name": "input count",
@@ -1722,7 +1780,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt45",
+       "id": "nmvyw2d2545",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -1730,7 +1788,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt46",
+       "id": "nmvyw2d2546",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
@@ -1738,18 +1796,18 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt47",
+       "id": "nmvyw2d2547",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt48",
+       "id": "nmvyw2d2548",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngkt4c",
+       "id": "nmvyw2d254c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1757,18 +1815,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt49",
+         "id": "nmvyw2d2549",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyvngkt4a",
+         "id": "nmvyw2d254a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngkt4b",
+         "id": "nmvyw2d254b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1776,7 +1834,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt4d",
+       "id": "nmvyw2d254d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1786,9 +1844,11 @@
    ]
   },
   "inputs": "3\n1\n2\n4",
+  "call": null,
   "output": "Koliko?\nBroj 1:\nBroj 2:\nBroj 3:\nZbir je 7, prosek 2.3333333333\n",
   "after": "Zbir je 7, prosek 2.3333333333\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "input count",
@@ -1802,7 +1862,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt45",
+       "id": "nmvyw2d2545",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -1810,7 +1870,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt46",
+       "id": "nmvyw2d2546",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
@@ -1818,18 +1878,18 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt47",
+       "id": "nmvyw2d2547",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt48",
+       "id": "nmvyw2d2548",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngkt4c",
+       "id": "nmvyw2d254c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1837,18 +1897,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt49",
+         "id": "nmvyw2d2549",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyvngkt4a",
+         "id": "nmvyw2d254a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngkt4b",
+         "id": "nmvyw2d254b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1856,7 +1916,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt4d",
+       "id": "nmvyw2d254d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1866,9 +1926,11 @@
    ]
   },
   "inputs": "3\n1\n2",
+  "call": null,
   "output": "Koliko?\nBroj 1:\nBroj 2:\nBroj 3:\n",
   "after": "Broj 3:\n",
-  "error": "The algorithm asks for more input than the test provides."
+  "error": "The algorithm asks for more input than the test provides.",
+  "result": null
  },
  {
   "name": "input count",
@@ -1882,7 +1944,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt45",
+       "id": "nmvyw2d2545",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -1890,7 +1952,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt46",
+       "id": "nmvyw2d2546",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
@@ -1898,18 +1960,18 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt47",
+       "id": "nmvyw2d2547",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt48",
+       "id": "nmvyw2d2548",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngkt4c",
+       "id": "nmvyw2d254c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1917,18 +1979,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt49",
+         "id": "nmvyw2d2549",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyvngkt4a",
+         "id": "nmvyw2d254a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngkt4b",
+         "id": "nmvyw2d254b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1936,7 +1998,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt4d",
+       "id": "nmvyw2d254d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1946,9 +2008,11 @@
    ]
   },
   "inputs": "2\n5\n5\n9",
+  "call": null,
   "output": "Koliko?\nBroj 1:\nBroj 2:\nZbir je 10, prosek 3.3333333333\n",
   "after": "Zbir je 10, prosek 3.3333333333\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "input count",
@@ -1962,7 +2026,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt45",
+       "id": "nmvyw2d2545",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -1970,7 +2034,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt46",
+       "id": "nmvyw2d2546",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
@@ -1978,18 +2042,18 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt47",
+       "id": "nmvyw2d2547",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt48",
+       "id": "nmvyw2d2548",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngkt4c",
+       "id": "nmvyw2d254c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1997,18 +2061,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngkt49",
+         "id": "nmvyw2d2549",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyvngkt4a",
+         "id": "nmvyw2d254a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngkt4b",
+         "id": "nmvyw2d254b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -2016,7 +2080,7 @@
        ]
       },
       {
-       "id": "nmvyvngkt4d",
+       "id": "nmvyw2d254d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -2026,9 +2090,11 @@
    ]
   },
   "inputs": "1\n2",
+  "call": null,
   "output": "Koliko?\nBroj 1:\nZbir je 2, prosek 0.6666666667\n",
   "after": "Zbir je 2, prosek 0.6666666667\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "after last input",
@@ -2042,7 +2108,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt4e",
+       "id": "nmvyw2d254e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2050,29 +2116,29 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt4f",
+       "id": "nmvyw2d254f",
        "type": "output",
        "expr": "\"x\"",
        "newline": true
       },
       {
-       "id": "nmvyvngkt4g",
+       "id": "nmvyw2d254g",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvyvngkt4h",
+       "id": "nmvyw2d254h",
        "type": "output",
        "expr": "\"y \" & a",
        "newline": false
       },
       {
-       "id": "nmvyvngkt4i",
+       "id": "nmvyw2d254i",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvyvngkt4j",
+       "id": "nmvyw2d254j",
        "type": "output",
        "expr": "\"z \" & a",
        "newline": false
@@ -2082,9 +2148,11 @@
    ]
   },
   "inputs": "1\n2",
+  "call": null,
   "output": "x\ny 1z 2",
   "after": "z 2",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "functions",
@@ -2098,7 +2166,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngkt4k",
+       "id": "nmvyw2d254k",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2106,42 +2174,42 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngkt4l",
+       "id": "nmvyw2d254l",
        "type": "assign",
        "target": "a[0]",
        "expr": "5"
       },
       {
-       "id": "nmvyvngkt4m",
+       "id": "nmvyw2d254m",
        "type": "call",
        "expr": "Fill(a, 7)"
       },
       {
-       "id": "nmvyvngkt4n",
+       "id": "nmvyw2d254n",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvyvngkt4o",
+       "id": "nmvyw2d254o",
        "type": "output",
        "expr": "Fact(10)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt4p",
+       "id": "nmvyw2d254p",
        "type": "output",
        "expr": "Fib(15)",
        "newline": true
       },
       {
-       "id": "nmvyvngkt4q",
+       "id": "nmvyw2d254q",
        "type": "output",
        "expr": "NoReturn()",
        "newline": true
       },
       {
-       "id": "nmvyvngkt4r",
+       "id": "nmvyw2d254r",
        "type": "output",
        "expr": "Half(7)",
        "newline": true
@@ -2164,7 +2232,7 @@
      "returnType": "",
      "body": [
       {
-       "id": "nmvyvngku4t",
+       "id": "nmvyw2d254t",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -2172,7 +2240,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngku4s",
+         "id": "nmvyw2d254s",
          "type": "assign",
          "target": "x[i]",
          "expr": "v"
@@ -2192,19 +2260,19 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvyvngku4w",
+       "id": "nmvyw2d254w",
        "type": "if",
        "cond": "n <= 1",
        "then": [
         {
-         "id": "nmvyvngku4u",
+         "id": "nmvyw2d254u",
          "type": "return",
          "expr": "1"
         }
        ],
        "else": [
         {
-         "id": "nmvyvngku4v",
+         "id": "nmvyw2d254v",
          "type": "return",
          "expr": "n * Fact(n - 1)"
         }
@@ -2223,12 +2291,12 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvyvngku4y",
+       "id": "nmvyw2d254y",
        "type": "if",
        "cond": "n < 2",
        "then": [
         {
-         "id": "nmvyvngku4x",
+         "id": "nmvyw2d254x",
          "type": "return",
          "expr": "n"
         }
@@ -2236,7 +2304,7 @@
        "else": []
       },
       {
-       "id": "nmvyvngku4z",
+       "id": "nmvyw2d254z",
        "type": "return",
        "expr": "Fib(n - 1) + Fib(n - 2)"
       }
@@ -2259,7 +2327,7 @@
      "returnType": "Real",
      "body": [
       {
-       "id": "nmvyvngku50",
+       "id": "nmvyw2d2550",
        "type": "return",
        "expr": "n / 2"
       }
@@ -2268,9 +2336,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "5,7,7\n3628800\n610\nundefined\n3.5\n",
   "after": "5,7,7\n3628800\n610\nundefined\n3.5\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "wrong argument count",
@@ -2284,7 +2354,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku51",
+       "id": "nmvyw2d2551",
        "type": "output",
        "expr": "Two(1)",
        "newline": true
@@ -2308,9 +2378,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Function 'Two' expects 2 argument(s)"
+  "error": "Function 'Two' expects 2 argument(s)",
+  "result": null
  },
  {
   "name": "do while",
@@ -2324,7 +2396,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku52",
+       "id": "nmvyw2d2552",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2332,17 +2404,17 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku55",
+       "id": "nmvyw2d2555",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyvngku53",
+         "id": "nmvyw2d2553",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngku54",
+         "id": "nmvyw2d2554",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2354,9 +2426,11 @@
    ]
   },
   "inputs": "3\n-1\n0",
+  "call": null,
   "output": "6\n-2\n",
   "after": "-2\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "do while",
@@ -2370,7 +2444,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku52",
+       "id": "nmvyw2d2552",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2378,17 +2452,17 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku55",
+       "id": "nmvyw2d2555",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyvngku53",
+         "id": "nmvyw2d2553",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngku54",
+         "id": "nmvyw2d2554",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2400,9 +2474,11 @@
    ]
   },
   "inputs": "0",
+  "call": null,
   "output": "0\n",
   "after": "0\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "do while",
@@ -2416,7 +2492,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku52",
+       "id": "nmvyw2d2552",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2424,17 +2500,17 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku55",
+       "id": "nmvyw2d2555",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyvngku53",
+         "id": "nmvyw2d2553",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyvngku54",
+         "id": "nmvyw2d2554",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2446,9 +2522,11 @@
    ]
   },
   "inputs": "5",
+  "call": null,
   "output": "10\n",
   "after": "10\n",
-  "error": "The algorithm asks for more input than the test provides."
+  "error": "The algorithm asks for more input than the test provides.",
+  "result": null
  },
  {
   "name": "matrix",
@@ -2462,7 +2540,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku56",
+       "id": "nmvyw2d2556",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -2470,7 +2548,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku57",
+       "id": "nmvyw2d2557",
        "type": "declare",
        "name": "j",
        "varType": "Integer",
@@ -2478,7 +2556,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku58",
+       "id": "nmvyw2d2558",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2486,12 +2564,12 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku59",
+       "id": "nmvyw2d2559",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngku5a",
+       "id": "nmvyw2d255a",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2499,7 +2577,7 @@
        "size2": "n + 1"
       },
       {
-       "id": "nmvyvngku5b",
+       "id": "nmvyw2d255b",
        "type": "declare",
        "name": "w",
        "varType": "String",
@@ -2507,7 +2585,7 @@
        "size2": "2"
       },
       {
-       "id": "nmvyvngku5c",
+       "id": "nmvyw2d255c",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -2515,7 +2593,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5f",
+       "id": "nmvyw2d255f",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -2523,7 +2601,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngku5e",
+         "id": "nmvyw2d255e",
          "type": "for",
          "variable": "j",
          "start": "0",
@@ -2531,7 +2609,7 @@
          "step": "1",
          "body": [
           {
-           "id": "nmvyvngku5d",
+           "id": "nmvyw2d255d",
            "type": "assign",
            "target": "a[i, j]",
            "expr": "i * 10 + j"
@@ -2541,42 +2619,42 @@
        ]
       },
       {
-       "id": "nmvyvngku5g",
+       "id": "nmvyw2d255g",
        "type": "assign",
        "target": "a[1][2]",
        "expr": "a[1, 2] / 4"
       },
       {
-       "id": "nmvyvngku5h",
+       "id": "nmvyw2d255h",
        "type": "input",
        "target": "a[0, n]"
       },
       {
-       "id": "nmvyvngku5i",
+       "id": "nmvyw2d255i",
        "type": "assign",
        "target": "w[1, 0]",
        "expr": "\"x\" & a[0][n]"
       },
       {
-       "id": "nmvyvngku5j",
+       "id": "nmvyw2d255j",
        "type": "assign",
        "target": "r[1, 2]",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyvngku5k",
+       "id": "nmvyw2d255k",
        "type": "output",
        "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngku5l",
+       "id": "nmvyw2d255l",
        "type": "output",
        "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
        "newline": true
       },
       {
-       "id": "nmvyvngku5m",
+       "id": "nmvyw2d255m",
        "type": "output",
        "expr": "r[1, 2] + r[0, 0]",
        "newline": true
@@ -2586,9 +2664,11 @@
    ]
   },
   "inputs": "3\n9",
+  "call": null,
   "output": "3 9 3\nx9||\n3.5\n",
   "after": "3 9 3\nx9||\n3.5\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "matrix",
@@ -2602,7 +2682,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku56",
+       "id": "nmvyw2d2556",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -2610,7 +2690,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku57",
+       "id": "nmvyw2d2557",
        "type": "declare",
        "name": "j",
        "varType": "Integer",
@@ -2618,7 +2698,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku58",
+       "id": "nmvyw2d2558",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2626,12 +2706,12 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku59",
+       "id": "nmvyw2d2559",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngku5a",
+       "id": "nmvyw2d255a",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2639,7 +2719,7 @@
        "size2": "n + 1"
       },
       {
-       "id": "nmvyvngku5b",
+       "id": "nmvyw2d255b",
        "type": "declare",
        "name": "w",
        "varType": "String",
@@ -2647,7 +2727,7 @@
        "size2": "2"
       },
       {
-       "id": "nmvyvngku5c",
+       "id": "nmvyw2d255c",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -2655,7 +2735,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5f",
+       "id": "nmvyw2d255f",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -2663,7 +2743,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngku5e",
+         "id": "nmvyw2d255e",
          "type": "for",
          "variable": "j",
          "start": "0",
@@ -2671,7 +2751,7 @@
          "step": "1",
          "body": [
           {
-           "id": "nmvyvngku5d",
+           "id": "nmvyw2d255d",
            "type": "assign",
            "target": "a[i, j]",
            "expr": "i * 10 + j"
@@ -2681,42 +2761,42 @@
        ]
       },
       {
-       "id": "nmvyvngku5g",
+       "id": "nmvyw2d255g",
        "type": "assign",
        "target": "a[1][2]",
        "expr": "a[1, 2] / 4"
       },
       {
-       "id": "nmvyvngku5h",
+       "id": "nmvyw2d255h",
        "type": "input",
        "target": "a[0, n]"
       },
       {
-       "id": "nmvyvngku5i",
+       "id": "nmvyw2d255i",
        "type": "assign",
        "target": "w[1, 0]",
        "expr": "\"x\" & a[0][n]"
       },
       {
-       "id": "nmvyvngku5j",
+       "id": "nmvyw2d255j",
        "type": "assign",
        "target": "r[1, 2]",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyvngku5k",
+       "id": "nmvyw2d255k",
        "type": "output",
        "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngku5l",
+       "id": "nmvyw2d255l",
        "type": "output",
        "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
        "newline": true
       },
       {
-       "id": "nmvyvngku5m",
+       "id": "nmvyw2d255m",
        "type": "output",
        "expr": "r[1, 2] + r[0, 0]",
        "newline": true
@@ -2726,9 +2806,11 @@
    ]
   },
   "inputs": "2\n4.7",
+  "call": null,
   "output": "3 4 2\nx4||\n3.5\n",
   "after": "3 4 2\nx4||\n3.5\n",
-  "error": null
+  "error": null,
+  "result": null
  },
  {
   "name": "matrix",
@@ -2742,7 +2824,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku56",
+       "id": "nmvyw2d2556",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
@@ -2750,7 +2832,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku57",
+       "id": "nmvyw2d2557",
        "type": "declare",
        "name": "j",
        "varType": "Integer",
@@ -2758,7 +2840,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku58",
+       "id": "nmvyw2d2558",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
@@ -2766,12 +2848,12 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku59",
+       "id": "nmvyw2d2559",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyvngku5a",
+       "id": "nmvyw2d255a",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2779,7 +2861,7 @@
        "size2": "n + 1"
       },
       {
-       "id": "nmvyvngku5b",
+       "id": "nmvyw2d255b",
        "type": "declare",
        "name": "w",
        "varType": "String",
@@ -2787,7 +2869,7 @@
        "size2": "2"
       },
       {
-       "id": "nmvyvngku5c",
+       "id": "nmvyw2d255c",
        "type": "declare",
        "name": "r",
        "varType": "Real",
@@ -2795,7 +2877,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5f",
+       "id": "nmvyw2d255f",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -2803,7 +2885,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyvngku5e",
+         "id": "nmvyw2d255e",
          "type": "for",
          "variable": "j",
          "start": "0",
@@ -2811,7 +2893,7 @@
          "step": "1",
          "body": [
           {
-           "id": "nmvyvngku5d",
+           "id": "nmvyw2d255d",
            "type": "assign",
            "target": "a[i, j]",
            "expr": "i * 10 + j"
@@ -2821,42 +2903,42 @@
        ]
       },
       {
-       "id": "nmvyvngku5g",
+       "id": "nmvyw2d255g",
        "type": "assign",
        "target": "a[1][2]",
        "expr": "a[1, 2] / 4"
       },
       {
-       "id": "nmvyvngku5h",
+       "id": "nmvyw2d255h",
        "type": "input",
        "target": "a[0, n]"
       },
       {
-       "id": "nmvyvngku5i",
+       "id": "nmvyw2d255i",
        "type": "assign",
        "target": "w[1, 0]",
        "expr": "\"x\" & a[0][n]"
       },
       {
-       "id": "nmvyvngku5j",
+       "id": "nmvyw2d255j",
        "type": "assign",
        "target": "r[1, 2]",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyvngku5k",
+       "id": "nmvyw2d255k",
        "type": "output",
        "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyvngku5l",
+       "id": "nmvyw2d255l",
        "type": "output",
        "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
        "newline": true
       },
       {
-       "id": "nmvyvngku5m",
+       "id": "nmvyw2d255m",
        "type": "output",
        "expr": "r[1, 2] + r[0, 0]",
        "newline": true
@@ -2866,9 +2948,11 @@
    ]
   },
   "inputs": "1\n5",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Index 1 out of range for 'a'"
+  "error": "Index 1 out of range for 'a'",
+  "result": null
  },
  {
   "name": "matrix one index",
@@ -2882,7 +2966,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5n",
+       "id": "nmvyw2d255n",
        "type": "declare",
        "name": "m",
        "varType": "Integer",
@@ -2890,7 +2974,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5o",
+       "id": "nmvyw2d255o",
        "type": "output",
        "expr": "m[1]",
        "newline": true
@@ -2900,9 +2984,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "The number of indexes for m must be 2"
+  "error": "The number of indexes for m must be 2",
+  "result": null
  },
  {
   "name": "array two indexes",
@@ -2916,7 +3002,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5p",
+       "id": "nmvyw2d255p",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
@@ -2924,7 +3010,7 @@
        "size2": ""
       },
       {
-       "id": "nmvyvngku5q",
+       "id": "nmvyw2d255q",
        "type": "output",
        "expr": "a[1, 1]",
        "newline": true
@@ -2934,9 +3020,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "The number of indexes for a must be 1"
+  "error": "The number of indexes for a must be 1",
+  "result": null
  },
  {
   "name": "matrix row range",
@@ -2950,7 +3038,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5r",
+       "id": "nmvyw2d255r",
        "type": "declare",
        "name": "m",
        "varType": "Integer",
@@ -2958,7 +3046,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5s",
+       "id": "nmvyw2d255s",
        "type": "output",
        "expr": "m[2, 0]",
        "newline": true
@@ -2968,9 +3056,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Index 2 out of range for 'm'"
+  "error": "Index 2 out of range for 'm'",
+  "result": null
  },
  {
   "name": "matrix column range",
@@ -2984,7 +3074,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5t",
+       "id": "nmvyw2d255t",
        "type": "declare",
        "name": "m",
        "varType": "Integer",
@@ -2992,7 +3082,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5u",
+       "id": "nmvyw2d255u",
        "type": "output",
        "expr": "m[1][3]",
        "newline": true
@@ -3002,9 +3092,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Index 3 out of range for 'm'"
+  "error": "Index 3 out of range for 'm'",
+  "result": null
  },
  {
   "name": "matrix fraction index",
@@ -3018,7 +3110,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5v",
+       "id": "nmvyw2d255v",
        "type": "declare",
        "name": "m",
        "varType": "Integer",
@@ -3026,7 +3118,7 @@
        "size2": "3"
       },
       {
-       "id": "nmvyvngku5w",
+       "id": "nmvyw2d255w",
        "type": "output",
        "expr": "m[0.5, 1]",
        "newline": true
@@ -3036,9 +3128,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "",
   "after": "",
-  "error": "Index 0.5 out of range for 'm'"
+  "error": "Index 0.5 out of range for 'm'",
+  "result": null
  },
  {
   "name": "matrix size limit",
@@ -3052,7 +3146,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku5x",
+       "id": "nmvyw2d255x",
        "type": "declare",
        "name": "m",
        "varType": "Integer",
@@ -3060,13 +3154,13 @@
        "size2": "1000"
       },
       {
-       "id": "nmvyvngku5y",
+       "id": "nmvyw2d255y",
        "type": "output",
        "expr": "Len(m)",
        "newline": true
       },
       {
-       "id": "nmvyvngku5z",
+       "id": "nmvyw2d255z",
        "type": "declare",
        "name": "b",
        "varType": "Integer",
@@ -3078,9 +3172,11 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "100\n",
   "after": "100\n",
-  "error": "Array size 317 x 316 is larger than 100000"
+  "error": "Array size 317 x 316 is larger than 100000",
+  "result": null
  },
  {
   "name": "matrix second size only",
@@ -3094,7 +3190,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyvngku60",
+       "id": "nmvyw2d2560",
        "type": "declare",
        "name": "e",
        "varType": "Integer",
@@ -3102,7 +3198,7 @@
        "size2": "4"
       },
       {
-       "id": "nmvyvngku61",
+       "id": "nmvyw2d2561",
        "type": "output",
        "expr": "e",
        "newline": true
@@ -3112,8 +3208,2078 @@
    ]
   },
   "inputs": "",
+  "call": null,
   "output": "0\n",
   "after": "0\n",
-  "error": null
+  "error": null,
+  "result": null
+ },
+ {
+  "name": "call Fact(5)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fact(5)",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": "120"
+ },
+ {
+  "name": "call Fib(10)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fib(10)",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": "55"
+ },
+ {
+  "name": "call Half(7)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Half(7)",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": "3.5"
+ },
+ {
+  "name": "call NoReturn()",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "NoReturn()",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": ""
+ },
+ {
+  "name": "call Fact(\"3\")",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fact(\"3\")",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": "6"
+ },
+ {
+  "name": "call Two(1)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Two(1)",
+  "output": "",
+  "after": "",
+  "error": "Unknown function 'Two'",
+  "result": null
+ },
+ {
+  "name": "call Fact(n)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fact(n)",
+  "output": "",
+  "after": "",
+  "error": "Variable 'n' is not declared",
+  "result": null
+ },
+ {
+  "name": "call Half(1, 2)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Half(1, 2)",
+  "output": "",
+  "after": "",
+  "error": "Function 'Half' expects 1 argument(s)",
+  "result": null
+ },
+ {
+  "name": "call Missing(1)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Missing(1)",
+  "output": "",
+  "after": "",
+  "error": "Unknown function 'Missing'",
+  "result": null
+ },
+ {
+  "name": "call Fact(2 + 1) & \"!\"",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fact(2 + 1) & \"!\"",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": "6!"
+ },
+ {
+  "name": "call Fill(3, 4)",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyw2d254k",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyw2d254l",
+       "type": "assign",
+       "target": "a[0]",
+       "expr": "5"
+      },
+      {
+       "id": "nmvyw2d254m",
+       "type": "call",
+       "expr": "Fill(a, 7)"
+      },
+      {
+       "id": "nmvyw2d254n",
+       "type": "output",
+       "expr": "a",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254o",
+       "type": "output",
+       "expr": "Fact(10)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254p",
+       "type": "output",
+       "expr": "Fib(15)",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254q",
+       "type": "output",
+       "expr": "NoReturn()",
+       "newline": true
+      },
+      {
+       "id": "nmvyw2d254r",
+       "type": "output",
+       "expr": "Half(7)",
+       "newline": true
+      }
+     ]
+    },
+    {
+     "name": "Fill",
+     "params": [
+      {
+       "name": "x",
+       "type": "Integer",
+       "array": true
+      },
+      {
+       "name": "v",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "",
+     "body": [
+      {
+       "id": "nmvyw2d254t",
+       "type": "for",
+       "variable": "i",
+       "start": "1",
+       "end": "Len(x) - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyw2d254s",
+         "type": "assign",
+         "target": "x[i]",
+         "expr": "v"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fact",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254w",
+       "type": "if",
+       "cond": "n <= 1",
+       "then": [
+        {
+         "id": "nmvyw2d254u",
+         "type": "return",
+         "expr": "1"
+        }
+       ],
+       "else": [
+        {
+         "id": "nmvyw2d254v",
+         "type": "return",
+         "expr": "n * Fact(n - 1)"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Fib",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Integer",
+     "body": [
+      {
+       "id": "nmvyw2d254y",
+       "type": "if",
+       "cond": "n < 2",
+       "then": [
+        {
+         "id": "nmvyw2d254x",
+         "type": "return",
+         "expr": "n"
+        }
+       ],
+       "else": []
+      },
+      {
+       "id": "nmvyw2d254z",
+       "type": "return",
+       "expr": "Fib(n - 1) + Fib(n - 2)"
+      }
+     ]
+    },
+    {
+     "name": "NoReturn",
+     "params": [],
+     "returnType": "",
+     "body": []
+    },
+    {
+     "name": "Half",
+     "params": [
+      {
+       "name": "n",
+       "type": "Integer"
+      }
+     ],
+     "returnType": "Real",
+     "body": [
+      {
+       "id": "nmvyw2d2550",
+       "type": "return",
+       "expr": "n / 2"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "call": "Fill(3, 4)",
+  "output": "",
+  "after": "",
+  "error": null,
+  "result": ""
  }
 ]
