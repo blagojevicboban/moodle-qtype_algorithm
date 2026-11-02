@@ -75,6 +75,20 @@ final class tester_test extends \advanced_testcase {
         $this->assertSame('Array size 1000000 is larger than 100000', tester::run_program($program, '')['error']);
     }
 
+    public function test_matrix(): void {
+        $program = self::program([
+            ['type' => 'declare', 'name' => 'm', 'varType' => 'Integer', 'size' => '2', 'size2' => '3'],
+            ['type' => 'assign', 'target' => 'm[1, 2]', 'expr' => '5'],
+            ['type' => 'output', 'expr' => 'm[1][2] * 2 & " " & m[0, 0]', 'newline' => true],
+        ]);
+        $this->assertSame("10 0\n", tester::run_program($program, '')['output']);
+        $this->assertSame(['array', 'matrix'], tester::structures($program));
+        $program['functions'][0]['body'][] = ['type' => 'output', 'expr' => 'm[1]', 'newline' => true];
+        $this->assertSame('The number of indexes for m must be 2', tester::run_program($program, '')['error']);
+        $big = self::program([['type' => 'declare', 'name' => 'b', 'varType' => 'Integer', 'size' => '1000', 'size2' => '101']]);
+        $this->assertSame('Array size 1000 x 101 is larger than 100000', tester::run_program($big, '')['error']);
+    }
+
     public function test_run_tests(): void {
         $program = self::program([
             ['type' => 'declare', 'name' => 'a, b', 'varType' => 'Integer', 'size' => ''],

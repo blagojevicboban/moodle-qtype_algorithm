@@ -192,22 +192,57 @@ class interpreter {
     }
 
     /**
-     * Array variable and index of an array element.
+     * Element of an array a[i] or a matrix a[i, j]: the variable, the array that holds the element and its index.
      *
      * @param array $n idx node
      * @param array $env variables
-     * @return array [variable, index]
+     * @return array [variable, js_array, index]
      */
     protected function array_index(array $n, array $env): array {
         $v = self::lookup($env, $n['name']);
         if (!($v->value instanceof js_array)) {
             throw new algorithm_error('notarray', ['name' => $n['name']]);
         }
+        $dims = empty($v->dims) ? 1 : $v->dims;
+        if ((isset($n['index2']) ? 2 : 1) !== $dims) {
+            throw new algorithm_error('dimensions', ['name' => $n['name'], 'count' => (string) $dims]);
+        }
         $i = $this->eval_node($n['index'], $env);
-        if (js::compare($i, 0.0) === -1 || in_array(js::compare($i, (float) count($v->value->items)), [0, 1], true)) {
+        self::check_range($v->value, $i, $n['name']);
+        if (!isset($n['index2'])) {
+            return [$v, $v->value, $i];
+        }
+        $j = $this->eval_node($n['index2'], $env);
+        $row = self::element($v->value, $i);
+        if (!($row instanceof js_array)) {
             throw new algorithm_error('indexrange', ['index' => js::to_string($i), 'name' => $n['name']]);
         }
-        return [$v, $i];
+        self::check_range($row, $j, $n['name']);
+        return [$v, $row, $j];
+    }
+
+    /**
+     * An index must be at least 0 and smaller than the length (compared as in JavaScript).
+     *
+     * @param js_array $a array
+     * @param mixed $i index
+     * @param string $name name of the variable, for the error
+     */
+    protected static function check_range(js_array $a, $i, string $name): void {
+        if (js::compare($i, 0.0) === -1 || in_array(js::compare($i, (float) count($a->items)), [0, 1], true)) {
+            throw new algorithm_error('indexrange', ['index' => js::to_string($i), 'name' => $name]);
+        }
+    }
+
+    /**
+     * Length of a new array, as JavaScript's Array.from({length}) reads it.
+     *
+     * @param mixed $size size value
+     * @return int
+     */
+    protected static function array_length($size): int {
+        $length = js::to_number($size);
+        return is_nan($length) || $length < 0 ? 0 : (int) js::trunc($length);
     }
 
     /**
@@ -360,8 +395,8 @@ class interpreter {
             case 'var':
                 return self::lookup($env, $n['name'])->value;
             case 'idx':
-                [$v, $i] = $this->array_index($n, $env);
-                return self::element($v->value, $i);
+                [, $list, $i] = $this->array_index($n, $env);
+                return self::element($list, $i);
             case 'un':
                 $e = $this->eval_node($n['e'], $env);
                 if ($n['op'] === '-') {
@@ -419,10 +454,10 @@ class interpreter {
             $v = self::lookup($env, $t['name']);
             $v->value = self::coerce($v->type, $value, $t['name']);
         } else if ($t['k'] === 'idx') {
-            [$v, $i] = $this->array_index($t, $env);
+            [$v, $list, $i] = $this->array_index($t, $env);
             $value = self::coerce($v->type, $value, $t['name']);
             if (js::is_integer($i)) {
-                $v->value->items[(int) $i] = $value;
+                $list->items[(int) $i] = $value;
             }
         } else {
             throw new algorithm_error('badtarget');
@@ -513,10 +548,13 @@ class interpreter {
         }
         switch ($b['type'] ?? '') {
             case 'declare':
+                // A second size makes a matrix (rows, columns).
                 $size = self::has_text($b['size'] ?? null) ? $this->eval_str($b['size'], $env) : null;
-                if ($size !== null && js::to_number($size) > self::MAX_ARRAY_SIZE) {
-                    throw new algorithm_error('arraysize', ['size' => js::to_string($size),
-                        'max' => (string) self::MAX_ARRAY_SIZE]);
+                $size2 = $size !== null && self::has_text($b['size2'] ?? null) ? $this->eval_str($b['size2'], $env) : null;
+                $total = $size === null ? 0 : js::to_number($size) * ($size2 === null ? 1 : js::to_number($size2));
+                if ($size !== null && $total > self::MAX_ARRAY_SIZE) {
+                    $shown = $size2 === null ? js::to_string($size) : js::to_string($size) . ' x ' . js::to_string($size2);
+                    throw new algorithm_error('arraysize', ['size' => $shown, 'max' => (string) self::MAX_ARRAY_SIZE]);
                 }
                 $names = array_filter(array_map('trim', explode(',', js::to_string($b['name'] ?? ''))), 'strlen');
                 foreach ($names as $nm) {
@@ -524,11 +562,14 @@ class interpreter {
                     if ($size === null) {
                         $value = self::default_value($type);
                     } else {
-                        $length = js::to_number($size);
-                        $length = is_nan($length) || $length < 0 ? 0 : (int) js::trunc($length);
-                        $value = new js_array(array_fill(0, $length, self::default_value($type)));
+                        $value = new js_array([]);
+                        for ($k = 0; $k < self::array_length($size); $k++) {
+                            $value->items[] = $size2 === null ? self::default_value($type) :
+                                new js_array(array_fill(0, self::array_length($size2), self::default_value($type)));
+                        }
                     }
-                    $env[strtolower($nm)] = (object) ['name' => $nm, 'type' => $type, 'value' => $value];
+                    $dims = $size === null ? 0 : ($size2 === null ? 1 : 2);
+                    $env[strtolower($nm)] = (object) ['name' => $nm, 'type' => $type, 'value' => $value, 'dims' => $dims];
                 }
                 break;
             case 'assign':

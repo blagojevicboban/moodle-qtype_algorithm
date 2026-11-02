@@ -51,7 +51,7 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var bool compare only the numbers in the output */
     public $numbers = false;
 
-    /** @var array structures the algorithm must use (if, for, while, dowhile, array) */
+    /** @var array structures the algorithm must use (if, for, while, dowhile, array, matrix) */
     public $structures = [];
 
     /** @var bool students may run the tests that are not hidden during the attempt */

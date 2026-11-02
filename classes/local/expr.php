@@ -199,10 +199,25 @@ class expr {
                 return ['k' => 'call', 'name' => $t['v'], 'args' => $args];
             }
             if ($this->is_op('[')) {
+                // Array a[i], matrix a[i, j] or a[i][j].
                 $this->p++;
                 $index = $this->parse_or();
+                $index2 = null;
+                if ($this->is_op(',')) {
+                    $this->p++;
+                    $index2 = $this->parse_or();
+                }
                 $this->expect_op(']');
-                return ['k' => 'idx', 'name' => $t['v'], 'index' => $index];
+                if ($index2 === null && $this->is_op('[')) {
+                    $this->p++;
+                    $index2 = $this->parse_or();
+                    $this->expect_op(']');
+                }
+                $node = ['k' => 'idx', 'name' => $t['v'], 'index' => $index];
+                if ($index2 !== null) {
+                    $node['index2'] = $index2;
+                }
+                return $node;
             }
             return ['k' => 'var', 'name' => $t['v']];
         }

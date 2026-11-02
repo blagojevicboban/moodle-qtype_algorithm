@@ -115,6 +115,24 @@ cases.push(['wrong argument count', badcall]);
 const dw = prog(dek('n'), B('dowhile', {cond: 'n > 0', body: [B('input', {target: 'n'}), out('n * 2')]}));
 cases.push(['do while', dw, ['3\n-1\n0', '0', '5']]);
 
+// Matrices: both index forms, input into an element, String and Real matrices, the errors and the size limit.
+const mx = (name, varType, size, size2) => B('declare', {name, varType, size, size2});
+cases.push(['matrix', prog(dek('i'), dek('j'), dek('n'), B('input', {target: 'n'}), mx('a', 'Integer', 'n', 'n + 1'),
+    mx('w', 'String', '2', '2'), mx('r', 'Real', '2', '3'),
+    B('for', {variable: 'i', start: '0', end: 'n - 1', step: '1', body: [
+        B('for', {variable: 'j', start: '0', end: 'n', step: '1', body: [B('assign', {target: 'a[i, j]', expr: 'i * 10 + j'})]})]}),
+    B('assign', {target: 'a[1][2]', expr: 'a[1, 2] / 4'}), B('input', {target: 'a[0, n]'}),
+    B('assign', {target: 'w[1, 0]', expr: '"x" & a[0][n]'}), B('assign', {target: 'r[1, 2]', expr: '7 / 2'}),
+    ...outs('a[1, 2] & " " & a[0, n] & " " & Len(a)', 'w[1, 0] & "|" & w[0, 1] & "|"', 'r[1, 2] + r[0, 0]')),
+['3\n9', '2\n4.7', '1\n5']]);
+cases.push(['matrix one index', prog(mx('m', 'Integer', '2', '3'), out('m[1]'))]);
+cases.push(['array two indexes', prog(dek('a', 'Integer', '3'), out('a[1, 1]'))]);
+cases.push(['matrix row range', prog(mx('m', 'Integer', '2', '3'), out('m[2, 0]'))]);
+cases.push(['matrix column range', prog(mx('m', 'Integer', '2', '3'), out('m[1][3]'))]);
+cases.push(['matrix fraction index', prog(mx('m', 'Integer', '2', '3'), out('m[0.5, 1]'))]);
+cases.push(['matrix size limit', prog(mx('m', 'Integer', '100', '1000'), out('Len(m)'), mx('b', 'Integer', '317', '316'))]);
+cases.push(['matrix second size only', prog(mx('e', 'Integer', '', '4'), out('e'))]);
+
 const extra = process.argv[3] ? JSON.parse(readFileSync(process.argv[3], 'utf8')) : [];
 const all = extra.length ? extra : cases.map(([name, program, inputs = ['']]) => ({name, program, inputs}));
 const fixtures = [];

@@ -177,7 +177,8 @@ class tester {
     }
 
     /**
-     * Control structures the algorithm uses: if, for, while, dowhile, and array for a declared array.
+     * Control structures the algorithm uses: if, for, while, dowhile, array for a declared array and matrix for a
+     * declared matrix (which is an array too).
      *
      * @param array $program algorithm model
      * @return string[]
@@ -192,6 +193,9 @@ class tester {
                 }
                 if ($type === 'declare' && trim((string) ($b['size'] ?? '')) !== '') {
                     $found['array'] = true;
+                    if (trim((string) ($b['size2'] ?? '')) !== '') {
+                        $found['matrix'] = true;
+                    }
                 }
                 foreach (['then', 'else', 'body'] as $child) {
                     $walk($b[$child] ?? []);

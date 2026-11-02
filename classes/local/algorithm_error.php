@@ -31,6 +31,7 @@ class algorithm_error extends \Exception {
     const MESSAGES = [
         'argcount' => "Function '{name}' expects {count} argument(s)",
         'arraysize' => 'Array size {size} is larger than {max}',
+        'dimensions' => 'The number of indexes for {name} must be {count}',
         'assignboolean' => "Cannot assign '{value}' to Boolean {name}",
         'assigninteger' => "Cannot assign '{value}' to Integer {name}",
         'assignreal' => "Cannot assign '{value}' to Real {name}",

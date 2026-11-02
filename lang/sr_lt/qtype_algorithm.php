@@ -67,6 +67,7 @@ $string['structure_array'] = 'niz';
 $string['structure_dowhile'] = 'Do petlja';
 $string['structure_for'] = 'For petlja';
 $string['structure_if'] = 'If (grananje)';
+$string['structure_matrix'] = 'matrica';
 $string['structure_while'] = 'While petlja';
 $string['structures'] = 'Obavezne strukture';
 $string['structures_help'] = 'Ako odgovor ne koristi svaku ovde označenu strukturu, ne dobija bodove, čak i kad testovi prođu.';

@@ -11,205 +11,205 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4070",
+       "id": "nmvyvngks0",
        "type": "output",
        "expr": "7 / 2",
        "newline": true
       },
       {
-       "id": "nmvyeo4071",
+       "id": "nmvyvngks1",
        "type": "output",
        "expr": "1 / 3",
        "newline": true
       },
       {
-       "id": "nmvyeo4072",
+       "id": "nmvyvngks2",
        "type": "output",
        "expr": "2 / 3 * 3",
        "newline": true
       },
       {
-       "id": "nmvyeo4073",
+       "id": "nmvyvngks3",
        "type": "output",
        "expr": "0.1 + 0.2",
        "newline": true
       },
       {
-       "id": "nmvyeo4074",
+       "id": "nmvyvngks4",
        "type": "output",
        "expr": "10 ^ 21",
        "newline": true
       },
       {
-       "id": "nmvyeo4075",
+       "id": "nmvyvngks5",
        "type": "output",
        "expr": "10 ^ 20",
        "newline": true
       },
       {
-       "id": "nmvyeo4076",
+       "id": "nmvyvngks6",
        "type": "output",
        "expr": "0.000001",
        "newline": true
       },
       {
-       "id": "nmvyeo4077",
+       "id": "nmvyvngks7",
        "type": "output",
        "expr": "0.0000001",
        "newline": true
       },
       {
-       "id": "nmvyeo4078",
+       "id": "nmvyvngks8",
        "type": "output",
        "expr": "-0.5",
        "newline": true
       },
       {
-       "id": "nmvyeo4079",
+       "id": "nmvyvngks9",
        "type": "output",
        "expr": "2 ^ 0.5",
        "newline": true
       },
       {
-       "id": "nmvyeo407a",
+       "id": "nmvyvngksa",
        "type": "output",
        "expr": "-7 / 2",
        "newline": true
       },
       {
-       "id": "nmvyeo407b",
+       "id": "nmvyvngksb",
        "type": "output",
        "expr": "7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvyeo407c",
+       "id": "nmvyvngksc",
        "type": "output",
        "expr": "-7 mod 3",
        "newline": true
       },
       {
-       "id": "nmvyeo407d",
+       "id": "nmvyvngksd",
        "type": "output",
        "expr": "7.5 mod 2",
        "newline": true
       },
       {
-       "id": "nmvyeo407e",
+       "id": "nmvyvngkse",
        "type": "output",
        "expr": "2 ^ 60",
        "newline": true
       },
       {
-       "id": "nmvyeo407f",
+       "id": "nmvyvngksf",
        "type": "output",
        "expr": "1 / 0.0001",
        "newline": true
       },
       {
-       "id": "nmvyeo407g",
+       "id": "nmvyvngksg",
        "type": "output",
        "expr": "123456789 * 1000000",
        "newline": true
       },
       {
-       "id": "nmvyeo407h",
+       "id": "nmvyvngksh",
        "type": "output",
        "expr": "0.1 * 3",
        "newline": true
       },
       {
-       "id": "nmvyeo407i",
+       "id": "nmvyvngksi",
        "type": "output",
        "expr": "100 / 3",
        "newline": true
       },
       {
-       "id": "nmvyeo407j",
+       "id": "nmvyvngksj",
        "type": "output",
        "expr": "Round(2.5)",
        "newline": true
       },
       {
-       "id": "nmvyeo407k",
+       "id": "nmvyvngksk",
        "type": "output",
        "expr": "Round(-2.5)",
        "newline": true
       },
       {
-       "id": "nmvyeo407l",
+       "id": "nmvyvngksl",
        "type": "output",
        "expr": "Int(-3.7)",
        "newline": true
       },
       {
-       "id": "nmvyeo407m",
+       "id": "nmvyvngksm",
        "type": "output",
        "expr": "Floor(-3.2)",
        "newline": true
       },
       {
-       "id": "nmvyeo407n",
+       "id": "nmvyvngksn",
        "type": "output",
        "expr": "Ceiling(3.2)",
        "newline": true
       },
       {
-       "id": "nmvyeo407o",
+       "id": "nmvyvngkso",
        "type": "output",
        "expr": "Abs(-4)",
        "newline": true
       },
       {
-       "id": "nmvyeo407p",
+       "id": "nmvyvngksp",
        "type": "output",
        "expr": "Sqrt(2)",
        "newline": true
       },
       {
-       "id": "nmvyeo407q",
+       "id": "nmvyvngksq",
        "type": "output",
        "expr": "Sqrt(-1)",
        "newline": true
       },
       {
-       "id": "nmvyeo407r",
+       "id": "nmvyvngksr",
        "type": "output",
        "expr": "Sign(-3)",
        "newline": true
       },
       {
-       "id": "nmvyeo407s",
+       "id": "nmvyvngkss",
        "type": "output",
        "expr": "Log(10)",
        "newline": true
       },
       {
-       "id": "nmvyeo407t",
+       "id": "nmvyvngkst",
        "type": "output",
        "expr": "Exp(1)",
        "newline": true
       },
       {
-       "id": "nmvyeo407u",
+       "id": "nmvyvngksu",
        "type": "output",
        "expr": "Sin(Pi())",
        "newline": true
       },
       {
-       "id": "nmvyeo407v",
+       "id": "nmvyvngksv",
        "type": "output",
        "expr": "Cos(0)",
        "newline": true
       },
       {
-       "id": "nmvyeo407w",
+       "id": "nmvyvngksw",
        "type": "output",
        "expr": "3 - -2",
        "newline": true
       },
       {
-       "id": "nmvyeo407x",
+       "id": "nmvyvngksx",
        "type": "output",
        "expr": "- 2 ^ 2",
        "newline": true
@@ -235,181 +235,181 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo407y",
+       "id": "nmvyvngkty",
        "type": "output",
        "expr": "\"a\" & 1 & true",
        "newline": true
       },
       {
-       "id": "nmvyeo407z",
+       "id": "nmvyvngktz",
        "type": "output",
        "expr": "\"5\" + 3",
        "newline": true
       },
       {
-       "id": "nmvyeo40710",
+       "id": "nmvyvngkt10",
        "type": "output",
        "expr": "3 + \"5\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40711",
+       "id": "nmvyvngkt11",
        "type": "output",
        "expr": "\"b\" < \"a\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40712",
+       "id": "nmvyvngkt12",
        "type": "output",
        "expr": "\"10\" < \"9\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40713",
+       "id": "nmvyvngkt13",
        "type": "output",
        "expr": "10 < 9",
        "newline": true
       },
       {
-       "id": "nmvyeo40714",
+       "id": "nmvyvngkt14",
        "type": "output",
        "expr": "\"abc\" = \"abc\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40715",
+       "id": "nmvyvngkt15",
        "type": "output",
        "expr": "\"Č\" > \"Z\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40716",
+       "id": "nmvyvngkt16",
        "type": "output",
        "expr": "Len(\"čćž\")",
        "newline": true
       },
       {
-       "id": "nmvyeo40717",
+       "id": "nmvyvngkt17",
        "type": "output",
        "expr": "Len(\"\")",
        "newline": true
       },
       {
-       "id": "nmvyeo40718",
+       "id": "nmvyvngkt18",
        "type": "output",
        "expr": "Char(\"Ana\", 2)",
        "newline": true
       },
       {
-       "id": "nmvyeo40719",
+       "id": "nmvyvngkt19",
        "type": "output",
        "expr": "ToCode(\"Ш\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071a",
+       "id": "nmvyvngkt1a",
        "type": "output",
        "expr": "ToChar(382)",
        "newline": true
       },
       {
-       "id": "nmvyeo4071b",
+       "id": "nmvyvngkt1b",
        "type": "output",
        "expr": "char(65)",
        "newline": true
       },
       {
-       "id": "nmvyeo4071c",
+       "id": "nmvyvngkt1c",
        "type": "output",
        "expr": "ToInt(\"12\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071d",
+       "id": "nmvyvngkt1d",
        "type": "output",
        "expr": "ToInt(\" 7 \")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071e",
+       "id": "nmvyvngkt1e",
        "type": "output",
        "expr": "ToReal(\"2.5\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071f",
+       "id": "nmvyvngkt1f",
        "type": "output",
        "expr": "ToString(0.1 + 0.2)",
        "newline": true
       },
       {
-       "id": "nmvyeo4071g",
+       "id": "nmvyvngkt1g",
        "type": "output",
        "expr": "IsNumeric(\"1e3\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071h",
+       "id": "nmvyvngkt1h",
        "type": "output",
        "expr": "IsNumeric(\"x\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071i",
+       "id": "nmvyvngkt1i",
        "type": "output",
        "expr": "IsNumeric(\"\")",
        "newline": true
       },
       {
-       "id": "nmvyeo4071j",
+       "id": "nmvyvngkt1j",
        "type": "output",
        "expr": "\"x\\ty\\n\" & \"z\"",
        "newline": true
       },
       {
-       "id": "nmvyeo4071k",
+       "id": "nmvyvngkt1k",
        "type": "output",
        "expr": "1 = 1.0",
        "newline": true
       },
       {
-       "id": "nmvyeo4071l",
+       "id": "nmvyvngkt1l",
        "type": "output",
        "expr": "\"1\" = 1",
        "newline": true
       },
       {
-       "id": "nmvyeo4071m",
+       "id": "nmvyvngkt1m",
        "type": "output",
        "expr": "true = 1",
        "newline": true
       },
       {
-       "id": "nmvyeo4071n",
+       "id": "nmvyvngkt1n",
        "type": "output",
        "expr": "not 0",
        "newline": true
       },
       {
-       "id": "nmvyeo4071o",
+       "id": "nmvyvngkt1o",
        "type": "output",
        "expr": "not \"\"",
        "newline": true
       },
       {
-       "id": "nmvyeo4071p",
+       "id": "nmvyvngkt1p",
        "type": "output",
        "expr": "not \"0\"",
        "newline": true
       },
       {
-       "id": "nmvyeo4071q",
+       "id": "nmvyvngkt1q",
        "type": "output",
        "expr": "\"a\" <> \"b\" and 3 > 2 or false",
        "newline": true
       },
       {
-       "id": "nmvyeo4071r",
+       "id": "nmvyvngkt1r",
        "type": "output",
        "expr": "0.1 + 0.2 = 0.3",
        "newline": true
@@ -435,119 +435,123 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4071s",
+       "id": "nmvyvngkt1s",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4071t",
+       "id": "nmvyvngkt1t",
        "type": "declare",
        "name": "r",
        "varType": "Real",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4071u",
+       "id": "nmvyvngkt1u",
        "type": "declare",
        "name": "s",
        "varType": "String",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4071v",
+       "id": "nmvyvngkt1v",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4071w",
+       "id": "nmvyvngkt1w",
        "type": "assign",
        "target": "i",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyeo4071x",
+       "id": "nmvyvngkt1x",
        "type": "assign",
        "target": "r",
        "expr": "7 / 2"
       },
       {
-       "id": "nmvyeo4071y",
+       "id": "nmvyvngkt1y",
        "type": "assign",
        "target": "s",
        "expr": "7 / 3"
       },
       {
-       "id": "nmvyeo4071z",
+       "id": "nmvyvngkt1z",
        "type": "assign",
        "target": "b",
        "expr": "3 > 2"
       },
       {
-       "id": "nmvyeo40720",
+       "id": "nmvyvngkt20",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyeo40721",
+       "id": "nmvyvngkt21",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyeo40722",
+       "id": "nmvyvngkt22",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyeo40723",
+       "id": "nmvyvngkt23",
        "type": "output",
        "expr": "b",
        "newline": true
       },
       {
-       "id": "nmvyeo40724",
+       "id": "nmvyvngkt24",
        "type": "output",
        "expr": "i & r & s & b",
        "newline": true
       },
       {
-       "id": "nmvyeo40725",
+       "id": "nmvyvngkt25",
        "type": "assign",
        "target": "i",
        "expr": "\"12\""
       },
       {
-       "id": "nmvyeo40726",
+       "id": "nmvyvngkt26",
        "type": "output",
        "expr": "i + 1",
        "newline": true
       },
       {
-       "id": "nmvyeo40727",
+       "id": "nmvyvngkt27",
        "type": "assign",
        "target": "i",
        "expr": "-2.9"
       },
       {
-       "id": "nmvyeo40728",
+       "id": "nmvyvngkt28",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyeo40729",
+       "id": "nmvyvngkt29",
        "type": "assign",
        "target": "s",
        "expr": "0.1 + 0.2"
       },
       {
-       "id": "nmvyeo4072a",
+       "id": "nmvyvngkt2a",
        "type": "output",
        "expr": "s",
        "newline": true
@@ -573,7 +577,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072b",
+       "id": "nmvyvngkt2b",
        "type": "output",
        "expr": "1e21",
        "newline": true
@@ -599,14 +603,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072c",
+       "id": "nmvyvngkt2c",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4072d",
+       "id": "nmvyvngkt2d",
        "type": "assign",
        "target": "i",
        "expr": "\"abc\""
@@ -632,14 +637,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072e",
+       "id": "nmvyvngkt2e",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4072f",
+       "id": "nmvyvngkt2f",
        "type": "assign",
        "target": "b",
        "expr": "1"
@@ -665,7 +671,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072g",
+       "id": "nmvyvngkt2g",
        "type": "assign",
        "target": "x",
        "expr": "1"
@@ -691,13 +697,13 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072h",
+       "id": "nmvyvngkt2h",
        "type": "output",
        "expr": "\"before\"",
        "newline": true
       },
       {
-       "id": "nmvyeo4072i",
+       "id": "nmvyvngkt2i",
        "type": "output",
        "expr": "5 / 0",
        "newline": true
@@ -723,7 +729,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072j",
+       "id": "nmvyvngkt2j",
        "type": "output",
        "expr": "5 mod 0",
        "newline": true
@@ -749,7 +755,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072k",
+       "id": "nmvyvngkt2k",
        "type": "output",
        "expr": "1 +",
        "newline": true
@@ -775,7 +781,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072l",
+       "id": "nmvyvngkt2l",
        "type": "output",
        "expr": "(1 + 2",
        "newline": true
@@ -801,7 +807,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072m",
+       "id": "nmvyvngkt2m",
        "type": "output",
        "expr": "\"abc",
        "newline": true
@@ -827,7 +833,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072n",
+       "id": "nmvyvngkt2n",
        "type": "output",
        "expr": "2 # 3",
        "newline": true
@@ -853,7 +859,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072o",
+       "id": "nmvyvngkt2o",
        "type": "output",
        "expr": "Foo(1)",
        "newline": true
@@ -879,7 +885,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072p",
+       "id": "nmvyvngkt2p",
        "type": "output",
        "expr": "Char(\"ab\", 5)",
        "newline": true
@@ -905,7 +911,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072q",
+       "id": "nmvyvngkt2q",
        "type": "output",
        "expr": "ToCode(\"\")",
        "newline": true
@@ -931,19 +937,20 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072r",
+       "id": "nmvyvngkt2r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4072t",
+       "id": "nmvyvngkt2t",
        "type": "while",
        "cond": "true",
        "body": [
         {
-         "id": "nmvyeo4072s",
+         "id": "nmvyvngkt2s",
          "type": "assign",
          "target": "i",
          "expr": "i + 1"
@@ -971,14 +978,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4072u",
+       "id": "nmvyvngkt2u",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4072x",
+       "id": "nmvyvngkt2x",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -986,13 +994,13 @@
        "step": "3",
        "body": [
         {
-         "id": "nmvyeo4072v",
+         "id": "nmvyvngkt2v",
          "type": "output",
          "expr": "i",
          "newline": false
         },
         {
-         "id": "nmvyeo4072w",
+         "id": "nmvyvngkt2w",
          "type": "output",
          "expr": "\" \"",
          "newline": false
@@ -1000,13 +1008,13 @@
        ]
       },
       {
-       "id": "nmvyeo4072y",
+       "id": "nmvyvngkt2y",
        "type": "output",
        "expr": "\"\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40730",
+       "id": "nmvyvngkt30",
        "type": "for",
        "variable": "i",
        "start": "5",
@@ -1014,7 +1022,7 @@
        "step": "-2",
        "body": [
         {
-         "id": "nmvyeo4072z",
+         "id": "nmvyvngkt2z",
          "type": "output",
          "expr": "i",
          "newline": true
@@ -1022,7 +1030,7 @@
        ]
       },
       {
-       "id": "nmvyeo40732",
+       "id": "nmvyvngkt32",
        "type": "for",
        "variable": "j",
        "start": "1",
@@ -1030,7 +1038,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo40731",
+         "id": "nmvyvngkt31",
          "type": "output",
          "expr": "\"never\"",
          "newline": true
@@ -1038,7 +1046,7 @@
        ]
       },
       {
-       "id": "nmvyeo40734",
+       "id": "nmvyvngkt34",
        "type": "for",
        "variable": "k",
        "start": "0",
@@ -1046,7 +1054,7 @@
        "step": "0.25",
        "body": [
         {
-         "id": "nmvyeo40733",
+         "id": "nmvyvngkt33",
          "type": "output",
          "expr": "k",
          "newline": true
@@ -1054,7 +1062,7 @@
        ]
       },
       {
-       "id": "nmvyeo40735",
+       "id": "nmvyvngkt35",
        "type": "output",
        "expr": "i",
        "newline": true
@@ -1080,7 +1088,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40736",
+       "id": "nmvyvngkt36",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1109,24 +1117,26 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40737",
+       "id": "nmvyvngkt37",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
-       "size": "100000"
+       "size": "100000",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40738",
+       "id": "nmvyvngkt38",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyeo40739",
+       "id": "nmvyvngkt39",
        "type": "declare",
        "name": "b",
        "varType": "Integer",
-       "size": "100001"
+       "size": "100001",
+       "size2": ""
       }
      ]
     }
@@ -1149,27 +1159,29 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083a",
+       "id": "nmvyvngkt3a",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
-       "size": "\"abc\""
+       "size": "\"abc\"",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083b",
+       "id": "nmvyvngkt3b",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyeo4083c",
+       "id": "nmvyvngkt3c",
        "type": "declare",
        "name": "b",
        "varType": "Real",
-       "size": "2.7"
+       "size": "2.7",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083d",
+       "id": "nmvyvngkt3d",
        "type": "output",
        "expr": "Len(b)",
        "newline": true
@@ -1195,21 +1207,23 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083e",
+       "id": "nmvyvngkt3e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
-       "size": "5"
+       "size": "5",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083f",
+       "id": "nmvyvngkt3f",
        "type": "declare",
        "name": "t",
        "varType": "String",
-       "size": "2"
+       "size": "2",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083h",
+       "id": "nmvyvngkt3h",
        "type": "for",
        "variable": "i",
        "start": "0",
@@ -1217,7 +1231,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo4083g",
+         "id": "nmvyvngkt3g",
          "type": "assign",
          "target": "a[i]",
          "expr": "i * i"
@@ -1225,43 +1239,43 @@
        ]
       },
       {
-       "id": "nmvyeo4083i",
+       "id": "nmvyvngkt3i",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvyeo4083j",
+       "id": "nmvyvngkt3j",
        "type": "output",
        "expr": "a[4]",
        "newline": true
       },
       {
-       "id": "nmvyeo4083k",
+       "id": "nmvyvngkt3k",
        "type": "output",
        "expr": "Len(a)",
        "newline": true
       },
       {
-       "id": "nmvyeo4083l",
+       "id": "nmvyvngkt3l",
        "type": "output",
        "expr": "t",
        "newline": true
       },
       {
-       "id": "nmvyeo4083m",
+       "id": "nmvyvngkt3m",
        "type": "output",
        "expr": "Len(t)",
        "newline": true
       },
       {
-       "id": "nmvyeo4083n",
+       "id": "nmvyvngkt3n",
        "type": "output",
        "expr": "a[1] + a[2]",
        "newline": true
       },
       {
-       "id": "nmvyeo4083o",
+       "id": "nmvyvngkt3o",
        "type": "output",
        "expr": "a[5]",
        "newline": true
@@ -1287,14 +1301,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083p",
+       "id": "nmvyvngkt3p",
        "type": "declare",
        "name": "x",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083q",
+       "id": "nmvyvngkt3q",
        "type": "output",
        "expr": "x[0]",
        "newline": true
@@ -1320,73 +1335,77 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083r",
+       "id": "nmvyvngkt3r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083s",
+       "id": "nmvyvngkt3s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083t",
+       "id": "nmvyvngkt3t",
        "type": "declare",
        "name": "s",
        "varType": "String",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083u",
+       "id": "nmvyvngkt3u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083v",
+       "id": "nmvyvngkt3v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyeo4083w",
+       "id": "nmvyvngkt3w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyeo4083x",
+       "id": "nmvyvngkt3x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyeo4083y",
+       "id": "nmvyvngkt3y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyeo4083z",
+       "id": "nmvyvngkt3z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyeo40840",
+       "id": "nmvyvngkt40",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyeo40841",
+       "id": "nmvyvngkt41",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyeo40842",
+       "id": "nmvyvngkt42",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1412,73 +1431,77 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083r",
+       "id": "nmvyvngkt3r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083s",
+       "id": "nmvyvngkt3s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083t",
+       "id": "nmvyvngkt3t",
        "type": "declare",
        "name": "s",
        "varType": "String",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083u",
+       "id": "nmvyvngkt3u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083v",
+       "id": "nmvyvngkt3v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyeo4083w",
+       "id": "nmvyvngkt3w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyeo4083x",
+       "id": "nmvyvngkt3x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyeo4083y",
+       "id": "nmvyvngkt3y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyeo4083z",
+       "id": "nmvyvngkt3z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyeo40840",
+       "id": "nmvyvngkt40",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyeo40841",
+       "id": "nmvyvngkt41",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyeo40842",
+       "id": "nmvyvngkt42",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1504,73 +1527,77 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4083r",
+       "id": "nmvyvngkt3r",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083s",
+       "id": "nmvyvngkt3s",
        "type": "declare",
        "name": "r",
        "varType": "Real",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083t",
+       "id": "nmvyvngkt3t",
        "type": "declare",
        "name": "s",
        "varType": "String",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083u",
+       "id": "nmvyvngkt3u",
        "type": "declare",
        "name": "b",
        "varType": "Boolean",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4083v",
+       "id": "nmvyvngkt3v",
        "type": "input",
        "target": "i"
       },
       {
-       "id": "nmvyeo4083w",
+       "id": "nmvyvngkt3w",
        "type": "input",
        "target": "r"
       },
       {
-       "id": "nmvyeo4083x",
+       "id": "nmvyvngkt3x",
        "type": "input",
        "target": "s"
       },
       {
-       "id": "nmvyeo4083y",
+       "id": "nmvyvngkt3y",
        "type": "input",
        "target": "b"
       },
       {
-       "id": "nmvyeo4083z",
+       "id": "nmvyvngkt3z",
        "type": "output",
        "expr": "i",
        "newline": true
       },
       {
-       "id": "nmvyeo40840",
+       "id": "nmvyvngkt40",
        "type": "output",
        "expr": "r",
        "newline": true
       },
       {
-       "id": "nmvyeo40841",
+       "id": "nmvyvngkt41",
        "type": "output",
        "expr": "s",
        "newline": true
       },
       {
-       "id": "nmvyeo40842",
+       "id": "nmvyvngkt42",
        "type": "output",
        "expr": "b",
        "newline": true
@@ -1596,14 +1623,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40843",
+       "id": "nmvyvngkt43",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40844",
+       "id": "nmvyvngkt44",
        "type": "input",
        "target": "i"
       }
@@ -1628,14 +1656,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40843",
+       "id": "nmvyvngkt43",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40844",
+       "id": "nmvyvngkt44",
        "type": "input",
        "target": "i"
       }
@@ -1660,14 +1689,15 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40843",
+       "id": "nmvyvngkt43",
        "type": "declare",
        "name": "i",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40844",
+       "id": "nmvyvngkt44",
        "type": "input",
        "target": "i"
       }
@@ -1692,32 +1722,34 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40845",
+       "id": "nmvyvngkt45",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40846",
+       "id": "nmvyvngkt46",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40847",
+       "id": "nmvyvngkt47",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40848",
+       "id": "nmvyvngkt48",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyeo4084c",
+       "id": "nmvyvngkt4c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1725,18 +1757,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo40849",
+         "id": "nmvyvngkt49",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyeo4084a",
+         "id": "nmvyvngkt4a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo4084b",
+         "id": "nmvyvngkt4b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1744,7 +1776,7 @@
        ]
       },
       {
-       "id": "nmvyeo4084d",
+       "id": "nmvyvngkt4d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1770,32 +1802,34 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40845",
+       "id": "nmvyvngkt45",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40846",
+       "id": "nmvyvngkt46",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40847",
+       "id": "nmvyvngkt47",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40848",
+       "id": "nmvyvngkt48",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyeo4084c",
+       "id": "nmvyvngkt4c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1803,18 +1837,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo40849",
+         "id": "nmvyvngkt49",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyeo4084a",
+         "id": "nmvyvngkt4a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo4084b",
+         "id": "nmvyvngkt4b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1822,7 +1856,7 @@
        ]
       },
       {
-       "id": "nmvyeo4084d",
+       "id": "nmvyvngkt4d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1848,32 +1882,34 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40845",
+       "id": "nmvyvngkt45",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40846",
+       "id": "nmvyvngkt46",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40847",
+       "id": "nmvyvngkt47",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40848",
+       "id": "nmvyvngkt48",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyeo4084c",
+       "id": "nmvyvngkt4c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1881,18 +1917,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo40849",
+         "id": "nmvyvngkt49",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyeo4084a",
+         "id": "nmvyvngkt4a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo4084b",
+         "id": "nmvyvngkt4b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1900,7 +1936,7 @@
        ]
       },
       {
-       "id": "nmvyeo4084d",
+       "id": "nmvyvngkt4d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -1926,32 +1962,34 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40845",
+       "id": "nmvyvngkt45",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40846",
+       "id": "nmvyvngkt46",
        "type": "declare",
        "name": "s",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40847",
+       "id": "nmvyvngkt47",
        "type": "output",
        "expr": "\"Koliko?\"",
        "newline": true
       },
       {
-       "id": "nmvyeo40848",
+       "id": "nmvyvngkt48",
        "type": "input",
        "target": "n"
       },
       {
-       "id": "nmvyeo4084c",
+       "id": "nmvyvngkt4c",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -1959,18 +1997,18 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo40849",
+         "id": "nmvyvngkt49",
          "type": "output",
          "expr": "\"Broj \" & i & \":\"",
          "newline": true
         },
         {
-         "id": "nmvyeo4084a",
+         "id": "nmvyvngkt4a",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo4084b",
+         "id": "nmvyvngkt4b",
          "type": "assign",
          "target": "s",
          "expr": "s + n"
@@ -1978,7 +2016,7 @@
        ]
       },
       {
-       "id": "nmvyeo4084d",
+       "id": "nmvyvngkt4d",
        "type": "output",
        "expr": "\"Zbir je \" & s & \", prosek \" & s / 3",
        "newline": true
@@ -2004,36 +2042,37 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4084e",
+       "id": "nmvyvngkt4e",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4084f",
+       "id": "nmvyvngkt4f",
        "type": "output",
        "expr": "\"x\"",
        "newline": true
       },
       {
-       "id": "nmvyeo4084g",
+       "id": "nmvyvngkt4g",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvyeo4084h",
+       "id": "nmvyvngkt4h",
        "type": "output",
        "expr": "\"y \" & a",
        "newline": false
       },
       {
-       "id": "nmvyeo4084i",
+       "id": "nmvyvngkt4i",
        "type": "input",
        "target": "a"
       },
       {
-       "id": "nmvyeo4084j",
+       "id": "nmvyvngkt4j",
        "type": "output",
        "expr": "\"z \" & a",
        "newline": false
@@ -2059,49 +2098,50 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo4084k",
+       "id": "nmvyvngkt4k",
        "type": "declare",
        "name": "a",
        "varType": "Integer",
-       "size": "3"
+       "size": "3",
+       "size2": ""
       },
       {
-       "id": "nmvyeo4084l",
+       "id": "nmvyvngkt4l",
        "type": "assign",
        "target": "a[0]",
        "expr": "5"
       },
       {
-       "id": "nmvyeo4084m",
+       "id": "nmvyvngkt4m",
        "type": "call",
        "expr": "Fill(a, 7)"
       },
       {
-       "id": "nmvyeo4084n",
+       "id": "nmvyvngkt4n",
        "type": "output",
        "expr": "a",
        "newline": true
       },
       {
-       "id": "nmvyeo4084o",
+       "id": "nmvyvngkt4o",
        "type": "output",
        "expr": "Fact(10)",
        "newline": true
       },
       {
-       "id": "nmvyeo4084p",
+       "id": "nmvyvngkt4p",
        "type": "output",
        "expr": "Fib(15)",
        "newline": true
       },
       {
-       "id": "nmvyeo4084q",
+       "id": "nmvyvngkt4q",
        "type": "output",
        "expr": "NoReturn()",
        "newline": true
       },
       {
-       "id": "nmvyeo4084r",
+       "id": "nmvyvngkt4r",
        "type": "output",
        "expr": "Half(7)",
        "newline": true
@@ -2124,7 +2164,7 @@
      "returnType": "",
      "body": [
       {
-       "id": "nmvyeo4084t",
+       "id": "nmvyvngku4t",
        "type": "for",
        "variable": "i",
        "start": "1",
@@ -2132,7 +2172,7 @@
        "step": "1",
        "body": [
         {
-         "id": "nmvyeo4084s",
+         "id": "nmvyvngku4s",
          "type": "assign",
          "target": "x[i]",
          "expr": "v"
@@ -2152,19 +2192,19 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvyeo4084w",
+       "id": "nmvyvngku4w",
        "type": "if",
        "cond": "n <= 1",
        "then": [
         {
-         "id": "nmvyeo4084u",
+         "id": "nmvyvngku4u",
          "type": "return",
          "expr": "1"
         }
        ],
        "else": [
         {
-         "id": "nmvyeo4084v",
+         "id": "nmvyvngku4v",
          "type": "return",
          "expr": "n * Fact(n - 1)"
         }
@@ -2183,12 +2223,12 @@
      "returnType": "Integer",
      "body": [
       {
-       "id": "nmvyeo4084y",
+       "id": "nmvyvngku4y",
        "type": "if",
        "cond": "n < 2",
        "then": [
         {
-         "id": "nmvyeo4084x",
+         "id": "nmvyvngku4x",
          "type": "return",
          "expr": "n"
         }
@@ -2196,7 +2236,7 @@
        "else": []
       },
       {
-       "id": "nmvyeo4084z",
+       "id": "nmvyvngku4z",
        "type": "return",
        "expr": "Fib(n - 1) + Fib(n - 2)"
       }
@@ -2219,7 +2259,7 @@
      "returnType": "Real",
      "body": [
       {
-       "id": "nmvyeo40850",
+       "id": "nmvyvngku50",
        "type": "return",
        "expr": "n / 2"
       }
@@ -2244,7 +2284,7 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40851",
+       "id": "nmvyvngku51",
        "type": "output",
        "expr": "Two(1)",
        "newline": true
@@ -2284,24 +2324,25 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40852",
+       "id": "nmvyvngku52",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40855",
+       "id": "nmvyvngku55",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyeo40853",
+         "id": "nmvyvngku53",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo40854",
+         "id": "nmvyvngku54",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2329,24 +2370,25 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40852",
+       "id": "nmvyvngku52",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40855",
+       "id": "nmvyvngku55",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyeo40853",
+         "id": "nmvyvngku53",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo40854",
+         "id": "nmvyvngku54",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2374,24 +2416,25 @@
      "returnType": null,
      "body": [
       {
-       "id": "nmvyeo40852",
+       "id": "nmvyvngku52",
        "type": "declare",
        "name": "n",
        "varType": "Integer",
-       "size": ""
+       "size": "",
+       "size2": ""
       },
       {
-       "id": "nmvyeo40855",
+       "id": "nmvyvngku55",
        "type": "dowhile",
        "cond": "n > 0",
        "body": [
         {
-         "id": "nmvyeo40853",
+         "id": "nmvyvngku53",
          "type": "input",
          "target": "n"
         },
         {
-         "id": "nmvyeo40854",
+         "id": "nmvyvngku54",
          "type": "output",
          "expr": "n * 2",
          "newline": true
@@ -2406,5 +2449,671 @@
   "output": "10\n",
   "after": "10\n",
   "error": "The algorithm asks for more input than the test provides."
+ },
+ {
+  "name": "matrix",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku56",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku57",
+       "type": "declare",
+       "name": "j",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku58",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku59",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvyvngku5a",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "n",
+       "size2": "n + 1"
+      },
+      {
+       "id": "nmvyvngku5b",
+       "type": "declare",
+       "name": "w",
+       "varType": "String",
+       "size": "2",
+       "size2": "2"
+      },
+      {
+       "id": "nmvyvngku5c",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5f",
+       "type": "for",
+       "variable": "i",
+       "start": "0",
+       "end": "n - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyvngku5e",
+         "type": "for",
+         "variable": "j",
+         "start": "0",
+         "end": "n",
+         "step": "1",
+         "body": [
+          {
+           "id": "nmvyvngku5d",
+           "type": "assign",
+           "target": "a[i, j]",
+           "expr": "i * 10 + j"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "nmvyvngku5g",
+       "type": "assign",
+       "target": "a[1][2]",
+       "expr": "a[1, 2] / 4"
+      },
+      {
+       "id": "nmvyvngku5h",
+       "type": "input",
+       "target": "a[0, n]"
+      },
+      {
+       "id": "nmvyvngku5i",
+       "type": "assign",
+       "target": "w[1, 0]",
+       "expr": "\"x\" & a[0][n]"
+      },
+      {
+       "id": "nmvyvngku5j",
+       "type": "assign",
+       "target": "r[1, 2]",
+       "expr": "7 / 2"
+      },
+      {
+       "id": "nmvyvngku5k",
+       "type": "output",
+       "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5l",
+       "type": "output",
+       "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5m",
+       "type": "output",
+       "expr": "r[1, 2] + r[0, 0]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "3\n9",
+  "output": "3 9 3\nx9||\n3.5\n",
+  "after": "3 9 3\nx9||\n3.5\n",
+  "error": null
+ },
+ {
+  "name": "matrix",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku56",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku57",
+       "type": "declare",
+       "name": "j",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku58",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku59",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvyvngku5a",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "n",
+       "size2": "n + 1"
+      },
+      {
+       "id": "nmvyvngku5b",
+       "type": "declare",
+       "name": "w",
+       "varType": "String",
+       "size": "2",
+       "size2": "2"
+      },
+      {
+       "id": "nmvyvngku5c",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5f",
+       "type": "for",
+       "variable": "i",
+       "start": "0",
+       "end": "n - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyvngku5e",
+         "type": "for",
+         "variable": "j",
+         "start": "0",
+         "end": "n",
+         "step": "1",
+         "body": [
+          {
+           "id": "nmvyvngku5d",
+           "type": "assign",
+           "target": "a[i, j]",
+           "expr": "i * 10 + j"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "nmvyvngku5g",
+       "type": "assign",
+       "target": "a[1][2]",
+       "expr": "a[1, 2] / 4"
+      },
+      {
+       "id": "nmvyvngku5h",
+       "type": "input",
+       "target": "a[0, n]"
+      },
+      {
+       "id": "nmvyvngku5i",
+       "type": "assign",
+       "target": "w[1, 0]",
+       "expr": "\"x\" & a[0][n]"
+      },
+      {
+       "id": "nmvyvngku5j",
+       "type": "assign",
+       "target": "r[1, 2]",
+       "expr": "7 / 2"
+      },
+      {
+       "id": "nmvyvngku5k",
+       "type": "output",
+       "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5l",
+       "type": "output",
+       "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5m",
+       "type": "output",
+       "expr": "r[1, 2] + r[0, 0]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "2\n4.7",
+  "output": "3 4 2\nx4||\n3.5\n",
+  "after": "3 4 2\nx4||\n3.5\n",
+  "error": null
+ },
+ {
+  "name": "matrix",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku56",
+       "type": "declare",
+       "name": "i",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku57",
+       "type": "declare",
+       "name": "j",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku58",
+       "type": "declare",
+       "name": "n",
+       "varType": "Integer",
+       "size": "",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku59",
+       "type": "input",
+       "target": "n"
+      },
+      {
+       "id": "nmvyvngku5a",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "n",
+       "size2": "n + 1"
+      },
+      {
+       "id": "nmvyvngku5b",
+       "type": "declare",
+       "name": "w",
+       "varType": "String",
+       "size": "2",
+       "size2": "2"
+      },
+      {
+       "id": "nmvyvngku5c",
+       "type": "declare",
+       "name": "r",
+       "varType": "Real",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5f",
+       "type": "for",
+       "variable": "i",
+       "start": "0",
+       "end": "n - 1",
+       "step": "1",
+       "body": [
+        {
+         "id": "nmvyvngku5e",
+         "type": "for",
+         "variable": "j",
+         "start": "0",
+         "end": "n",
+         "step": "1",
+         "body": [
+          {
+           "id": "nmvyvngku5d",
+           "type": "assign",
+           "target": "a[i, j]",
+           "expr": "i * 10 + j"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "id": "nmvyvngku5g",
+       "type": "assign",
+       "target": "a[1][2]",
+       "expr": "a[1, 2] / 4"
+      },
+      {
+       "id": "nmvyvngku5h",
+       "type": "input",
+       "target": "a[0, n]"
+      },
+      {
+       "id": "nmvyvngku5i",
+       "type": "assign",
+       "target": "w[1, 0]",
+       "expr": "\"x\" & a[0][n]"
+      },
+      {
+       "id": "nmvyvngku5j",
+       "type": "assign",
+       "target": "r[1, 2]",
+       "expr": "7 / 2"
+      },
+      {
+       "id": "nmvyvngku5k",
+       "type": "output",
+       "expr": "a[1, 2] & \" \" & a[0, n] & \" \" & Len(a)",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5l",
+       "type": "output",
+       "expr": "w[1, 0] & \"|\" & w[0, 1] & \"|\"",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5m",
+       "type": "output",
+       "expr": "r[1, 2] + r[0, 0]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "1\n5",
+  "output": "",
+  "after": "",
+  "error": "Index 1 out of range for 'a'"
+ },
+ {
+  "name": "matrix one index",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5n",
+       "type": "declare",
+       "name": "m",
+       "varType": "Integer",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5o",
+       "type": "output",
+       "expr": "m[1]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "The number of indexes for m must be 2"
+ },
+ {
+  "name": "array two indexes",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5p",
+       "type": "declare",
+       "name": "a",
+       "varType": "Integer",
+       "size": "3",
+       "size2": ""
+      },
+      {
+       "id": "nmvyvngku5q",
+       "type": "output",
+       "expr": "a[1, 1]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "The number of indexes for a must be 1"
+ },
+ {
+  "name": "matrix row range",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5r",
+       "type": "declare",
+       "name": "m",
+       "varType": "Integer",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5s",
+       "type": "output",
+       "expr": "m[2, 0]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Index 2 out of range for 'm'"
+ },
+ {
+  "name": "matrix column range",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5t",
+       "type": "declare",
+       "name": "m",
+       "varType": "Integer",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5u",
+       "type": "output",
+       "expr": "m[1][3]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Index 3 out of range for 'm'"
+ },
+ {
+  "name": "matrix fraction index",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5v",
+       "type": "declare",
+       "name": "m",
+       "varType": "Integer",
+       "size": "2",
+       "size2": "3"
+      },
+      {
+       "id": "nmvyvngku5w",
+       "type": "output",
+       "expr": "m[0.5, 1]",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "",
+  "after": "",
+  "error": "Index 0.5 out of range for 'm'"
+ },
+ {
+  "name": "matrix size limit",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku5x",
+       "type": "declare",
+       "name": "m",
+       "varType": "Integer",
+       "size": "100",
+       "size2": "1000"
+      },
+      {
+       "id": "nmvyvngku5y",
+       "type": "output",
+       "expr": "Len(m)",
+       "newline": true
+      },
+      {
+       "id": "nmvyvngku5z",
+       "type": "declare",
+       "name": "b",
+       "varType": "Integer",
+       "size": "317",
+       "size2": "316"
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "100\n",
+  "after": "100\n",
+  "error": "Array size 317 x 316 is larger than 100000"
+ },
+ {
+  "name": "matrix second size only",
+  "program": {
+   "version": 1,
+   "name": "Program",
+   "functions": [
+    {
+     "name": "Main",
+     "params": [],
+     "returnType": null,
+     "body": [
+      {
+       "id": "nmvyvngku60",
+       "type": "declare",
+       "name": "e",
+       "varType": "Integer",
+       "size": "",
+       "size2": "4"
+      },
+      {
+       "id": "nmvyvngku61",
+       "type": "output",
+       "expr": "e",
+       "newline": true
+      }
+     ]
+    }
+   ]
+  },
+  "inputs": "",
+  "output": "0\n",
+  "after": "0\n",
+  "error": null
  }
 ]
