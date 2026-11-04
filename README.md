@@ -12,6 +12,8 @@ the algorithm runs on the server on the inputs of every test and its output is c
 solution. Without tests the teacher grades it manually.
 
 > Status: **stable** (2.0).
+>
+> 🌐 **Live demo:** [algorithm.tsp.edu.rs](https://algorithm.tsp.edu.rs) (log in as a guest, or use `teacher` / `student` with password `Demo-2026`; reset every night)
 
 ## ✨ Features
 

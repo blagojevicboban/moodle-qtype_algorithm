@@ -1,36 +1,57 @@
-<div class="algorithm-description">
-  <h2>Algorithm Question Type</h2>
+<div>
+  <p><strong>Algorithm Question Type</strong></p>
   <p><em>A quiz question in which the student draws an algorithm as a flowchart and can run it before submitting. With tests, the answer is graded automatically.</em></p>
+  <div>
+    <a href="https://github.com/blagojevicboban/moodle-qtype_algorithm/actions/workflows/ci.yml" target="_blank" rel="noreferrer noopener"><img src="https://github.com/blagojevicboban/moodle-qtype_algorithm/actions/workflows/ci.yml/badge.svg" alt="Moodle Plugin CI"></a>
+    <a href="https://moodle.org" target="_blank" rel="noreferrer noopener"><img src="https://img.shields.io/badge/Moodle-4.5%20to%205.3-orange.svg" alt="Moodle 4.5 to 5.3"></a>
+    <a href="https://github.com/blagojevicboban/moodle-qtype_algorithm" target="_blank" rel="noreferrer noopener"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License GPL v3"></a>
+  </div>
 
-  <h3>Features</h3>
-  <ul>
-    <li><strong>Draw the algorithm</strong> with the same editor as in TinyMCE, with Run / Step, variable watch and generated code.</li>
-    <li><strong>Runnable review:</strong> the teacher can run and step through the submitted diagram while grading.</li>
-    <li><strong>Automatic grading:</strong> the teacher enters only the test inputs; the expected outputs are computed from the teacher's solution. Without tests the answer is graded manually.</li>
-    <li><strong>Hidden tests and required structures</strong> (If, For, While, Do loop, array, matrix).</li>
-    <li><strong>Analyse an algorithm:</strong> put an interactive diagram in the question text (needs filter_algorithm).</li>
-  </ul>
+  <p><strong>Live demo:</strong> try the plugin on <a href="https://algorithm.tsp.edu.rs" target="_blank" rel="noreferrer noopener">algorithm.tsp.edu.rs</a>. Log in as a guest, or use the demo accounts <strong>teacher</strong> and <strong>student</strong> (password <strong>Demo-2026</strong>). Everything is reset every night.</p>
 
-  <h3>What's new in 2.0.0</h3>
+  <hr>
+  <p><strong>What's New in v2.0.0</strong></p>
   <ul>
     <li><strong>Weights:</strong> each test has a weight; the grade is the share of the passed weight.</li>
     <li><strong>Function tests:</strong> a test can call one function of the algorithm with arguments and compare the value it returns.</li>
     <li><strong>Comparison options:</strong> capital and small letters the same, extra spaces ignored, a tolerance for numbers.</li>
     <li><strong>Hints and several tries:</strong> the interactive behaviour gives your hints and the test results after each try.</li>
     <li><strong>Statistics per test:</strong> the response analysis of the quiz statistics shows how many answers passed each test.</li>
-    <li>Matrices, and matrix as a required structure. Random questions can now pick algorithm questions.</li>
+    <li><strong>Matrices and random questions:</strong> matrices, and matrix as a required structure. Random questions can now pick algorithm questions.</li>
   </ul>
 
-  <h3>Requirements</h3>
+  <hr>
+  <p><strong>Core features</strong></p>
   <ul>
-    <li>Moodle 4.5 LTS to 5.3 (PHP as required by your Moodle version; tested on all of them).</li>
-    <li>The tiny_algorithm plugin, version 2.0.0 or newer; filter_algorithm is optional (interactive diagrams in question text).</li>
+    <li><strong>Draw the algorithm:</strong> the same editor as in TinyMCE, with Run / Step, variable watch and generated code.</li>
+    <li><strong>Runnable review:</strong> the teacher can run and step through the submitted diagram while grading.</li>
+    <li><strong>Automatic grading:</strong> the teacher enters only the test inputs; the expected outputs are computed from the teacher's solution. Without tests the answer is graded manually.</li>
+    <li><strong>Hidden tests and required structures:</strong> If, For, While, Do loop, array, matrix.</li>
+    <li><strong>Analyse an algorithm:</strong> put an interactive diagram in the question text (needs filter_algorithm).</li>
   </ul>
 
-  <h3>Privacy</h3>
+  <hr>
+  <p><strong>The algorithm plugins</strong></p>
+  <ul>
+    <li><strong><a href="https://marketplace.moodle.com/plugins/tiny_algorithm" target="_blank" rel="noreferrer noopener">Algorithm (flowchart)</a></strong>: the flowchart editor in TinyMCE, with the interpreter and code generation.</li>
+    <li><strong><a href="https://marketplace.moodle.com/plugins/filter_algorithm" target="_blank" rel="noreferrer noopener">Algorithm viewer (Run / Step)</a></strong>: Run / Step for readers and the student features in any content.</li>
+    <li><strong><a href="https://marketplace.moodle.com/plugins/qtype_algorithm" target="_blank" rel="noreferrer noopener">Algorithm question type</a></strong> (this plugin): quiz questions graded automatically with tests.</li>
+  </ul>
+
+  <hr>
+  <p><strong>Requirements</strong></p>
+  <ul>
+    <li><strong>Moodle:</strong> 4.5 LTS to 5.3 (PHP as required by your Moodle version; tested on all of them).</li>
+    <li><strong>tiny_algorithm:</strong> version 2.0.0 or newer; filter_algorithm is optional (interactive diagrams in question text).</li>
+  </ul>
+
+  <hr>
+  <p><strong>Privacy</strong></p>
   <p>The student's answer is stored by the Moodle question engine like any other answer; the diagram runs in the browser and, for automatic grading, on your Moodle server; nothing is sent to external services. Test inputs and options are stored with the question. The plugin implements the Moodle Privacy API.</p>
 
-  <p>Languages: English and Serbian (Latin and Cyrillic). Source, documentation and issue tracker:
-    <a href="https://github.com/blagojevicboban/moodle-qtype_algorithm" target="_blank" rel="noreferrer noopener">github.com/blagojevicboban/moodle-qtype_algorithm</a>.
+  <hr>
+  <p>Developed by <strong>Boban Blagojevi&#263;</strong>. Languages: English and Serbian (Latin and Cyrillic).<br>
+    Source, documentation and issue tracker:
+    <a href="https://github.com/blagojevicboban/moodle-qtype_algorithm" target="_blank" rel="noreferrer noopener">github.com/blagojevicboban/moodle-qtype_algorithm</a><br>
     Licensed under the GNU GPL v3 or later.</p>
 </div>
