@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- **Matrices as parameters:** the PHP interpreter (automatic grading) accepts matrix parameters like the editor of
+  tiny_algorithm (`m: Integer[,]`), passed by reference, with the same errors for an argument of the wrong shape.
+  New parity cases in `tests/fixtures/make_parity.mjs`.
+
 ## 2.0.0 – 2026-11-02 (stable)
 
 - **Weights:** a test has a `weight` (1 by default); the grade is the share of the passed weight. The results table has a

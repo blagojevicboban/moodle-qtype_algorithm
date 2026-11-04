@@ -647,8 +647,22 @@ class interpreter {
         }
         $env = [];
         foreach ($params as $i => $p) {
-            $env[strtolower($p['name'])] = (object) ['name' => $p['name'], 'type' => $p['type'] ?? null,
-                'value' => !empty($p['array']) ? $args[$i] : self::coerce($p['type'] ?? null, $args[$i], $p['name'])];
+            if (empty($p['array'])) {
+                $env[strtolower($p['name'])] = (object) ['name' => $p['name'], 'type' => $p['type'] ?? null,
+                    'value' => self::coerce($p['type'] ?? null, $args[$i], $p['name'])];
+                continue;
+            }
+            // An array or a matrix is passed by reference; its shape must match the parameter.
+            $value = $args[$i];
+            $dims = empty($p['matrix']) ? 1 : 2;
+            if (!($value instanceof js_array)) {
+                throw new algorithm_error('notarray', ['name' => $p['name']]);
+            }
+            if ($value->items && ($value->items[0] instanceof js_array) !== ($dims === 2)) {
+                throw new algorithm_error('dimensions', ['name' => $p['name'], 'count' => (string) $dims]);
+            }
+            $env[strtolower($p['name'])] = (object) ['name' => $p['name'], 'type' => $p['type'] ?? null, 'value' => $value,
+                'dims' => $dims];
         }
         $r = $this->run_list($fn['body'] ?? [], $env);
         return $r ? $r[1] : null;

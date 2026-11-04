@@ -133,6 +133,22 @@ cases.push(['matrix fraction index', prog(mx('m', 'Integer', '2', '3'), out('m[0
 cases.push(['matrix size limit', prog(mx('m', 'Integer', '100', '1000'), out('Len(m)'), mx('b', 'Integer', '317', '316'))]);
 cases.push(['matrix second size only', prog(mx('e', 'Integer', '', '4'), out('e'))]);
 
+// Matrices as parameters: changed by a function (passed by reference), read by another, and the wrong shapes.
+const mparam = (body) => {
+    const p = prog(mx('a', 'Integer', '2', '3'), dek('v', 'Integer', '3'), ...body);
+    const m = {name: 'm', type: 'Integer', array: true, matrix: true};
+    p.functions.push({name: 'Set', params: [m], returnType: '', body: [B('assign', {target: 'm[1, 2]', expr: '7'})]},
+        {name: 'Get', params: [m, {name: 'i', type: 'Integer'}], returnType: 'Integer',
+            body: [B('return', {expr: 'm[i][2] + 1'})]},
+        {name: 'Row', params: [{name: 'r', type: 'Integer', array: true}], returnType: '', body: []});
+    return p;
+};
+cases.push(['matrix parameter', mparam([B('call', {expr: 'Set(a)'}), out('a[1, 2] & " " & Get(a, 1) & " " & Get(a, 0)')])]);
+cases.push(['array for a matrix parameter', mparam([B('call', {expr: 'Set(v)'})])]);
+cases.push(['matrix for an array parameter', mparam([B('call', {expr: 'Row(a)'})])]);
+cases.push(['number for a matrix parameter', mparam([B('call', {expr: 'Set(5)'})])]);
+cases.push(['matrix parameter one index', mparam([B('call', {expr: 'Get(a, 5)'})])]);
+
 // Function tests: the call and the value it returns (the functions of the 'functions' case).
 const calls = ['Fact(5)', 'Fib(10)', 'Half(7)', 'NoReturn()', 'Fact("3")', 'Two(1)', 'Fact(n)', 'Half(1, 2)', 'Missing(1)',
     'Fact(2 + 1) & "!"', 'Fill(3, 4)'];
