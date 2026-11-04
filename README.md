@@ -11,7 +11,7 @@ before submitting. It uses the flowchart editor of
 the algorithm runs on the server on the inputs of every test and its output is compared with the output of the teacher's
 solution. Without tests the teacher grades it manually.
 
-> Status: **stable** (2.0).
+> Status: **stable** (2.2).
 >
 > 🌐 **Live demo:** [algorithm.tsp.edu.rs](https://algorithm.tsp.edu.rs) (log in as a guest, or use `teacher` / `student` with password `Demo-2026`; reset every night)
 
@@ -55,7 +55,7 @@ solution. Without tests the teacher grades it manually.
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.0.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.2.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
