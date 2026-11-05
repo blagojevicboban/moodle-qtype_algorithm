@@ -11,7 +11,7 @@ before submitting. It uses the flowchart editor of
 the algorithm runs on the server on the inputs of every test and its output is compared with the output of the teacher's
 solution. Without tests the teacher grades it manually.
 
-> Status: **stable** (2.2).
+> Status: **stable** (2.4).
 >
 > 🌐 **Live demo:** [algorithm.tsp.edu.rs](https://algorithm.tsp.edu.rs) (log in as a guest, or use `teacher` / `student` with password `Demo-2026`; reset every night)
 
@@ -20,10 +20,12 @@ solution. Without tests the teacher grades it manually.
 | Feature | Description |
 |---------|-------------|
 | ✏️ **Draw the Algorithm** | The same editor as in TinyMCE: all block types, several functions, undo / redo |
-| ▶️ **Run Before Submitting** | Run / Step with a console, variable watch and generated code (Python, C, C++, Java, C#, JavaScript, Pascal) |
+| ▶️ **Run Before Submitting** | Run / Step with breakpoints, a console, variable watch with the call stack, a trace table and generated code (pseudo-code and eleven languages) |
+| 🙈 **Hide the Code and the File Tools** | An option of the question: students see no generated code, no `.fprg` import / export and no picture buttons |
+| 🐞 **Step With a Failed Test** | A failed visible test can be stepped through with its input, which is entered by itself |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
 | ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests by their weight (or all or nothing) |
-| 🧮 **Function Tests** | A test can call one function of the algorithm with arguments, e.g. `Sum(2, 3)`, and compare the value it returns |
+| 🧮 **Function Tests** | A test can call one function of the algorithm with arguments, e.g. `Sum(2, 3)` or `Sort([3, 1, 2])`, and compare the value it returns and the arrays it changed |
 | 🔍 **Flexible Comparison** | Whole output, or only the output after the last input, and optionally only the numbers in it (students may write any text around them); capital letters and extra spaces can be ignored, numbers can have a tolerance |
 | 💡 **Hints and Several Tries** | With the interactive behaviour the student gets your hints and the test results after each try |
 | 📊 **Statistics per Test** | The response analysis of the quiz statistics shows how many answers passed each test |
@@ -37,7 +39,7 @@ solution. Without tests the teacher grades it manually.
 | 💾 **Autosave** | The answer is saved with the normal quiz autosave |
 | ✅ **Completeness Check** | An empty diagram counts as no answer; opening a question with a starting template does not answer it |
 | ⌨️ **Keyboard** | The whole question can be answered without a mouse: arrow keys between blocks, Enter to edit or insert, Delete, Escape |
-| 🛡️ **Limits** | At most 2000 blocks per answer and 100000 elements per array, so a large answer cannot slow down grading |
+| 🛡️ **Limits** | At most 2000 blocks per answer, 100000 elements per array, 200 nested calls and 100000 characters of output, so a large answer cannot slow down grading; Random gives the same numbers in every grading run |
 | 🖼️ **Diagrams in the Question Text** | Give students an algorithm to analyse (needs [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)) |
 | 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic, also the error messages of the algorithm (in the browser and in the review) |
 | 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine, display settings stay in the browser) |
@@ -55,7 +57,7 @@ solution. Without tests the teacher grades it manually.
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.2.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.4.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
@@ -129,7 +131,11 @@ question/type/algorithm/
 
 ## ⚠️ Known Limitations
 
-- The editor inside the quiz also offers generated code and Import / Export of `.fprg` files.
+- "Hide the generated code and the file import and export" discourages copying, it does not lock anything: a student
+  can still open the code elsewhere (for example in a page with the same diagram).
+- The upgrade to 2.4 computes the expected outputs of every test again from the solutions (typed input, the seed of
+  Random and arrays in function tests changed some of them); questions whose solution now fails a test are listed in
+  the upgrade output.
 
 ## 🌍 Languages
 

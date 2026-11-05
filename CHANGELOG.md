@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.4.0 – 2026-11-10 (stable)
+
+- **Interpreter as in tiny_algorithm 2.4** (parity.json: 177 runs, 0 different): Break and Continue, at most 200 nested
+  calls and 100000 characters of output, typed input (3.7 is not an Integer), Random from a seed in every test and
+  grading run, Pi, Flowgorithm's ToInteger, Sgn, Size, Arcsin, Arccos, Arctan, Log10 and ToFixed, safe names.
+- **Function tests with arrays and matrices:** `Sort([3, 1, 2])` or `Trace([[1, 2], [3, 4]])`; the result also shows
+  the arrays after the call, so procedures that change an array can be graded.
+- **Hide the code and the file tools:** a new option (Student editor) removes the code panel, the `.fprg` import and
+  export and the picture buttons from the editor of the attempt. Stored in backups and Moodle XML.
+- **Upgrade step 2026111000:** adds the option and computes the expected outputs of all tests again from the solutions;
+  questions whose solution now fails a test are listed.
+- **Step with a failed test:** the student can step through the algorithm with the input of a failed visible test.
+- **Accessibility:** the editor is in a fieldset with a legend for screen readers and is described by the rules.
+- With tiny_algorithm 2.4: breakpoints, the call stack, the trace table, pseudo-code and eleven languages,
+  Break and Continue blocks, comments on blocks.
+
 ## 2.2.1 – 2026-11-05 (stable)
 
 - **Run and Step are not an answer:** the editor draws again during Run and Step, and the attempt took that for a
