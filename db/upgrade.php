@@ -82,5 +82,18 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         }
         upgrade_plugin_savepoint(true, 2026110202, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026111000) {
+        // Option of 2.4: hide the generated code and the file tools from students.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $field = new xmldb_field('hidetools', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'tolerance');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+        // 2.4 reads typed input strictly, gives Random the same numbers in every run and shows arrays of function
+        // tests: the expected outputs are computed again from the solutions.
+        \qtype_algorithm\local\upgrade::recompute_expected('mtrace');
+        upgrade_plugin_savepoint(true, 2026111000, 'qtype', 'algorithm');
+    }
     return true;
 }

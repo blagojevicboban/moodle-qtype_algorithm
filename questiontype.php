@@ -48,7 +48,7 @@ class qtype_algorithm extends question_type {
      */
     public function extra_question_fields() {
         return ['qtype_algorithm_options', 'solution', 'template', 'tests', 'afterinput', 'numbers', 'structures', 'showtests',
-            'grademethod', 'ignorecase', 'ignorespaces', 'tolerance'];
+            'grademethod', 'ignorecase', 'ignorespaces', 'tolerance', 'hidetools'];
     }
 
     /**
@@ -187,7 +187,7 @@ class qtype_algorithm extends question_type {
             self::STRUCTURES,
             explode(',', (string) ($question->structures ?? ''))
         ));
-        foreach (['afterinput', 'numbers', 'grademethod', 'ignorecase', 'ignorespaces'] as $field) {
+        foreach (['afterinput', 'numbers', 'grademethod', 'ignorecase', 'ignorespaces', 'hidetools'] as $field) {
             $question->$field = (int) !empty($question->$field);
         }
         $question->tolerance = max(0.0, (float) ($question->tolerance ?? 0));
@@ -212,7 +212,7 @@ class qtype_algorithm extends question_type {
         }
         $record = $DB->get_record('qtype_algorithm_options', ['questionid' => $question->id]);
         $defaults = ['solution' => '', 'template' => '', 'tests' => '', 'afterinput' => 0, 'numbers' => 0, 'structures' => '',
-            'showtests' => 1, 'grademethod' => 0, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0];
+            'showtests' => 1, 'grademethod' => 0, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0, 'hidetools' => 0];
         foreach ($defaults as $field => $default) {
             $question->options->$field = $record && isset($record->$field) ? $record->$field : $default;
         }
@@ -242,6 +242,7 @@ class qtype_algorithm extends question_type {
         $question->ignorecase = !empty($o->ignorecase);
         $question->ignorespaces = !empty($o->ignorespaces);
         $question->tolerance = max(0.0, (float) ($o->tolerance ?? 0));
+        $question->hidetools = !empty($o->hidetools);
     }
 
     /**
@@ -279,7 +280,7 @@ class qtype_algorithm extends question_type {
         $qo->qtype = $this->name();
         $fields = $this->extra_question_fields();
         array_shift($fields);
-        $defaults = ['showtests' => 1, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0];
+        $defaults = ['showtests' => 1, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0, 'hidetools' => 0];
         foreach ($fields as $field) {
             $qo->$field = $format->getpath($data, ['#', $field, 0, '#'], $defaults[$field] ?? '');
         }

@@ -106,6 +106,13 @@ class qtype_algorithm_edit_form extends question_edit_form {
             get_string('showtests_desc', 'qtype_algorithm')
         );
         $mform->setDefault('showtests', 1);
+        $mform->addElement(
+            'advcheckbox',
+            'hidetools',
+            get_string('studenteditor', 'qtype_algorithm'),
+            get_string('hidetools', 'qtype_algorithm')
+        );
+        $mform->addHelpButton('hidetools', 'hidetools', 'qtype_algorithm');
 
         // Hints and penalty for the interactive behaviour with several tries.
         $this->add_interactive_settings();
@@ -135,6 +142,7 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->ignorecase = $o->ignorecase ?? 0;
             $question->ignorespaces = $o->ignorespaces ?? 0;
             $question->tolerance = (float) ($o->tolerance ?? 0);
+            $question->hidetools = $o->hidetools ?? 0;
             $question->structures = array_fill_keys(array_filter(explode(',', (string) ($o->structures ?? ''))), 1);
         }
         return $this->data_preprocessing_hints($question);

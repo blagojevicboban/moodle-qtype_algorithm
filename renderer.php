@@ -46,13 +46,20 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $containerid = $inputname . '_algorithm';
 
         $result = html_writer::tag('div', $question->format_questiontext($qa), ['class' => 'qtext']);
+        // The editor is the answer field: a group with a legend for screen readers, described by the rules.
+        $rulesid = $inputname . '_rules';
+        $legend = get_string('answerlegend', 'qtype_algorithm');
+        $answerhtml = html_writer::tag('legend', $legend, ['class' => 'sr-only visually-hidden']);
+        $containerattrs = ['id' => $containerid, 'class' => 'qtype_algorithm_container'];
         if ($question->has_tests()) {
-            $result .= $this->rules($question);
+            $answerhtml .= $this->rules($question, $rulesid);
+            $containerattrs['aria-describedby'] = $rulesid;
         }
-        $result .= html_writer::empty_tag('input', [
+        $answerhtml .= html_writer::empty_tag('input', [
             'type' => 'hidden', 'name' => $inputname, 'id' => $inputname, 'value' => $answer,
         ]);
-        $result .= html_writer::tag('div', '', ['id' => $containerid, 'class' => 'qtype_algorithm_container']);
+        $answerhtml .= html_writer::tag('div', '', $containerattrs);
+        $result .= html_writer::tag('fieldset', $answerhtml, ['class' => 'qtype_algorithm_answer']);
 
         if ($qa->get_state() == question_state::$invalid) {
             $result .= html_writer::nonempty_tag(
@@ -78,7 +85,8 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'init', [
             $containerid, $inputname, (bool) $options->readonly, current_language(),
             get_string('noalgorithm', 'qtype_algorithm'),
-            ['template' => $question->template, 'tests' => $tests, 'check' => $question->check_options()],
+            ['template' => $question->template, 'tests' => $tests, 'check' => $question->check_options(),
+                'hidetools' => (bool) $question->hidetools],
         ]);
         return $result;
     }
@@ -87,9 +95,10 @@ class qtype_algorithm_renderer extends qtype_renderer {
      * How the algorithm is checked: what is compared and which structures it must use.
      *
      * @param qtype_algorithm_question $question the question
+     * @param string $id id of the list
      * @return string HTML
      */
-    protected function rules(qtype_algorithm_question $question): string {
+    protected function rules(qtype_algorithm_question $question, string $id = ''): string {
         $items = [get_string($question->numbers ? ($question->afterinput ? 'rule_numbersafter' : 'rule_numbers') :
             ($question->afterinput ? 'rule_textafter' : 'rule_text'), 'qtype_algorithm')];
         foreach (['ignorecase', 'ignorespaces'] as $option) {
@@ -104,7 +113,7 @@ class qtype_algorithm_renderer extends qtype_renderer {
             $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $question->structures);
             $items[] = get_string('rule_structures', 'qtype_algorithm', implode(', ', $names));
         }
-        return html_writer::alist($items, ['class' => 'qtype_algorithm_rules']);
+        return html_writer::alist($items, ['class' => 'qtype_algorithm_rules'] + ($id === '' ? [] : ['id' => $id]));
     }
 
     /**

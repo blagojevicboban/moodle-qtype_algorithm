@@ -70,7 +70,7 @@ final class questiontype_test extends \advanced_testcase {
         $options = (object) ['solution' => question_test::program(), 'template' => '',
             'tests' => json_encode([['inputs' => "2\n3", 'hidden' => false, 'expected' => "5\n"]]),
             'afterinput' => 1, 'numbers' => 0, 'structures' => 'if,for', 'showtests' => 0, 'grademethod' => 1,
-            'ignorecase' => 1, 'ignorespaces' => 0, 'tolerance' => 0.01];
+            'ignorecase' => 1, 'ignorespaces' => 0, 'tolerance' => 0.01, 'hidetools' => 1];
         $question = (object) ['options' => $options];
         $format = new \qformat_xml();
         $xml = '<question type="algorithm"><name><text>Sum</text></name>' .

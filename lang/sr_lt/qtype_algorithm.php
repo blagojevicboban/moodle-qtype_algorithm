@@ -25,6 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Samo ispis posle poslednjeg unosa';
+$string['answerlegend'] = 'Vaš algoritam';
 $string['compare'] = 'Šta se poredi';
 $string['copyfromsolution'] = 'Kopiraj iz rešenja';
 $string['correctsolution'] = 'Rešenje nastavnika:';
@@ -37,6 +38,8 @@ $string['grademethod_all'] = 'Puni bodovi samo kad prođu svi testovi';
 $string['grademethod_proportional'] = 'Udeo testova koji su prošli, po njihovoj težini';
 $string['gradingnote'] = 'Uz testove se odgovor ocenjuje automatski: algoritam se izvršava na ulazima svakog testa, a izlaz se poredi sa izlazom vašeg rešenja. Bez testova odgovor ocenjujete ručno.';
 $string['hiddentest'] = 'Skriven test';
+$string['hidetools'] = 'Sakrij generisani kôd i uvoz i izvoz datoteka';
+$string['hidetools_help'] = 'Učenici u editoru tokom pokušaja ne vide panel koda, uvoz i izvoz .fprg datoteka ni dugmad za slike. Ovo odvraća od prepisivanja koda iz dijagrama (ili dijagrama iz datoteke), ali ništa ne zaključava. Pregled posle pokušaja prikazuje kôd kao i obično.';
 $string['ignorecase'] = 'Velika i mala slova se ne razlikuju';
 $string['ignorespaces'] = 'Višak razmaka se ne računa';
 $string['inputs'] = 'Ulaz';
@@ -76,6 +79,7 @@ $string['structure_matrix'] = 'matrica';
 $string['structure_while'] = 'While petlja';
 $string['structures'] = 'Obavezne strukture';
 $string['structures_help'] = 'Ako odgovor ne koristi svaku ovde označenu strukturu, ne dobija bodove, čak i kad testovi prođu.';
+$string['studenteditor'] = 'Editor za učenike';
 $string['template'] = 'Početni šablon';
 $string['test'] = 'Test';
 $string['testerror'] = 'Test {$a}: prekinut greškom';

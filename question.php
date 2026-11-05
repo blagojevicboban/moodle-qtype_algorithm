@@ -69,6 +69,9 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var float numbers may differ by this much */
     public $tolerance = 0.0;
 
+    /** @var bool hide the generated code and the file import and export from students */
+    public $hidetools = false;
+
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
 

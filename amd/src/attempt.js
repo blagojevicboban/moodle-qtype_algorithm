@@ -65,8 +65,10 @@ const countBlocks = (program) => {
  * @param {string} [options.template] algorithm to start from (base64 encoded JSON)
  * @param {Array} [options.tests] tests the student may run (inputs, expected)
  * @param {object} [options.check] what the tests compare (afterinput, numbers)
+ * @param {boolean} [options.hidetools] hide the generated code and the file import and export
  */
-export const init = async(containerId, inputId, readonly, lang, emptyText, {template = '', tests = [], check = {}} = {}) => {
+export const init = async(containerId, inputId, readonly, lang, emptyText,
+        {template = '', tests = [], check = {}, hidetools = false} = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
@@ -97,6 +99,8 @@ export const init = async(containerId, inputId, readonly, lang, emptyText, {temp
     editor = new AlgorithmEditor(container, {
         program: program || decode(template),
         lang,
+        showCode: !hidetools,
+        fileTools: !hidetools,
         onChange: (current) => {
             const now = serialize(current);
             if (last === null || now === last) {

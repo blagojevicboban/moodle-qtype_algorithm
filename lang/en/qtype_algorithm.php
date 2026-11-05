@@ -25,6 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Only the output after the last input';
+$string['answerlegend'] = 'Your algorithm';
 $string['compare'] = 'What is compared';
 $string['copyfromsolution'] = 'Copy from the solution';
 $string['correctsolution'] = 'The teacher\'s solution:';
@@ -37,6 +38,8 @@ $string['grademethod_all'] = 'Full marks only when all tests pass';
 $string['grademethod_proportional'] = 'Share of passed tests, by their weight';
 $string['gradingnote'] = 'With tests, the answer is graded automatically: the algorithm runs on the inputs of every test and its output is compared with the output of your solution. Without tests, you grade the answer manually.';
 $string['hiddentest'] = 'Hidden test';
+$string['hidetools'] = 'Hide the generated code and the file import and export';
+$string['hidetools_help'] = 'Students do not see the code panel, the .fprg import and export or the image buttons in the editor of the attempt. This discourages copying code from the diagram (or a diagram from a file); it does not lock anything. The review after the attempt shows the code as usual.';
 $string['ignorecase'] = 'Capital and small letters are the same';
 $string['ignorespaces'] = 'Extra spaces do not count';
 $string['inputs'] = 'Input';
@@ -76,6 +79,7 @@ $string['structure_matrix'] = 'matrix';
 $string['structure_while'] = 'While loop';
 $string['structures'] = 'Required structures';
 $string['structures_help'] = 'If the answer does not use every structure ticked here, it gets no marks, even when the tests pass.';
+$string['studenteditor'] = 'Student editor';
 $string['template'] = 'Starting template';
 $string['test'] = 'Test';
 $string['testerror'] = 'Test {$a}: stopped with an error';
