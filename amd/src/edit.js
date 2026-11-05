@@ -81,7 +81,7 @@ export const init = async(lang) => {
 
     let solution = null;
     workspace(solutionHost, lang, () => solution.zoom.autoFit());
-    solution = new AlgorithmEditor(solutionHost, {program: load(solutionInput), lang, onChange: (program) => {
+    solution = new AlgorithmEditor(solutionHost, {program: load(solutionInput), lang, chooseLanguage: true, onChange: (program) => {
         solutionInput.value = serialize(program);
     }});
     solutionInput.value = serialize(solution.getProgram());
@@ -128,6 +128,7 @@ export const init = async(lang) => {
             templateHost.append(bar, host);
             workspace(host, lang, () => template.zoom.autoFit());
             template = new AlgorithmEditor(host, {program: load(templateInput) || cloneProgram(solution.getProgram()), lang,
+                chooseLanguage: true,
                 onChange: (program) => {
                     templateInput.value = serialize(program);
                 }});

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.1 – 2026-11-10 (stable)
+
+- **Default code language:** the language chosen in the code panel of the solution or the template in the question
+  form is the one students see first in the attempt (needs tiny_algorithm 2.4.1). A student's choice does not change
+  the answer.
+- With tiny_algorithm 2.4.1: the code in its own column in full screen, menus that are never cut off.
+
 ## 2.4.0 – 2026-11-10 (stable)
 
 - **Interpreter as in tiny_algorithm 2.4** (parity.json: 177 runs, 0 different): Break and Continue, at most 200 nested
