@@ -123,7 +123,12 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
         const host = document.createElement('div');
         host.className = 'qtype_algorithm_tests';
         container.after(host);
-        panel = new TestsPanel(host, {tests, mode: 'student', lang, check, getProgram: () => editor.getProgram()});
+        panel = new TestsPanel(host, {tests, mode: 'student', lang, check, getProgram: () => editor.getProgram(),
+            // A failed test: step through the algorithm with its inputs.
+            onRunInputs: (values) => {
+                editor.startWithInputs(values);
+                container.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+            }});
         ws.bar.prepend(ws.button('runtests', () => {
             panel.run();
             host.scrollIntoView({block: 'nearest', behavior: 'smooth'});
