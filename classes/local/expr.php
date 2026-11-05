@@ -38,15 +38,20 @@ class expr {
     /** @var int position in the tokens */
     protected int $p = 0;
 
+    /** @var bool whether array literals are allowed (the call of a function test) */
+    protected bool $literals = false;
+
     /**
      * Parse an expression.
      *
      * @param string $src expression text
+     * @param bool $literals also accept array literals [1, 2] and [[1, 2], [3, 4]] (the call of a function test)
      * @return array AST
      * @throws algorithm_error on a syntax error
      */
-    public static function parse(string $src): array {
+    public static function parse(string $src, bool $literals = false): array {
         $parser = new self();
+        $parser->literals = $literals;
         $parser->toks = self::tokenize($src);
         $ast = $parser->parse_or();
         if ($parser->p < count($parser->toks)) {
@@ -225,6 +230,16 @@ class expr {
             $e = $this->parse_or();
             $this->expect_op(')');
             return $e;
+        }
+        if ($this->literals && $t['t'] === 'op' && $t['v'] === '[') {
+            $items = [];
+            if (!$this->is_op(']')) {
+                do {
+                    $items[] = $this->parse_or();
+                } while ($this->is_op(',') && ++$this->p);
+            }
+            $this->expect_op(']');
+            return ['k' => 'arr', 'items' => $items];
         }
         throw new algorithm_error('unexpected', ['token' => js::to_string($t['v'])]);
     }

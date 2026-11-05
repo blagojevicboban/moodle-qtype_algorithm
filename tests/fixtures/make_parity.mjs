@@ -149,13 +149,110 @@ cases.push(['matrix for an array parameter', mparam([B('call', {expr: 'Row(a)'})
 cases.push(['number for a matrix parameter', mparam([B('call', {expr: 'Set(5)'})])]);
 cases.push(['matrix parameter one index', mparam([B('call', {expr: 'Get(a, 5)'})])]);
 
+// 2.4: names that are properties of JavaScript objects, the limits, strict input, seeded Random, Pi, Flowgorithm
+// functions, Break and Continue.
+cases.push(['object names', prog(dek('constructor'), dek('__proto__'), dek('toString', 'String'),
+    B('assign', {target: 'constructor', expr: '5'}), B('assign', {target: '__proto__', expr: 'constructor * 2'}),
+    B('assign', {target: 'toString', expr: '"x"'}), out('constructor & " " & __proto__ & " " & toString'))]);
+cases.push(['undeclared constructor', prog(out('constructor'))]);
+cases.push(['call constructor', prog(out('constructor(1)'))]);
+cases.push(['call hasOwnProperty', prog(out('hasOwnProperty(1)'))]);
+const deep = (n) => {
+    const p = prog(out(`Down(${n})`));
+    p.functions.push({name: 'Down', params: [{name: 'n', type: 'Integer'}], returnType: 'Integer', body: [
+        B('while', {cond: 'true', body: [
+            B('if', {cond: 'n <= 1', then: [B('return', {expr: '1'})], 'else': [
+                B('for', {variable: 'k', start: '1', end: '1', step: '1', body: [B('return', {expr: 'Down(n - 1) + 1'})]})]})]})]});
+    return p;
+};
+cases.push(['recursion 199', deep(199)], ['recursion 200', deep(200)], ['recursion 201', deep(201)]);
+cases.push(['endless recursion', (() => {
+    const p = prog(B('call', {expr: 'Again()'}));
+    p.functions.push({name: 'Again', params: [], returnType: '', body: [B('call', {expr: 'Again()'})]});
+    return p;
+})()]);
+cases.push(['output limit', prog(B('for', {variable: 'i', start: '1', end: '20000', step: '1',
+    body: [out('"0123456789"', false)]}))]);
+cases.push(['output just below the limit', prog(B('for', {variable: 'i', start: '1', end: '10000', step: '1',
+    body: [out('"0123456789"', false)]}))]);
+const inputCase = (type) => prog(dek('v', type), B('input', {target: 'v'}), out('v'));
+for (const type of ['Integer', 'Real', 'Boolean', 'String']) {
+    cases.push([`strict input ${type}`, inputCase(type), ['3', ' 3 ', '+5', '-7', '3.7', '0x10', '1e3', '-.5', '5.',
+        'Infinity', '""', '3,5', 'TRUE', 'false', 'yes', '1', ' ', '12abc']]);
+}
+cases.push(['random with seed', prog(dek('i'), B('for', {variable: 'i', start: '1', end: '20', step: '1',
+    body: [out('Random(10)', false), out('" "', false)]}), out('Random(1000000)'), out('Random(0)'), out('Random(2.5)'))]);
+cases.push(['pi', prog(out('pi'), out('Pi * 2'), out('Pi()'), dek('pi', 'Real'), B('assign', {target: 'pi', expr: '3'}),
+    out('pi'), out('Pi()'))]);
+cases.push(['flowgorithm functions', prog(...outs('ToInteger("12")', 'ToInteger(3.9)', 'Sgn(-4)', 'Sgn(0)', 'Size("abc")',
+    'Arcsin(1)', 'Arccos(0)', 'Arctan(1)', 'Log10(1000)', 'Log10(2)', 'ToFixed(3.14159, 2)', 'ToFixed(2.5, 0)',
+    'ToFixed(-2.5, 0)', 'ToFixed(1.005, 2)', 'ToFixed(-0.001, 2)', 'ToFixed(7, 3)', 'ToFixed(10 ^ 21, 2)',
+    'ToFixed(123.456, -1)', 'ToFixed(1, 25)', 'ToFixed("2.25", 1)', 'ToFixed(0.1 + 0.2, 1)'))]);
+cases.push(['size of an array', prog(dek('a', 'Integer', '4'), out('Size(a)'))]);
+const loopsWith = (kind) => prog(dek('s'), dek('i'), dek('j'),
+    B('for', {variable: 'i', start: '1', end: '10', step: '1', body: [
+        B('if', {cond: 'i mod 3 = 0', then: [B(kind)], 'else': []}), out('i', false), out('" "', false)]}), out('""'),
+    B('assign', {target: 'i', expr: '0'}),
+    B('while', {cond: 'i < 10', body: [B('assign', {target: 'i', expr: 'i + 1'}),
+        B('if', {cond: 'i mod 4 = 0', then: [B(kind)], 'else': []}), out('i', false), out('","', false)]}), out('""'),
+    B('assign', {target: 'i', expr: '0'}),
+    B('dowhile', {cond: 'i < 7', body: [B('assign', {target: 'i', expr: 'i + 1'}),
+        B('if', {cond: 'i = 2', then: [B(kind)], 'else': []}), out('i', false), out('";"', false)]}), out('""'),
+    B('for', {variable: 'i', start: '1', end: '3', step: '1', body: [
+        B('for', {variable: 'j', start: '1', end: '3', step: '1', body: [
+            B('if', {cond: 'j = 2', then: [B(kind)], 'else': []}), out('i * 10 + j', false), out('" "', false)]})]}),
+    out('"end " & i & " " & j'));
+cases.push(['break', loopsWith('break')], ['continue', loopsWith('continue')]);
+cases.push(['break outside a loop', prog(out('"x"'), B('break'))]);
+cases.push(['continue in an if outside a loop', prog(B('if', {cond: 'true', then: [B('continue')], 'else': []}))]);
+cases.push(['break in a function called from a loop', (() => {
+    const p = prog(B('for', {variable: 'i', start: '1', end: '2', step: '1', body: [B('call', {expr: 'F()'})]}));
+    p.functions.push({name: 'F', params: [], returnType: '', body: [B('break')]});
+    return p;
+})()]);
+cases.push(['return from inside a loop', (() => {
+    const p = prog(out('Find(7)'));
+    p.functions.push({name: 'Find', params: [{name: 'x', type: 'Integer'}], returnType: 'Integer', body: [
+        B('for', {variable: 'i', start: '1', end: '100', step: '1', body: [
+            B('if', {cond: 'i * i > x', then: [B('return', {expr: 'i'})], 'else': [B('continue')]})]}),
+        B('return', {expr: '-1'})]});
+    return p;
+})()]);
+
+// Function tests with arrays and matrices written in the call.
+const arr = createProgram();
+arr.functions[0].body = [out('"main"')];
+const ap = (name, type = 'Integer', matrix = false) => ({name, type, array: true, matrix});
+arr.functions.push(
+    {name: 'Sum', params: [ap('a')], returnType: 'Integer', body: [dek('s'),
+        B('for', {variable: 'i', start: '0', end: 'Len(a) - 1', step: '1', body: [B('assign', {target: 's', expr: 's + a[i]'})]}),
+        B('return', {expr: 's'})]},
+    {name: 'Sort', params: [ap('a')], returnType: '', body: [dek('t'),
+        B('for', {variable: 'i', start: '0', end: 'Len(a) - 2', step: '1', body: [
+            B('for', {variable: 'j', start: '0', end: 'Len(a) - 2 - i', step: '1', body: [
+                B('if', {cond: 'a[j] > a[j + 1]', then: [B('assign', {target: 't', expr: 'a[j]'}),
+                    B('assign', {target: 'a[j]', expr: 'a[j + 1]'}), B('assign', {target: 'a[j + 1]', expr: 't'})], 'else': []})]})]})]},
+    {name: 'Trace', params: [ap('m', 'Real', true)], returnType: 'Real', body: [dek('s', 'Real'),
+        B('for', {variable: 'i', start: '0', end: 'Len(m) - 1', step: '1', body: [B('assign', {target: 's', expr: 's + m[i, i]'})]}),
+        B('return', {expr: 's'})]},
+    {name: 'Join', params: [ap('w', 'String'), {name: 'sep', type: 'String'}], returnType: 'String', body: [dek('r', 'String'),
+        B('for', {variable: 'i', start: '0', end: 'Len(w) - 1', step: '1', body: [B('assign', {target: 'r', expr: 'r & w[i] & sep'})]}),
+        B('return', {expr: 'r'})]},
+    {name: 'Twice', params: [{name: 'x', type: 'Integer'}], returnType: 'Integer', body: [B('return', {expr: 'x * 2'})]},
+);
+const arrayCalls = ['Sum([1, 2, 3])', 'Sum([])', 'Sum([1.9, -2.5])', 'Sum(["4", 5])', 'Sum([1, "x"])', 'Sum([[1], [2]])',
+    'Sum(5)', 'Sort([3, 1, 2])', 'Sort([5, -1, 5, 0])', 'Trace([[1, 2], [3, 4]])', 'Trace([[1.5]])', 'Trace([[1, 2], [3]])',
+    'Trace([1, 2])', 'Trace([])', 'Join(["a", "b"], "-")', 'Join([1, true], "")', 'Twice([1])', 'Twice(3) + Sum([1, 2])',
+    'Sum([1, 2', 'Sum([1 2])'];
+
 // Function tests: the call and the value it returns (the functions of the 'functions' case).
 const calls = ['Fact(5)', 'Fib(10)', 'Half(7)', 'NoReturn()', 'Fact("3")', 'Two(1)', 'Fact(n)', 'Half(1, 2)', 'Missing(1)',
     'Fact(2 + 1) & "!"', 'Fill(3, 4)'];
 
 const extra = process.argv[3] ? JSON.parse(readFileSync(process.argv[3], 'utf8')) : [];
 const all = extra.length ? extra : [...cases.map(([name, program, inputs = ['']]) => ({name, program, inputs})),
-    ...calls.map((call) => ({name: `call ${call}`, program: fn, inputs: [''], call}))];
+    ...calls.map((call) => ({name: `call ${call}`, program: fn, inputs: [''], call})),
+    ...arrayCalls.map((call) => ({name: `call ${call}`, program: arr, inputs: [''], call}))];
 const fixtures = [];
 for (const {name, program, inputs, call = null} of all) {
     for (const input of inputs) {

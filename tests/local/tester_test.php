@@ -104,4 +104,55 @@ final class tester_test extends \advanced_testcase {
         $this->assertFalse($results[1]['pass']);
         $this->assertSame('Division by zero', $results[1]['error']);
     }
+    public function test_random_is_the_same_in_every_run(): void {
+        $program = self::program([
+            ['type' => 'declare', 'name' => 'i', 'varType' => 'Integer', 'size' => ''],
+            ['type' => 'for', 'variable' => 'i', 'start' => '1', 'end' => '10', 'step' => '1', 'body' => [
+                ['type' => 'output', 'expr' => 'Random(100) & " "', 'newline' => false],
+            ]],
+        ]);
+        $first = tester::run_program($program, '');
+        $this->assertNull($first['error']);
+        $this->assertMatchesRegularExpression('/^(\d{1,2} ){10}$/', $first['output']);
+        $this->assertSame($first['output'], tester::run_program($program, '')['output']);
+    }
+
+    public function test_call_with_arrays(): void {
+        $program = self::program([]);
+        $program['functions'][] = ['name' => 'Sort', 'returnType' => null,
+            'params' => [['name' => 'a', 'type' => 'Integer', 'array' => true]], 'body' => [
+                ['type' => 'declare', 'name' => 't', 'varType' => 'Integer', 'size' => ''],
+                ['type' => 'for', 'variable' => 'i', 'start' => '0', 'end' => 'Len(a) - 2', 'step' => '1', 'body' => [
+                    ['type' => 'for', 'variable' => 'j', 'start' => '0', 'end' => 'Len(a) - 2 - i', 'step' => '1', 'body' => [
+                        ['type' => 'if', 'cond' => 'a[j] > a[j + 1]', 'then' => [
+                            ['type' => 'assign', 'target' => 't', 'expr' => 'a[j]'],
+                            ['type' => 'assign', 'target' => 'a[j]', 'expr' => 'a[j + 1]'],
+                            ['type' => 'assign', 'target' => 'a[j + 1]', 'expr' => 't'],
+                        ], 'else' => []],
+                    ]],
+                ]],
+            ]];
+        $run = tester::run_program($program, '', 'no input', 'Sort([3, 1, 2])');
+        $this->assertNull($run['error']);
+        $this->assertSame('a = [1, 2, 3]', $run['result']);
+        $this->assertSame('a = [1, 2, 3]', tester::checked_output($run));
+        $run = tester::run_program($program, '', 'no input', 'Sort([[1], [2]])');
+        $this->assertStringContainsString('does not fit the parameter', $run['error']);
+    }
+
+    public function test_limits_and_strict_input(): void {
+        $program = self::program([
+            ['type' => 'declare', 'name' => 'n', 'varType' => 'Integer', 'size' => ''],
+            ['type' => 'input', 'target' => 'n'],
+            ['type' => 'output', 'expr' => 'n', 'newline' => true],
+        ]);
+        $this->assertSame("'3.7' is not a valid Integer", tester::run_program($program, '3.7')['error']);
+        $this->assertSame("4\n", tester::run_program($program, ' 4 ')['output']);
+        $loop = self::program([['type' => 'while', 'cond' => 'true', 'body' => [
+            ['type' => 'output', 'expr' => '"0123456789"', 'newline' => false],
+        ]]]);
+        $this->assertSame('The output is longer than 100000 characters', tester::run_program($loop, '')['error']);
+        $break = self::program([['type' => 'break']]);
+        $this->assertSame('Break can only be inside a loop', tester::run_program($break, '')['error']);
+    }
 }

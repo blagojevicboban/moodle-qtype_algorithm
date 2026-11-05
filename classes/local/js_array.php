@@ -28,6 +28,9 @@ class js_array {
     /** @var array elements */
     public array $items;
 
+    /** @var bool written in the call of a function test ([1, 2]): its elements get the type of the parameter */
+    public bool $literal = false;
+
     /**
      * Create an array.
      *

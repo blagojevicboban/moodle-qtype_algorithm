@@ -30,6 +30,8 @@ class algorithm_error extends \Exception {
     /** @var string[] English messages by code, as in tiny_algorithm/strings (e.* keys) */
     const MESSAGES = [
         'argcount' => "Function '{name}' expects {count} argument(s)",
+        'argshape' => 'The value for {name} does not fit the parameter (a single value, an array or a matrix with rows of ' .
+            'the same length)',
         'arraysize' => 'Array size {size} is larger than {max}',
         'dimensions' => 'The number of indexes for {name} must be {count}',
         'assignboolean' => "Cannot assign '{value}' to Boolean {name}",
@@ -39,6 +41,8 @@ class algorithm_error extends \Exception {
         'badexpression' => 'Bad expression',
         'badoperator' => 'Bad operator {op}',
         'badtarget' => 'Invalid assignment target',
+        'calldepth' => 'Too many nested function calls (more than {max}). ' .
+            'Does the recursion have a stop condition that is reached?',
         'charindex' => 'Char: index {index} is outside the string "{text}"',
         'divzero' => 'Division by zero',
         'expected' => "Expected '{op}'",
@@ -47,6 +51,8 @@ class algorithm_error extends \Exception {
         'invalidinput' => "'{text}' is not a valid {type}",
         'notarray' => "'{name}' is not an array",
         'notdeclared' => "Variable '{name}' is not declared",
+        'notinloop' => '{block} can only be inside a loop',
+        'outputlimit' => 'The output is longer than {max} characters',
         'steplimit' => 'Step limit exceeded (possible infinite loop)',
         'tocodeempty' => 'ToCode: empty string',
         'unexpected' => "Unexpected '{token}'",

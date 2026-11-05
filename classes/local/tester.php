@@ -116,7 +116,7 @@ class tester {
         ?string $call = null
     ): array {
         $queue = self::parse_inputs($call === null ? $inputs : '');
-        $run = new interpreter($program, self::MAX_STEPS);
+        $run = new interpreter($program, self::MAX_STEPS, interpreter::RANDOM_SEED);
         $error = null;
         try {
             $run->run(function () use (&$queue, $noinput) {
