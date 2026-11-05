@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.2.1 – 2026-11-05 (stable)
 
 - **Run and Step are not an answer:** the editor draws again during Run and Step, and the attempt took that for a
   change. Stepping through the template saved it as the answer and the test results were marked as old after every
