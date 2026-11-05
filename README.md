@@ -46,7 +46,7 @@ solution. Without tests the teacher grades it manually.
 
 | | |
 |---|---|
-| **Attempt: the student fixes the algorithm and runs the tests** | **Edit form: the teacher's solution and the starting template** |
+| **Attempt: the student steps through the algorithm and runs the tests** | **Edit form: the teacher's solution and the starting template** |
 | ![Attempt](docs/screenshots/quiz-attempt.png) | ![Edit form](docs/screenshots/edit-solution-tests.png) |
 | **Interactive behaviour: test results, weights and a hint** | |
 | ![Interactive](docs/screenshots/quiz-interactive.png) | |

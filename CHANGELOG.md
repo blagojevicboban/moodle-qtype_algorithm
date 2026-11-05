@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- **Run and Step are not an answer:** the editor draws again during Run and Step, and the attempt took that for a
+  change. Stepping through the template saved it as the answer and the test results were marked as old after every
+  step. Now only a real change of the algorithm answers the question or makes the results old (`attempt.js`).
+- **Screenshots:** new pictures of the attempt, the interactive behaviour and the edit form.
+
 ## 2.2.0 – 2026-11-05 (stable)
 
 - **Matrices as parameters:** the PHP interpreter (automatic grading) accepts matrix parameters like the editor of

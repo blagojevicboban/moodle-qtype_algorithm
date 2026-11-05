@@ -91,16 +91,20 @@ export const init = async(containerId, inputId, readonly, lang, emptyText, {temp
     let panel = null;
     // The editor reports its first drawing too: that is not a change by the student (opening a question with a
     // template must not answer it, and a saved answer must not be marked as changed).
-    let started = false;
+    // The editor also draws again during Run and Step, so a drawing is a change only when the algorithm differs from the
+    // last one (stepping through the template must not answer the question or make the test results old).
+    let last = null;
     editor = new AlgorithmEditor(container, {
         program: program || decode(template),
         lang,
         onChange: (current) => {
-            if (!started) {
+            const now = serialize(current);
+            if (last === null || now === last) {
                 return;
             }
+            last = now;
             // An empty diagram counts as no answer, so the question is reported as not complete.
-            const value = countBlocks(current) > 0 ? serialize(current) : '';
+            const value = countBlocks(current) > 0 ? now : '';
             if (input.value !== value) {
                 input.value = value;
                 input.dispatchEvent(new Event('change', {bubbles: true}));
@@ -110,7 +114,7 @@ export const init = async(containerId, inputId, readonly, lang, emptyText, {temp
             }
         },
     });
-    started = true;
+    last = serialize(editor.getProgram());
     if (tests.length) {
         const host = document.createElement('div');
         host.className = 'qtype_algorithm_tests';
