@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.1 – 2026-11-15 (stable)
+
+- Requires tiny_algorithm 2.5.1 (2026111501).
+
 ## 2.5.0 – 2026-11-15 (stable)
 
 - **Synchronized 2.5.0 release:** unified versioning and build alignment with tiny_algorithm and filter_algorithm (build 2026111500).
