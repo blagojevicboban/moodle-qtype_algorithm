@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.5.0 – 2026-11-15 (stable)
+
+- **Synchronized 2.5.0 release:** unified versioning and build alignment with tiny_algorithm and filter_algorithm (build 2026111500).
+- **Dependencies update:** requires tiny_algorithm 2.5.0 (2026111500).
+- **Maintenance & QA:** rebuilt AMD modules with Moodle Grunt, validated copyright headers across all files.
+
 ## 2.4.1 – 2026-11-10 (stable)
 
 - **Default code language:** the language chosen in the code panel of the solution or the template in the question
