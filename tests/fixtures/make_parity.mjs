@@ -219,6 +219,37 @@ cases.push(['return from inside a loop', (() => {
     return p;
 })()]);
 
+// 2.5.3: strings and arrays cannot fill the memory of the grading server.
+const grow = (piece, times) => [dek('s', 'String'), dek('i'),
+    B('for', {variable: 'i', start: '1', end: String(times), step: '1', body: [B('assign', {target: 's', expr: `s & "${piece}"`})]}),
+    out('Len(s)')];
+cases.push(['string doubling', prog(dek('s', 'String'), B('assign', {target: 's', expr: '"x"'}),
+    B('while', {cond: 'true', body: [B('assign', {target: 's', expr: 's & s'}), out('Len(s)')]}))]);
+cases.push(['string at the limit', prog(...grow('0123456789', 10000), out('Len(s + "")'), out('Len(s + "x")'))]);
+cases.push(['string limit with &', prog(...grow('0123456789', 10000), out('Len(s & "x")'))]);
+cases.push(['string of two-byte letters', prog(...grow('жжжжжжжжжж', 6000))]);
+cases.push(['string of emoji over the limit', prog(...grow('😀😀😀😀😀', 10001))]);
+cases.push(['string of emoji at the limit', prog(...grow('😀😀😀😀😀', 10000))]);
+cases.push(['arrays in a recursion', (() => {
+    const p = prog(B('call', {expr: 'F(1)'}));
+    p.functions.push({name: 'F', params: [{name: 'n', type: 'Integer'}], returnType: '', body: [
+        dek('a', 'Integer', '100000'), out('n'), B('call', {expr: 'F(n + 1)'})]});
+    return p;
+})()]);
+cases.push(['arrays freed after each call', (() => {
+    const p = prog(dek('i'), B('for', {variable: 'i', start: '1', end: '30', step: '1', body: [B('call', {expr: 'G()'})]}),
+        out('"done"'));
+    p.functions.push({name: 'G', params: [], returnType: '', body: [dek('a', 'Integer', '100000')]});
+    return p;
+})()]);
+cases.push(['array declared again in a loop', prog(B('while', {cond: 'true', body: [dek('a', 'Integer', '100000')]}))]);
+cases.push(['array replaced by a value', prog(dek('k'), B('for', {variable: 'k', start: '1', end: '30', step: '1', body: [
+    dek('b', 'Integer', '100000'), dek('b')]}), out('"done " & b'))]);
+cases.push(['ten names at the memory limit', prog(dek('a, b, c, d, e, f, g, h, p, q', 'Integer', '100000'), out('Len(q)'),
+    dek('z', 'Integer', '1'), out('"not reached"'))]);
+cases.push(['matrix with no columns', prog(mx('m', 'Integer', '100000000', '0'), out('Len(m)'))]);
+cases.push(['matrix with no columns at the limit', prog(mx('m', 'Integer', '100000', '0'), out('Len(m)'))]);
+
 // Function tests with arrays and matrices written in the call.
 const arr = createProgram();
 arr.functions[0].body = [out('"main"')];

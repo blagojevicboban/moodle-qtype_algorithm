@@ -75,6 +75,9 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
 
+    /** @var array the last decoded response: its text, the model and the number of blocks */
+    protected $decoded = ['answer' => null, 'model' => null, 'blocks' => 0];
+
     /** Longest stored response (base64 encoded JSON) that is decoded. */
     const MAX_ANSWER_LENGTH = 500000;
 
@@ -125,7 +128,7 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return string[]
      */
     public function missing_structures(array $response): array {
-        $model = self::decode_answer((string) ($response['answer'] ?? ''));
+        $model = $this->decode_response($response);
         return array_values(array_diff($this->structures, $model ? tester::structures($model) : []));
     }
 
@@ -138,15 +141,30 @@ class qtype_algorithm_question extends question_graded_automatically {
     public function test_results(array $response): array {
         $answer = (string) ($response['answer'] ?? '');
         if (!array_key_exists($answer, $this->resultcache)) {
-            $model = $this->is_too_large($response) ? null : self::decode_answer($answer);
-            $this->resultcache[$answer] = $model ? tester::run_tests(
-                $model,
-                $this->tests,
-                $this->check_options(),
-                get_string('noinput', 'qtype_algorithm')
-            ) : [];
+            $model = $this->is_too_large($response) ? null : $this->decode_response($response);
+            $this->resultcache[$answer] = $model ? $this->cached_results($model, $answer) : [];
         }
         return $this->resultcache[$answer];
+    }
+
+    /**
+     * Test results from the cache, or from running the tests (the review of an attempt then does not run them again).
+     *
+     * @param array $model the decoded response
+     * @param string $answer the response as stored
+     * @return array results of tester::run_tests
+     */
+    protected function cached_results(array $model, string $answer): array {
+        $cache = \cache::make('qtype_algorithm', 'results');
+        // The messages are in the user's language, and a new version of the plugin may give other results.
+        $key = sha1(json_encode([get_config('qtype_algorithm', 'version'), current_language(), $this->tests,
+            $this->check_options(), $answer]));
+        $results = $cache->get($key);
+        if (!is_array($results)) {
+            $results = tester::run_tests($model, $this->tests, $this->check_options(), get_string('noinput', 'qtype_algorithm'));
+            $cache->set($key, $results);
+        }
+        return $results;
     }
 
     /**
@@ -269,12 +287,27 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return int
      */
     protected function blocks_in_response(array $response): int {
-        $model = self::decode_answer((string) ($response['answer'] ?? ''));
-        $count = 0;
-        foreach ($model['functions'] ?? [] as $function) {
-            $count += self::count_blocks($function['body'] ?? []);
+        $this->decode_response($response);
+        return $this->decoded['blocks'];
+    }
+
+    /**
+     * Decode a response once: the question asks for the model and the number of blocks many times in a request.
+     *
+     * @param array $response the response
+     * @return array|null the model, or null when it is empty or invalid
+     */
+    protected function decode_response(array $response): ?array {
+        $answer = (string) ($response['answer'] ?? '');
+        if ($this->decoded['answer'] !== $answer) {
+            $model = self::decode_answer($answer);
+            $count = 0;
+            foreach ($model['functions'] ?? [] as $function) {
+                $count += is_array($function) ? self::count_blocks($function['body'] ?? []) : 0;
+            }
+            $this->decoded = ['answer' => $answer, 'model' => $model, 'blocks' => $count];
         }
-        return $count;
+        return $this->decoded['model'];
     }
 
     /**
@@ -284,7 +317,7 @@ class qtype_algorithm_question extends question_graded_automatically {
      * @return string|null
      */
     public function summarise_response(array $response) {
-        $model = self::decode_answer((string) ($response['answer'] ?? ''));
+        $model = $this->decode_response($response);
         if (!$model) {
             return null;
         }

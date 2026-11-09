@@ -75,6 +75,44 @@ final class tester_test extends \advanced_testcase {
         $this->assertSame('Array size 1000000 is larger than 100000', tester::run_program($program, '')['error']);
     }
 
+    /**
+     * A response cannot fill the memory or the time of the grading server.
+     */
+    public function test_memory_and_time_limits(): void {
+        // A string that doubles in a loop stops at MAX_STRING characters.
+        $program = self::program([
+            ['type' => 'declare', 'name' => 's', 'varType' => 'String', 'size' => ''],
+            ['type' => 'assign', 'target' => 's', 'expr' => '"x"'],
+            ['type' => 'while', 'cond' => 'true', 'body' => [['type' => 'assign', 'target' => 's', 'expr' => 's & s']]],
+        ]);
+        $this->assertSame('A string is longer than 100000 characters', tester::run_program($program, '')['error']);
+
+        // A recursion where every call keeps a big array stops at MAX_CELLS elements.
+        $program = self::program([['type' => 'call', 'expr' => 'F(1)']]);
+        $program['functions'][] = ['name' => 'F', 'params' => [['name' => 'n', 'type' => 'Integer']], 'returnType' => '',
+            'body' => [
+                ['type' => 'declare', 'name' => 'a', 'varType' => 'Integer', 'size' => '100000'],
+                ['type' => 'call', 'expr' => 'F(n + 1)'],
+            ]];
+        $this->assertSame('The arrays have more than 1000000 elements in all', tester::run_program($program, '')['error']);
+
+        // Declaring a big array again and again uses up the steps quickly.
+        $program = self::program([
+            ['type' => 'while', 'cond' => 'true', 'body' => [
+                ['type' => 'declare', 'name' => 'a', 'varType' => 'Integer', 'size' => '100000'],
+            ]],
+        ]);
+        $start = microtime(true);
+        $this->assertSame('Step limit exceeded (possible infinite loop)', tester::run_program($program, '')['error']);
+        $this->assertLessThan(5, microtime(true) - $start);
+
+        // A matrix without columns still has its rows.
+        $program = self::program([
+            ['type' => 'declare', 'name' => 'm', 'varType' => 'Integer', 'size' => '100000000', 'size2' => '0'],
+        ]);
+        $this->assertSame('Array size 100000000 x 0 is larger than 100000', tester::run_program($program, '')['error']);
+    }
+
     public function test_matrix(): void {
         $program = self::program([
             ['type' => 'declare', 'name' => 'm', 'varType' => 'Integer', 'size' => '2', 'size2' => '3'],

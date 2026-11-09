@@ -1,23 +1,35 @@
 # Changelog
 
-## 2.5.1 – 2026-11-15 (stable)
+## 2.5.3 – 2026-11-09 (stable)
+
+- **Grading cannot be stopped by a response:** the PHP interpreter limits strings to 100,000 characters and the arrays
+  of the running calls to 1,000,000 elements, and declaring an array costs steps. Before, a three-block algorithm that
+  doubled a string in a loop, or a recursion that declared a big array in every call, ended the grading with a PHP
+  fatal error, so the attempt could not be submitted and its review could not be opened.
+- **Test results are cached:** the review of an attempt reuses the results of the grading instead of running every
+  test again on each view (Moodle cache qtype_algorithm/results).
+- A response is decoded once per request.
+- New parity cases for the limits; the PHP and JavaScript interpreters give the same results in all 190 runs.
+- Version number 2.5.3, the same as tiny_algorithm. Requires tiny_algorithm 2.5.3 (2026111503).
+
+## 2.5.1 – 2026-11-08 (stable)
 
 - Requires tiny_algorithm 2.5.1 (2026111501).
 
-## 2.5.0 – 2026-11-15 (stable)
+## 2.5.0 – 2026-11-08 (stable)
 
 - **Synchronized 2.5.0 release:** unified versioning and build alignment with tiny_algorithm and filter_algorithm (build 2026111500).
 - **Dependencies update:** requires tiny_algorithm 2.5.0 (2026111500).
 - **Maintenance & QA:** rebuilt AMD modules with Moodle Grunt, validated copyright headers across all files.
 
-## 2.4.1 – 2026-11-10 (stable)
+## 2.4.1 – 2026-11-05 (stable)
 
 - **Default code language:** the language chosen in the code panel of the solution or the template in the question
   form is the one students see first in the attempt (needs tiny_algorithm 2.4.1). A student's choice does not change
   the answer.
 - With tiny_algorithm 2.4.1: the code in its own column in full screen, menus that are never cut off.
 
-## 2.4.0 – 2026-11-10 (stable)
+## 2.4.0 – 2026-11-05 (stable)
 
 - **Interpreter as in tiny_algorithm 2.4** (parity.json: 177 runs, 0 different): Break and Continue, at most 200 nested
   calls and 100000 characters of output, typed input (3.7 is not an Integer), Random from a seed in every test and

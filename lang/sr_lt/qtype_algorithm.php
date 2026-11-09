@@ -26,6 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Samo ispis posle poslednjeg unosa';
 $string['answerlegend'] = 'Vaš algoritam';
+$string['cachedef_results'] = 'Rezultati testova odgovora sa algoritmom';
 $string['compare'] = 'Šta se poredi';
 $string['copyfromsolution'] = 'Kopiraj iz rešenja';
 $string['correctsolution'] = 'Rešenje nastavnika:';

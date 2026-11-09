@@ -26,6 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Only the output after the last input';
 $string['answerlegend'] = 'Your algorithm';
+$string['cachedef_results'] = 'Test results of algorithm responses';
 $string['compare'] = 'What is compared';
 $string['copyfromsolution'] = 'Copy from the solution';
 $string['correctsolution'] = 'The teacher\'s solution:';

@@ -34,6 +34,21 @@ class interpreter {
     /** Most characters of output (as MAX_OUTPUT in tiny_algorithm/interpreter). */
     const MAX_OUTPUT = 100000;
 
+    /** Most characters a string may have (as MAX_STRING in tiny_algorithm/interpreter). */
+    const MAX_STRING = 100000;
+
+    /**
+     * Most array elements the calls running at the same time may hold together (as MAX_CELLS in tiny_algorithm/interpreter).
+     * Each row of a matrix also counts, as ROW_CELLS elements.
+     */
+    const MAX_CELLS = 1000000;
+
+    /** Elements a row of a matrix counts as (as ROW_CELLS in tiny_algorithm/interpreter). */
+    const ROW_CELLS = 10;
+
+    /** Declaring an array costs one more step for every this many elements (as CELLS_PER_STEP in tiny_algorithm/interpreter). */
+    const CELLS_PER_STEP = 20;
+
     /** Seed of Random in tests and grading (as RANDOM_SEED in tiny_algorithm/interpreter). */
     const RANDOM_SEED = 20261110;
 
@@ -72,6 +87,9 @@ class interpreter {
 
     /** @var int characters written so far (UTF-16 units, as JavaScript counts them) */
     protected int $written = 0;
+
+    /** @var int array elements held by the variables declared in the calls running now */
+    protected int $cells = 0;
 
     /** @var int|null state of the seeded random numbers, null for really random numbers */
     protected ?int $random = null;
@@ -357,6 +375,37 @@ class interpreter {
     }
 
     /**
+     * Count the elements of a new array (the old array of the same variable is freed) and the steps they cost.
+     *
+     * @param object|null $old the variable the declaration replaces
+     * @param int $count elements of the new array
+     */
+    protected function reserve(?object $old, int $count): void {
+        $this->cells += $count - (int) ($old->cells ?? 0);
+        if ($this->cells > self::MAX_CELLS) {
+            throw new algorithm_error('memorylimit', ['max' => (string) self::MAX_CELLS]);
+        }
+        $this->steps += intdiv($count, self::CELLS_PER_STEP);
+        if ($this->steps > $this->maxsteps) {
+            throw new algorithm_error('steplimit');
+        }
+    }
+
+    /**
+     * A string made by an operator, when it is not too long (the length is counted as in JavaScript).
+     *
+     * @param string $text the string
+     * @return string
+     */
+    protected static function limit_string(string $text): string {
+        // A UTF-16 string is never longer than its UTF-8 bytes, so only long byte strings are measured.
+        if (strlen($text) > self::MAX_STRING && js::length($text) > self::MAX_STRING) {
+            throw new algorithm_error('stringlimit', ['max' => (string) self::MAX_STRING]);
+        }
+        return $text;
+    }
+
+    /**
      * Variable of a scope.
      *
      * @param array $env variables of the function call
@@ -449,11 +498,11 @@ class interpreter {
         switch ($op) {
             case '+':
                 if (is_string($l) || is_string($r)) {
-                    return js::fmt($l) . js::fmt($r);
+                    return self::limit_string(js::fmt($l) . js::fmt($r));
                 }
                 return js::to_number($l) + js::to_number($r);
             case '&':
-                return js::fmt($l) . js::fmt($r);
+                return self::limit_string(js::fmt($l) . js::fmt($r));
             case '-':
                 return js::to_number($l) - js::to_number($r);
             case '*':
@@ -754,24 +803,30 @@ class interpreter {
                 $size = self::has_text($b['size'] ?? null) ? $this->eval_str($b['size'], $env) : null;
                 $size2 = $size !== null && self::has_text($b['size2'] ?? null) ? $this->eval_str($b['size2'], $env) : null;
                 $total = $size === null ? 0 : js::to_number($size) * ($size2 === null ? 1 : js::to_number($size2));
-                if ($size !== null && $total > self::MAX_ARRAY_SIZE) {
+                // Each dimension is checked too: a matrix with no columns still makes its rows.
+                if ($size !== null && ($total > self::MAX_ARRAY_SIZE || js::to_number($size) > self::MAX_ARRAY_SIZE)) {
                     $shown = $size2 === null ? js::to_string($size) : js::to_string($size) . ' x ' . js::to_string($size2);
                     throw new algorithm_error('arraysize', ['size' => $shown, 'max' => (string) self::MAX_ARRAY_SIZE]);
                 }
                 $names = array_filter(array_map('trim', explode(',', js::to_string($b['name'] ?? ''))), 'strlen');
+                $count = $size === null ? 0 :
+                    self::array_length($size) * ($size2 === null ? 1 : self::array_length($size2) + self::ROW_CELLS);
                 foreach ($names as $nm) {
+                    $this->reserve($env[strtolower($nm)] ?? null, $count);
                     $type = $b['varType'] ?? null;
                     if ($size === null) {
                         $value = self::default_value($type);
                     } else {
-                        $value = new js_array([]);
-                        for ($k = 0; $k < self::array_length($size); $k++) {
-                            $value->items[] = $size2 === null ? self::default_value($type) :
-                                new js_array(array_fill(0, self::array_length($size2), self::default_value($type)));
+                        $length = self::array_length($size);
+                        $value = new js_array($length ? array_fill(0, $length, self::default_value($type)) : []);
+                        for ($k = 0; $size2 !== null && $k < $length; $k++) {
+                            $row = array_fill(0, self::array_length($size2), self::default_value($type));
+                            $value->items[$k] = new js_array($row);
                         }
                     }
                     $dims = $size === null ? 0 : ($size2 === null ? 1 : 2);
-                    $env[strtolower($nm)] = (object) ['name' => $nm, 'type' => $type, 'value' => $value, 'dims' => $dims];
+                    $env[strtolower($nm)] = (object) ['name' => $nm, 'type' => $type, 'value' => $value, 'dims' => $dims,
+                        'cells' => $count];
                 }
                 break;
             case 'assign':
@@ -879,6 +934,9 @@ class interpreter {
             $r = $this->run_list($fn['body'] ?? [], $env);
         } finally {
             $this->depth--;
+            foreach ($env as $v) {
+                $this->cells -= (int) ($v->cells ?? 0);
+            }
         }
         return $r ? ($r[1] ?? null) : null;
     }
