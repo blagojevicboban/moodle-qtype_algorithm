@@ -250,6 +250,18 @@ cases.push(['ten names at the memory limit', prog(dek('a, b, c, d, e, f, g, h, p
 cases.push(['matrix with no columns', prog(mx('m', 'Integer', '100000000', '0'), out('Len(m)'))]);
 cases.push(['matrix with no columns at the limit', prog(mx('m', 'Integer', '100000', '0'), out('Len(m)'))]);
 
+// 2.7: turtle graphics draws only in the browser; PHP runs the blocks with the same checks and steps.
+cases.push(['turtle square', prog(dek('i'), B('pen', {color: 'red'}), B('for', {variable: 'i', start: '1', end: '4', step: '1',
+    body: [B('forward', {distance: '50', pen: 'down'}), B('turn', {angle: '90', rotate: 'right'})]}),
+    B('forward', {distance: 'i * 10', pen: 'up'}), B('home'), B('clear'), out('"done " & i'))]);
+cases.push(['turtle text distance', prog(B('forward', {distance: '"abc"', pen: 'down'}), out('"not reached"'))]);
+cases.push(['turtle number text', prog(B('turn', {angle: '"45"', rotate: 'left'}), out('"ok"'))]);
+cases.push(['turtle boolean angle', prog(B('turn', {angle: 'true', rotate: 'left'}), out('"not reached"'))]);
+cases.push(['turtle undeclared', prog(B('forward', {distance: 'd', pen: 'down'}))]);
+cases.push(['turtle array distance', prog(dek('a', 'Integer', '3'), B('forward', {distance: 'a', pen: 'down'}))]);
+cases.push(['turtle endless', prog(B('while', {cond: 'true', body: [B('forward', {distance: '1', pen: 'down'}),
+    B('turn', {angle: '1', rotate: 'right'})]}))]);
+
 // Function tests with arrays and matrices written in the call.
 const arr = createProgram();
 arr.functions[0].body = [out('"main"')];

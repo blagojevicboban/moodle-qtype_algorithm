@@ -392,6 +392,22 @@ class interpreter {
     }
 
     /**
+     * The distance or the angle of a turtle block: a number (as turtleNumber in tiny_algorithm/interpreter).
+     *
+     * @param mixed $text expression
+     * @param array $env variables
+     * @return float
+     */
+    protected function turtle_number($text, array $env): float {
+        $v = $this->eval_str($text, $env);
+        $n = is_bool($v) || $v instanceof js_array ? NAN : js::to_number($v);
+        if (!is_finite($n)) {
+            throw new algorithm_error('invalidinput', ['text' => js::fmt($v), 'type' => 'Real']);
+        }
+        return $n;
+    }
+
+    /**
      * A string made by an operator, when it is not too long (the length is counted as in JavaScript).
      *
      * @param string $text the string
@@ -875,6 +891,15 @@ class interpreter {
                 return $this->run_for($b, $env);
             case 'call':
                 $this->eval_str($b['expr'] ?? '', $env);
+                break;
+            case 'forward':
+            case 'turn':
+                // Turtle graphics draws only in the browser; the value is checked as there.
+                $this->turtle_number($b[$b['type'] === 'forward' ? 'distance' : 'angle'] ?? '', $env);
+                break;
+            case 'pen':
+            case 'home':
+            case 'clear':
                 break;
             case 'return':
                 return ['return', self::has_text($b['expr'] ?? null) ? $this->eval_str($b['expr'], $env) : null];

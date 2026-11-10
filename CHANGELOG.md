@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.7.0 – 2026-11-10 (stable)
+
+- **Turtle graphics in questions:** the PHP interpreter runs the new turtle blocks of tiny_algorithm 2.7.0 (Forward,
+  Turn, Pen, Home, Clear) with the same checks and steps as the browser, so a response that draws is graded on its
+  output like any other; the drawing itself is shown in the browser.
+- 7 new parity cases (197 runs, PHP = JavaScript).
+- Version number 2.7.0, the same as tiny_algorithm; requires tiny_algorithm 2.7.0 (2026111505).
+
 ## 2.5.3 – 2026-11-09 (stable)
 
 - **Grading cannot be stopped by a response:** the PHP interpreter limits strings to 100,000 characters and the arrays
