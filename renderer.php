@@ -86,6 +86,7 @@ class qtype_algorithm_renderer extends qtype_renderer {
             $containerid, $inputname, (bool) $options->readonly, current_language(),
             get_string('noalgorithm', 'qtype_algorithm'),
             ['template' => $question->template, 'tests' => $tests, 'check' => $question->check_options(),
+                'codeConfig' => $question->code_config($this->page->context),
                 'hidetools' => (bool) $question->hidetools],
         ]);
         return $result;
@@ -196,7 +197,7 @@ class qtype_algorithm_renderer extends qtype_renderer {
         }
         $id = $qa->get_qt_field_name('solution');
         $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'showSolution', [$id, $question->solution,
-            current_language()]);
+            current_language(), $question->code_config($this->page->context)]);
         return html_writer::div(get_string('correctsolution', 'qtype_algorithm'), 'mb-1') .
             html_writer::div('', 'qtype_algorithm_container', ['id' => $id]);
     }

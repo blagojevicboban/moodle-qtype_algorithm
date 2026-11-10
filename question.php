@@ -88,6 +88,25 @@ class qtype_algorithm_question extends question_graded_automatically {
     const MAX_DEPTH = 64;
 
     /**
+     * Code languages for the views of this question: the site and the course, and the language of the question (chosen
+     * with its solution), which comes before the course unless the course forces its own.
+     *
+     * @param \context $context where the question is shown
+     * @return array as tiny_algorithm\local\code_language::for_context
+     */
+    public function code_config(\context $context): array {
+        $config = \tiny_algorithm\local\code_language::for_context($context);
+        $solution = self::decode_answer($this->solution);
+        $lang = is_array($solution) ? (string) ($solution['codeLang'] ?? '') : '';
+        if (!$config['force'] && in_array($lang, $config['allowed'], true)) {
+            $config['default'] = $lang;
+            $config['force'] = true;
+            $config['lock'] = $config['lock'] || !empty($solution['codeLock']);
+        }
+        return $config;
+    }
+
+    /**
      * Is the question graded automatically (it has a solution and tests)?
      *
      * @return bool

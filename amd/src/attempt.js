@@ -66,9 +66,10 @@ const countBlocks = (program) => {
  * @param {Array} [options.tests] tests the student may run (inputs, expected)
  * @param {object} [options.check] what the tests compare (afterinput, numbers)
  * @param {boolean} [options.hidetools] hide the generated code and the file import and export
+ * @param {Object} [options.codeConfig] code languages of the site, the course and the question
  */
 export const init = async(containerId, inputId, readonly, lang, emptyText,
-        {template = '', tests = [], check = {}, hidetools = false} = {}) => {
+        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}} = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
@@ -79,7 +80,7 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
 
     if (readonly) {
         if (program) {
-            new AlgorithmRunner(container, program, {lang});
+            new AlgorithmRunner(container, program, {lang, codeConfig});
         } else {
             container.textContent = emptyText;
         }
@@ -101,6 +102,7 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
         lang,
         showCode: !hidetools,
         fileTools: !hidetools,
+        codeConfig,
         onChange: (current) => {
             const now = serialize(current);
             if (last === null || now === last) {
@@ -142,12 +144,13 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
  * @param {string} containerId id of the element that receives the diagram
  * @param {string} solution the solution (base64 encoded JSON)
  * @param {string} lang language code
+ * @param {Object} [codeConfig] code languages of the site, the course and the question
  */
-export const showSolution = async(containerId, solution, lang) => {
+export const showSolution = async(containerId, solution, lang, codeConfig = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const program = decode(solution);
     if (container && program) {
-        new AlgorithmRunner(container, program, {lang});
+        new AlgorithmRunner(container, program, {lang, codeConfig});
     }
 };

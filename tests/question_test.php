@@ -201,4 +201,29 @@ final class question_test extends \advanced_testcase {
         $parts = $q->classify_response(['answer' => '']);
         $this->assertNull($parts[0]->responseclassid);
     }
+
+    public function test_code_config_takes_the_language_of_the_solution(): void {
+        global $CFG;
+        require_once($CFG->libdir . '/filterlib.php');
+        $this->resetAfterTest();
+        $course = $this->getDataGenerator()->create_course();
+        $context = \context_course::instance($course->id);
+        $q = $this->make_question();
+        $solution = json_decode(base64_decode($q->solution), true);
+
+        // No language in the solution: the site.
+        $config = $q->code_config($context);
+        $this->assertSame(['python', false, false], [$config['default'], $config['force'], $config['lock']]);
+
+        // The language of the question comes before the course, and its lock is kept.
+        filter_set_local_config('algorithm', $context->id, 'codelang', 'java');
+        $q->solution = base64_encode(json_encode($solution + ['codeLang' => 'csharp', 'codeLock' => true]));
+        $config = $q->code_config($context);
+        $this->assertSame(['csharp', true, true], [$config['default'], $config['force'], $config['lock']]);
+
+        // A course that forces its language wins.
+        filter_set_local_config('algorithm', $context->id, 'codeforce', '1');
+        $config = $q->code_config($context);
+        $this->assertSame(['java', true, false], [$config['default'], $config['force'], $config['lock']]);
+    }
 }

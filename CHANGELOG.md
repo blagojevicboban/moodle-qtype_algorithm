@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.8.0 – 2026-11-10 (stable)
+
+- **Code language:** the attempt, the review and the solution show the language chosen with the solution of the
+  question, else the language of the course or the site; Students see only this language in the solution editor locks
+  it. A course that forces its language comes first. The question form starts in the language of the course or site.
+- Requires tiny_algorithm 2.8.0 (2026111507).
+
 ## 2.7.0 – 2026-11-10 (stable)
 
 - **Turtle graphics in questions:** the PHP interpreter runs the new turtle blocks of tiny_algorithm 2.7.0 (Forward,

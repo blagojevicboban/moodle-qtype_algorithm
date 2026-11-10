@@ -61,8 +61,9 @@ const loadTests = (input) => {
  * Set up the form.
  *
  * @param {string} lang language code
+ * @param {Object} [codeConfig] code languages of the site and the course
  */
-export const init = async(lang) => {
+export const init = async(lang, codeConfig = {}) => {
     await loadStrings();
     const field = (name) => document.querySelector(`input[name="${name}"]`);
     const solutionInput = field('solution');
@@ -81,9 +82,10 @@ export const init = async(lang) => {
 
     let solution = null;
     workspace(solutionHost, lang, () => solution.zoom.autoFit());
-    solution = new AlgorithmEditor(solutionHost, {program: load(solutionInput), lang, chooseLanguage: true, onChange: (program) => {
-        solutionInput.value = serialize(program);
-    }});
+    solution = new AlgorithmEditor(solutionHost, {program: load(solutionInput), lang, chooseLanguage: true, codeConfig,
+        onChange: (program) => {
+            solutionInput.value = serialize(program);
+        }});
     solutionInput.value = serialize(solution.getProgram());
 
     // What the tests compare, from the options of the form.
@@ -129,6 +131,7 @@ export const init = async(lang) => {
             workspace(host, lang, () => template.zoom.autoFit());
             template = new AlgorithmEditor(host, {program: load(templateInput) || cloneProgram(solution.getProgram()), lang,
                 chooseLanguage: true,
+                codeConfig,
                 onChange: (program) => {
                     templateInput.value = serialize(program);
                 }});

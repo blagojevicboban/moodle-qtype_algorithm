@@ -118,7 +118,8 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $this->add_interactive_settings();
 
         global $PAGE;
-        $PAGE->requires->js_call_amd('qtype_algorithm/edit', 'init', [current_language()]);
+        $PAGE->requires->js_call_amd('qtype_algorithm/edit', 'init', [current_language(),
+            \tiny_algorithm\local\code_language::for_context($this->context)]);
     }
 
     /**
