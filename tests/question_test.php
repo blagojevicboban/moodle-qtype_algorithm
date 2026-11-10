@@ -226,4 +226,30 @@ final class question_test extends \advanced_testcase {
         $config = $q->code_config($context);
         $this->assertSame(['java', true, false], [$config['default'], $config['force'], $config['lock']]);
     }
+
+    public function test_files_of_the_solution_are_used_for_grading(): void {
+        global $CFG;
+        require_once($CFG->dirroot . '/question/type/algorithm/questiontype.php');
+        $this->resetAfterTest();
+        $body = [
+            ['id' => 'd', 'type' => 'declare', 'name' => 'x, s', 'varType' => 'Integer', 'size' => ''],
+            ['id' => 'o', 'type' => 'open', 'file' => '"in.txt"', 'mode' => 'read'],
+            ['id' => 'w', 'type' => 'while', 'cond' => 'not EOF()', 'body' => [
+                ['id' => 'r', 'type' => 'read', 'target' => 'x'],
+                ['id' => 'a', 'type' => 'assign', 'target' => 's', 'expr' => 's + x'],
+            ]],
+            ['id' => 'p', 'type' => 'output', 'expr' => 's', 'newline' => true],
+        ];
+        $program = fn(array $files) => base64_encode(json_encode(['version' => 1, 'name' => 'Program', 'files' => $files,
+            'functions' => [['name' => 'Main', 'params' => [], 'returnType' => null, 'body' => $body]]]));
+        $q = $this->make_question();
+        $q->solution = $program(['in.txt' => "3\n4\n5\n"]);
+        $q->tests = \qtype_algorithm::compute_tests($q->solution, [['inputs' => '']], $q->check_options())['tests'];
+        $this->assertSame("12\n", $q->tests[0]['expected']);
+        // The student changed the file in the answer: the tests still read the file of the question.
+        [$fraction] = $q->grade_response(['answer' => $program(['in.txt' => "100\n"])]);
+        $this->assertEquals(1, $fraction);
+        // An answer that writes the sum is graded the same way.
+        $this->assertSame([], $q->missing_structures(['answer' => $program([])]));
+    }
 }

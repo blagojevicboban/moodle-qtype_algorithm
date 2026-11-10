@@ -176,8 +176,12 @@ class qtype_algorithm_question extends question_graded_automatically {
     protected function cached_results(array $model, string $answer): array {
         $cache = \cache::make('qtype_algorithm', 'results');
         // The messages are in the user's language, and a new version of the plugin may give other results.
+        // The tests read the files of the question (its solution), not files a student changed in the answer.
+        $solution = self::decode_answer($this->solution);
+        $files = is_array($solution['files'] ?? null) ? $solution['files'] : [];
+        $model['files'] = $files;
         $key = sha1(json_encode([get_config('qtype_algorithm', 'version'), current_language(), $this->tests,
-            $this->check_options(), $answer]));
+            $this->check_options(), $files, $answer]));
         $results = $cache->get($key);
         if (!is_array($results)) {
             $results = tester::run_tests($model, $this->tests, $this->check_options(), get_string('noinput', 'qtype_algorithm'));

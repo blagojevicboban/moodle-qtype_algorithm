@@ -262,6 +262,33 @@ cases.push(['turtle array distance', prog(dek('a', 'Integer', '3'), B('forward',
 cases.push(['turtle endless', prog(B('while', {cond: 'true', body: [B('forward', {distance: '1', pen: 'down'}),
     B('turn', {angle: '1', rotate: 'right'})]}))]);
 
+// 2.9: files. The files of the algorithm are program.files; both interpreters read and write them the same way.
+const withFiles = (files, ...body) => Object.assign(prog(...body), {files});
+const readAll = (type = 'Integer') => [dek('x', type), B('open', {file: '"in.txt"', mode: 'read'}),
+    B('while', {cond: 'not EOF()', body: [B('read', {target: 'x'}), out('x & "!"')]}), B('close', {mode: 'read'})];
+cases.push(['file read all', withFiles({'in.txt': '3\n4\n5\n'}, ...readAll())]);
+cases.push(['file crlf and no last newline', withFiles({'in.txt': '1\r\n2\r\n30'}, ...readAll())]);
+cases.push(['file text lines', withFiles({'in.txt': 'Ana Marić\n  razmak  \n\nkraj\n'}, ...readAll('String'))]);
+cases.push(['file empty', withFiles({'in.txt': ''}, ...readAll(), out('"empty"'))]);
+cases.push(['file not a number', withFiles({'in.txt': '7\nabc\n'}, ...readAll())]);
+cases.push(['file missing', withFiles({'other.txt': '1'}, ...readAll())]);
+cases.push(['file read without open', prog(dek('x'), B('read', {target: 'x'}))]);
+cases.push(['file eof without open', prog(out('EOF()'))]);
+cases.push(['file read past the end', withFiles({'in.txt': '1\n'}, dek('x'), B('open', {file: '"in.txt"', mode: 'read'}),
+    B('read', {target: 'x'}), B('read', {target: 'x'}))]);
+cases.push(['file write without open', prog(B('write', {expr: '1'}))]);
+cases.push(['file write, append and read back', prog(dek('i'), dek('s', 'String'),
+    B('open', {file: '"o" & ".txt"', mode: 'write'}), B('for', {variable: 'i', start: '1', end: '3', step: '1',
+        body: [B('write', {expr: 'i * i'})]}), B('close', {mode: 'write'}),
+    B('open', {file: '"o.txt"', mode: 'append'}), B('write', {expr: '"end"'}), B('close', {mode: 'write'}),
+    B('open', {file: '"o.txt"', mode: 'read'}), B('while', {cond: 'not EOF()', body: [B('read', {target: 's'}),
+        out('s', false), out('";"', false)]}), out('""'))]);
+cases.push(['file write starts a new file', withFiles({'o.txt': 'old\n'}, dek('s', 'String'),
+    B('open', {file: '"o.txt"', mode: 'write'}), B('write', {expr: '"new"'}), B('close', {mode: 'write'}),
+    B('open', {file: '"o.txt"', mode: 'read'}), B('read', {target: 's'}), out('s & " " & EOF()'))]);
+cases.push(['file write limit', prog(dek('i'), B('open', {file: '"big.txt"', mode: 'write'}),
+    B('for', {variable: 'i', start: '1', end: '20000', step: '1', body: [B('write', {expr: '"0123456789"'})]}))]);
+
 // Function tests with arrays and matrices written in the call.
 const arr = createProgram();
 arr.functions[0].body = [out('"main"')];

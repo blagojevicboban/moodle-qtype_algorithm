@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.9.0 – 2026-11-10 (stable)
+
+- **Files in questions:** the PHP interpreter runs Open, Read, Write, Close and EOF() of tiny_algorithm 2.9.0 like the
+  browser. The tests read the files of the question (attached to the solution), not files a student changed in the
+  answer; the files are part of the cache key of the results.
+- 13 new parity cases (210 runs, PHP = JavaScript) and a PHPUnit test of grading with files.
+- Requires tiny_algorithm 2.9.0 (2026111508).
+
 ## 2.8.0 – 2026-11-10 (stable)
 
 - **Code language:** the attempt, the review and the solution show the language chosen with the solution of the

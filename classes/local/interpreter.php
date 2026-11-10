@@ -91,6 +91,15 @@ class interpreter {
     /** @var int array elements held by the variables declared in the calls running now */
     protected int $cells = 0;
 
+    /** @var string[] files by name (as files in tiny_algorithm/interpreter) */
+    protected array $fs = [];
+
+    /** @var array|null the file open for reading: name, lines, pos */
+    protected ?array $readfile = null;
+
+    /** @var string|null the name of the file open for writing */
+    protected ?string $writefile = null;
+
     /** @var int|null state of the seeded random numbers, null for really random numbers */
     protected ?int $random = null;
 
@@ -113,6 +122,18 @@ class interpreter {
         foreach ($program['functions'] ?? [] as $f) {
             $this->funcs[strtolower((string) ($f['name'] ?? ''))] = $f;
         }
+        foreach (is_array($program['files'] ?? null) ? $program['files'] : [] as $name => $text) {
+            $this->fs[(string) $name] = (string) $text;
+        }
+    }
+
+    /**
+     * The files the algorithm wrote or was given (name => text).
+     *
+     * @return string[]
+     */
+    public function files(): array {
+        return $this->fs;
     }
 
     /**
@@ -388,6 +409,62 @@ class interpreter {
         $this->steps += intdiv($count, self::CELLS_PER_STEP);
         if ($this->steps > $this->maxsteps) {
             throw new algorithm_error('steplimit');
+        }
+    }
+
+    /**
+     * A block that uses files (as runFile in tiny_algorithm/interpreter).
+     *
+     * @param array $b block
+     * @param array $env variables
+     */
+    protected function run_file(array $b, array $env): void {
+        switch ($b['type']) {
+            case 'open':
+                $name = js::fmt($this->eval_str($b['file'] ?? '', $env));
+                $mode = $b['mode'] ?? 'read';
+                if ($mode === 'write' || $mode === 'append') {
+                    $this->fs[$name] = $mode === 'append' && isset($this->fs[$name]) ? $this->fs[$name] : '';
+                    $this->writefile = $name;
+                    return;
+                }
+                if (!isset($this->fs[$name])) {
+                    throw new algorithm_error('filenotfound', ['name' => $name]);
+                }
+                $lines = preg_split('/\r?\n/', $this->fs[$name]);
+                if (end($lines) === '') {
+                    array_pop($lines);
+                }
+                $this->readfile = ['name' => $name, 'lines' => $lines, 'pos' => 0];
+                return;
+            case 'read':
+                if ($this->readfile === null) {
+                    throw new algorithm_error('noreadfile');
+                }
+                if ($this->readfile['pos'] >= count($this->readfile['lines'])) {
+                    throw new algorithm_error('fileend', ['name' => $this->readfile['name']]);
+                }
+                $decl = self::lookup($env, $this->ast($b['target'] ?? '')['name']);
+                $line = $this->readfile['lines'][$this->readfile['pos']++];
+                $this->assign($b['target'], self::parse_input_value($line, $decl->type), $env);
+                return;
+            case 'write':
+                if ($this->writefile === null) {
+                    throw new algorithm_error('nowritefile');
+                }
+                $text = js::fmt($this->eval_str($b['expr'] ?? '', $env)) . "\n";
+                $this->written += js::length($text);
+                if ($this->written > self::MAX_OUTPUT) {
+                    throw new algorithm_error('outputlimit', ['max' => (string) self::MAX_OUTPUT]);
+                }
+                $this->fs[$this->writefile] .= $text;
+                return;
+            default:
+                if (($b['mode'] ?? 'read') === 'write') {
+                    $this->writefile = null;
+                } else {
+                    $this->readfile = null;
+                }
         }
     }
 
@@ -694,6 +771,12 @@ class interpreter {
                 if ($lname === 'random') {
                     return floor($this->next_random() * js::to_number($args[0] ?? null));
                 }
+                if ($lname === 'eof') {
+                    if ($this->readfile === null) {
+                        throw new algorithm_error('noreadfile');
+                    }
+                    return $this->readfile['pos'] >= count($this->readfile['lines']);
+                }
                 if (in_array($lname, self::BUILTINS, true)) {
                     return self::builtin($lname, $args);
                 }
@@ -900,6 +983,12 @@ class interpreter {
             case 'pen':
             case 'home':
             case 'clear':
+                break;
+            case 'open':
+            case 'read':
+            case 'write':
+            case 'close':
+                $this->run_file($b, $env);
                 break;
             case 'return':
                 return ['return', self::has_text($b['expr'] ?? null) ? $this->eval_str($b['expr'], $env) : null];
