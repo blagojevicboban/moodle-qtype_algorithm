@@ -50,6 +50,10 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $rulesid = $inputname . '_rules';
         $legend = get_string('answerlegend', 'qtype_algorithm');
         $answerhtml = html_writer::tag('legend', $legend, ['class' => 'sr-only visually-hidden']);
+        if ($question->parsons && !$options->readonly) {
+            $intro = get_string('parsonsintro', 'qtype_algorithm');
+            $answerhtml .= html_writer::tag('p', $intro, ['class' => 'qtype_algorithm_parsons']);
+        }
         $containerattrs = ['id' => $containerid, 'class' => 'qtype_algorithm_container'];
         if ($question->has_tests()) {
             $answerhtml .= $this->rules($question, $rulesid);
@@ -85,9 +89,9 @@ class qtype_algorithm_renderer extends qtype_renderer {
         $this->page->requires->js_call_amd('qtype_algorithm/attempt', 'init', [
             $containerid, $inputname, (bool) $options->readonly, current_language(),
             get_string('noalgorithm', 'qtype_algorithm'),
-            ['template' => $question->template, 'tests' => $tests, 'check' => $question->check_options(),
+            ['template' => $question->start_program($qa), 'tests' => $tests, 'check' => $question->check_options(),
                 'codeConfig' => $question->code_config($this->page->context),
-                'hidetools' => (bool) $question->hidetools],
+                'hidetools' => (bool) $question->hidetools, 'parsons' => (bool) $question->parsons],
         ]);
         return $result;
     }

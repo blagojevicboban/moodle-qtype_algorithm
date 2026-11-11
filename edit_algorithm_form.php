@@ -113,6 +113,17 @@ class qtype_algorithm_edit_form extends question_edit_form {
             get_string('hidetools', 'qtype_algorithm')
         );
         $mform->addHelpButton('hidetools', 'hidetools', 'qtype_algorithm');
+        $mform->addElement(
+            'advcheckbox',
+            'parsons',
+            get_string('parsons', 'qtype_algorithm'),
+            get_string('parsons_desc', 'qtype_algorithm')
+        );
+        $mform->addHelpButton('parsons', 'parsons', 'qtype_algorithm');
+        $counts = range(0, \qtype_algorithm\local\parsons::MAX_DISTRACTORS);
+        $mform->addElement('select', 'distractors', get_string('distractors', 'qtype_algorithm'), array_combine($counts, $counts));
+        $mform->addHelpButton('distractors', 'distractors', 'qtype_algorithm');
+        $mform->hideIf('distractors', 'parsons', 'notchecked');
 
         // Hints and penalty for the interactive behaviour with several tries.
         $this->add_interactive_settings();
@@ -144,6 +155,8 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->ignorespaces = $o->ignorespaces ?? 0;
             $question->tolerance = (float) ($o->tolerance ?? 0);
             $question->hidetools = $o->hidetools ?? 0;
+            $question->parsons = $o->parsons ?? 0;
+            $question->distractors = $o->distractors ?? 0;
             $question->structures = array_fill_keys(array_filter(explode(',', (string) ($o->structures ?? ''))), 1);
         }
         return $this->data_preprocessing_hints($question);

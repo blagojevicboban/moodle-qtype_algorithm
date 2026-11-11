@@ -95,5 +95,20 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         \qtype_algorithm\local\upgrade::recompute_expected('mtrace');
         upgrade_plugin_savepoint(true, 2026111000, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026111506) {
+        // Options of 2.14: Parsons problems and their extra wrong blocks.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $fields = [
+            new xmldb_field('parsons', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'hidetools'),
+            new xmldb_field('distractors', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'parsons'),
+        ];
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_plugin_savepoint(true, 2026111506, 'qtype', 'algorithm');
+    }
     return true;
 }

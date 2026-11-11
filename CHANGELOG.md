@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.14.0 – 2026-11-11 (stable)
+
+- **Parsons problems:** a new option of the question, Parsons problem. Students do not draw the algorithm: they get
+  every block of the solution in a random order, with loops and branches empty, and move the blocks to their places
+  and into loops and branches (the editor of tiny_algorithm 2.14 in its Parsons mode: no new blocks, no changes of the
+  text). The answer is graded with the tests like any other.
+- **Extra wrong blocks** (0 to 5): copies of blocks of the solution with a small mistake (< instead of <=, - 1 instead
+  of + 1, or instead of and, a number one bigger), which students must delete.
+- The order is chosen when the attempt starts and kept in the attempt (the same student sees the same problem after a
+  reload); the order of the solution never reaches the browser.
+- New class local/parsons, fields parsons and distractors (upgrade step 2026111506, backup and restore, XML export and
+  import), PHPUnit tests; new strings in English, Serbian Latin and Serbian Cyrillic.
+- Version number 2.14.0, the same as tiny_algorithm; requires tiny_algorithm 2.14.0 (2026111513).
+
 ## 2.9.0 – 2026-11-10 (stable)
 
 - **Files in questions:** the PHP interpreter runs Open, Read, Write, Close and EOF() of tiny_algorithm 2.9.0 like the

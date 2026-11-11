@@ -72,6 +72,12 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var bool hide the generated code and the file import and export from students */
     public $hidetools = false;
 
+    /** @var bool a Parsons problem: students arrange the blocks of the solution */
+    public $parsons = false;
+
+    /** @var int extra wrong blocks of a Parsons problem */
+    public $distractors = 0;
+
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
 
@@ -104,6 +110,38 @@ class qtype_algorithm_question extends question_graded_automatically {
             $config['lock'] = $config['lock'] || !empty($solution['codeLock']);
         }
         return $config;
+    }
+
+    /**
+     * A Parsons problem gets its blocks in a random order when the attempt starts; the order is kept in the attempt.
+     *
+     * @param question_attempt_step $step the first step of the attempt
+     * @param int $variant unused
+     */
+    public function start_attempt(question_attempt_step $step, $variant) {
+        if ($this->parsons) {
+            $seed = random_int(1, 2147483646);
+            $step->set_qt_var('_parsons', \qtype_algorithm\local\parsons::build($this->solution, $this->distractors, $seed));
+        }
+    }
+
+    /**
+     * The algorithm a student starts from: the blocks of a Parsons problem, else the template.
+     *
+     * @param question_attempt $qa the attempt
+     * @return string base64 encoded JSON, '' for an empty diagram
+     */
+    public function start_program(question_attempt $qa): string {
+        if ($this->parsons) {
+            $start = (string) $qa->get_step(0)->get_qt_var('_parsons');
+            if ($start !== '') {
+                return $start;
+            }
+            // An attempt started before the question became a Parsons problem.
+            $seed = (int) $qa->get_database_id();
+            return \qtype_algorithm\local\parsons::build($this->solution, $this->distractors, $seed);
+        }
+        return $this->template;
     }
 
     /**

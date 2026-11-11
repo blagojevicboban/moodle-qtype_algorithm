@@ -66,10 +66,11 @@ const countBlocks = (program) => {
  * @param {Array} [options.tests] tests the student may run (inputs, expected)
  * @param {object} [options.check] what the tests compare (afterinput, numbers)
  * @param {boolean} [options.hidetools] hide the generated code and the file import and export
+ * @param {boolean} [options.parsons] a Parsons problem: the given blocks are only moved, nested and deleted
  * @param {Object} [options.codeConfig] code languages of the site, the course and the question
  */
 export const init = async(containerId, inputId, readonly, lang, emptyText,
-        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}} = {}) => {
+        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}, parsons = false} = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
@@ -101,8 +102,10 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
         program: program || decode(template),
         lang,
         showCode: !hidetools,
-        fileTools: !hidetools,
+        // A Parsons problem has no file tools (an imported diagram would replace the given blocks).
+        fileTools: !hidetools && !parsons,
         codeConfig,
+        parsons,
         onChange: (current) => {
             const now = serialize(current);
             if (last === null || now === last) {

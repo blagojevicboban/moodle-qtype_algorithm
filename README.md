@@ -21,6 +21,7 @@ solution. Without tests the teacher grades it manually.
 |---------|-------------|
 | ✏️ **Draw the Algorithm** | The same editor as in TinyMCE: all block types, several functions, undo / redo |
 | ▶️ **Run Before Submitting** | Run / Step with breakpoints, a console, variable watch with the call stack, a trace table and generated code (pseudo-code and eleven languages) |
+| 🧩 **Parsons Problems** | An option of the question: students get the blocks of the solution in a random order (and up to five wrong blocks with a small mistake) and arrange and nest them; graded with the tests |
 | 🙈 **Hide the Code and the File Tools** | An option of the question: students see no generated code, no `.fprg` import / export and no picture buttons |
 | 🐞 **Step With a Failed Test** | A failed visible test can be stepped through with its input, which is entered by itself |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
@@ -57,7 +58,7 @@ solution. Without tests the teacher grades it manually.
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.9.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.14.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
