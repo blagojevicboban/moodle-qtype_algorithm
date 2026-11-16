@@ -31,6 +31,7 @@ solution. Without tests the teacher grades it manually.
 | 💡 **Hints and Several Tries** | With the interactive behaviour the student gets your hints and the test results after each try |
 | 📊 **Statistics per Test** | The response analysis of the quiz statistics shows how many answers passed each test |
 | 🙈 **Hidden Tests** | Graded, but students see only whether they passed |
+| 💡 **AI Hints (optional)** | An option of the question: with AI hints on in tiny_algorithm and an AI provider of the site, students may ask for a hint after an error or a failed visible test; the AI is told never to give the solution, and a quiz accepts requests only for its questions with the option on |
 | ⚡ **Efficiency** | At most k times the steps of the teacher's solution in every test, steps that grow at most like n, n log n or n² (measured for n = 10 … 500, as Complexity in the editor), at most so many blocks; an answer that is right but too slow loses the penalty you set (50 % by default) and the feedback says why |
 | 🧱 **Required Structures** | If, For, While, Do loop, array, matrix: an answer without them gets no marks |
 | 🧪 **Test While Working** | Students run the visible tests in the browser; the server runs the same interpreter (PHP port, checked against the browser on every release) |

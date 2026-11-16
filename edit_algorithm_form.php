@@ -146,6 +146,14 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $mform->setDefault('efficiencypenalty', 50);
         $mform->addHelpButton('efficiencypenalty', 'efficiencypenalty', 'qtype_algorithm');
 
+        $mform->addElement(
+            'advcheckbox',
+            'aihints',
+            get_string('aihints', 'qtype_algorithm'),
+            get_string('aihints_desc', 'qtype_algorithm')
+        );
+        $mform->addHelpButton('aihints', 'aihints', 'qtype_algorithm');
+
         // Hints and penalty for the interactive behaviour with several tries.
         $this->add_interactive_settings();
 
@@ -182,6 +190,7 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->maxgrowth = (string) ($o->maxgrowth ?? '');
             $question->maxblocks = (int) ($o->maxblocks ?? 0);
             $question->efficiencypenalty = (int) ($o->efficiencypenalty ?? 50);
+            $question->aihints = (int) ($o->aihints ?? 0);
             $question->structures = array_fill_keys(array_filter(explode(',', (string) ($o->structures ?? ''))), 1);
         }
         return $this->data_preprocessing_hints($question);

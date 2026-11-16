@@ -91,6 +91,9 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var int percent taken from the grade when the answer is not efficient enough */
     public $efficiencypenalty = 50;
 
+    /** @var bool students may ask the AI of the site for hints about errors and failed tests */
+    public $aihints = false;
+
     /** @var array efficiency problems by response */
     protected $efficiencycache = [];
 
@@ -124,6 +127,12 @@ class qtype_algorithm_question extends question_graded_automatically {
             $config['default'] = $lang;
             $config['force'] = true;
             $config['lock'] = $config['lock'] || !empty($solution['codeLock']);
+        }
+        // AI hints only in a question that allows them; the service checks the question again.
+        $config['ai'] = !empty($config['ai']) && $this->aihints;
+        if ($config['ai']) {
+            $config['questionid'] = (int) $this->id;
+            $config['task'] = \core_text::substr(trim(html_to_text($this->questiontext, 0, false)), 0, 2000);
         }
         return $config;
     }

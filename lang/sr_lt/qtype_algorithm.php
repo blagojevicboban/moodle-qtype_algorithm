@@ -25,6 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Samo ispis posle poslednjeg unosa';
+$string['aihints'] = 'AI pomoć';
+$string['aihints_desc'] = 'Učenici mogu da zatraže pomoć od veštačke inteligencije sajta za greške i neuspele testove';
+$string['aihints_help'] = 'Kada je AI pomoć uključena u podešavanjima dodatka Algoritam (dijagram toka) i sajt ima AI provajdera, učenici u pokušaju dobijaju dugmad Objasni uz AI (posle greške) i AI pomoć (pored neuspelog testa). Veštačka inteligencija dobija učenički algoritam kao pseudo-kod, grešku ili vidljivi test i tekst pitanja, uz uputstvo da nikada ne da rešenje. Na ispitima je ostavite isključenu.';
 $string['answerlegend'] = 'Vaš algoritam';
 $string['cachedef_results'] = 'Rezultati testova odgovora sa algoritmom';
 $string['compare'] = 'Šta se poredi';
@@ -86,6 +89,7 @@ $string['pluginnameediting'] = 'Izmena pitanja tipa Algoritam';
 $string['pluginnamesummary'] = 'Student crta algoritam kao dijagram toka i može ga pokrenuti. Ocenjuje se automatski, testovima čiji se izlazi računaju iz rešenja nastavnika, ili ručno.';
 $string['privacy:metadata'] = 'Tip pitanja Algoritam ne čuva lične podatke. Odgovore čuva Moodle sistem za pitanja. Pregledač u svom lokalnom skladištu čuva nekoliko podešavanja prikaza (da li su kod i promenljive prikazani).';
 $string['responsesummary'] = 'Algoritam sa {$a->blocks} blokova u {$a->functions} funkcija';
+$string['rule_aihints'] = 'Posle greške ili neuspelog testa možete da zatražite AI pomoć; ona ne daje rešenje.';
 $string['rule_ignorecase'] = 'Velika i mala slova se ne razlikuju.';
 $string['rule_ignorespaces'] = 'Višak razmaka se ne računa.';
 $string['rule_maxblocks'] = 'Najviše {$a} blokova.';

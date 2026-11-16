@@ -25,6 +25,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['afterinput'] = 'Only the output after the last input';
+$string['aihints'] = 'AI hints';
+$string['aihints_desc'] = 'Students may ask the AI of the site for hints about errors and failed tests';
+$string['aihints_help'] = 'With AI hints on in the settings of the Algorithm editor plugin and an AI provider of the site, students get the buttons Explain with AI (after an error) and Hint from AI (beside a failed test) in the attempt. The AI gets the student\'s algorithm as pseudo-code, the error or the visible test and the question text, and is told never to give the solution. Leave it off in exams.';
 $string['answerlegend'] = 'Your algorithm';
 $string['cachedef_results'] = 'Test results of algorithm responses';
 $string['compare'] = 'What is compared';
@@ -86,6 +89,7 @@ $string['pluginnameediting'] = 'Editing an Algorithm question';
 $string['pluginnamesummary'] = 'The student draws an algorithm as a flowchart and can run it. Graded automatically with tests computed from the teacher\'s solution, or manually.';
 $string['privacy:metadata'] = 'The Algorithm question type does not store any personal data. Answers are stored by the Moodle question engine. The browser keeps a few display settings (code and variables shown or hidden) in its local storage.';
 $string['responsesummary'] = 'Algorithm with {$a->blocks} block(s) in {$a->functions} function(s)';
+$string['rule_aihints'] = 'You may ask the AI for a hint after an error or a failed test; it does not give the solution.';
 $string['rule_ignorecase'] = 'Capital and small letters are the same.';
 $string['rule_ignorespaces'] = 'Extra spaces do not count.';
 $string['rule_maxblocks'] = 'At most {$a} blocks.';

@@ -127,5 +127,15 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         }
         upgrade_plugin_savepoint(true, 2026111700, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026111900) {
+        // Option of 2.20: AI hints in the attempt.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $field = new xmldb_field('aihints', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'efficiencypenalty');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+        }
+        upgrade_plugin_savepoint(true, 2026111900, 'qtype', 'algorithm');
+    }
     return true;
 }

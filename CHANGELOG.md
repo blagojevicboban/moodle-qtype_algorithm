@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.20.0 – 2026-11-17 (stable)
+
+- **AI hints:** a new option of the question (off by default). With AI hints on in tiny_algorithm 2.20 and an AI
+  provider of the site, students get Explain with AI after an error and Hint from AI beside a failed visible test in
+  the attempt; the question text goes with the request, and the rules above the editor say that hints are allowed.
+  The service of tiny_algorithm accepts a request from a quiz only for a question of that quiz with this option.
+- New field aihints (upgrade step 2026111900, backup, Moodle XML); strings in English, Serbian Latin and Serbian
+  Cyrillic; requires tiny_algorithm 2026111900.
+
 ## 2.18.0 – 2026-11-16 (stable)
 
 - **Efficiency** (a new section of the question form): besides the tests, a question can ask for an efficient
