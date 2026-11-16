@@ -107,7 +107,7 @@ class tester {
      * @param string $noinput message when the algorithm asks for more input than the test has
      * @param string|null $call a call such as Sum(2, 3) instead of running the main function
      * @return array ['output' => all output, 'after' => output after the last input, 'error' => message or null,
-     *     'call' => whether a function was called, 'result' => the value it returned as text]
+     *     'call' => whether a function was called, 'result' => the value it returned as text, 'steps' => blocks run]
      */
     public static function run_program(
         array $program,
@@ -135,7 +135,8 @@ class tester {
         $last = $run->inputs_read();
         $all = implode('', array_column($pieces, 0));
         $after = implode('', array_column(array_filter($pieces, fn($p) => $p[1] >= $last), 0));
-        return ['output' => $all, 'after' => $after, 'error' => $error, 'call' => $call !== null, 'result' => $run->result()];
+        return ['output' => $all, 'after' => $after, 'error' => $error, 'call' => $call !== null, 'result' => $run->result(),
+            'steps' => $run->ticks()];
     }
 
     /**
@@ -217,7 +218,7 @@ class tester {
      * @param array $tests [['inputs' => ..., 'expected' => ...]]
      * @param array $check what is compared, see checked_output()
      * @param string|null $noinput message for missing input
-     * @return array [['pass' => bool, 'actual' => string, 'error' => string|null, 'diffline' => int]]
+     * @return array [['pass' => bool, 'actual' => string, 'error' => string|null, 'diffline' => int, 'steps' => int]]
      */
     public static function run_tests(array $program, array $tests, array $check = [], ?string $noinput = null): array {
         $results = [];
@@ -226,7 +227,7 @@ class tester {
             $actual = self::checked_output($r, $check);
             $diff = self::first_diff_line((string) ($tc['expected'] ?? ''), $actual, $check);
             $results[] = ['pass' => $r['error'] === null && $diff === -1, 'actual' => $actual, 'error' => $r['error'],
-                'diffline' => $diff];
+                'diffline' => $diff, 'steps' => $r['steps']];
         }
         return $results;
     }
@@ -238,7 +239,8 @@ class tester {
      * @param array $tests [['inputs' => ...]]
      * @param array $check what is compared, see checked_output()
      * @param string|null $noinput message for missing input
-     * @return array ['tests' => tests with 'expected', 'errors' => [['index' => i, 'error' => message]]]
+     * @return array ['tests' => tests with 'expected' and the 'steps' of the solution,
+     *     'errors' => [['index' => i, 'error' => message]]]
      */
     public static function compute_expected(array $solution, array $tests, array $check = [], ?string $noinput = null): array {
         $out = [];
@@ -248,7 +250,8 @@ class tester {
             if ($r['error'] !== null) {
                 $errors[] = ['index' => $i, 'error' => $r['error']];
             }
-            $out[] = array_merge($tc, ['inputs' => (string) ($tc['inputs'] ?? ''), 'expected' => self::checked_output($r, $check)]);
+            $out[] = array_merge($tc, ['inputs' => (string) ($tc['inputs'] ?? ''), 'expected' => self::checked_output($r, $check),
+                'steps' => $r['steps']]);
         }
         return ['tests' => $out, 'errors' => $errors];
     }

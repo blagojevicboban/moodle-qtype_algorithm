@@ -44,7 +44,7 @@ foreach ($files as $file) {
             'The algorithm asks for more input than the test provides.',
             $case['call'] ?? null
         );
-        foreach (['output', 'after', 'error', 'result'] as $key) {
+        foreach (['output', 'after', 'error', 'result', 'steps'] as $key) {
             if (!array_key_exists($key, $case)) {
                 continue;
             }

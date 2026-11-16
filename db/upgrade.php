@@ -110,5 +110,22 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         }
         upgrade_plugin_savepoint(true, 2026111506, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026111700) {
+        // Options of 2.18: efficiency (steps compared with the solution, growth, blocks) and its penalty.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $fields = [
+            new xmldb_field('stepfactor', XMLDB_TYPE_NUMBER, '8, 2', null, XMLDB_NOTNULL, null, '0', 'distractors'),
+            new xmldb_field('maxgrowth', XMLDB_TYPE_CHAR, '10', null, null, null, null, 'stepfactor'),
+            new xmldb_field('maxblocks', XMLDB_TYPE_INTEGER, '5', null, XMLDB_NOTNULL, null, '0', 'maxgrowth'),
+            new xmldb_field('efficiencypenalty', XMLDB_TYPE_INTEGER, '3', null, XMLDB_NOTNULL, null, '50', 'maxblocks'),
+        ];
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_plugin_savepoint(true, 2026111700, 'qtype', 'algorithm');
+    }
     return true;
 }

@@ -22,6 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use qtype_algorithm\local\growth;
 use qtype_algorithm\local\tester;
 
 defined('MOODLE_INTERNAL') || die();
@@ -77,6 +78,21 @@ class qtype_algorithm_question extends question_graded_automatically {
 
     /** @var int extra wrong blocks of a Parsons problem */
     public $distractors = 0;
+
+    /** @var float at most this many times the steps of the solution in every test, 0 for no limit */
+    public $stepfactor = 0.0;
+
+    /** @var string the fastest growth allowed (on, onlogn, on2), '' for no limit */
+    public $maxgrowth = '';
+
+    /** @var int most blocks of the answer, 0 for no limit */
+    public $maxblocks = 0;
+
+    /** @var int percent taken from the grade when the answer is not efficient enough */
+    public $efficiencypenalty = 50;
+
+    /** @var array efficiency problems by response */
+    protected $efficiencycache = [];
 
     /** @var array results by response, so that grading and feedback run the tests once */
     protected $resultcache = [];
@@ -190,6 +206,89 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
+     * Does the question set an efficiency condition (steps, growth or blocks)?
+     *
+     * @return bool
+     */
+    public function has_efficiency(): bool {
+        return $this->stepfactor > 0 || $this->maxgrowth !== '' || $this->maxblocks > 0;
+    }
+
+    /**
+     * Most steps the answer may take in a test.
+     *
+     * @param array $tc test with the steps of the solution
+     * @return int|null null when there is no limit
+     */
+    public function step_limit(array $tc): ?int {
+        if (!($this->stepfactor > 0) || !isset($tc['steps']) || !is_numeric($tc['steps'])) {
+            return null;
+        }
+        return (int) ceil($this->stepfactor * max(1, (int) $tc['steps']));
+    }
+
+    /**
+     * The growth of a response, measured once (the cache keeps it for the review).
+     *
+     * @param array $model the decoded response
+     * @param string $answer the response as stored
+     * @return string|null growth key, null when it cannot be measured
+     */
+    protected function measured_growth(array $model, string $answer): ?string {
+        $cache = \cache::make('qtype_algorithm', 'results');
+        $key = sha1(json_encode(['growth', get_config('qtype_algorithm', 'version'), $answer]));
+        $found = $cache->get($key);
+        if (!is_array($found)) {
+            $points = growth::measure($model);
+            $found = ['key' => $points === null ? null : growth::classify($points)];
+            $cache->set($key, $found);
+        }
+        return $found['key'];
+    }
+
+    /**
+     * What makes a response not efficient enough: too many steps in a test, a growth faster than allowed, too many
+     * blocks.
+     *
+     * @param array $response the response
+     * @return array [['problem' => steps|growth|growthunknown|blocks, 'a' => values for the message]]
+     */
+    public function efficiency_problems(array $response): array {
+        $answer = (string) ($response['answer'] ?? '');
+        if (!$this->has_efficiency()) {
+            return [];
+        }
+        if (array_key_exists($answer, $this->efficiencycache)) {
+            return $this->efficiencycache[$answer];
+        }
+        $problems = [];
+        $model = $this->is_too_large($response) ? null : $this->decode_response($response);
+        if ($model) {
+            if ($this->maxblocks > 0 && $this->decoded['blocks'] > $this->maxblocks) {
+                $problems[] = ['problem' => 'blocks', 'a' => ['blocks' => $this->decoded['blocks'], 'max' => $this->maxblocks]];
+            }
+            $results = $this->test_results($response);
+            foreach (array_values($this->tests) as $i => $tc) {
+                $limit = $this->step_limit($tc);
+                $steps = $results[$i]['steps'] ?? null;
+                if ($limit !== null && empty($results[$i]['error']) && $steps !== null && $steps > $limit) {
+                    $problems[] = ['problem' => 'steps', 'a' => ['n' => $i + 1, 'steps' => $steps, 'max' => $limit]];
+                }
+            }
+            if ($this->maxgrowth !== '') {
+                $key = $this->measured_growth($model, $answer);
+                if ($key === null) {
+                    $problems[] = ['problem' => 'growthunknown', 'a' => []];
+                } else if (!growth::within($key, $this->maxgrowth)) {
+                    $problems[] = ['problem' => 'growth', 'a' => ['growth' => $key, 'max' => $this->maxgrowth]];
+                }
+            }
+        }
+        $this->efficiencycache[$answer] = $problems;
+        return $problems;
+    }
+
+    /**
      * Run the tests against a response.
      *
      * @param array $response the response
@@ -239,7 +338,8 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
-     * Grade: the share of passed tests by their weight (or all or nothing); 0 when a required structure is missing.
+     * Grade: the share of passed tests by their weight (or all or nothing); 0 when a required structure is missing, and
+     * less by the efficiency penalty when the answer is not efficient enough.
      *
      * @param array $response the response
      * @return array [fraction, state]
@@ -262,6 +362,9 @@ class qtype_algorithm_question extends question_graded_automatically {
         }
         if ($this->missing_structures($response)) {
             $fraction = 0;
+        }
+        if ($fraction > 0 && $this->efficiency_problems($response)) {
+            $fraction *= 1 - max(0, min(100, $this->efficiencypenalty)) / 100;
         }
         return [$fraction, question_state::graded_state_for_fraction($fraction)];
     }
@@ -342,6 +445,20 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
+     * Number of blocks of an algorithm, in all its functions.
+     *
+     * @param array $model algorithm model
+     * @return int
+     */
+    public static function blocks_of(array $model): int {
+        $count = 0;
+        foreach ($model['functions'] ?? [] as $function) {
+            $count += is_array($function) ? self::count_blocks($function['body'] ?? []) : 0;
+        }
+        return $count;
+    }
+
+    /**
      * Number of blocks in a response.
      *
      * @param array $response the response
@@ -362,11 +479,7 @@ class qtype_algorithm_question extends question_graded_automatically {
         $answer = (string) ($response['answer'] ?? '');
         if ($this->decoded['answer'] !== $answer) {
             $model = self::decode_answer($answer);
-            $count = 0;
-            foreach ($model['functions'] ?? [] as $function) {
-                $count += is_array($function) ? self::count_blocks($function['body'] ?? []) : 0;
-            }
-            $this->decoded = ['answer' => $answer, 'model' => $model, 'blocks' => $count];
+            $this->decoded = ['answer' => $answer, 'model' => $model, 'blocks' => $model ? self::blocks_of($model) : 0];
         }
         return $this->decoded['model'];
     }

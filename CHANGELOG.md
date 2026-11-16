@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.18.0 – 2026-11-16 (stable)
+
+- **Efficiency** (a new section of the question form): besides the tests, a question can ask for an efficient
+  algorithm.
+  - **Steps compared with the solution:** in every test the answer may take at most k times the steps of the
+    teacher's solution (the steps of the solution are kept with the tests when the question is saved).
+  - **Growth:** the answer runs for n = 10, 20, 50, 100, 200 and 500 and its steps may grow at most like n, n log n or
+    n² (classes/local/growth.php, the same measuring as Complexity in tiny_algorithm; the size n is an Assign such as
+    n = 10 in the main function or the first value read). The form checks that the solution itself keeps the limit.
+  - **Most blocks** of the answer.
+  - **Penalty** (percent, 50 by default) taken from the grade of an answer that passes tests but is not efficient
+    enough; the feedback lists what was too slow or too long, and the rules above the editor say what is asked.
+- The PHP interpreter counts its steps as the JavaScript interpreter does (ticks(); the parity fixture now compares
+  the steps too). The measured growth of an answer is cached like its test results.
+- New fields stepfactor, maxgrowth, maxblocks and efficiencypenalty (upgrade step, backup, restore, Moodle XML);
+  PHPUnit tests/local/growth_test.php; new strings in English, Serbian Latin and Serbian Cyrillic.
+
 ## 2.14.0 – 2026-11-11 (stable)
 
 - **Parsons problems:** a new option of the question, Parsons problem. Students do not draw the algorithm: they get

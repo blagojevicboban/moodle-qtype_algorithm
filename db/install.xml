@@ -22,6 +22,10 @@
         <FIELD NAME="hidetools" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 to hide the generated code and the file import and export from students in the attempt."/>
         <FIELD NAME="parsons" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 for a Parsons problem: students arrange the blocks of the solution."/>
         <FIELD NAME="distractors" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Extra wrong blocks of a Parsons problem."/>
+        <FIELD NAME="stepfactor" TYPE="number" LENGTH="8" NOTNULL="true" DEFAULT="0" SEQUENCE="false" DECIMALS="2" COMMENT="At most this many times the steps of the solution in every test, 0 for no limit."/>
+        <FIELD NAME="maxgrowth" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The fastest growth allowed: on, onlogn or on2; empty for no limit."/>
+        <FIELD NAME="maxblocks" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Most blocks of the answer, 0 for no limit."/>
+        <FIELD NAME="efficiencypenalty" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="50" SEQUENCE="false" COMMENT="Percent taken from the grade when the answer is not efficient enough."/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

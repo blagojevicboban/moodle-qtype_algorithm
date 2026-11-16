@@ -125,6 +125,27 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $mform->addHelpButton('distractors', 'distractors', 'qtype_algorithm');
         $mform->hideIf('distractors', 'parsons', 'notchecked');
 
+        // Efficiency: steps compared with the solution, growth, blocks.
+        $mform->addElement('header', 'efficiencyheader', get_string('efficiency', 'qtype_algorithm'));
+        $mform->addElement('text', 'stepfactor', get_string('stepfactor', 'qtype_algorithm'), ['size' => 6]);
+        $mform->setType('stepfactor', PARAM_FLOAT);
+        $mform->setDefault('stepfactor', 0);
+        $mform->addHelpButton('stepfactor', 'stepfactor', 'qtype_algorithm');
+        $growths = ['' => get_string('maxgrowth_none', 'qtype_algorithm')];
+        foreach (\qtype_algorithm\local\growth::LIMITS as $key) {
+            $growths[$key] = get_string('growth_' . $key, 'qtype_algorithm');
+        }
+        $mform->addElement('select', 'maxgrowth', get_string('maxgrowth', 'qtype_algorithm'), $growths);
+        $mform->addHelpButton('maxgrowth', 'maxgrowth', 'qtype_algorithm');
+        $mform->addElement('text', 'maxblocks', get_string('maxblocks', 'qtype_algorithm'), ['size' => 6]);
+        $mform->setType('maxblocks', PARAM_INT);
+        $mform->setDefault('maxblocks', 0);
+        $mform->addHelpButton('maxblocks', 'maxblocks', 'qtype_algorithm');
+        $mform->addElement('text', 'efficiencypenalty', get_string('efficiencypenalty', 'qtype_algorithm'), ['size' => 4]);
+        $mform->setType('efficiencypenalty', PARAM_INT);
+        $mform->setDefault('efficiencypenalty', 50);
+        $mform->addHelpButton('efficiencypenalty', 'efficiencypenalty', 'qtype_algorithm');
+
         // Hints and penalty for the interactive behaviour with several tries.
         $this->add_interactive_settings();
 
@@ -157,6 +178,10 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->hidetools = $o->hidetools ?? 0;
             $question->parsons = $o->parsons ?? 0;
             $question->distractors = $o->distractors ?? 0;
+            $question->stepfactor = (float) ($o->stepfactor ?? 0);
+            $question->maxgrowth = (string) ($o->maxgrowth ?? '');
+            $question->maxblocks = (int) ($o->maxblocks ?? 0);
+            $question->efficiencypenalty = (int) ($o->efficiencypenalty ?? 50);
             $question->structures = array_fill_keys(array_filter(explode(',', (string) ($o->structures ?? ''))), 1);
         }
         return $this->data_preprocessing_hints($question);
@@ -173,6 +198,35 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $errors = parent::validation($data, $files);
         if ((float) ($data['tolerance'] ?? 0) < 0) {
             $errors['tolerance'] = get_string('tolerancenegative', 'qtype_algorithm');
+        }
+        $stepfactor = (float) ($data['stepfactor'] ?? 0);
+        if ($stepfactor < 0 || ($stepfactor > 0 && $stepfactor < 1)) {
+            $errors['stepfactor'] = get_string('stepfactorrange', 'qtype_algorithm');
+        }
+        if ((int) ($data['maxblocks'] ?? 0) < 0) {
+            $errors['maxblocks'] = get_string('maxblocksnegative', 'qtype_algorithm');
+        }
+        $penalty = (int) ($data['efficiencypenalty'] ?? 0);
+        if ($penalty < 0 || $penalty > 100) {
+            $errors['efficiencypenalty'] = get_string('efficiencypenaltyrange', 'qtype_algorithm');
+        }
+        // The solution itself must be as efficient as the question asks.
+        $solution = qtype_algorithm_question::decode_answer((string) ($data['solution'] ?? ''));
+        if ($solution && in_array($data['maxgrowth'] ?? '', \qtype_algorithm\local\growth::LIMITS, true)) {
+            $points = \qtype_algorithm\local\growth::measure($solution);
+            $key = $points === null ? null : \qtype_algorithm\local\growth::classify($points);
+            if ($key === null) {
+                $errors['maxgrowth'] = get_string('solutionnogrowth', 'qtype_algorithm');
+            } else if (!\qtype_algorithm\local\growth::within($key, $data['maxgrowth'])) {
+                $name = get_string('growth_' . $key, 'qtype_algorithm');
+                $errors['maxgrowth'] = get_string('solutiongrowth', 'qtype_algorithm', $name);
+            }
+        }
+        if ($solution && (int) ($data['maxblocks'] ?? 0) > 0) {
+            $blocks = qtype_algorithm_question::blocks_of($solution);
+            if ($blocks > (int) $data['maxblocks']) {
+                $errors['maxblocks'] = get_string('solutionblocks', 'qtype_algorithm', $blocks);
+            }
         }
         $tests = json_decode((string) ($data['tests'] ?? ''), true);
         if (!is_array($tests) || !$tests) {

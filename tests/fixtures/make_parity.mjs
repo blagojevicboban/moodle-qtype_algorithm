@@ -327,7 +327,8 @@ const fixtures = [];
 for (const {name, program, inputs, call = null} of all) {
     for (const input of inputs) {
         const r = runProgram(program, input, 'en', call);
-        fixtures.push({name, program, inputs: input, call, output: r.output, after: r.after, error: r.error, result: r.result});
+        fixtures.push({name, program, inputs: input, call, output: r.output, after: r.after, error: r.error, result: r.result,
+            steps: r.steps});
     }
 }
 const target = process.argv[3] ? process.argv[3].replace(/\.json$/, '') + '-parity.json' : join(here, 'parity.json');

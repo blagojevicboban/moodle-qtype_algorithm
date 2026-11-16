@@ -118,6 +118,16 @@ class qtype_algorithm_renderer extends qtype_renderer {
             $names = array_map(fn($s) => get_string('structure_' . $s, 'qtype_algorithm'), $question->structures);
             $items[] = get_string('rule_structures', 'qtype_algorithm', implode(', ', $names));
         }
+        if ($question->stepfactor > 0) {
+            $items[] = get_string('rule_stepfactor', 'qtype_algorithm', format_float($question->stepfactor, -1));
+        }
+        if ($question->maxgrowth !== '') {
+            $name = get_string('growth_' . $question->maxgrowth, 'qtype_algorithm');
+            $items[] = get_string('rule_maxgrowth', 'qtype_algorithm', $name);
+        }
+        if ($question->maxblocks > 0) {
+            $items[] = get_string('rule_maxblocks', 'qtype_algorithm', $question->maxblocks);
+        }
         return html_writer::alist($items, ['class' => 'qtype_algorithm_rules'] + ($id === '' ? [] : ['id' => $id]));
     }
 
@@ -144,6 +154,23 @@ class qtype_algorithm_renderer extends qtype_renderer {
                 get_string('missingstructures', 'qtype_algorithm', implode(', ', $names)),
                 'alert alert-warning'
             );
+        }
+        $problems = $question->efficiency_problems($response);
+        if ($problems) {
+            $lines = [];
+            foreach ($problems as $p) {
+                $a = (object) $p['a'];
+                if ($p['problem'] === 'growth') {
+                    $a->growth = get_string('growth_' . $a->growth, 'qtype_algorithm');
+                    $a->max = get_string('growth_' . $a->max, 'qtype_algorithm');
+                }
+                $lines[] = get_string('efficiency_' . $p['problem'], 'qtype_algorithm', $a);
+            }
+            if ($question->efficiencypenalty > 0) {
+                $lines[] = get_string('efficiencypenaltyapplied', 'qtype_algorithm', $question->efficiencypenalty);
+            }
+            $list = html_writer::alist($lines, ['class' => 'mb-0']);
+            $out .= html_writer::div($list, 'alert alert-warning qtype_algorithm_efficiency');
         }
         $results = $question->test_results($response);
         $table = new html_table();

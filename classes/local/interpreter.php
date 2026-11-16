@@ -70,6 +70,9 @@ class interpreter {
     /** @var int steps so far */
     protected int $steps = 0;
 
+    /** @var int blocks run so far (the steps of the JavaScript interpreter, without the cost of new arrays) */
+    protected int $ticks = 0;
+
     /** @var callable returns the next input value as text */
     protected $input;
 
@@ -313,6 +316,15 @@ class interpreter {
     }
 
     /**
+     * Steps so far: one per block run, as the step events of the JavaScript interpreter (new arrays not counted).
+     *
+     * @return int
+     */
+    public function ticks(): int {
+        return $this->ticks;
+    }
+
+    /**
      * Number of inputs read so far.
      *
      * @return int
@@ -393,6 +405,7 @@ class interpreter {
         if (++$this->steps > $this->maxsteps) {
             throw new algorithm_error('steplimit');
         }
+        $this->ticks++;
     }
 
     /**
