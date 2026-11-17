@@ -44,7 +44,7 @@ solution. Without tests the teacher grades it manually.
 | ⌨️ **Keyboard** | The whole question can be answered without a mouse: arrow keys between blocks, Enter to edit or insert, Delete, Escape |
 | 🛡️ **Limits** | At most 2000 blocks per answer, 100000 elements per array, 200 nested calls and 100000 characters of output, so a large answer cannot slow down grading; Random gives the same numbers in every grading run |
 | 🖼️ **Diagrams in the Question Text** | Give students an algorithm to analyse (needs [filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)) |
-| 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic, also the error messages of the algorithm (in the browser and in the review) |
+| 🌐 **Languages** | English, Serbian Latin and Serbian Cyrillic, German, French, Spanish, Italian, Portuguese, Polish, Croatian, Bosnian, Slovenian, Macedonian, Slovak and Czech, also the error messages of the algorithm (in the browser and in the review) |
 | 🔒 **Privacy** | GDPR compliant (Privacy API; answers are stored by the question engine, display settings stay in the browser) |
 
 ## 🖼️ Screenshots
@@ -124,7 +124,7 @@ question/type/algorithm/
 ├── docs/screenshots/ # Screenshots for this README
 ├── tests/            # PHPUnit: question, question type (Moodle XML), tester
 ├── tests/fixtures/   # Parity check: the PHP interpreter must give the browser's output
-├── lang/             # en, sr_lt, sr_cr
+├── lang/             # en, sr_lt, sr_cr and 12 more
 ├── edit_algorithm_form.php
 ├── question.php
 ├── questiontype.php
@@ -145,6 +145,11 @@ question/type/algorithm/
 - 🇬🇧 English
 - 🇷🇸 Srpski (Serbian, Latin: sr_lt)
 - 🇷🇸 Српски (Serbian, Cyrillic: sr_cr)
+- 🇩🇪 Deutsch (de), 🇫🇷 Français (fr), 🇪🇸 Español (es), 🇮🇹 Italiano (it), 🇵🇹 Português (pt), 🇵🇱 Polski (pl)
+- 🇭🇷 Hrvatski (hr), 🇧🇦 Bosanski (bs), 🇸🇮 Slovenščina (sl), 🇲🇰 Македонски (mk), 🇸🇰 Slovenčina (sk), 🇨🇿 Čeština (cs)
+
+The twelve translations of 2.23 were made with the help of AI and checked for the Moodle placeholders; corrections are
+welcome as issues or on [AMOS](https://lang.moodle.org).
 
 ## 📝 Changelog
 
