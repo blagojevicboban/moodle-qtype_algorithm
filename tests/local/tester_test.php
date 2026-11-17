@@ -113,6 +113,22 @@ final class tester_test extends \advanced_testcase {
         $this->assertSame('Array size 100000000 x 0 is larger than 100000', tester::run_program($program, '')['error']);
     }
 
+    public function test_records(): void {
+        $program = self::program([
+            ['type' => 'declare', 'name' => 's', 'varType' => 'Student', 'size' => '2'],
+            ['type' => 'input', 'target' => 's[1].name'],
+            ['type' => 'assign', 'target' => 's[1].avg', 'expr' => '4.5'],
+            ['type' => 'assign', 'target' => 's[0]', 'expr' => 's[1]'],
+            ['type' => 'assign', 'target' => 's[1].avg', 'expr' => '2'],
+            ['type' => 'output', 'expr' => 's[0] & " " & s[1].avg', 'newline' => true],
+        ]);
+        $program['records'] = [['name' => 'Student', 'fields' => [['name' => 'name', 'type' => 'String'],
+            ['name' => 'avg', 'type' => 'Real']]]];
+        $this->assertSame("Student(name = Ana, avg = 4.5) 2
+", tester::run_program($program, 'Ana')['output']);
+        $this->assertSame(['record', 'array'], tester::structures($program));
+    }
+
     public function test_matrix(): void {
         $program = self::program([
             ['type' => 'declare', 'name' => 'm', 'varType' => 'Integer', 'size' => '2', 'size2' => '3'],

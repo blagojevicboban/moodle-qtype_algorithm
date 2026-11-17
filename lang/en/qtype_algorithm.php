@@ -117,6 +117,7 @@ $string['structure_dowhile'] = 'Do loop';
 $string['structure_for'] = 'For loop';
 $string['structure_if'] = 'If';
 $string['structure_matrix'] = 'matrix';
+$string['structure_record'] = 'record';
 $string['structure_while'] = 'While loop';
 $string['structures'] = 'Required structures';
 $string['structures_help'] = 'If the answer does not use every structure ticked here, it gets no marks, even when the tests pass.';

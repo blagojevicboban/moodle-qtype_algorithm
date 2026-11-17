@@ -265,11 +265,20 @@ class tester {
      */
     public static function structures(array $program): array {
         $found = [];
-        $walk = function ($list) use (&$walk, &$found) {
+        $records = [];
+        foreach (is_array($program['records'] ?? null) ? $program['records'] : [] as $r) {
+            if (is_array($r) && isset($r['name'])) {
+                $records[strtolower((string) $r['name'])] = true;
+            }
+        }
+        $walk = function ($list) use (&$walk, &$found, $records) {
             foreach (is_array($list) ? $list : [] as $b) {
                 $type = $b['type'] ?? '';
                 if (in_array($type, ['if', 'for', 'while', 'dowhile'], true)) {
                     $found[$type] = true;
+                }
+                if ($type === 'declare' && isset($records[strtolower((string) ($b['varType'] ?? ''))])) {
+                    $found['record'] = true;
                 }
                 if ($type === 'declare' && trim((string) ($b['size'] ?? '')) !== '') {
                     $found['array'] = true;

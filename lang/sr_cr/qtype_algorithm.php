@@ -117,6 +117,7 @@ $string['structure_dowhile'] = 'Do петља';
 $string['structure_for'] = 'For петља';
 $string['structure_if'] = 'If (гранање)';
 $string['structure_matrix'] = 'матрица';
+$string['structure_record'] = 'запис';
 $string['structure_while'] = 'While петља';
 $string['structures'] = 'Обавезне структуре';
 $string['structures_help'] = 'Ако одговор не користи сваку овде означену структуру, не добија бодове, чак и кад тестови прођу.';

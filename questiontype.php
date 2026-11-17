@@ -40,7 +40,7 @@ require_once($CFG->dirroot . '/question/type/algorithm/question.php');
  */
 class qtype_algorithm extends question_type {
     /** Structures a question can require. */
-    const STRUCTURES = ['if', 'for', 'while', 'dowhile', 'array', 'matrix'];
+    const STRUCTURES = ['if', 'for', 'while', 'dowhile', 'array', 'matrix', 'record'];
 
     /**
      * Extra fields kept in qtype_algorithm_options (also used for backup and restore).

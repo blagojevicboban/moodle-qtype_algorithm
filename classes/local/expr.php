@@ -124,7 +124,7 @@ class expr {
                 if (in_array($two, ['<=', '>=', '<>', '!=', '==', '&&', '||'], true)) {
                     $tokens[] = ['t' => 'op', 'v' => $two];
                     $i += 2;
-                } else if (strpos('+-*/^%<>=&!(),[]', $c) !== false && strlen($c) === 1) {
+                } else if (strpos('+-*/^%<>=&!(),[].', $c) !== false && strlen($c) === 1) {
                     $tokens[] = ['t' => 'op', 'v' => $c];
                     $i++;
                 } else {
@@ -245,12 +245,30 @@ class expr {
     }
 
     /**
+     * A field of a record: p.x, a[i].x (after a name or an element of an array).
+     *
+     * @return array AST
+     */
+    protected function member(): array {
+        $base = $this->primary();
+        while ($this->is_op('.') && in_array($base['k'], ['var', 'idx', 'fld', 'call'], true)) {
+            $this->p++;
+            $t = $this->toks[$this->p++] ?? null;
+            if (!$t || $t['t'] !== 'id') {
+                throw new algorithm_error('expected', ['op' => 'field name']);
+            }
+            $base = ['k' => 'fld', 'e' => $base, 'name' => $t['v']];
+        }
+        return $base;
+    }
+
+    /**
      * Power (right associative).
      *
      * @return array AST
      */
     protected function power(): array {
-        $base = $this->primary();
+        $base = $this->member();
         if ($this->is_op('^')) {
             $this->p++;
             return ['k' => 'bin', 'op' => '^', 'l' => $base, 'r' => $this->unary()];

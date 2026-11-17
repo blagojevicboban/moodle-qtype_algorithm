@@ -61,6 +61,9 @@ class interpreter {
     /** @var array user functions by lower case name */
     protected array $funcs = [];
 
+    /** @var array record types by lower case name */
+    protected array $records = [];
+
     /** @var array parsed expressions by source text */
     protected array $cache = [];
 
@@ -156,6 +159,7 @@ class interpreter {
         foreach ($functions as $f) {
             self::check_loops($f['body'] ?? [], false);
         }
+        $this->records = record::types($this->program);
         if ($call !== null) {
             // A function test: evaluate the call (its arguments are values) and keep what the function returns, then
             // the arrays written in the call as the function left them.
@@ -369,6 +373,60 @@ class interpreter {
 
     /**
      * Convert a value for a variable of a type.
+     *
+     * @param mixed $type variable type
+     * @param mixed $value value
+     * @param string $name variable name (for the error message)
+     * @return mixed
+     */
+    protected function typed($type, $value, string $name) {
+        $def = $this->records[strtolower(js::to_string($type))] ?? null;
+        if ($def === null) {
+            if ($value instanceof record) {
+                throw new algorithm_error('recordvalue', ['name' => $name, 'type' => js::to_string($type)]);
+            }
+            return self::coerce($type, $value, $name);
+        }
+        if (!($value instanceof record) || strtolower($value->def['name']) !== strtolower($def['name'])) {
+            throw new algorithm_error('assignrecord', ['value' => js::fmt($value), 'name' => $name, 'type' => $def['name']]);
+        }
+        return $value->copy();
+    }
+
+    /**
+     * Initial value of a variable, also of a record type.
+     *
+     * @param mixed $type type
+     * @return mixed
+     */
+    protected function initial($type) {
+        $def = $this->records[strtolower(js::to_string($type))] ?? null;
+        return $def === null ? self::default_value($type) : new record($def);
+    }
+
+    /**
+     * The record a field belongs to and the key of the field (p.x, a[i].x).
+     *
+     * @param array $n fld node
+     * @param array $env variables
+     * @return array [record, lower case field name, field type]
+     */
+    protected function field_of(array $n, array $env): array {
+        $rec = $this->eval_node($n['e'], $env);
+        if (!($rec instanceof record)) {
+            throw new algorithm_error('notrecord', ['name' => $n['e']['name'] ?? '']);
+        }
+        $key = strtolower($n['name']);
+        foreach ($rec->def['fields'] as $f) {
+            if (strtolower($f['name']) === $key) {
+                return [$rec, $key, $f];
+            }
+        }
+        throw new algorithm_error('nofield', ['name' => $n['name'], 'record' => $rec->def['name']]);
+    }
+
+    /**
+     * Convert a value for a variable of a type (a record type gets a copy of a record of that type).
      *
      * @param mixed $type variable type
      * @param mixed $value value
@@ -601,6 +659,10 @@ class interpreter {
      * @return mixed
      */
     protected static function binary(string $op, $l, $r) {
+        // A record only joins a text (& or + with a string).
+        if (($l instanceof record || $r instanceof record) && $op !== '&' && !($op === '+' && (is_string($l) || is_string($r)))) {
+            throw new algorithm_error('recordop', ['op' => $op]);
+        }
         switch ($op) {
             case '+':
                 if (is_string($l) || is_string($r)) {
@@ -749,6 +811,9 @@ class interpreter {
             case 'idx':
                 [, $list, $i] = $this->array_index($n, $env);
                 return self::element($list, $i);
+            case 'fld':
+                [$rec, $key] = $this->field_of($n, $env);
+                return $rec->values[$key];
             case 'arr':
                 $items = [];
                 foreach ($n['items'] as $item) {
@@ -759,6 +824,9 @@ class interpreter {
                 return $array;
             case 'un':
                 $e = $this->eval_node($n['e'], $env);
+                if ($e instanceof record && $n['op'] !== '+') {
+                    throw new algorithm_error('recordop', ['op' => $n['op']]);
+                }
                 if ($n['op'] === '-') {
                     return -js::to_number($e);
                 }
@@ -791,6 +859,11 @@ class interpreter {
                     return $this->readfile['pos'] >= count($this->readfile['lines']);
                 }
                 if (in_array($lname, self::BUILTINS, true)) {
+                    foreach ($args as $a) {
+                        if ($a instanceof record) {
+                            throw new algorithm_error('recordop', ['op' => $n['name']]);
+                        }
+                    }
                     return self::builtin($lname, $args);
                 }
                 throw new algorithm_error('unknownfunction', ['name' => $n['name']]);
@@ -821,13 +894,16 @@ class interpreter {
         $t = $this->ast($target);
         if ($t['k'] === 'var') {
             $v = self::lookup($env, $t['name']);
-            $v->value = self::coerce($v->type, $value, $t['name']);
+            $v->value = $this->typed($v->type, $value, $t['name']);
         } else if ($t['k'] === 'idx') {
             [$v, $list, $i] = $this->array_index($t, $env);
-            $value = self::coerce($v->type, $value, $t['name']);
+            $value = $this->typed($v->type, $value, $t['name']);
             if (js::is_integer($i)) {
                 $list->items[(int) $i] = $value;
             }
+        } else if ($t['k'] === 'fld') {
+            [$rec, $key, $field] = $this->field_of($t, $env);
+            $rec->values[$key] = self::coerce($field['type'], $value, $rec->def['name'] . '.' . $field['name']);
         } else {
             throw new algorithm_error('badtarget');
         }
@@ -858,10 +934,13 @@ class interpreter {
      */
     protected function run_input(array $b, array $env): void {
         $t = $this->ast($b['target'] ?? '');
-        $decl = self::lookup($env, $t['name']);
-        $text = (string) ($this->input)((string) ($b['target'] ?? ''), (string) $decl->type);
+        $type = $t['k'] === 'fld' ? $this->field_of($t, $env)[2]['type'] : self::lookup($env, $t['name'])->type;
+        if (isset($this->records[strtolower(js::to_string($type))])) {
+            throw new algorithm_error('inputrecord', ['name' => (string) ($b['target'] ?? '')]);
+        }
+        $text = (string) ($this->input)((string) ($b['target'] ?? ''), (string) $type);
         $this->inputs++;
-        $this->assign($b['target'], self::parse_input_value($text, $decl->type), $env);
+        $this->assign($b['target'], self::parse_input_value($text, $type), $env);
     }
 
     /**
@@ -920,6 +999,16 @@ class interpreter {
                     $shown = $size2 === null ? js::to_string($size) : js::to_string($size) . ' x ' . js::to_string($size2);
                     throw new algorithm_error('arraysize', ['size' => $shown, 'max' => (string) self::MAX_ARRAY_SIZE]);
                 }
+                $vartype = $b['varType'] ?? null;
+                if (
+                    self::has_text($vartype) && !in_array($vartype, record::BASIC_TYPES, true) &&
+                        !isset($this->records[strtolower(js::to_string($vartype))])
+                ) {
+                    throw new algorithm_error('unknowntype', ['type' => js::to_string($vartype)]);
+                }
+                if ($size2 !== null && isset($this->records[strtolower(js::to_string($vartype))])) {
+                    throw new algorithm_error('recordmatrix', ['type' => js::to_string($vartype)]);
+                }
                 $names = array_filter(array_map('trim', explode(',', js::to_string($b['name'] ?? ''))), 'strlen');
                 $count = $size === null ? 0 :
                     self::array_length($size) * ($size2 === null ? 1 : self::array_length($size2) + self::ROW_CELLS);
@@ -927,12 +1016,19 @@ class interpreter {
                     $this->reserve($env[strtolower($nm)] ?? null, $count);
                     $type = $b['varType'] ?? null;
                     if ($size === null) {
-                        $value = self::default_value($type);
+                        $value = $this->initial($type);
                     } else {
                         $length = self::array_length($size);
-                        $value = new js_array($length ? array_fill(0, $length, self::default_value($type)) : []);
-                        for ($k = 0; $size2 !== null && $k < $length; $k++) {
-                            $row = array_fill(0, self::array_length($size2), self::default_value($type));
+                        $value = new js_array([]);
+                        for ($k = 0; $k < $length; $k++) {
+                            if ($size2 === null) {
+                                $value->items[$k] = $this->initial($type);
+                                continue;
+                            }
+                            $row = [];
+                            for ($c = 0, $width = self::array_length($size2); $c < $width; $c++) {
+                                $row[] = $this->initial($type);
+                            }
                             $value->items[$k] = new js_array($row);
                         }
                     }
@@ -1038,7 +1134,7 @@ class interpreter {
                     throw new algorithm_error('argshape', ['name' => $p['name']]);
                 }
                 $env[strtolower($p['name'])] = (object) ['name' => $p['name'], 'type' => $p['type'] ?? null,
-                    'value' => self::coerce($p['type'] ?? null, $args[$i], $p['name'])];
+                    'value' => $this->typed($p['type'] ?? null, $args[$i], $p['name'])];
                 continue;
             }
             // An array or a matrix is passed by reference; its shape must match the parameter.

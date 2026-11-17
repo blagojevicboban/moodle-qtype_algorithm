@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.21.0 – 2026-11-17 (stable)
+
+- **Records** in answers and solutions (tiny_algorithm 2.21): the PHP interpreter has record types, fields, arrays of
+  records and copies, with the same results and errors as the browser (classes/local/record.php; the parity fixture
+  has 25 new runs with records).
+- Required structures: a new one, record (an answer must declare a variable or an array of a record type).
+- Requires tiny_algorithm 2026112000; PHPUnit test of records; strings in English, Serbian Latin and Serbian Cyrillic.
+
 ## 2.20.0 – 2026-11-17 (stable)
 
 - **AI hints:** a new option of the question (off by default). With AI hints on in tiny_algorithm 2.20 and an AI

@@ -220,6 +220,59 @@ cases.push(['return from inside a loop', (() => {
 })()]);
 
 // 2.5.3: strings and arrays cannot fill the memory of the grading server.
+// Records (2.21): fields, copies, arrays of records, input into fields, output, and the errors.
+const POINT = {name: 'Point', fields: [{name: 'x', type: 'Integer'}, {name: 'y', type: 'Real'}]};
+const STUDENT = {name: 'Student', fields: [{name: 'name', type: 'String'}, {name: 'avg', type: 'Real'},
+    {name: 'ok', type: 'Boolean'}]};
+const withRecords = (records, ...body) => Object.assign(prog(...body), {records});
+const rp = B('declare', {name: 'p, q', varType: 'Point'});
+cases.push(['record fields and output', withRecords([POINT], rp, out('p'), B('assign', {target: 'p.x', expr: '7'}),
+    B('assign', {target: 'p.y', expr: 'p.x / 4'}), out('p.x + p.y'), out('"p = " & p'), out('p + "!"'),
+    B('assign', {target: 'q', expr: 'p'}), B('assign', {target: 'q.x', expr: '1'}), out('p.x & " " & q.x'))]);
+cases.push(['record copies in calls', (() => {
+    const p = withRecords([POINT], rp, B('assign', {target: 'p.x', expr: '5'}), B('call', {expr: 'Move(p)'}), out('p'),
+        B('assign', {target: 'q', expr: 'Make(3)'}), out('q'));
+    p.functions.push({name: 'Move', params: [{name: 'r', type: 'Point'}], returnType: null, body: [
+        B('assign', {target: 'r.x', expr: '100'}), out('r')]});
+    p.functions.push({name: 'Make', params: [{name: 'k', type: 'Integer'}], returnType: 'Point', body: [
+        B('declare', {name: 'o', varType: 'Point'}), B('assign', {target: 'o.x', expr: 'k'}), B('assign', {target: 'o.y', expr: 'k / 2'}),
+        B('return', {expr: 'o'})]});
+    return p;
+})(), ['']]);
+cases.push(['array of records', (() => {
+    const p = withRecords([STUDENT], dek('i'), dek('j'), B('declare', {name: 's', varType: 'Student', size: '3'}),
+        B('declare', {name: 't', varType: 'Student'}),
+        B('for', {variable: 'i', start: '0', end: '2', step: '1', body: [B('input', {target: 's[i].name'}),
+            B('input', {target: 's[i].avg'}), B('assign', {target: 's[i].ok', expr: 's[i].avg >= 4'})]}),
+        B('for', {variable: 'i', start: '0', end: '1', step: '1', body: [
+            B('for', {variable: 'j', start: '0', end: '1 - i', step: '1', body: [
+                B('if', {cond: 's[j].avg < s[j + 1].avg', then: [B('assign', {target: 't', expr: 's[j]'}),
+                    B('assign', {target: 's[j]', expr: 's[j + 1]'}), B('assign', {target: 's[j + 1]', expr: 't'})], 'else': []})]})]}),
+        B('call', {expr: 'Show(s)'}));
+    p.functions.push({name: 'Show', params: [{name: 'list', type: 'Student', array: true}], returnType: null, body: [
+        dek('k'), B('for', {variable: 'k', start: '0', end: 'Len(list) - 1', step: '1', body: [out('list[k]')]})]});
+    return p;
+})(), ['Ana\n4.5\nMilan\n4.9\nJovan\n3.75', 'A\nx', 'A\n5\nB']]);
+cases.push(['matrix of records', withRecords([POINT], B('declare', {name: 'm', varType: 'Point', size: '2', size2: '2'}))]);
+cases.push(['record no field', withRecords([POINT], rp, out('p.z'))]);
+cases.push(['record not a record', withRecords([POINT], dek('n'), out('n.x'))]);
+cases.push(['record into a number', withRecords([POINT], rp, dek('n'), B('assign', {target: 'n', expr: 'p'}))]);
+cases.push(['number into a record', withRecords([POINT], rp, B('assign', {target: 'p', expr: '5'}))]);
+cases.push(['record compared', withRecords([POINT], rp, out('p = q'))]);
+cases.push(['record minus', withRecords([POINT], rp, out('-p'))]);
+cases.push(['record plus number', withRecords([POINT], rp, out('p + 1'))]);
+cases.push(['record in a builtin', withRecords([POINT], rp, out('Len(p)'))]);
+cases.push(['record input', withRecords([POINT], rp, B('input', {target: 'p'})), ['1']]);
+cases.push(['record field input', withRecords([POINT], rp, B('input', {target: 'p.y'}), B('input', {target: 'p.x'}), out('p')),
+    ['2.5\n3', '2.5\n3.5', 'x']]);
+cases.push(['record field text into number', withRecords([POINT], rp, B('assign', {target: 'p.x', expr: '"a"'}))]);
+cases.push(['record unknown type', prog(B('declare', {name: 'q', varType: 'Pointt'}))]);
+cases.push(['record type twice', withRecords([POINT, {name: 'point', fields: [{name: 'a', type: 'Integer'}]}], out('1'))]);
+cases.push(['record type with a record field', withRecords([{name: 'R', fields: [{name: 'a', type: 'Point'}]}], out('1'))]);
+cases.push(['record type without fields', withRecords([{name: 'R', fields: []}], out('1'))]);
+cases.push(['record type named Integer', withRecords([{name: 'Integer', fields: [{name: 'a', type: 'Integer'}]}], out('1'))]);
+cases.push(['record field of a field', withRecords([POINT], rp, out('p.x.y'))]);
+
 const grow = (piece, times) => [dek('s', 'String'), dek('i'),
     B('for', {variable: 'i', start: '1', end: String(times), step: '1', body: [B('assign', {target: 's', expr: `s & "${piece}"`})]}),
     out('Len(s)')];

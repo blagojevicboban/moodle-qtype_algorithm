@@ -183,6 +183,9 @@ class js {
      * @return string
      */
     public static function fmt($value): string {
+        if ($value instanceof record) {
+            return $value->text();
+        }
         if (is_float($value) && !self::is_integer($value)) {
             return self::number_to_string(self::round($value * 1e10) / 1e10);
         }
