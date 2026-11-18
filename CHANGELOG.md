@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.24.0 – 2026-11-19 (stable)
+
+- **Analysis of the class answers:** the Class work view of an algorithm question in a quiz has an Analysis tab
+  (tiny_algorithm 2.25). The server runs the tests on the last answer of every student (the same students as the
+  cards, at most 200, results cached) and reports for each test how many answers pass it and the most frequent wrong
+  outputs, the most frequent errors, the answers that end with an error in every test or are not efficient enough,
+  the missing required structures, the grades in ten groups, the median number of blocks and steps, and for each
+  block of the solution the share of wrong answers that have fewer blocks of its kind at its place.
+- Only the answers to the version of the question most students got are analysed; the others are counted.
+- New web service qtype_algorithm_get_class_analysis (classes/external/get_class_analysis.php, capability
+  mod/quiz:viewreports) and class local/analysis with PHPUnit tests.
+- Requires tiny_algorithm 2026112400 (2.25.0).
+
 ## 2.23.0 – 2026-11-18 (stable)
 
 - **Class work in the quiz:** a teacher who may see the reports of the quiz (mod/quiz:viewreports) gets a Class work

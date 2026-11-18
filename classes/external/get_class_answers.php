@@ -55,45 +55,18 @@ class get_class_answers extends external_api {
      * @return array
      */
     public static function execute(int $cmid, int $slot): array {
-        global $CFG, $DB;
-        require_once($CFG->dirroot . '/question/type/algorithm/question.php');
-        $params = self::validate_parameters(self::execute_parameters(), ['cmid' => $cmid, 'slot' => $slot]);
-        $cm = get_coursemodule_from_id('quiz', $params['cmid'], 0, false, MUST_EXIST);
-        $context = \context_module::instance($cm->id);
-        self::validate_context($context);
-        require_capability('mod/quiz:viewreports', $context);
-
-        // The last attempt of each student that has this slot as an algorithm question.
-        $rows = $DB->get_recordset_sql(
-            "SELECT qa.id, quiza.userid, quiza.attempt
-               FROM {quiz_attempts} quiza
-               JOIN {question_attempts} qa ON qa.questionusageid = quiza.uniqueid
-               JOIN {question} q ON q.id = qa.questionid
-              WHERE quiza.quiz = :quiz AND quiza.preview = 0 AND qa.slot = :slot AND q.qtype = :qtype
-           ORDER BY quiza.userid, quiza.attempt DESC",
-            ['quiz' => $cm->instance, 'slot' => $params['slot'], 'qtype' => 'algorithm']
-        );
-        $attempts = [];
-        foreach ($rows as $row) {
-            if (!isset($attempts[$row->userid])) {
-                $attempts[$row->userid] = (int) $row->id;
-            }
-        }
-        $rows->close();
-
-        $allowed = self::allowed_users($cm, $context);
-        if ($allowed !== null) {
-            $attempts = array_intersect_key($attempts, $allowed);
-        }
+        global $DB;
+        $attempts = self::class_attempts($cmid, $slot);
         if (!$attempts) {
             return ['answers' => []];
         }
 
-        $found = self::last_answers(array_values($attempts));
+        $found = self::last_answers(array_column($attempts, 'qaid'));
         $fields = \core_user\fields::for_name()->get_sql('', false, '', '', false)->selects;
         $users = $DB->get_records_list('user', 'id', array_keys($attempts), '', 'id, deleted' . ($fields ? ", {$fields}" : ''));
         $out = [];
-        foreach ($attempts as $userid => $qaid) {
+        foreach ($attempts as $userid => $att) {
+            $qaid = $att['qaid'];
             $user = $users[$userid] ?? null;
             $f = $found[$qaid] ?? null;
             $model = $f && $f['answer'] !== null ? \qtype_algorithm_question::decode_answer((string) $f['answer']) : null;
@@ -105,6 +78,44 @@ class get_class_answers extends external_api {
         }
         usort($out, fn($a, $b) => $b['timemodified'] <=> $a['timemodified']);
         return ['answers' => array_slice($out, 0, self::MAX_ANSWERS)];
+    }
+
+    /**
+     * The last attempt of each student the teacher may see at this slot, after checking the capability.
+     *
+     * @param int $cmid course module of the quiz
+     * @param int $slot slot of the question
+     * @return array user id => ['qaid' => question attempt id, 'questionid' => question id]
+     */
+    protected static function class_attempts(int $cmid, int $slot): array {
+        global $CFG, $DB;
+        require_once($CFG->dirroot . '/question/type/algorithm/question.php');
+        $params = self::validate_parameters(self::execute_parameters(), ['cmid' => $cmid, 'slot' => $slot]);
+        $cm = get_coursemodule_from_id('quiz', $params['cmid'], 0, false, MUST_EXIST);
+        $context = \context_module::instance($cm->id);
+        self::validate_context($context);
+        require_capability('mod/quiz:viewreports', $context);
+
+        // The last attempt of each student that has this slot as an algorithm question.
+        $rows = $DB->get_recordset_sql(
+            "SELECT qa.id, qa.questionid, quiza.userid, quiza.attempt
+               FROM {quiz_attempts} quiza
+               JOIN {question_attempts} qa ON qa.questionusageid = quiza.uniqueid
+               JOIN {question} q ON q.id = qa.questionid
+              WHERE quiza.quiz = :quiz AND quiza.preview = 0 AND qa.slot = :slot AND q.qtype = :qtype
+           ORDER BY quiza.userid, quiza.attempt DESC",
+            ['quiz' => $cm->instance, 'slot' => $params['slot'], 'qtype' => 'algorithm']
+        );
+        $attempts = [];
+        foreach ($rows as $row) {
+            if (!isset($attempts[$row->userid])) {
+                $attempts[$row->userid] = ['qaid' => (int) $row->id, 'questionid' => (int) $row->questionid];
+            }
+        }
+        $rows->close();
+
+        $allowed = self::allowed_users($cm, $context);
+        return $allowed === null ? $attempts : array_intersect_key($attempts, $allowed);
     }
 
     /**

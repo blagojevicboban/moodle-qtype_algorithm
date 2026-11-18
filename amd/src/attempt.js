@@ -67,7 +67,9 @@ const countBlocks = (program) => {
 const addClassWork = (ws, classwork, lang, tests, codeConfig) => {
     const load = () => Ajax.call([{methodname: 'qtype_algorithm_get_class_answers',
         args: {cmid: classwork.cmid, slot: classwork.slot}}])[0].then((r) => r.answers);
-    ws.button('classwork', () => openClassView(ws.root, {load, tests, lang, codeConfig}));
+    const analyse = () => Ajax.call([{methodname: 'qtype_algorithm_get_class_analysis',
+        args: {cmid: classwork.cmid, slot: classwork.slot}}])[0];
+    ws.button('classwork', () => openClassView(ws.root, {load, tests, lang, codeConfig, analyse}));
 };
 
 /**
