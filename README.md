@@ -24,6 +24,7 @@ solution. Without tests the teacher grades it manually.
 | 🧩 **Parsons Problems** | An option of the question: students get the blocks of the solution in a random order (and up to five wrong blocks with a small mistake) and arrange and nest them; graded with the tests |
 | 🙈 **Hide the Code and the File Tools** | An option of the question: students see no generated code, no `.fprg` import / export and no picture buttons |
 | 🐞 **Step With a Failed Test** | A failed visible test can be stepped through with its input, which is entered by itself |
+| 👩‍🏫 **Class Work** | A teacher who may see the reports of the quiz gets a **Class work** button in the question (in the review, the preview and manual grading): the last answer of every student as a small diagram with its grade, newest first, refreshed every 10 s; one click shows an answer large and runnable (on the projector), names can be hidden; separate groups are respected |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
 | ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests by their weight (or all or nothing) |
 | 🧮 **Function Tests** | A test can call one function of the algorithm with arguments, e.g. `Sum(2, 3)` or `Sort([3, 1, 2])`, and compare the value it returns and the arrays it changed |
@@ -60,7 +61,7 @@ solution. Without tests the teacher grades it manually.
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.14.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.24.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
@@ -88,7 +89,9 @@ php admin/cli/upgrade.php
     tick **Hidden from students** where needed. Choose what is compared and which structures are required. The expected outputs
     are computed from the solution when you save; if the solution fails on a test, the form says so.
 3.  **Starting template** (optional): tick *Students start from a separate template* and draw it.
-4.  Without tests the question is graded manually: open **Results → Manual grading**; the diagram can be run and stepped through.
+4.  **Class work**: open any attempt of the quiz (Results → Grades → Review attempt) and click **Class work** above the
+    diagram to see the answers of the whole class to this question as small diagrams with their grades.
+5.  Without tests the question is graded manually: open **Results → Manual grading**; the diagram can be run and stepped through.
 
 ### For Students
 
@@ -118,9 +121,10 @@ question/type/algorithm/
 │   ├── src/          # attempt.js (student), edit.js (question form)
 │   └── build/        # Compiled modules
 ├── backup/moodle2/   # Backup and restore of the options
+├── classes/external/ # get_class_answers: the answers of the class (Class work)
 ├── classes/local/    # PHP interpreter: expr, interpreter, tester, js (JavaScript value semantics)
 ├── classes/privacy/  # Privacy provider
-├── db/               # qtype_algorithm_options, upgrade
+├── db/               # qtype_algorithm_options, upgrade, services
 ├── docs/screenshots/ # Screenshots for this README
 ├── tests/            # PHPUnit: question, question type (Moodle XML), tester
 ├── tests/fixtures/   # Parity check: the PHP interpreter must give the browser's output

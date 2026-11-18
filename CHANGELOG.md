@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.23.0 – 2026-11-18 (stable)
+
+- **Class work in the quiz:** a teacher who may see the reports of the quiz (mod/quiz:viewreports) gets a Class work
+  button in an algorithm question (review of an attempt, preview, manual grading). It shows the last answer of every
+  student to that question as a small diagram with the grade, newest first, refreshed every 10 seconds; a click shows
+  the answer large and runnable, and the names can be hidden for the projector. Previews are left out, separate groups
+  are respected, at most 200 answers.
+- New web service qtype_algorithm_get_class_answers (classes/external/get_class_answers.php, db/services.php); it reads
+  the answers from the quiz attempts, so students send nothing extra.
+- Requires tiny_algorithm 2026112300 (2.24.0) for the grade on the cards.
+
 ## 2.22.0 – 2026-11-17 (stable)
 
 - **Twelve new languages:** German, French, Spanish, Italian, Portuguese, Polish, Croatian, Bosnian, Slovenian,

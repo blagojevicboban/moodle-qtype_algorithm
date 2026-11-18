@@ -91,9 +91,28 @@ class qtype_algorithm_renderer extends qtype_renderer {
             get_string('noalgorithm', 'qtype_algorithm'),
             ['template' => $question->start_program($qa), 'tests' => $tests, 'check' => $question->check_options(),
                 'codeConfig' => $question->code_config($this->page->context),
-                'hidetools' => (bool) $question->hidetools, 'parsons' => (bool) $question->parsons],
+                'hidetools' => (bool) $question->hidetools, 'parsons' => (bool) $question->parsons,
+                'classwork' => $this->class_work($qa)],
         ]);
         return $result;
+    }
+
+    /**
+     * The class view of this question for the teacher (the answers of the students as small diagrams), when the
+     * question is shown in a quiz to someone who may see its reports.
+     *
+     * @param question_attempt $qa
+     * @return array|null cmid and slot for qtype_algorithm_get_class_answers, or null
+     */
+    protected function class_work(question_attempt $qa): ?array {
+        $cm = $this->page->cm;
+        if (!$cm || $cm->modname !== 'quiz' || !$qa->get_slot()) {
+            return null;
+        }
+        if (!has_capability('mod/quiz:viewreports', context_module::instance($cm->id))) {
+            return null;
+        }
+        return ['cmid' => (int) $cm->id, 'slot' => (int) $qa->get_slot()];
     }
 
     /**

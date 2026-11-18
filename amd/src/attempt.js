@@ -26,6 +26,8 @@ import {TestsPanel} from 'tiny_algorithm/tests';
 import {deserialize, serialize} from 'tiny_algorithm/model';
 import {workspace} from 'qtype_algorithm/fullscreen';
 import {load as loadStrings} from 'tiny_algorithm/langstrings';
+import {openClassView} from 'tiny_algorithm/classview';
+import Ajax from 'core/ajax';
 
 /**
  * Algorithm from its encoded form, or null.
@@ -54,6 +56,21 @@ const countBlocks = (program) => {
 };
 
 /**
+ * Add the Class work button (the teacher in a quiz): the answers of the students as small diagrams.
+ *
+ * @param {{root: HTMLElement, button: Function}} ws the toolbar of the question
+ * @param {{cmid: number, slot: number}} classwork the quiz and the slot of the question
+ * @param {string} lang language code
+ * @param {Array} tests tests shown with the question
+ * @param {Object} codeConfig code languages
+ */
+const addClassWork = (ws, classwork, lang, tests, codeConfig) => {
+    const load = () => Ajax.call([{methodname: 'qtype_algorithm_get_class_answers',
+        args: {cmid: classwork.cmid, slot: classwork.slot}}])[0].then((r) => r.answers);
+    ws.button('classwork', () => openClassView(ws.root, {load, tests, lang, codeConfig}));
+};
+
+/**
  * Initialise the question.
  *
  * @param {string} containerId id of the element that receives the editor or the viewer
@@ -68,9 +85,10 @@ const countBlocks = (program) => {
  * @param {boolean} [options.hidetools] hide the generated code and the file import and export
  * @param {boolean} [options.parsons] a Parsons problem: the given blocks are only moved, nested and deleted
  * @param {Object} [options.codeConfig] code languages of the site, the course and the question
+ * @param {Object|null} [options.classwork] the quiz and slot of the question, for a teacher who may see the answers of the class
  */
 export const init = async(containerId, inputId, readonly, lang, emptyText,
-        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}, parsons = false} = {}) => {
+        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}, parsons = false, classwork = null} = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
@@ -80,6 +98,9 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
     const program = decode(input.value);
 
     if (readonly) {
+        if (classwork) {
+            addClassWork(workspace(container, lang), classwork, lang, tests, codeConfig);
+        }
         if (program) {
             new AlgorithmRunner(container, program, {lang, codeConfig});
         } else {
@@ -138,6 +159,9 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
             panel.run();
             host.scrollIntoView({block: 'nearest', behavior: 'smooth'});
         }, 'btn-primary'));
+    }
+    if (classwork) {
+        addClassWork(ws, classwork, lang, tests, codeConfig);
     }
 };
 
