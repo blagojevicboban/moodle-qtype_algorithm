@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.25.0 – 2026-11-19 (stable)
+
+- **Fill the gaps:** a new option of the question (0 to 10 gaps). Students get the solution with that many expressions
+  and conditions emptied (assignments, conditions of If and loops, For bounds, outputs, returns, calls), chosen at
+  random when the attempt starts and kept in the attempt, and type only the missing parts. Graded with the tests. A
+  question is a Parsons problem or a fill-the-gaps problem, not both.
+- **Check order in Parsons problems:** a new option. Students get a Check order button that marks the blocks not in
+  their place (wrong loop or branch, wrong order, extra wrong blocks) without running the algorithm; the server
+  compares with the solution, which never reaches the browser. Only the owner of an attempt in progress (or a preview)
+  may check.
+- New classes local/gaps and local/order, web service qtype_algorithm_check_order, fields gaps and ordercheck
+  (upgrade step 2026112500, backup and restore, XML export and import), PHPUnit tests; 6 new strings in all 15 languages.
+- Requires tiny_algorithm 2026112500 (2.26.0).
+
 ## 2.24.0 – 2026-11-19 (stable)
 
 - **Analysis of the class answers:** the Class work view of an algorithm question in a quiz has an Analysis tab

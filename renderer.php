@@ -53,6 +53,9 @@ class qtype_algorithm_renderer extends qtype_renderer {
         if ($question->parsons && !$options->readonly) {
             $intro = get_string('parsonsintro', 'qtype_algorithm');
             $answerhtml .= html_writer::tag('p', $intro, ['class' => 'qtype_algorithm_parsons']);
+        } else if ($question->gaps > 0 && !$options->readonly) {
+            $intro = get_string('gapsintro', 'qtype_algorithm');
+            $answerhtml .= html_writer::tag('p', $intro, ['class' => 'qtype_algorithm_parsons']);
         }
         $containerattrs = ['id' => $containerid, 'class' => 'qtype_algorithm_container'];
         if ($question->has_tests()) {
@@ -92,7 +95,9 @@ class qtype_algorithm_renderer extends qtype_renderer {
             ['template' => $question->start_program($qa), 'tests' => $tests, 'check' => $question->check_options(),
                 'codeConfig' => $question->code_config($this->page->context),
                 'hidetools' => (bool) $question->hidetools, 'parsons' => (bool) $question->parsons,
-                'classwork' => $this->class_work($qa)],
+                'gaps' => $question->gaps > 0, 'classwork' => $this->class_work($qa),
+                'ordercheck' => $question->parsons && $question->ordercheck && !$options->readonly
+                    ? ['usageid' => (int) $qa->get_usage_id(), 'slot' => (int) $qa->get_slot()] : null],
         ]);
         return $result;
     }

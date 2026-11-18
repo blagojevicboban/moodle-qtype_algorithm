@@ -27,6 +27,8 @@ import {deserialize, serialize} from 'tiny_algorithm/model';
 import {workspace} from 'qtype_algorithm/fullscreen';
 import {load as loadStrings} from 'tiny_algorithm/langstrings';
 import {openClassView} from 'tiny_algorithm/classview';
+import {showToast} from 'tiny_algorithm/dialog';
+import {t} from 'tiny_algorithm/strings';
 import Ajax from 'core/ajax';
 
 /**
@@ -73,6 +75,36 @@ const addClassWork = (ws, classwork, lang, tests, codeConfig) => {
 };
 
 /**
+ * Check order of a Parsons problem: the server says which blocks are not in their place; they are marked until the
+ * diagram is drawn again.
+ *
+ * @param {{root: HTMLElement, button: Function}} ws the toolbar of the question
+ * @param {HTMLElement} container the editor
+ * @param {Function} current returns the current arrangement (base64 encoded JSON)
+ * @param {{usageid: number, slot: number}} where the attempt and the slot of the question
+ */
+const addOrderCheck = (ws, container, current, where) => {
+    const check = async() => {
+        try {
+            const r = await Ajax.call([{methodname: 'qtype_algorithm_check_order',
+                args: {usageid: where.usageid, slot: where.slot, answer: current()}}])[0];
+            container.querySelectorAll('.tiny_algorithm-misplaced').forEach((n) => n.classList.remove('tiny_algorithm-misplaced'));
+            r.wrong.forEach((id) => {
+                const node = container.querySelector(`.tiny_algorithm-node[data-id="${CSS.escape(id)}"]`);
+                if (node) {
+                    node.classList.add('tiny_algorithm-misplaced');
+                }
+            });
+            showToast(ws.root, r.wrong.length ? t('orderresult', {placed: String(r.placed), total: String(r.total)})
+                : t('orderdone'));
+        } catch (e) {
+            showToast(ws.root, t('ordererror'));
+        }
+    };
+    ws.button('checkorder', check);
+};
+
+/**
  * Initialise the question.
  *
  * @param {string} containerId id of the element that receives the editor or the viewer
@@ -86,11 +118,14 @@ const addClassWork = (ws, classwork, lang, tests, codeConfig) => {
  * @param {object} [options.check] what the tests compare (afterinput, numbers)
  * @param {boolean} [options.hidetools] hide the generated code and the file import and export
  * @param {boolean} [options.parsons] a Parsons problem: the given blocks are only moved, nested and deleted
+ * @param {boolean} [options.gaps] a fill-the-gaps problem: only the emptied expressions of the blocks are typed
  * @param {Object} [options.codeConfig] code languages of the site, the course and the question
+ * @param {Object|null} [options.ordercheck] the attempt and slot of a Parsons problem whose order can be checked
  * @param {Object|null} [options.classwork] the quiz and slot of the question, for a teacher who may see the answers of the class
  */
 export const init = async(containerId, inputId, readonly, lang, emptyText,
-        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}, parsons = false, classwork = null} = {}) => {
+        {template = '', tests = [], check = {}, hidetools = false, codeConfig = {}, parsons = false, gaps = false,
+            classwork = null, ordercheck = null} = {}) => {
     await loadStrings();
     const container = document.getElementById(containerId);
     const input = document.getElementById(inputId);
@@ -125,10 +160,11 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
         program: program || decode(template),
         lang,
         showCode: !hidetools,
-        // A Parsons problem has no file tools (an imported diagram would replace the given blocks).
-        fileTools: !hidetools && !parsons,
+        // A Parsons or fill-the-gaps problem has no file tools (an imported diagram would replace the given blocks).
+        fileTools: !hidetools && !parsons && !gaps,
         codeConfig,
         parsons,
+        gaps,
         onChange: (current) => {
             const now = serialize(current);
             if (last === null || now === last) {
@@ -161,6 +197,9 @@ export const init = async(containerId, inputId, readonly, lang, emptyText,
             panel.run();
             host.scrollIntoView({block: 'nearest', behavior: 'smooth'});
         }, 'btn-primary'));
+    }
+    if (ordercheck) {
+        addOrderCheck(ws, container, () => serialize(editor.getProgram()), ordercheck);
     }
     if (classwork) {
         addClassWork(ws, classwork, lang, tests, codeConfig);

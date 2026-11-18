@@ -124,6 +124,18 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $mform->addElement('select', 'distractors', get_string('distractors', 'qtype_algorithm'), array_combine($counts, $counts));
         $mform->addHelpButton('distractors', 'distractors', 'qtype_algorithm');
         $mform->hideIf('distractors', 'parsons', 'notchecked');
+        $mform->addElement(
+            'advcheckbox',
+            'ordercheck',
+            get_string('ordercheck', 'qtype_algorithm'),
+            get_string('ordercheck_desc', 'qtype_algorithm')
+        );
+        $mform->addHelpButton('ordercheck', 'ordercheck', 'qtype_algorithm');
+        $mform->hideIf('ordercheck', 'parsons', 'notchecked');
+        $counts = range(0, \qtype_algorithm\local\gaps::MAX_GAPS);
+        $mform->addElement('select', 'gaps', get_string('gaps', 'qtype_algorithm'), array_combine($counts, $counts));
+        $mform->addHelpButton('gaps', 'gaps', 'qtype_algorithm');
+        $mform->hideIf('gaps', 'parsons', 'checked');
 
         // Efficiency: steps compared with the solution, growth, blocks.
         $mform->addElement('header', 'efficiencyheader', get_string('efficiency', 'qtype_algorithm'));
@@ -186,6 +198,8 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->hidetools = $o->hidetools ?? 0;
             $question->parsons = $o->parsons ?? 0;
             $question->distractors = $o->distractors ?? 0;
+            $question->gaps = $o->gaps ?? 0;
+            $question->ordercheck = $o->ordercheck ?? 0;
             $question->stepfactor = (float) ($o->stepfactor ?? 0);
             $question->maxgrowth = (string) ($o->maxgrowth ?? '');
             $question->maxblocks = (int) ($o->maxblocks ?? 0);

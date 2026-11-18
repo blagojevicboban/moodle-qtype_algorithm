@@ -79,6 +79,12 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var int extra wrong blocks of a Parsons problem */
     public $distractors = 0;
 
+    /** @var int number of emptied expressions of a fill-the-gaps problem, 0 for none */
+    public $gaps = 0;
+
+    /** @var bool students of a Parsons problem may check the order of their blocks */
+    public $ordercheck = false;
+
     /** @var float at most this many times the steps of the solution in every test, 0 for no limit */
     public $stepfactor = 0.0;
 
@@ -138,7 +144,8 @@ class qtype_algorithm_question extends question_graded_automatically {
     }
 
     /**
-     * A Parsons problem gets its blocks in a random order when the attempt starts; the order is kept in the attempt.
+     * A Parsons problem gets its blocks in a random order when the attempt starts, a fill-the-gaps problem its gaps;
+     * they are kept in the attempt.
      *
      * @param question_attempt_step $step the first step of the attempt
      * @param int $variant unused
@@ -147,11 +154,14 @@ class qtype_algorithm_question extends question_graded_automatically {
         if ($this->parsons) {
             $seed = random_int(1, 2147483646);
             $step->set_qt_var('_parsons', \qtype_algorithm\local\parsons::build($this->solution, $this->distractors, $seed));
+        } else if ($this->gaps > 0) {
+            $seed = random_int(1, 2147483646);
+            $step->set_qt_var('_gaps', \qtype_algorithm\local\gaps::build($this->solution, $this->gaps, $seed));
         }
     }
 
     /**
-     * The algorithm a student starts from: the blocks of a Parsons problem, else the template.
+     * The algorithm a student starts from: the blocks of a Parsons problem, the solution with gaps, else the template.
      *
      * @param question_attempt $qa the attempt
      * @return string base64 encoded JSON, '' for an empty diagram
@@ -165,6 +175,12 @@ class qtype_algorithm_question extends question_graded_automatically {
             // An attempt started before the question became a Parsons problem.
             $seed = (int) $qa->get_database_id();
             return \qtype_algorithm\local\parsons::build($this->solution, $this->distractors, $seed);
+        }
+        if ($this->gaps > 0) {
+            $start = (string) $qa->get_step(0)->get_qt_var('_gaps');
+            // An attempt started before the question became a fill-the-gaps problem gets gaps chosen by its id.
+            return $start !== '' ? $start
+                : \qtype_algorithm\local\gaps::build($this->solution, $this->gaps, (int) $qa->get_database_id());
         }
         return $this->template;
     }

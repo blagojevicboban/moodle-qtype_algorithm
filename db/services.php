@@ -32,6 +32,12 @@ $functions = [
         'ajax' => true,
         'capabilities' => 'mod/quiz:viewreports',
     ],
+    'qtype_algorithm_check_order' => [
+        'classname' => \qtype_algorithm\external\check_order::class,
+        'description' => 'Which blocks of a Parsons problem are not in their place (owner of the attempt, when allowed).',
+        'type' => 'read',
+        'ajax' => true,
+    ],
     'qtype_algorithm_get_class_analysis' => [
         'classname' => \qtype_algorithm\external\get_class_analysis::class,
         'description' => 'The analysis of the answers of the students to an algorithm question of a quiz (tests, errors, blocks).',

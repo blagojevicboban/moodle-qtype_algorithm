@@ -137,5 +137,20 @@ function xmldb_qtype_algorithm_upgrade($oldversion) {
         }
         upgrade_plugin_savepoint(true, 2026111900, 'qtype', 'algorithm');
     }
+
+    if ($oldversion < 2026112500) {
+        // Options of 2.25: fill-the-gaps problems and Check order in Parsons problems.
+        $table = new xmldb_table('qtype_algorithm_options');
+        $fields = [
+            new xmldb_field('gaps', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'aihints'),
+            new xmldb_field('ordercheck', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'gaps'),
+        ];
+        foreach ($fields as $field) {
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        }
+        upgrade_plugin_savepoint(true, 2026112500, 'qtype', 'algorithm');
+    }
     return true;
 }

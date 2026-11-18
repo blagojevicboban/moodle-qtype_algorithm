@@ -27,6 +27,8 @@
         <FIELD NAME="maxblocks" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Most blocks of the answer, 0 for no limit."/>
         <FIELD NAME="efficiencypenalty" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="50" SEQUENCE="false" COMMENT="Percent taken from the grade when the answer is not efficient enough."/>
         <FIELD NAME="aihints" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when students may ask the AI of the site for hints (tiny_algorithm AI hints)."/>
+        <FIELD NAME="gaps" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Number of emptied expressions of a fill-the-gaps problem, 0 for none."/>
+        <FIELD NAME="ordercheck" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when students of a Parsons problem may check the order of their blocks."/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
