@@ -85,6 +85,9 @@ class qtype_algorithm_question extends question_graded_automatically {
     /** @var bool students of a Parsons problem may check the order of their blocks */
     public $ordercheck = false;
 
+    /** @var bool strict initialization: a variable must get a value before it is read */
+    public $strictinit = false;
+
     /** @var float at most this many times the steps of the solution in every test, 0 for no limit */
     public $stepfactor = 0.0;
 
@@ -136,6 +139,9 @@ class qtype_algorithm_question extends question_graded_automatically {
         }
         // AI hints only in a question that allows them; the service checks the question again.
         $config['ai'] = !empty($config['ai']) && $this->aihints;
+        // The question decides strict initialization; the editor does not offer to change it.
+        $config['strict'] = (bool) $this->strictinit;
+        $config['strictForce'] = true;
         if ($config['ai']) {
             $config['questionid'] = (int) $this->id;
             $config['task'] = \core_text::substr(trim(html_to_text($this->questiontext, 0, false)), 0, 2000);
@@ -342,8 +348,14 @@ class qtype_algorithm_question extends question_graded_automatically {
         $solution = self::decode_answer($this->solution);
         $files = is_array($solution['files'] ?? null) ? $solution['files'] : [];
         $model['files'] = $files;
-        $key = sha1(json_encode([get_config('qtype_algorithm', 'version'), current_language(), $this->tests,
-            $this->check_options(), $files, $answer]));
+        // The question decides strict initialization, not the answer.
+        if ($this->strictinit) {
+            $model['strictInit'] = true;
+        } else {
+            unset($model['strictInit']);
+        }
+        $key = sha1(json_encode([get_config('qtype_algorithm', 'version'), current_language(), (bool) $this->strictinit,
+            $this->tests, $this->check_options(), $files, $answer]));
         $results = $cache->get($key);
         if (!is_array($results)) {
             $results = tester::run_tests($model, $this->tests, $this->check_options(), get_string('noinput', 'qtype_algorithm'));

@@ -400,8 +400,13 @@ class interpreter {
      * @return mixed
      */
     protected function initial($type) {
+        // Strict initialization: a declared variable, element or field has no value until it gets one.
+        $strict = ($this->program['strictInit'] ?? false) === true;
         $def = $this->records[strtolower(js::to_string($type))] ?? null;
-        return $def === null ? self::default_value($type) : new record($def);
+        if ($def !== null) {
+            return new record($def, null, $strict);
+        }
+        return $strict ? no_value::get() : self::default_value($type);
     }
 
     /**
@@ -604,7 +609,7 @@ class interpreter {
         $i = $this->eval_node($n['index'], $env);
         self::check_range($v->value, $i, $n['name']);
         if (!isset($n['index2'])) {
-            return [$v, $v->value, $i];
+            return [$v, $v->value, $i, js::to_string($i)];
         }
         $j = $this->eval_node($n['index2'], $env);
         $row = self::element($v->value, $i);
@@ -612,7 +617,7 @@ class interpreter {
             throw new algorithm_error('indexrange', ['index' => js::to_string($i), 'name' => $n['name']]);
         }
         self::check_range($row, $j, $n['name']);
-        return [$v, $row, $j];
+        return [$v, $row, $j, js::to_string($i) . ', ' . js::to_string($j)];
     }
 
     /**
@@ -807,12 +812,23 @@ class interpreter {
                 if (strtolower($n['name']) === 'pi' && !isset($env['pi'])) {
                     return M_PI;
                 }
-                return self::lookup($env, $n['name'])->value;
+                $v = self::lookup($env, $n['name']);
+                if ($v->value instanceof no_value) {
+                    throw new algorithm_error('noinit', ['name' => $v->name]);
+                }
+                return $v->value;
             case 'idx':
-                [, $list, $i] = $this->array_index($n, $env);
-                return self::element($list, $i);
+                [, $list, $i, $at] = $this->array_index($n, $env);
+                $item = self::element($list, $i);
+                if ($item instanceof no_value) {
+                    throw new algorithm_error('noinitelement', ['name' => $n['name'], 'index' => $at]);
+                }
+                return $item;
             case 'fld':
-                [$rec, $key] = $this->field_of($n, $env);
+                [$rec, $key, $field] = $this->field_of($n, $env);
+                if ($rec->values[$key] instanceof no_value) {
+                    throw new algorithm_error('noinitfield', ['name' => $rec->def['name'] . '.' . $field['name']]);
+                }
                 return $rec->values[$key];
             case 'arr':
                 $items = [];

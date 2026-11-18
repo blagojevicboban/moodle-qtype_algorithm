@@ -29,6 +29,7 @@
         <FIELD NAME="aihints" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when students may ask the AI of the site for hints (tiny_algorithm AI hints)."/>
         <FIELD NAME="gaps" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Number of emptied expressions of a fill-the-gaps problem, 0 for none."/>
         <FIELD NAME="ordercheck" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when students of a Parsons problem may check the order of their blocks."/>
+        <FIELD NAME="strictinit" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="1 when a variable must get a value before it is read (strict initialization)."/>
       </FIELDS>
       <KEYS>
         <KEY NAME="primary" TYPE="primary" FIELDS="id"/>

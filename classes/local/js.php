@@ -170,6 +170,9 @@ class js {
         if (is_float($value) || is_int($value)) {
             return self::number_to_string((float) $value);
         }
+        if ($value instanceof no_value) {
+            return '?';
+        }
         if ($value instanceof js_array) {
             return implode(',', array_map(fn($v) => $v === null ? '' : self::to_string($v), $value->items));
         }

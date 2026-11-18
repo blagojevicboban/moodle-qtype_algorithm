@@ -152,6 +152,9 @@ class qtype_algorithm_renderer extends qtype_renderer {
         if ($question->maxblocks > 0) {
             $items[] = get_string('rule_maxblocks', 'qtype_algorithm', $question->maxblocks);
         }
+        if ($question->strictinit) {
+            $items[] = get_string('rule_strictinit', 'qtype_algorithm');
+        }
         if ($question->aihints && \tiny_algorithm\local\ai_hint::available($this->page->context)) {
             $items[] = get_string('rule_aihints', 'qtype_algorithm');
         }

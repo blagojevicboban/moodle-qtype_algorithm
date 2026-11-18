@@ -39,12 +39,17 @@ class record {
      *
      * @param array $def the type
      * @param array|null $values values by lower case field name
+     * @param bool $empty without values: the fields have no value yet (strict initialization)
      */
-    public function __construct(array $def, ?array $values = null) {
+    public function __construct(array $def, ?array $values = null, bool $empty = false) {
         $this->def = $def;
         foreach ($def['fields'] as $f) {
             $key = strtolower($f['name']);
-            $this->values[$key] = $values !== null ? $values[$key] : self::default_value($f['type']);
+            if ($values !== null) {
+                $this->values[$key] = $values[$key];
+            } else {
+                $this->values[$key] = $empty ? no_value::get() : self::default_value($f['type']);
+            }
         }
     }
 

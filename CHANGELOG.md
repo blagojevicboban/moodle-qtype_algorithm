@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.26.0 – 2026-11-19 (stable)
+
+- **Strict initialization:** a new option of the question, A variable must get a value before it is used (its
+  default is the site setting of tiny_algorithm). Reading a variable, array element or record field without a value
+  stops the algorithm with an error, in the student's runs, when the expected outputs are computed from the solution
+  and in grading; the server sets it from the question, whatever the answer says. The rules under the question say it.
+- PHP interpreter: a value that is not there yet (class local/no_value), errors noinit, noinitelement and noinitfield,
+  the same as the browser (parity fixtures).
+- New field strictinit (upgrade step 2026112600, backup and restore, XML export and import); 4 new strings in all 15
+  languages.
+- Requires tiny_algorithm 2026112600 (2.27.0).
+
 ## 2.25.0 – 2026-11-19 (stable)
 
 - **Fill the gaps:** a new option of the question (0 to 10 gaps). Students get the solution with that many expressions

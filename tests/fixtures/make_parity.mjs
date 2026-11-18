@@ -342,6 +342,21 @@ cases.push(['file write starts a new file', withFiles({'o.txt': 'old\n'}, dek('s
 cases.push(['file write limit', prog(dek('i'), B('open', {file: '"big.txt"', mode: 'write'}),
     B('for', {variable: 'i', start: '1', end: '20000', step: '1', body: [B('write', {expr: '"0123456789"'})]}))]);
 
+// Strict initialization (2.27): reading a variable, element or field without a value is an error; given values work.
+const strict = (p) => Object.assign(p, {strictInit: true});
+cases.push(['strict variable', strict(prog(dek('x'), dek('y'), B('input', {target: 'x'}), out('x * 2'), out('y'))), ['4']]);
+cases.push(['strict variable given', strict(prog(dek('s'), B('assign', {target: 's', expr: '0'}),
+    B('for', {variable: 'i', start: '1', end: '3', step: '1', body: [B('assign', {target: 's', expr: 's + i'})]}), out('s')))]);
+cases.push(['strict element', strict(prog(dek('a', 'Integer', '3'), B('assign', {target: 'a[0]', expr: '5'}), out('a[0]'),
+    out('a[1]')))]);
+cases.push(['strict matrix element', strict(prog(mx('m', 'Real', '2', '2'), B('assign', {target: 'm[1, 0]', expr: '1.5'}),
+    out('m[1, 0]'), out('m[1, 1]')))]);
+cases.push(['strict field', strict(withRecords([POINT], B('declare', {name: 'p', varType: 'Point', size: ''}),
+    B('assign', {target: 'p.x', expr: '3'}), out('p.x'), out('p.y')))]);
+cases.push(['strict string and boolean', strict(prog(dek('t', 'String'), dek('b', 'Boolean'),
+    B('assign', {target: 't', expr: '"ok"'}), out('t'), out('b')))]);
+cases.push(['not strict defaults', prog(dek('x'), dek('t', 'String'), out('x'), out('"[" & t & "]"'))]);
+
 // Function tests with arrays and matrices written in the call.
 const arr = createProgram();
 arr.functions[0].body = [out('"main"')];

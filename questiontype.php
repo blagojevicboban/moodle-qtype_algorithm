@@ -50,7 +50,7 @@ class qtype_algorithm extends question_type {
     public function extra_question_fields() {
         return ['qtype_algorithm_options', 'solution', 'template', 'tests', 'afterinput', 'numbers', 'structures', 'showtests',
             'grademethod', 'ignorecase', 'ignorespaces', 'tolerance', 'hidetools', 'parsons', 'distractors', 'stepfactor',
-            'maxgrowth', 'maxblocks', 'efficiencypenalty', 'aihints', 'gaps', 'ordercheck'];
+            'maxgrowth', 'maxblocks', 'efficiencypenalty', 'aihints', 'gaps', 'ordercheck', 'strictinit'];
     }
 
     /**
@@ -154,9 +154,10 @@ class qtype_algorithm extends question_type {
      * @param string $solution the teacher's algorithm (base64 encoded JSON)
      * @param mixed $tests JSON text or list of tests ['inputs' => ..., 'hidden' => ...]
      * @param array $check what is compared
+     * @param bool $strict strict initialization (a variable must get a value before it is read)
      * @return array ['tests' => list, 'errors' => [['index' => i, 'error' => message]]]
      */
-    public static function compute_tests(string $solution, $tests, array $check): array {
+    public static function compute_tests(string $solution, $tests, array $check, bool $strict = false): array {
         $list = is_string($tests) ? json_decode($tests, true) : $tests;
         $list = array_values(array_filter(is_array($list) ? $list : [], 'is_array'));
         $list = array_map([self::class, 'clean_test'], $list);
@@ -166,6 +167,11 @@ class qtype_algorithm extends question_type {
         $program = qtype_algorithm_question::decode_answer($solution);
         if (!$program) {
             return ['tests' => $list, 'errors' => [['index' => -1, 'error' => get_string('nosolution', 'qtype_algorithm')]]];
+        }
+        if ($strict) {
+            $program['strictInit'] = true;
+        } else {
+            unset($program['strictInit']);
         }
         return tester::compute_expected($program, $list, $check, get_string('noinput', 'qtype_algorithm'));
     }
@@ -190,7 +196,7 @@ class qtype_algorithm extends question_type {
             explode(',', (string) ($question->structures ?? ''))
         ));
         $flags = ['afterinput', 'numbers', 'grademethod', 'ignorecase', 'ignorespaces', 'hidetools', 'parsons', 'aihints',
-            'ordercheck'];
+            'ordercheck', 'strictinit'];
         foreach ($flags as $field) {
             $question->$field = (int) !empty($question->$field);
         }
@@ -204,7 +210,12 @@ class qtype_algorithm extends question_type {
         $question->maxblocks = max(0, (int) ($question->maxblocks ?? 0));
         $question->efficiencypenalty = max(0, min(100, (int) ($question->efficiencypenalty ?? 50)));
         $question->showtests = (int) ($question->showtests ?? 1);
-        $computed = self::compute_tests($question->solution, $question->tests ?? '', self::check_options($question));
+        $computed = self::compute_tests(
+            $question->solution,
+            $question->tests ?? '',
+            self::check_options($question),
+            !empty($question->strictinit)
+        );
         $question->tests = $computed['tests'] ? json_encode($computed['tests'], JSON_UNESCAPED_UNICODE) : '';
         $result = parent::save_question_options($question);
         $this->save_hints($question);
@@ -226,7 +237,8 @@ class qtype_algorithm extends question_type {
         $defaults = ['solution' => '', 'template' => '', 'tests' => '', 'afterinput' => 0, 'numbers' => 0, 'structures' => '',
             'showtests' => 1, 'grademethod' => 0, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0, 'hidetools' => 0,
             'parsons' => 0, 'distractors' => 0, 'stepfactor' => 0, 'maxgrowth' => '', 'maxblocks' => 0, 'efficiencypenalty' => 50,
-            'aihints' => 0, 'gaps' => 0, 'ordercheck' => 0];
+            'aihints' => 0, 'gaps' => 0, 'ordercheck' => 0,
+            'strictinit' => 0];
         foreach ($defaults as $field => $default) {
             $question->options->$field = $record && isset($record->$field) ? $record->$field : $default;
         }
@@ -261,6 +273,7 @@ class qtype_algorithm extends question_type {
         $question->distractors = (int) ($o->distractors ?? 0);
         $question->gaps = $question->parsons ? 0 : max(0, (int) ($o->gaps ?? 0));
         $question->ordercheck = $question->parsons && !empty($o->ordercheck);
+        $question->strictinit = !empty($o->strictinit);
         $question->stepfactor = max(0.0, (float) ($o->stepfactor ?? 0));
         $question->maxgrowth = in_array($o->maxgrowth ?? '', growth::LIMITS, true) ? (string) $o->maxgrowth : '';
         $question->maxblocks = max(0, (int) ($o->maxblocks ?? 0));
@@ -305,7 +318,8 @@ class qtype_algorithm extends question_type {
         array_shift($fields);
         $defaults = ['showtests' => 1, 'ignorecase' => 0, 'ignorespaces' => 0, 'tolerance' => 0, 'hidetools' => 0,
             'parsons' => 0, 'distractors' => 0, 'stepfactor' => 0, 'maxgrowth' => '', 'maxblocks' => 0, 'efficiencypenalty' => 50,
-            'aihints' => 0, 'gaps' => 0, 'ordercheck' => 0];
+            'aihints' => 0, 'gaps' => 0, 'ordercheck' => 0,
+            'strictinit' => 0];
         foreach ($fields as $field) {
             $qo->$field = $format->getpath($data, ['#', $field, 0, '#'], $defaults[$field] ?? '');
         }

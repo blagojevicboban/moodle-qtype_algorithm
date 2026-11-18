@@ -115,6 +115,14 @@ class qtype_algorithm_edit_form extends question_edit_form {
         $mform->addHelpButton('hidetools', 'hidetools', 'qtype_algorithm');
         $mform->addElement(
             'advcheckbox',
+            'strictinit',
+            get_string('strictinit', 'qtype_algorithm'),
+            get_string('strictinit_desc', 'qtype_algorithm')
+        );
+        $mform->addHelpButton('strictinit', 'strictinit', 'qtype_algorithm');
+        $mform->setDefault('strictinit', (int) (bool) get_config('tiny_algorithm', 'strictinit'));
+        $mform->addElement(
+            'advcheckbox',
             'parsons',
             get_string('parsons', 'qtype_algorithm'),
             get_string('parsons_desc', 'qtype_algorithm')
@@ -200,6 +208,7 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $question->distractors = $o->distractors ?? 0;
             $question->gaps = $o->gaps ?? 0;
             $question->ordercheck = $o->ordercheck ?? 0;
+            $question->strictinit = $o->strictinit ?? 0;
             $question->stepfactor = (float) ($o->stepfactor ?? 0);
             $question->maxgrowth = (string) ($o->maxgrowth ?? '');
             $question->maxblocks = (int) ($o->maxblocks ?? 0);
@@ -259,7 +268,12 @@ class qtype_algorithm_edit_form extends question_edit_form {
             $errors['solutionarea'] = get_string('nosolution', 'qtype_algorithm');
             return $errors;
         }
-        $computed = qtype_algorithm::compute_tests($data['solution'], $tests, qtype_algorithm::check_options((object) $data));
+        $computed = qtype_algorithm::compute_tests(
+            $data['solution'],
+            $tests,
+            qtype_algorithm::check_options((object) $data),
+            !empty($data['strictinit'])
+        );
         $messages = [];
         foreach ($computed['errors'] as $e) {
             $messages[] = get_string('solutionfails', 'qtype_algorithm', (object) ['n' => $e['index'] + 1, 'error' => $e['error']]);
