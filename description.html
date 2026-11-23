@@ -18,14 +18,15 @@
   <hr>
   <p><strong>Core features</strong></p>
   <ul>
-    <li><strong>Draw the algorithm:</strong> the same editor as in TinyMCE, with Run / Step, variable watch and generated code.</li>
+    <li><strong>Draw the algorithm:</strong> the same editor as in TinyMCE, with Run / Step, variable watch, the arrays panel, the call tree and generated code; records, turtle graphics and files are graded too.</li>
     <li><strong>Runnable review:</strong> the teacher can run and step through the submitted diagram while grading.</li>
     <li><strong>Automatic grading:</strong> the teacher enters only the test inputs; the expected outputs are computed from the teacher's solution. Without tests the answer is graded manually.</li>
     <li><strong>Flexible tests:</strong> weights, function tests that call one function, comparison options (capital letters, spaces, a tolerance for numbers), hints and several tries, statistics per test.</li>
-    <li><strong>Hidden tests and required structures:</strong> If, For, While, Do loop, array, matrix.</li>
+    <li><strong>Hidden tests and required structures:</strong> If, For, While, Do loop, array, matrix, record.</li>
     <li><strong>Parsons problems and fill the gaps:</strong> students arrange the given blocks (with an optional Check order) or type only the emptied expressions of the solution.</li>
     <li><strong>Efficiency and strict initialization:</strong> limits on steps, growth and blocks; optionally a variable must get a value before it is used.</li>
     <li><strong>Class work and analysis:</strong> the teacher sees every student's answer as a small diagram and an analysis of the tests, errors and missing blocks.</li>
+    <li><strong>AI hints (optional):</strong> per question, an explanation of an error or a hint for a failed test through Moodle's AI subsystem, never the solution.</li>
     <li><strong>Analyse an algorithm:</strong> put an interactive diagram in the question text (needs filter_algorithm).</li>
   </ul>
 
@@ -46,7 +47,7 @@
 
   <hr>
   <p><strong>Privacy</strong></p>
-  <p>The student's answer is stored by the Moodle question engine like any other answer; the diagram runs in the browser and, for automatic grading, on your Moodle server; nothing is sent to external services. Test inputs and options are stored with the question. The plugin implements the Moodle Privacy API.</p>
+  <p>The student's answer is stored by the Moodle question engine like any other answer; the diagram runs in the browser and, for automatic grading, on your Moodle server. Only with the AI hints option, turned on by the administrator, the algorithm and the error or the failed test are sent to the AI provider of the site through the AI subsystem of Moodle. Test inputs and options are stored with the question. The plugin implements the Moodle Privacy API.</p>
 
   <hr>
   <p>Developed by <strong>Boban Blagojevi&#263;</strong>. Languages: English, Serbian, German, French, Spanish, Italian, Portuguese, Polish, Croatian, Bosnian, Slovenian, Macedonian, Slovak and Czech.<br>
