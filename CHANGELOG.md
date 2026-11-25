@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.27.0 – 2026-11-25 (stable)
+
+- **Typed expected output:** a test can have an expected output the teacher types (Type the expected output in the
+  test list). Saving the question keeps it instead of computing it from the solution, and the solution may fail on
+  that test without an error; its number of steps is still used for the efficiency limit.
+- Requires tiny_algorithm 2.31.0 (2026112902).
+
 ## 2.26.0 – 2026-11-19 (stable)
 
 - **Strict initialization:** a new option of the question, A variable must get a value before it is used (its

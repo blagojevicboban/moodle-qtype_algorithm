@@ -28,7 +28,7 @@ solution. Without tests the teacher grades it manually.
 | 🐞 **Step With a Failed Test** | A failed visible test can be stepped through with its input, which is entered by itself |
 | 👩‍🏫 **Class Work** | A teacher who may see the reports of the quiz gets a **Class work** button in the question (in the review, the preview and manual grading): the last answer of every student as a small diagram with its grade, newest first, refreshed every 10 s; one click shows an answer large and runnable (on the projector), names can be hidden; separate groups are respected. The **Analysis** tab shows for each test the share of answers that pass it and the most frequent wrong outputs, the errors, the missing structures, the grades, and the solution shaded where the wrong answers lack blocks; CSV download |
 | 🧑‍🏫 **Runnable Review** | In the review and on the manual grading page the teacher can run and step through the submitted diagram |
-| ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution. Grade = share of passed tests by their weight (or all or nothing) |
+| ✅ **Automatic Grading** | Tests with inputs only; the expected outputs are computed from the teacher's solution (or typed by the teacher for a test). Grade = share of passed tests by their weight (or all or nothing) |
 | 🧮 **Function Tests** | A test can call one function of the algorithm with arguments, e.g. `Sum(2, 3)` or `Sort([3, 1, 2])`, and compare the value it returns and the arrays it changed |
 | 🔍 **Flexible Comparison** | Whole output, or only the output after the last input, and optionally only the numbers in it (students may write any text around them); capital letters and extra spaces can be ignored, numbers can have a tolerance |
 | 💡 **Hints and Several Tries** | With the interactive behaviour the student gets your hints and the test results after each try |
@@ -63,7 +63,7 @@ solution. Without tests the teacher grades it manually.
 
 - **Moodle**: 4.5 LTS or newer (4.5, 5.0, 5.1, 5.2 and 5.3 tested)
 - **PHP**: 8.2+
-- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.24.0+**: must be installed first (its `editor`,
+- **[tiny_algorithm](https://github.com/blagojevicboban/moodle-tiny_algorithm) 2.31.0+**: must be installed first (its `editor`,
   `runner`, `model` and `tests` modules are used)
 - **[filter_algorithm](https://github.com/blagojevicboban/moodle-filter_algorithm)**: optional, for runnable diagrams in question text
 
@@ -89,7 +89,8 @@ php admin/cli/upgrade.php
 1.  **Create the question**: in a quiz or question bank choose **Add a question → Algorithm** and write the task.
 2.  **Solution and tests**: draw the solution, add tests and type their inputs (one value per line, `""` for an empty value),
     tick **Hidden from students** where needed. Choose what is compared and which structures are required. The expected outputs
-    are computed from the solution when you save; if the solution fails on a test, the form says so.
+    are computed from the solution when you save; if the solution fails on a test, the form says so. Tick **Type the expected
+    output** on a test to type its expected output yourself; it is then kept as typed.
 3.  **Starting template** (optional): tick *Students start from a separate template* and draw it.
 4.  **Class work**: open any attempt of the quiz (Results → Grades → Review attempt) and click **Class work** above the
     diagram to see the answers of the whole class to this question as small diagrams with their grades. The **Analysis**
