@@ -158,6 +158,21 @@ final class tester_test extends \advanced_testcase {
         $this->assertFalse($results[1]['pass']);
         $this->assertSame('Division by zero', $results[1]['error']);
     }
+
+    public function test_typed_expected_output_is_kept(): void {
+        $program = self::program([
+            ['type' => 'declare', 'name' => 'a, b', 'varType' => 'Integer', 'size' => ''],
+            ['type' => 'input', 'target' => 'a'],
+            ['type' => 'input', 'target' => 'b'],
+            ['type' => 'output', 'expr' => 'a / b', 'newline' => true],
+        ]);
+        $tests = tester::compute_expected($program, [['inputs' => "6\n3", 'manual' => true, 'expected' => "3\n"],
+            ['inputs' => "1\n0", 'manual' => true, 'expected' => "x\n"]]);
+        $this->assertSame(["3\n", "x\n"], array_column($tests['tests'], 'expected'));
+        $this->assertSame([], $tests['errors']);
+        $this->assertGreaterThan(0, $tests['tests'][0]['steps']);
+    }
+
     public function test_random_is_the_same_in_every_run(): void {
         $program = self::program([
             ['type' => 'declare', 'name' => 'i', 'varType' => 'Integer', 'size' => ''],

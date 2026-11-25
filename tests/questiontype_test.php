@@ -62,6 +62,12 @@ final class questiontype_test extends \advanced_testcase {
         $this->assertSame(get_string('noinput', 'qtype_algorithm'), $result['errors'][0]['error']);
         $none = \qtype_algorithm::compute_tests('', $tests, []);
         $this->assertSame(-1, $none['errors'][0]['index']);
+        // A test with a typed expected output keeps it when the question is saved.
+        $typed = json_encode([['inputs' => "2\n3", 'manual' => 1, 'expected' => "6\n"], ['inputs' => "1\n1", 'expected' => "9\n"]]);
+        $result = \qtype_algorithm::compute_tests(question_test::program(), $typed, []);
+        $this->assertSame(["6\n", "2\n"], array_column($result['tests'], 'expected'));
+        $this->assertTrue($result['tests'][0]['manual']);
+        $this->assertArrayNotHasKey('manual', $result['tests'][1]);
     }
 
     public function test_xml_round_trip(): void {

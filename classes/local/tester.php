@@ -247,10 +247,13 @@ class tester {
         $errors = [];
         foreach (array_values($tests) as $i => $tc) {
             $r = self::run_program($solution, $tc['inputs'] ?? '', $noinput ?? self::NOINPUT, self::call_text($tc));
-            if ($r['error'] !== null) {
+            // A test whose expected output the teacher typed keeps it; the solution only gives the number of steps.
+            $manual = !empty($tc['manual']);
+            if ($r['error'] !== null && !$manual) {
                 $errors[] = ['index' => $i, 'error' => $r['error']];
             }
-            $out[] = array_merge($tc, ['inputs' => (string) ($tc['inputs'] ?? ''), 'expected' => self::checked_output($r, $check),
+            $expected = $manual ? (string) ($tc['expected'] ?? '') : self::checked_output($r, $check);
+            $out[] = array_merge($tc, ['inputs' => (string) ($tc['inputs'] ?? ''), 'expected' => $expected,
                 'steps' => $r['steps']]);
         }
         return ['tests' => $out, 'errors' => $errors];

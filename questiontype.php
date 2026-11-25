@@ -132,13 +132,18 @@ class qtype_algorithm extends question_type {
     }
 
     /**
-     * A test with only the fields a test keeps: inputs, hidden, and when set weight and call (a function test).
+     * A test with only the fields a test keeps: inputs, hidden, and when set weight, call (a function test) and
+     * manual with the expected output the teacher typed.
      *
      * @param array $tc test
      * @return array
      */
     public static function clean_test(array $tc): array {
         $out = ['inputs' => (string) ($tc['inputs'] ?? ''), 'hidden' => !empty($tc['hidden'])];
+        if (!empty($tc['manual'])) {
+            $out['manual'] = true;
+            $out['expected'] = (string) ($tc['expected'] ?? '');
+        }
         if (isset($tc['weight']) && is_numeric($tc['weight']) && (float) $tc['weight'] >= 0) {
             $out['weight'] = (float) $tc['weight'];
         }

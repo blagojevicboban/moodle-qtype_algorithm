@@ -97,7 +97,9 @@ export const init = async(lang, codeConfig = {}) => {
     const saveTests = (tests) => {
         testsInput.value = JSON.stringify(tests.map((tc) => {
             const stored = cleanTest(tc);
-            delete stored.expected; // The server computes the expected outputs again.
+            if (!stored.manual) {
+                delete stored.expected; // The server computes the expected outputs again.
+            }
             return {...stored, hidden: Boolean(tc.hidden)};
         }));
     };
