@@ -13,7 +13,7 @@ solution. Without tests the teacher grades it manually.
 
 > Status: **stable** (2.4).
 >
-> 🌐 **Live demo:** [algorithm.tsp.edu.rs](https://algorithm.tsp.edu.rs) (log in as a guest, or use `teacher` / `student` with password `Demo-2026`; reset every night)
+> 🌐 **Live demo:** [demo.codelabedu.com](https://demo.codelabedu.com) (log in as a guest, or use `teacher` / `student` with password `Demo-2026`; reset every night)
 
 ## ✨ Features
 
